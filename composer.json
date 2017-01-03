@@ -1,0 +1,25 @@
+{
+  "name": "ohiocms/spot",
+  "description": "Spot package for OhioCMS.",
+  "authors": [
+    {
+      "name": "Matt Crowe",
+      "email": "github.mpc@zym.me"
+    },
+    {
+      "name": "Rob LaSota",
+      "email": "rob.lasota@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "ohiocms/core": "dev-master"
+  },
+  "autoload": {
+    "psr-4": {
+      "Ohio\\Spot\\Base\\": "src/base/",
+      "Ohio\\Spot\\Address\\": "src/address/",
+      "Ohio\\Spot\\Place\\": "src/place/"
+    }
+  }
+}

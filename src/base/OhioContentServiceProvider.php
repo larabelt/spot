@@ -1,0 +1,88 @@
+<?php
+
+namespace Ohio\Spot\Base;
+
+use Validator;
+
+use Ohio\Spot;
+
+use Illuminate\Contracts\Auth\Access\Gate as GateContract;
+use Illuminate\Database\Eloquent\Relations\Relation;
+use Illuminate\Routing\Router;
+use Illuminate\Support\ServiceProvider;
+
+class OhioSpotServiceProvider extends ServiceProvider
+{
+
+    /**
+     * The policy mappings for the application.
+     *
+     * @var array
+     */
+    protected $policies = [];
+
+    /**
+     * Register the application services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        include __DIR__ . '/Http/routes.php';
+        include __DIR__ . '/../block/Http/routes.php';
+        include __DIR__ . '/../address/Http/routes.php';
+        include __DIR__ . '/../page/Http/routes.php';
+        include __DIR__ . '/../place/Http/routes.php';
+    }
+
+    /**
+     * Bootstrap the application services.
+     *
+     * @return void
+     */
+    public function boot(GateContract $gate, Router $router)
+    {
+
+        // set view paths
+        $this->loadViewsFrom(resource_path('ohio/spot/views'), 'ohio-spot');
+
+        // set backup view paths
+        $this->loadViewsFrom(__DIR__ . '/../../resources/views', 'ohio-spot');
+
+        // policies
+        $this->registerPolicies($gate);
+
+        // morphMap
+        Relation::morphMap([
+            'blocks' => Spot\Block\Block::class,
+            'addresses' => Spot\Address\Address::class,
+            'pages' => Spot\Page\Page::class,
+            'places' => Spot\Place\Place::class,
+        ]);
+
+        // commands
+        $this->commands(Spot\Base\Commands\PublishCommand::class);
+
+        Validator::extend('unique_route', \Ohio\Spot\Base\Validators\RouteValidator::class . '@routeIsUnique');
+    }
+
+    /**
+     * Register the application's policies.
+     *
+     * @param  \Illuminate\Contracts\Auth\Access\Gate $gate
+     * @return void
+     */
+    public function registerPolicies(GateContract $gate)
+    {
+//        $gate->before(function ($user, $ability) {
+//            if ($user->hasRole('SUPER')) {
+//                return true;
+//            }
+//        });
+//
+//        foreach ($this->policies as $key => $value) {
+//            $gate->policy($key, $value);
+//        }
+    }
+
+}
