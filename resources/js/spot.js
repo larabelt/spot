@@ -1,9 +1,6 @@
-import blockIndex from './components/block/ctlr-index';
-import blockCreate from './components/block/ctlr-create';
-import blockEdit  from './components/block/ctlr-edit';
-import pageIndex from './components/page/ctlr-index';
-import pageCreate from './components/page/ctlr-create';
-import pageEdit  from './components/page/ctlr-edit';
+import addressIndex from './components/address/ctlr-index';
+import addressCreate from './components/address/ctlr-create';
+import addressEdit  from './components/address/ctlr-edit';
 import placeIndex from './components/place/ctlr-index';
 import placeCreate from './components/place/ctlr-create';
 import placeEdit  from './components/place/ctlr-edit';
@@ -18,12 +15,9 @@ export default class OhioSpot {
                 mode: 'history',
                 base: '/admin/ohio/spot',
                 routes: [
-                    {path: '/blocks', component: blockIndex, canReuse: false, name: 'blockIndex'},
-                    {path: '/blocks/create', component: blockCreate, name: 'blockCreate'},
-                    {path: '/blocks/edit/:id', component: blockEdit, name: 'blockEdit'},
-                    {path: '/pages', component: pageIndex, canReuse: false, name: 'pageIndex'},
-                    {path: '/pages/create', component: pageCreate, name: 'pageCreate'},
-                    {path: '/pages/edit/:id', component: pageEdit, name: 'pageEdit'},
+                    {path: '/addresses', component: addressIndex, canReuse: false, name: 'addressIndex'},
+                    {path: '/addresses/create', component: addressCreate, name: 'addressCreate'},
+                    {path: '/addresses/edit/:id', component: addressEdit, name: 'addressEdit'},
                     {path: '/places', component: placeIndex, canReuse: false, name: 'placeIndex'},
                     {path: '/places/create', component: placeCreate, name: 'placeCreate'},
                     {path: '/places/edit/:id', component: placeEdit, name: 'placeEdit'},

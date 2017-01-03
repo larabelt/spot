@@ -13,11 +13,11 @@
 
 $factory->define(Ohio\Spot\Address\Address::class, function (Faker\Generator $faker) {
 
-    $types = ['pages'];
+    $types = ['places'];
 
     return [
         'addressable_id' => $faker->randomDigit,
-        'addressable_type' => $faker->shuffleArray($types),
+        'addressable_type' => $faker->randomElement($types),
         'url' => sprintf('/%s', $faker->slug),
         'delta' => 1,
     ];

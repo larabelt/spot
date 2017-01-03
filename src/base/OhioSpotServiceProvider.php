@@ -29,9 +29,7 @@ class OhioSpotServiceProvider extends ServiceProvider
     public function register()
     {
         include __DIR__ . '/Http/routes.php';
-        include __DIR__ . '/../block/Http/routes.php';
         include __DIR__ . '/../address/Http/routes.php';
-        include __DIR__ . '/../page/Http/routes.php';
         include __DIR__ . '/../place/Http/routes.php';
     }
 
@@ -54,16 +52,12 @@ class OhioSpotServiceProvider extends ServiceProvider
 
         // morphMap
         Relation::morphMap([
-            'blocks' => Spot\Block\Block::class,
             'addresses' => Spot\Address\Address::class,
-            'pages' => Spot\Page\Page::class,
             'places' => Spot\Place\Place::class,
         ]);
 
         // commands
         $this->commands(Spot\Base\Commands\PublishCommand::class);
-
-        Validator::extend('unique_route', \Ohio\Spot\Base\Validators\RouteValidator::class . '@routeIsUnique');
     }
 
     /**

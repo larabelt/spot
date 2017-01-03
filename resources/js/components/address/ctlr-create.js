@@ -7,7 +7,7 @@ export default {
         'heading': {
             data() {
                 return {
-                    title: 'Address Editor',
+                    title: 'Address Creator',
                     subtitle: '',
                     crumbs: [
                         {route: 'addressIndex', text: 'Manager'}
@@ -19,10 +19,6 @@ export default {
         'address-form': {
             mixins: [addresseservice],
             template: addressFormTemplate,
-            mounted() {
-                this.item.id = this.$route.params.id;
-                this.get();
-            },
         },
     },
     template: `
@@ -33,7 +29,7 @@ export default {
                     <div class="col-md-9">
                         <div class="box box-primary">
                             <div class="box-header with-border">
-                                <h3 class="box-title">Edit Address</h3>
+                                <h3 class="box-title">Create Address</h3>
                             </div>
                             <address-form></address-form>
                         </div>

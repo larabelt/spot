@@ -9,17 +9,12 @@ export default {
     data() {
         return {
             url: '/api/v1/addresses/',
-            addressable_type: '',
-            addressable_id: null,
         }
     },
+
     methods: {
         paginate(query) {
             this.query = _.merge(this.query, query);
-            this.query = _.merge(this.query, {
-                addressable_type: this.addressable_type,
-                addressable_id: this.addressable_id,
-            });
             let url = this.url + '?' + $.param(this.query);
             this.$http.get(url).then(function (response) {
                 this.items = response.data.data;
@@ -28,15 +23,29 @@ export default {
                 console.log('error');
             });
         },
+        get() {
+            this.$http.get(this.url + this.item.id).then((response) => {
+                this.item = response.data;
+            }, (response) => {
+
+            });
+        },
+        update(params) {
+            this.errors = {};
+            this.$http.put(this.url + this.item.id, params).then((response) => {
+                this.item = response.data;
+                this.saved = true;
+            }, (response) => {
+                if (response.status == 422) {
+                    this.errors = response.data.message;
+                }
+            });
+            this.saving = false;
+        },
         store(params) {
             this.errors = {};
-            params = _.merge(params, {
-                addressable_type: this.addressable_type,
-                addressable_id: this.addressable_id,
-            });
             this.$http.post(this.url, params).then((response) => {
-                this.item = {};
-                this.paginate();
+                this.$router.push({name: 'addressEdit', params: {id: response.data.id}})
             }, (response) => {
                 if (response.status == 422) {
                     this.errors = response.data.message;
