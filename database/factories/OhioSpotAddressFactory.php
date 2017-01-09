@@ -18,7 +18,7 @@ $factory->define(Ohio\Spot\Address\Address::class, function (Faker\Generator $fa
     return [
         'addressable_id' => $faker->randomDigit,
         'addressable_type' => $faker->randomElement($types),
-        'url' => sprintf('/%s', $faker->slug),
+        'line1' => sprintf('/%s', $faker->slug),
         'delta' => 1,
     ];
 });
