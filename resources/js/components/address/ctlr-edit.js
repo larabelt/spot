@@ -1,5 +1,5 @@
 import headingTemplate from 'ohio/core/js/templates/base/heading';
-import addresseservice from './service';
+import addressService from './service';
 import addressFormTemplate from './templates/form';
 
 export default {
@@ -17,7 +17,7 @@ export default {
             'template': headingTemplate
         },
         'address-form': {
-            mixins: [addresseservice],
+            mixins: [addressService],
             template: addressFormTemplate,
             mounted() {
                 this.item.id = this.$route.params.id;

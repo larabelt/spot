@@ -3,13 +3,23 @@ namespace Ohio\Spot\Address;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
-use Illuminate\Support\Str;
+use Ohio\Spot\Base\Behaviors\AddressTrait;
+use Ohio\Spot\Base\Behaviors\LatLngTrait;
 
 class Address extends Model
 {
+
+    use AddressTrait;
+    use LatLngTrait;
+
     protected $table = 'addresses';
 
     protected $guarded = ['id'];
+
+    /**
+     * @var array
+     */
+    protected $appends = ['full'];
 
     /**
      * The Associated owning model
@@ -23,31 +33,17 @@ class Address extends Model
 
     public function __toString()
     {
-        return $this->url;
+        return $this->id;
     }
 
-    public function setUrlAttribute($value)
+    public function setGeoServiceAttribute($value)
     {
-        $this->attributes['url'] = $this->normalizeUrl($value);
+        $this->attributes['geo_service'] = trim($value);
     }
 
-    public static function normalizeUrl($value)
+    public function setGeoCodeAttribute($value)
     {
-
-        $value = ltrim(trim($value), '/');
-
-        $value = Str::ascii($value);
-
-        // Convert all dashes/underscores into separator
-        $value = preg_replace('![_]+!u', '-', $value);
-
-        // Remove all characters that are not the separator, letters, numbers, whitespace or forward slashes
-        $value = preg_replace('![^-\pL\pN\s/\//]+!u', '', mb_strtolower($value));
-
-        // Replace all separator characters and whitespace by a single separator
-        $value = preg_replace('![-\s]+!u', '-', $value);
-
-        return $value;
+        $this->attributes['geo_code'] = trim($value);
     }
 
 }

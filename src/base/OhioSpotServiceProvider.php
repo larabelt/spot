@@ -57,6 +57,7 @@ class OhioSpotServiceProvider extends ServiceProvider
         ]);
 
         // commands
+        $this->commands(Spot\Base\Commands\GeoCoderCommand::class);
         $this->commands(Spot\Base\Commands\PublishCommand::class);
     }
 

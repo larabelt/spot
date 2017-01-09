@@ -12,12 +12,23 @@ class PaginateAddresses extends PaginateRequest
 
     public $sortable = [
         'addresses.id',
-        'addresses.url',
-        'addresses.delta',
+        'addresses.name',
+        'addresses.locality',
+        'addresses.region',
+        'addresses.postcode',
+        'addresses.country',
     ];
 
     public $searchable = [
-        'addresses.url',
+        'addresses.name',
+        'addresses.line1',
+        'addresses.line2',
+        'addresses.line3',
+        'addresses.line4',
+        'addresses.locality',
+        'addresses.region',
+        'addresses.postcode',
+        'addresses.country',
     ];
 
     public function modifyQuery(Builder $query)

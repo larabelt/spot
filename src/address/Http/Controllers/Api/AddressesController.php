@@ -57,9 +57,37 @@ class AddressesController extends ApiController
     public function store(Requests\StoreAddress $request)
     {
 
-        $address = $this->address->create($request->only([
-            'addressable_id', 'addressable_type', 'url'
-        ]));
+        $input = $request->all();
+
+        $address = $this->address->create([
+            'addressable_id' => $input['addressable_id'],
+            'addressable_type' => $input['addressable_type'],
+        ]);
+
+        $this->set($address, $input, [
+            'is_active',
+            'is_locked',
+            'name',
+            'nickname',
+            'line1',
+            'line2',
+            'line3',
+            'line4',
+            'locality',
+            'sub_locality',
+            'postcode',
+            'region',
+            'country',
+            'lat',
+            'north_lat',
+            'south_lat',
+            'lng',
+            'east_lng',
+            'west_lng',
+            'delta',
+        ]);
+
+        $address->save();
 
         return response()->json($address);
     }
@@ -90,7 +118,32 @@ class AddressesController extends ApiController
     {
         $address = $this->get($id);
 
-        $address->update($request->all());
+        $input = $request->all();
+
+        $this->set($address, $input, [
+            'is_active',
+            'is_locked',
+            'name',
+            'nickname',
+            'line1',
+            'line2',
+            'line3',
+            'line4',
+            'locality',
+            'sub_locality',
+            'postcode',
+            'region',
+            'country',
+            'lat',
+            'north_lat',
+            'south_lat',
+            'lng',
+            'east_lng',
+            'west_lng',
+            'delta',
+        ]);
+
+        $address->save();
 
         return response()->json($address);
     }
