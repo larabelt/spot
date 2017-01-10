@@ -1,45 +1,41 @@
 <?php
 
 use Ohio\Core\Base\Testing\OhioTestCase;
-use Ohio\Spot\Page\Page;
+use Ohio\Spot\Place\Place;
 use Ohio\Spot\Address\Address;
 
 class AddressTest extends OhioTestCase
 {
     /**
      * @covers \Ohio\Spot\Address\Address::__toString
-     * @covers \Ohio\Spot\Address\Address::setUrlAttribute
      * @covers \Ohio\Spot\Address\Address::addressable
-     * @covers \Ohio\Spot\Address\Address::normalizeUrl
+     * @covers \Ohio\Spot\Address\Address::setGeoServiceAttribute
+     * @covers \Ohio\Spot\Address\Address::setGeoCodeAttribute
      */
     public function test()
     {
 
-        # normalizeUrl
-        $this->assertEquals('one', Address::normalizeUrl('One'));
-        $this->assertEquals('one/123/what-just-happened', Address::normalizeUrl("One/123!!!/What Just Happened?"));
-
-        Page::unguard();
-        $page = factory(Page::class)->make();
-        $page->id = 1;
+        Place::unguard();
+        $place = factory(Place::class)->make();
+        $place->id = 1;
 
         Address::unguard();
         $address = factory(Address::class)->make();
+        $address->id = 2;
         $address->addressable_id = 1;
-        $address->addressable_type = $page->getMorphClass();
-        $address->url = ' /Test/test it all ';
+        $address->addressable_type = $place->getMorphClass();
+        $address->geo_service = ' test ';
+        $address->geo_code = ' test ';
         $address->delta = 1;
-        $address->addressable()->add($page);
+        $address->addressable()->add($place);
 
         $attributes = $address->getAttributes();
 
-        # addressable relationship
-        //$this->assertInstanceOf(Page::class, $address->addressable);
-
         # setters
-        $this->assertEquals('test/test-it-all', $address->__toString());
-        $this->assertEquals('test/test-it-all', $attributes['url']);
-        $this->assertEquals('pages', $attributes['addressable_type']);
+        $this->assertEquals(2, $address->__toString());
+        $this->assertEquals('test', $attributes['geo_service']);
+        $this->assertEquals('test', $attributes['geo_code']);
+        $this->assertEquals('places', $attributes['addressable_type']);
     }
 
 }

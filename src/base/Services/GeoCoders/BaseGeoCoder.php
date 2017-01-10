@@ -4,7 +4,6 @@ namespace Ohio\Spot\Base\Services\GeoCoders;
 use Ohio\Spot\Address\Address;
 use GuzzleHttp;
 
-
 abstract class BaseGeoCoder
 {
     /**

@@ -13,7 +13,7 @@ class UpdateAddressTest extends \PHPUnit_Framework_TestCase
 
         $request = new UpdateAddress();
 
-        $this->assertNotEmpty($request->rules());
+        $this->assertTrue(is_array($request->rules()));
     }
 
 }

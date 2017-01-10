@@ -2,6 +2,7 @@
 namespace Ohio\Spot\Base\Services\GeoCoders;
 
 use Ohio\Spot\Address\Address;
+use Exception;
 
 class GoogleMapsGeoCoder extends BaseGeoCoder
 {
@@ -24,7 +25,7 @@ class GoogleMapsGeoCoder extends BaseGeoCoder
             $contents = json_decode($response->getBody()->getContents(), true);
             $this->result = array_get($contents, 'results.0');
         } catch (\Exception $e) {
-
+            throw new \Exception('GoogleMapsGeoCoder Guzzle::get() failed');
         }
 
         # lines

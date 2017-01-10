@@ -14,9 +14,21 @@ class OhioCreatePlacesTable extends Migration
     {
         Schema::create('places', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->integer('team_id')->nullable()->index();
+            $table->boolean('is_active')->default('0')->index();
+            $table->boolean('is_searchable')->default('0')->index();
+            $table->tinyInteger('status')->default('0')->index();
+            $table->string('name')->index();
             $table->string('slug')->index();
+            $table->text('intro')->nullable();
             $table->text('body')->nullable();
+            $table->text('hours')->nullable();
+            $table->string('url')->nullable();
+            $table->string('email', 100)->nullable();
+            $table->string('phone', 25)->nullable();
+            $table->string('meta_title')->nullable();
+            $table->text('meta_description')->nullable();
+            $table->text('meta_keywords')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

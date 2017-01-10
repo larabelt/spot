@@ -17,9 +17,7 @@ gulp
 
 ```
 # unit testing
-phpunit --coverage-html=public/tests/ohio/spot/base   -c vendor/ohiocms/spot/tests/base   --bootstrap=bootstrap/autoload.php
-phpunit --coverage-html=public/tests/ohio/spot/block  -c vendor/ohiocms/spot/tests/block  --bootstrap=bootstrap/autoload.php
+phpunit --coverage-html=public/tests/ohio/spot/base    -c vendor/ohiocms/spot/tests/base    --bootstrap=bootstrap/autoload.php
 phpunit --coverage-html=public/tests/ohio/spot/address -c vendor/ohiocms/spot/tests/address --bootstrap=bootstrap/autoload.php
-phpunit --coverage-html=public/tests/ohio/spot/page   -c vendor/ohiocms/spot/tests/page   --bootstrap=bootstrap/autoload.php
-phpunit --coverage-html=public/tests/ohio/spot/tag    -c vendor/ohiocms/spot/tests/tag    --bootstrap=bootstrap/autoload.php
+phpunit --coverage-html=public/tests/ohio/spot/place   -c vendor/ohiocms/spot/tests/place   --bootstrap=bootstrap/autoload.php
 ```

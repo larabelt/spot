@@ -1,66 +1,28 @@
 <?php
 namespace Ohio\Spot\Place;
 
+use Ohio\Core;
+use Ohio\Content;
+
 use Illuminate\Database\Eloquent\Model;
-use Ohio\Core\Base\Behaviors\SluggableTrait;
 
 class Place extends Model
 {
-    use SluggableTrait;
+    use Core\Base\Behaviors\SluggableTrait;
+    use Content\Base\Behaviors\ContentTrait;
+    use Content\Base\Behaviors\HandleableTrait;
+    use Content\Base\Behaviors\SeoTrait;
+    use Content\Base\Behaviors\TaggableTrait;
 
-    protected $morphClass = 'spot/place';
+    protected $morphClass = 'places';
 
     protected $table = 'places';
 
     protected $fillable = ['name'];
 
-    public function __toString()
+    public function setIsSearchableAttribute($value)
     {
-        return $this->name;
-    }
-
-    public function setBodyAttribute($value)
-    {
-        $this->attributes['body'] = trim($value);
-    }
-
-    /**
-     * Return places associated with placegable
-     *
-     * @param $query
-     * @param $placegable_type
-     * @param $placegable_id
-     * @return mixed
-     */
-    public function scopePlaceged($query, $placegable_type, $placegable_id)
-    {
-        $query->select(['places.*']);
-        $query->join('placegables', 'placegables.place_id', '=', 'places.id');
-        $query->where('placegables.placegable_type', $placegable_type);
-        $query->where('placegables.placegable_id', $placegable_id);
-
-        return $query;
-    }
-
-    /**
-     * Return places not associated with placegable
-     *
-     * @param $query
-     * @param $placegable_type
-     * @param $placegable_id
-     * @return mixed
-     */
-    public function scopeNotPlaceged($query, $placegable_type, $placegable_id)
-    {
-        $query->select(['places.*']);
-        $query->leftJoin('placegables', function ($subQB) use ($placegable_type, $placegable_id) {
-            $subQB->on('placegables.place_id', '=', 'places.id');
-            $subQB->where('placegables.placegable_id', $placegable_id);
-            $subQB->where('placegables.placegable_type', $placegable_type);
-        });
-        $query->whereNull('placegables.id');
-
-        return $query;
+        $this->attributes['is_searchable'] = boolval($value);
     }
 
 }

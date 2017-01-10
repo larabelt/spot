@@ -24,6 +24,11 @@ class GeoCoderCommand extends Command
     protected $description = 'run geocoder commands';
 
     /**
+     * @var GoogleMapsGeoCoder
+     */
+    public $service;
+
+    /**
      * Execute the console command.
      *
      * @return mixed
@@ -33,18 +38,19 @@ class GeoCoderCommand extends Command
 
         $address = $this->option('address');
 
-        $geocoder = new GoogleMapsGeoCoder();
+        $service = $this->getService();
 
         if ($address) {
-            $geocoder->geocode($address);
-
-//            $address = $geocoder->address;
-//            $address->addressable_id = 1;
-//            $address->addressable_type = 'users';
-//            s($address->toArray());
-//            $address->save();
+            $service->geocode($address);
+            $this->info(@\Kint::dump($service->result));
+            $this->info(@\Kint::dump($service->address->toArray()));
         }
 
+    }
+
+    public function getService()
+    {
+        return $this->service ?: new GoogleMapsGeoCoder();
     }
 
 }

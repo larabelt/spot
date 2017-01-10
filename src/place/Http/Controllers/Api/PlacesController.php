@@ -58,8 +58,20 @@ class PlacesController extends ApiController
         ]);
 
         $this->set($place, $input, [
+            'team_id',
+            'is_active',
+            'is_searchable',
+            'status',
             'slug',
+            'intro',
             'body',
+            'hours',
+            'url',
+            'email',
+            'phone',
+            'meta_title',
+            'meta_description',
+            'meta_keywords',
         ]);
 
         $place->save();
@@ -96,9 +108,20 @@ class PlacesController extends ApiController
         $input = $request->all();
 
         $this->set($place, $input, [
-            'name',
+            'team_id',
+            'is_active',
+            'is_searchable',
+            'status',
             'slug',
+            'intro',
             'body',
+            'hours',
+            'url',
+            'email',
+            'phone',
+            'meta_title',
+            'meta_description',
+            'meta_keywords',
         ]);
 
         $place->save();
