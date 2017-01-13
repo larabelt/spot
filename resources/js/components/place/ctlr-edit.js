@@ -31,7 +31,7 @@ export default {
                 this.get();
             },
         },
-        fileable
+        fileable,
     },
     template: `
         <div>

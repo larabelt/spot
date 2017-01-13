@@ -4,6 +4,7 @@ import addressEdit  from './components/address/ctlr-edit';
 import placeIndex from './components/place/ctlr-index';
 import placeCreate from './components/place/ctlr-create';
 import placeEdit  from './components/place/ctlr-edit';
+import store from 'ohio/core/js/store/index';
 
 export default class OhioSpot {
 
@@ -24,7 +25,7 @@ export default class OhioSpot {
                 ]
             });
 
-            const app = new Vue({router}).$mount('#ohio-spot');
+            const app = new Vue({router, store}).$mount('#ohio-spot');
         }
     }
 
