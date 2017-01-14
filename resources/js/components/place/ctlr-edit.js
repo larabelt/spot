@@ -47,7 +47,7 @@ export default {
                         </div>
                     </div>
                     <div class="col-md-9">
-                        <fileable></fileable>
+                        <fileable uploader_path="places"></fileable>
                     </div>
                 </div>
             </section>
