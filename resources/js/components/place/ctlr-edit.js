@@ -1,7 +1,7 @@
 import headingTemplate from 'ohio/core/js/templates/base/heading';
 import placeService from './service';
 import placeFormTemplate from './templates/form';
-import fileable from 'ohio/storage/js/components/file/fileable/ctlr-edit';
+import fileable from 'ohio/storage/js/components/fileable/fileable';
 
 export default {
     data() {
@@ -46,7 +46,7 @@ export default {
                             <place-form></place-form>
                         </div>
                     </div>
-                    <div class="col-md-9">
+                    <div class="col-md-12">
                         <fileable uploader_path="places"></fileable>
                     </div>
                 </div>
