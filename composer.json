@@ -13,8 +13,7 @@
   ],
   "minimum-stability": "dev",
   "require": {
-    "ohiocms/core": "dev-master",
-    "willdurand/geocoder": "3.3.*"
+    "ohiocms/core": "dev-master"
   },
   "autoload": {
     "psr-4": {
