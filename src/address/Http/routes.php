@@ -7,7 +7,7 @@ use Ohio\Spot\Address;
  */
 Route::group([
     'prefix' => 'api/v1',
-    'middleware' => ['api']
+    'middleware' => ['ohio.api']
 ],
     function () {
         Route::get('addresses/{id}', Address\Http\Controllers\Api\AddressesController::class . '@show');
