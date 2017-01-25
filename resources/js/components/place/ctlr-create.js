@@ -10,7 +10,7 @@ export default {
                     title: 'Place Creator',
                     subtitle: '',
                     crumbs: [
-                        {route: 'placeIndex', text: 'Manager'}
+                        {route: 'placeIndex', text: 'Places'}
                     ],
                 }
             },
@@ -24,15 +24,10 @@ export default {
     template: `
         <div>
             <heading></heading>
-            <section class="spot">
-                <div class="row">
-                    <div class="col-md-9">
-                        <div class="box box-primary">
-                            <div class="box-header with-border">
-                                <h3 class="box-title">Create Place</h3>
-                            </div>
-                            <place-form></place-form>
-                        </div>
+            <section class="content">
+                <div class="box">
+                    <div class="box-body">
+                        <place-form></place-form>
                     </div>
                 </div>
             </section>

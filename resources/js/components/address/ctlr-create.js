@@ -10,7 +10,7 @@ export default {
                     title: 'Address Creator',
                     subtitle: '',
                     crumbs: [
-                        {route: 'addressIndex', text: 'Manager'}
+                        {route: 'addressIndex', text: 'Addresses'}
                     ],
                 }
             },
@@ -24,15 +24,10 @@ export default {
     template: `
         <div>
             <heading></heading>
-            <section class="spot">
-                <div class="row">
-                    <div class="col-md-9">
-                        <div class="box box-primary">
-                            <div class="box-header with-border">
-                                <h3 class="box-title">Create Address</h3>
-                            </div>
-                            <address-form></address-form>
-                        </div>
+            <section class="content">
+                <div class="box">
+                    <div class="box-body">
+                        <address-form></address-form>
                     </div>
                 </div>
             </section>

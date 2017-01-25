@@ -28,7 +28,7 @@ export default {
     template: `
         <div>
             <heading></heading>
-            <section class="spot">
+            <section class="content">
                 <place-index></place-index>
             </section>
         </div>
