@@ -22,6 +22,13 @@ class Place extends Model
 
     protected $fillable = ['name'];
 
+    public static $presets = [
+        [100, 100, 'fit'],
+        [222, 222, 'resize'],
+        [333, 333, 'resize'],
+        [500, 500, 'resize'],
+    ];
+
     public function setIsSearchableAttribute($value)
     {
         $this->attributes['is_searchable'] = boolval($value);

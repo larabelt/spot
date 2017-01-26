@@ -21,7 +21,7 @@ class PlaceTest extends OhioTestCase
 
         # is searchable
         $place->setIsSearchableAttribute(' true!!! ');
-        $this->assertEquals(true, $place->is_active);
+        $this->assertEquals(true, $place->is_searchable);
 
     }
 
