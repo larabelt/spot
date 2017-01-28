@@ -20,17 +20,17 @@ Route::group([
     function () {
 
         # addresses
-        Route::get('addresses/{id}', Spot\Address\Http\Controllers\Api\AddressesController::class . '@show');
-        Route::put('addresses/{id}', Spot\Address\Http\Controllers\Api\AddressesController::class . '@update');
-        Route::delete('addresses/{id}', Spot\Address\Http\Controllers\Api\AddressesController::class . '@destroy');
-        Route::get('addresses', Spot\Address\Http\Controllers\Api\AddressesController::class . '@index');
-        Route::post('addresses', Spot\Address\Http\Controllers\Api\AddressesController::class . '@store');
+        Route::get('addresses/{id}', Spot\Http\Controllers\Api\AddressesController::class . '@show');
+        Route::put('addresses/{id}', Spot\Http\Controllers\Api\AddressesController::class . '@update');
+        Route::delete('addresses/{id}', Spot\Http\Controllers\Api\AddressesController::class . '@destroy');
+        Route::get('addresses', Spot\Http\Controllers\Api\AddressesController::class . '@index');
+        Route::post('addresses', Spot\Http\Controllers\Api\AddressesController::class . '@store');
 
         # places
-        Route::get('places/{id}', Spot\Place\Http\Controllers\Api\PlacesController::class . '@show');
-        Route::put('places/{id}', Spot\Place\Http\Controllers\Api\PlacesController::class . '@update');
-        Route::delete('places/{id}', Spot\Place\Http\Controllers\Api\PlacesController::class . '@destroy');
-        Route::get('places', Spot\Place\Http\Controllers\Api\PlacesController::class . '@index');
-        Route::post('places', Spot\Place\Http\Controllers\Api\PlacesController::class . '@store');
+        Route::get('places/{id}', Spot\Http\Controllers\Api\PlacesController::class . '@show');
+        Route::put('places/{id}', Spot\Http\Controllers\Api\PlacesController::class . '@update');
+        Route::delete('places/{id}', Spot\Http\Controllers\Api\PlacesController::class . '@destroy');
+        Route::get('places', Spot\Http\Controllers\Api\PlacesController::class . '@index');
+        Route::post('places', Spot\Http\Controllers\Api\PlacesController::class . '@store');
     }
 );

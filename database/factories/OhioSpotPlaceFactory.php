@@ -1,11 +1,11 @@
 <?php
 
-use Ohio\Core\Base\Helper\FactoryHelper;
+use Ohio\Core\Helpers\FactoryHelper;
 
-$factory->define(Ohio\Spot\Place\Place::class, function (Faker\Generator $faker) {
+$factory->define(Ohio\Spot\Place::class, function (Faker\Generator $faker) {
 
     if (!isset(FactoryHelper::$ids['teams'])) {
-        FactoryHelper::$ids['teams'] = Ohio\Core\Team\Team::get(['id'])->pluck('id')->toArray();
+        FactoryHelper::$ids['teams'] = Ohio\Core\Team::get(['id'])->pluck('id')->toArray();
     }
 
     return [
