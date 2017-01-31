@@ -2,10 +2,7 @@
 
 namespace Ohio\Spot;
 
-use Validator;
-
-use Ohio\Spot;
-
+use Ohio;
 use Illuminate\Contracts\Auth\Access\Gate as GateContract;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Routing\Router;
@@ -19,7 +16,10 @@ class OhioSpotServiceProvider extends ServiceProvider
      *
      * @var array
      */
-    protected $policies = [];
+    protected $policies = [
+        Ohio\Spot\Address::class => Ohio\Spot\Policies\AddressPolicy::class,
+        Ohio\Spot\Place::class => Ohio\Spot\Policies\PlacePolicy::class,
+    ];
 
     /**
      * Register the application services.
@@ -52,13 +52,13 @@ class OhioSpotServiceProvider extends ServiceProvider
 
         // morphMap
         Relation::morphMap([
-            'addresses' => Spot\Address::class,
-            'places' => Spot\Place::class,
+            'addresses' => Ohio\Spot\Address::class,
+            'places' => Ohio\Spot\Place::class,
         ]);
 
         // commands
-        $this->commands(Spot\Commands\GeoCoderCommand::class);
-        $this->commands(Spot\Commands\PublishCommand::class);
+        $this->commands(Ohio\Spot\Commands\GeoCoderCommand::class);
+        $this->commands(Ohio\Spot\Commands\PublishCommand::class);
     }
 
     /**
@@ -69,15 +69,9 @@ class OhioSpotServiceProvider extends ServiceProvider
      */
     public function registerPolicies(GateContract $gate)
     {
-//        $gate->before(function ($user, $ability) {
-//            if ($user->hasRole('SUPER')) {
-//                return true;
-//            }
-//        });
-//
-//        foreach ($this->policies as $key => $value) {
-//            $gate->policy($key, $value);
-//        }
+        foreach ($this->policies as $key => $value) {
+            $gate->policy($key, $value);
+        }
     }
 
 }

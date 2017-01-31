@@ -36,6 +36,9 @@ class PlacesController extends ApiController
      */
     public function index(Requests\PaginatePlaces $request)
     {
+
+        $this->authorize('index', Place::class);
+
         $paginator = $this->paginator($this->places->query(), $request->reCapture());
 
         return response()->json($paginator->toArray());
@@ -50,6 +53,7 @@ class PlacesController extends ApiController
      */
     public function store(Requests\StorePlace $request)
     {
+        $this->authorize('create', Place::class);
 
         $input = $request->all();
 
@@ -90,6 +94,8 @@ class PlacesController extends ApiController
     {
         $place = $this->get($id);
 
+        $this->authorize('view', $place);
+
         return response()->json($place);
     }
 
@@ -104,6 +110,8 @@ class PlacesController extends ApiController
     public function update(Requests\UpdatePlace $request, $id)
     {
         $place = $this->get($id);
+
+        $this->authorize('update', $place);
 
         $input = $request->all();
 
@@ -140,6 +148,8 @@ class PlacesController extends ApiController
     public function destroy($id)
     {
         $place = $this->get($id);
+
+        $this->authorize('delete', $place);
 
         $place->delete();
 

@@ -38,6 +38,8 @@ class AddressesController extends ApiController
      */
     public function index(Requests\PaginateAddresses $request)
     {
+        $this->authorize('index', Address::class);
+
         $request->reCapture();
 
         $paginator = $this->paginator($this->address->query(), $request);
@@ -54,6 +56,7 @@ class AddressesController extends ApiController
      */
     public function store(Requests\StoreAddress $request)
     {
+        $this->authorize('store', Address::class);
 
         $input = $request->all();
 
@@ -101,6 +104,8 @@ class AddressesController extends ApiController
     {
         $address = $this->get($id);
 
+        $this->authorize('view', $address);
+
         return response()->json($address);
     }
 
@@ -115,6 +120,8 @@ class AddressesController extends ApiController
     public function update(Requests\UpdateAddress $request, $id)
     {
         $address = $this->get($id);
+
+        $this->authorize('update', $address);
 
         $input = $request->all();
 
@@ -157,6 +164,8 @@ class AddressesController extends ApiController
     public function destroy($id)
     {
         $address = $this->get($id);
+
+        $this->authorize('delete', $address);
 
         $address->delete();
 
