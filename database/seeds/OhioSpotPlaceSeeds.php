@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-use Ohio\Spot\Place\Place;
+use Ohio\Spot\Place;
 
 class OhioSpotPlaceSeeds extends Seeder
 {

@@ -17,9 +17,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Ohio\\Spot\\Base\\": "src/base/",
-      "Ohio\\Spot\\Address\\": "src/address/",
-      "Ohio\\Spot\\Place\\": "src/place/"
+      "Ohio\\Spot\\": "src/"
     }
   }
 }
