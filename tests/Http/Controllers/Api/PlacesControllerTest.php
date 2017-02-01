@@ -34,6 +34,7 @@ class PlacesControllerTest extends Testing\OhioTestCase
      */
     public function test()
     {
+        $this->actAsSuper();
 
         $place1 = factory(Place::class)->make();
 

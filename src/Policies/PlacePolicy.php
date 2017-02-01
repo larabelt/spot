@@ -12,10 +12,9 @@ class PlacePolicy extends BaseAdminPolicy
      * Determine whether the user can view the object.
      *
      * @param  User $auth
-     * @param  Place $object
      * @return mixed
      */
-    public function index(User $auth, $object)
+    public function index(User $auth)
     {
         return true;
     }

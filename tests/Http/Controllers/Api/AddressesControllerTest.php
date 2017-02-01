@@ -35,6 +35,8 @@ class AddressesControllerTest extends Testing\OhioTestCase
      */
     public function test()
     {
+        $this->actAsSuper();
+
         Place::unguard();
         $place = factory(Place::class)->make();
         $place->id = 1;
