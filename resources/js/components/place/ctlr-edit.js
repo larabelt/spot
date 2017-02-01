@@ -1,4 +1,4 @@
-import headingTemplate from 'ohio/core/js/templates/base/heading';
+import headingTemplate from 'ohio/core/js/templates/base/heading.html';
 import placeService from './service';
 import placeFormTemplate from './templates/form';
 import fileable from 'ohio/storage/js/components/fileable/fileable';
