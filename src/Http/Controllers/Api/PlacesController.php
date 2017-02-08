@@ -80,7 +80,7 @@ class PlacesController extends ApiController
 
         $place->save();
 
-        return response()->json($place);
+        return response()->json($place, 201);
     }
 
     /**
@@ -120,6 +120,7 @@ class PlacesController extends ApiController
             'is_active',
             'is_searchable',
             'status',
+            'name',
             'slug',
             'intro',
             'body',

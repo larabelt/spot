@@ -90,7 +90,7 @@ class AddressesController extends ApiController
 
         $address->save();
 
-        return response()->json($address);
+        return response()->json($address, 201);
     }
 
     /**
