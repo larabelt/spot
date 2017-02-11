@@ -13,7 +13,7 @@ class Place extends Model
     use Content\Behaviors\ContentTrait;
     use Content\Behaviors\Handleable;
     use Content\Behaviors\SeoTrait;
-    use Content\Behaviors\TaggableTrait;
+    use Content\Behaviors\Taggable;
     use Storage\Behaviors\FileableTrait;
 
     protected $morphClass = 'places';
