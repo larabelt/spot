@@ -4,8 +4,9 @@ namespace Ohio\Spot;
 use Ohio;
 use Illuminate\Database\Eloquent\Model;
 
-class Place extends Model
-    implements Ohio\Core\Behaviors\SluggableInterface
+class Place extends Model implements
+    Ohio\Core\Behaviors\SluggableInterface,
+    Ohio\Content\Behaviors\TaggableInterface
 {
     use Ohio\Core\Behaviors\Sluggable;
     use Ohio\Content\Behaviors\ContentTrait;
