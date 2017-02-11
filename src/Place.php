@@ -11,7 +11,7 @@ class Place extends Model
 {
     use Core\Behaviors\Sluggable;
     use Content\Behaviors\ContentTrait;
-    use Content\Behaviors\HandleableTrait;
+    use Content\Behaviors\Handleable;
     use Content\Behaviors\SeoTrait;
     use Content\Behaviors\TaggableTrait;
     use Storage\Behaviors\FileableTrait;
