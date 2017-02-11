@@ -6,11 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 class Address extends Model implements
-    Ohio\Spot\Behaviors\IncludesAddressInterface
+    Ohio\Spot\Behaviors\IncludesAddressInterface,
+    Ohio\Spot\Behaviors\IncludesLatLngInterface
 {
 
     use Ohio\Spot\Behaviors\IncludesAddress;
-    use Ohio\Spot\Behaviors\LatLngTrait;
+    use Ohio\Spot\Behaviors\IncludesLatLng;
 
     protected $table = 'addresses';
 

@@ -1,21 +1,21 @@
 <?php
 
 use Illuminate\Database\Eloquent\Model;
-use Ohio\Spot\Behaviors\LatLngTrait;
+use Ohio\Spot\Behaviors\IncludesLatLng;
 
-class LatLngTraitTest extends \PHPUnit_Framework_TestCase
+class IncludesLatLngTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @covers \Ohio\Spot\Behaviors\LatLngTrait::setLatAttribute
-     * @covers \Ohio\Spot\Behaviors\LatLngTrait::setNorthLatAttribute
-     * @covers \Ohio\Spot\Behaviors\LatLngTrait::setSouthLatAttribute
-     * @covers \Ohio\Spot\Behaviors\LatLngTrait::setLngAttribute
-     * @covers \Ohio\Spot\Behaviors\LatLngTrait::setEastLngAttribute
-     * @covers \Ohio\Spot\Behaviors\LatLngTrait::setWestLngAttribute
+     * @covers \Ohio\Spot\Behaviors\IncludesLatLng::setLatAttribute
+     * @covers \Ohio\Spot\Behaviors\IncludesLatLng::setNorthLatAttribute
+     * @covers \Ohio\Spot\Behaviors\IncludesLatLng::setSouthLatAttribute
+     * @covers \Ohio\Spot\Behaviors\IncludesLatLng::setLngAttribute
+     * @covers \Ohio\Spot\Behaviors\IncludesLatLng::setEastLngAttribute
+     * @covers \Ohio\Spot\Behaviors\IncludesLatLng::setWestLngAttribute
      */
     public function test()
     {
-        $latLngStub = new LatLngTraitTestStub();
+        $latLngStub = new IncludesLatLngTestStub();
 
         # lat
         $latLngStub->setLatAttribute(1);
@@ -44,7 +44,7 @@ class LatLngTraitTest extends \PHPUnit_Framework_TestCase
 
 }
 
-class LatLngTraitTestStub extends Model
+class IncludesLatLngTestStub extends Model
 {
-    use LatLngTrait;
+    use IncludesLatLng;
 }

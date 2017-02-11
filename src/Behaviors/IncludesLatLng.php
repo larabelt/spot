@@ -1,7 +1,7 @@
 <?php
 namespace Ohio\Spot\Behaviors;
 
-trait LatLngTrait
+trait IncludesLatLng
 {
 
     public function setLatAttribute($value)
