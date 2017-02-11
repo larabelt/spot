@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Place extends Model
 {
-    use Core\Behaviors\SluggableTrait;
+    use Core\Behaviors\Sluggable;
     use Content\Behaviors\ContentTrait;
     use Content\Behaviors\HandleableTrait;
     use Content\Behaviors\SeoTrait;
