@@ -8,6 +8,7 @@ class Place extends Model implements
     Ohio\Core\Behaviors\SluggableInterface,
     Ohio\Content\Behaviors\HandleableInterface,
     Ohio\Content\Behaviors\TaggableInterface,
+    Ohio\Spot\Behaviors\AddressableInterface,
     Ohio\Storage\Behaviors\FileableInterface
 {
     use Ohio\Core\Behaviors\Sluggable;
@@ -15,6 +16,7 @@ class Place extends Model implements
     use Ohio\Content\Behaviors\Handleable;
     use Ohio\Content\Behaviors\SeoTrait;
     use Ohio\Content\Behaviors\Taggable;
+    use Ohio\Spot\Behaviors\Addressable;
     use Ohio\Storage\Behaviors\Fileable;
 
     protected $morphClass = 'places';
