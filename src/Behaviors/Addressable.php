@@ -3,7 +3,7 @@ namespace Ohio\Spot\Behaviors;
 
 use Ohio\Spot\Address;
 
-trait AddressableTrait
+trait Addressable
 {
 
     public function address()

@@ -3,13 +3,13 @@
 use Mockery as m;
 
 use Ohio\Core\Testing\OhioTestCase;
-use Ohio\Spot\Behaviors\AddressableTrait;
+use Ohio\Spot\Behaviors\Addressable;
 use Ohio\Spot\Address;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Relation;
 
-class AddressableTraitTest extends OhioTestCase
+class AddressableTest extends OhioTestCase
 {
 
     public function tearDown()
@@ -18,15 +18,15 @@ class AddressableTraitTest extends OhioTestCase
     }
 
     /**
-     * @covers \Ohio\Spot\Behaviors\AddressableTrait::address
-     * @covers \Ohio\Spot\Behaviors\AddressableTrait::addresses
+     * @covers \Ohio\Spot\Behaviors\Addressable::address
+     * @covers \Ohio\Spot\Behaviors\Addressable::addresses
      */
     public function test()
     {
         # address
         $morphOne = m::mock(Relation::class);
         $morphOne->shouldReceive('where')->withArgs(['delta', 1.00]);
-        $pageMock = m::mock(AddressableTraitTestStub::class . '[morphOne]');
+        $pageMock = m::mock(AddressableTestStub::class . '[morphOne]');
         $pageMock->shouldReceive('morphOne')->withArgs([Address::class, 'addressable'])->andReturn($morphOne);
         $pageMock->shouldReceive('address');
         $pageMock->address();
@@ -34,7 +34,7 @@ class AddressableTraitTest extends OhioTestCase
         # addresses
         $morphMany = m::mock(Relation::class);
         $morphMany->shouldReceive('orderby')->withArgs(['delta']);
-        $pageMock = m::mock(AddressableTraitTestStub::class . '[morphMany]');
+        $pageMock = m::mock(AddressableTestStub::class . '[morphMany]');
         $pageMock->shouldReceive('morphMany')->withArgs([Address::class, 'addressable'])->andReturn($morphMany);
         $pageMock->shouldReceive('addresses');
         $pageMock->addresses();
@@ -42,7 +42,7 @@ class AddressableTraitTest extends OhioTestCase
 
 }
 
-class AddressableTraitTestStub extends Model
+class AddressableTestStub extends Model
 {
-    use AddressableTrait;
+    use Addressable;
 }
