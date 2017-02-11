@@ -1,20 +1,18 @@
 <?php
 namespace Ohio\Spot;
 
-use Ohio\Core;
-use Ohio\Content;
-use Ohio\Storage;
-
+use Ohio;
 use Illuminate\Database\Eloquent\Model;
 
 class Place extends Model
+    implements Ohio\Core\Behaviors\SluggableInterface
 {
-    use Core\Behaviors\Sluggable;
-    use Content\Behaviors\ContentTrait;
-    use Content\Behaviors\Handleable;
-    use Content\Behaviors\SeoTrait;
-    use Content\Behaviors\Taggable;
-    use Storage\Behaviors\Fileable;
+    use Ohio\Core\Behaviors\Sluggable;
+    use Ohio\Content\Behaviors\ContentTrait;
+    use Ohio\Content\Behaviors\Handleable;
+    use Ohio\Content\Behaviors\SeoTrait;
+    use Ohio\Content\Behaviors\Taggable;
+    use Ohio\Storage\Behaviors\Fileable;
 
     protected $morphClass = 'places';
 
