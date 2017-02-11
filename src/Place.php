@@ -8,6 +8,7 @@ class Place extends Model implements
     Ohio\Core\Behaviors\SluggableInterface,
     Ohio\Content\Behaviors\HandleableInterface,
     Ohio\Content\Behaviors\IncludesContentInterface,
+    Ohio\Content\Behaviors\IncludesSeoInterface,
     Ohio\Content\Behaviors\TaggableInterface,
     Ohio\Spot\Behaviors\AddressableInterface,
     Ohio\Storage\Behaviors\FileableInterface
@@ -15,7 +16,7 @@ class Place extends Model implements
     use Ohio\Core\Behaviors\Sluggable;
     use Ohio\Content\Behaviors\IncludesContent;
     use Ohio\Content\Behaviors\Handleable;
-    use Ohio\Content\Behaviors\SeoTrait;
+    use Ohio\Content\Behaviors\IncludesSeo;
     use Ohio\Content\Behaviors\Taggable;
     use Ohio\Spot\Behaviors\Addressable;
     use Ohio\Storage\Behaviors\Fileable;
