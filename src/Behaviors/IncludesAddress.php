@@ -1,7 +1,7 @@
 <?php
 namespace Ohio\Spot\Behaviors;
 
-trait AddressTrait
+trait IncludesAddress
 {
 
     /**

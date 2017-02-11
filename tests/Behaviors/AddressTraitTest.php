@@ -1,31 +1,31 @@
 <?php
 
 use Illuminate\Database\Eloquent\Model;
-use Ohio\Spot\Behaviors\AddressTrait;
+use Ohio\Spot\Behaviors\IncludesAddress;
 
-class AddressTraitTest extends \PHPUnit_Framework_TestCase
+class IncludesAddressTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
-     * @covers \Ohio\Spot\Behaviors\AddressTrait::full
-     * @covers \Ohio\Spot\Behaviors\AddressTrait::getFullAttribute
-     * @covers \Ohio\Spot\Behaviors\AddressTrait::setNameAttribute
-     * @covers \Ohio\Spot\Behaviors\AddressTrait::setNicknameAttribute
-     * @covers \Ohio\Spot\Behaviors\AddressTrait::setLine1Attribute
-     * @covers \Ohio\Spot\Behaviors\AddressTrait::setLine2Attribute
-     * @covers \Ohio\Spot\Behaviors\AddressTrait::setLine3Attribute
-     * @covers \Ohio\Spot\Behaviors\AddressTrait::setLine4Attribute
-     * @covers \Ohio\Spot\Behaviors\AddressTrait::setLocalityAttribute
-     * @covers \Ohio\Spot\Behaviors\AddressTrait::setSubLocalityAttribute
-     * @covers \Ohio\Spot\Behaviors\AddressTrait::setRegionAttribute
-     * @covers \Ohio\Spot\Behaviors\AddressTrait::setPostcodeAttribute
-     * @covers \Ohio\Spot\Behaviors\AddressTrait::setCountryAttribute
-     * @covers \Ohio\Spot\Behaviors\AddressTrait::setOriginalAttribute
-     * @covers \Ohio\Spot\Behaviors\AddressTrait::setFormattedAttribute
+     * @covers \Ohio\Spot\Behaviors\IncludesAddress::full
+     * @covers \Ohio\Spot\Behaviors\IncludesAddress::getFullAttribute
+     * @covers \Ohio\Spot\Behaviors\IncludesAddress::setNameAttribute
+     * @covers \Ohio\Spot\Behaviors\IncludesAddress::setNicknameAttribute
+     * @covers \Ohio\Spot\Behaviors\IncludesAddress::setLine1Attribute
+     * @covers \Ohio\Spot\Behaviors\IncludesAddress::setLine2Attribute
+     * @covers \Ohio\Spot\Behaviors\IncludesAddress::setLine3Attribute
+     * @covers \Ohio\Spot\Behaviors\IncludesAddress::setLine4Attribute
+     * @covers \Ohio\Spot\Behaviors\IncludesAddress::setLocalityAttribute
+     * @covers \Ohio\Spot\Behaviors\IncludesAddress::setSubLocalityAttribute
+     * @covers \Ohio\Spot\Behaviors\IncludesAddress::setRegionAttribute
+     * @covers \Ohio\Spot\Behaviors\IncludesAddress::setPostcodeAttribute
+     * @covers \Ohio\Spot\Behaviors\IncludesAddress::setCountryAttribute
+     * @covers \Ohio\Spot\Behaviors\IncludesAddress::setOriginalAttribute
+     * @covers \Ohio\Spot\Behaviors\IncludesAddress::setFormattedAttribute
      */
     public function test()
     {
-        $addressStub = new AddressTraitTestStub();
+        $addressStub = new IncludesAddressTestStub();
 
         # name
         $addressStub->setNameAttribute(' Test ');
@@ -86,7 +86,7 @@ class AddressTraitTest extends \PHPUnit_Framework_TestCase
 
 }
 
-class AddressTraitTestStub extends Model
+class IncludesAddressTestStub extends Model
 {
-    use AddressTrait;
+    use IncludesAddress;
 }

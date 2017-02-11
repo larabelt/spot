@@ -1,16 +1,16 @@
 <?php
 namespace Ohio\Spot;
 
+use Ohio;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
-use Ohio\Spot\Behaviors\AddressTrait;
-use Ohio\Spot\Behaviors\LatLngTrait;
 
-class Address extends Model
+class Address extends Model implements
+    Ohio\Spot\Behaviors\IncludesAddressInterface
 {
 
-    use AddressTrait;
-    use LatLngTrait;
+    use Ohio\Spot\Behaviors\IncludesAddress;
+    use Ohio\Spot\Behaviors\LatLngTrait;
 
     protected $table = 'addresses';
 
