@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Place extends Model implements
     Ohio\Core\Behaviors\SluggableInterface,
+    Ohio\Content\Behaviors\HandleableInterface,
     Ohio\Content\Behaviors\TaggableInterface
 {
     use Ohio\Core\Behaviors\Sluggable;
