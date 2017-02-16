@@ -9,7 +9,7 @@ class Place extends Model implements
     Belt\Content\Behaviors\HandleableInterface,
     Belt\Content\Behaviors\IncludesContentInterface,
     Belt\Content\Behaviors\IncludesSeoInterface,
-    Belt\Content\Behaviors\TaggableInterface,
+    Belt\Glue\Behaviors\TaggableInterface,
     Belt\Spot\Behaviors\AddressableInterface,
     Belt\Clip\Behaviors\ClippableInterface
 {
@@ -17,7 +17,7 @@ class Place extends Model implements
     use Belt\Content\Behaviors\IncludesContent;
     use Belt\Content\Behaviors\Handleable;
     use Belt\Content\Behaviors\IncludesSeo;
-    use Belt\Content\Behaviors\Taggable;
+    use Belt\Glue\Behaviors\Taggable;
     use Belt\Spot\Behaviors\Addressable;
     use Belt\Clip\Behaviors\Clippable;
 
