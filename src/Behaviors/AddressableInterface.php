@@ -1,5 +1,5 @@
 <?php
-namespace Ohio\Spot\Behaviors;
+namespace Belt\Spot\Behaviors;
 
 interface AddressableInterface
 {

@@ -11,7 +11,7 @@
 |
 */
 
-$factory->define(Ohio\Spot\Address::class, function (Faker\Generator $faker) {
+$factory->define(Belt\Spot\Address::class, function (Faker\Generator $faker) {
 
     $types = ['places'];
 

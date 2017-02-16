@@ -1,7 +1,7 @@
 <?php
-namespace Ohio\Spot\Http\Requests;
+namespace Belt\Spot\Http\Requests;
 
-use Ohio\Core\Http\Requests\PaginateRequest;
+use Belt\Core\Http\Requests\PaginateRequest;
 use Illuminate\Database\Eloquent\Builder;
 
 class PaginateAddresses extends PaginateRequest

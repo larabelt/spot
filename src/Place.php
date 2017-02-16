@@ -1,25 +1,25 @@
 <?php
-namespace Ohio\Spot;
+namespace Belt\Spot;
 
-use Ohio;
+use Belt;
 use Illuminate\Database\Eloquent\Model;
 
 class Place extends Model implements
-    Ohio\Core\Behaviors\SluggableInterface,
-    Ohio\Content\Behaviors\HandleableInterface,
-    Ohio\Content\Behaviors\IncludesContentInterface,
-    Ohio\Content\Behaviors\IncludesSeoInterface,
-    Ohio\Content\Behaviors\TaggableInterface,
-    Ohio\Spot\Behaviors\AddressableInterface,
-    Ohio\Storage\Behaviors\FileableInterface
+    Belt\Core\Behaviors\SluggableInterface,
+    Belt\Content\Behaviors\HandleableInterface,
+    Belt\Content\Behaviors\IncludesContentInterface,
+    Belt\Content\Behaviors\IncludesSeoInterface,
+    Belt\Content\Behaviors\TaggableInterface,
+    Belt\Spot\Behaviors\AddressableInterface,
+    Belt\Storage\Behaviors\FileableInterface
 {
-    use Ohio\Core\Behaviors\Sluggable;
-    use Ohio\Content\Behaviors\IncludesContent;
-    use Ohio\Content\Behaviors\Handleable;
-    use Ohio\Content\Behaviors\IncludesSeo;
-    use Ohio\Content\Behaviors\Taggable;
-    use Ohio\Spot\Behaviors\Addressable;
-    use Ohio\Storage\Behaviors\Fileable;
+    use Belt\Core\Behaviors\Sluggable;
+    use Belt\Content\Behaviors\IncludesContent;
+    use Belt\Content\Behaviors\Handleable;
+    use Belt\Content\Behaviors\IncludesSeo;
+    use Belt\Content\Behaviors\Taggable;
+    use Belt\Spot\Behaviors\Addressable;
+    use Belt\Storage\Behaviors\Fileable;
 
     protected $morphClass = 'places';
 

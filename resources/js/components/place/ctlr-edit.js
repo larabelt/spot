@@ -1,9 +1,9 @@
-import headingTemplate from 'ohio/core/js/templates/base/heading.html';
+import headingTemplate from 'belt/core/js/templates/base/heading.html';
 import placeService from './service';
 import placeFormTemplate from './templates/form';
-import fileable from 'ohio/storage/js/components/fileable/fileable';
-import taggable from 'ohio/content/js/components/tag/taggable/ctlr-edit';
-import handleable from 'ohio/content/js/components/handle/ctlr-edit';
+import fileable from 'belt/storage/js/components/fileable/fileable';
+import taggable from 'belt/content/js/components/tag/taggable/ctlr-edit';
+import handleable from 'belt/content/js/components/handle/ctlr-edit';
 
 export default {
     data() {

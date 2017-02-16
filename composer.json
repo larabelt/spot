@@ -1,6 +1,6 @@
 {
-  "name": "ohiocms/spot",
-  "description": "Spot package for OhioCMS.",
+  "name": "larabelt/spot",
+  "description": "Spot package for LaraBelt.",
   "authors": [
     {
       "name": "Matt Crowe",
@@ -13,11 +13,11 @@
   ],
   "minimum-stability": "dev",
   "require": {
-    "ohiocms/core": "dev-master"
+    "larabelt/core": "dev-master"
   },
   "autoload": {
     "psr-4": {
-      "Ohio\\Spot\\": "src/"
+      "Belt\\Spot\\": "src/"
     }
   }
 }

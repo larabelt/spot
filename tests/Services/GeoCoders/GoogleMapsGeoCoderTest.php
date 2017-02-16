@@ -2,11 +2,11 @@
 
 use Mockery as m;
 
-use Ohio\Core\Testing\OhioTestCase;
-use Ohio\Core\Testing;
-use Ohio\Spot\Services\GeoCoders\GoogleMapsGeoCoder;
+use Belt\Core\Testing\BeltTestCase;
+use Belt\Core\Testing;
+use Belt\Spot\Services\GeoCoders\GoogleMapsGeoCoder;
 
-class GoogleMapsGeoCoderTest extends OhioTestCase
+class GoogleMapsGeoCoderTest extends BeltTestCase
 {
 
     use Testing\CommonMocks;
@@ -17,8 +17,8 @@ class GoogleMapsGeoCoderTest extends OhioTestCase
     }
 
     /**
-     * @covers \Ohio\Spot\Services\GeoCoders\GoogleMapsGeoCoder::component
-     * @covers \Ohio\Spot\Services\GeoCoders\GoogleMapsGeoCoder::geocode
+     * @covers \Belt\Spot\Services\GeoCoders\GoogleMapsGeoCoder::component
+     * @covers \Belt\Spot\Services\GeoCoders\GoogleMapsGeoCoder::geocode
      */
     public function test()
     {
@@ -59,7 +59,7 @@ class GoogleMapsGeoCoderTest extends OhioTestCase
     }
 
     /**
-     * @covers \Ohio\Spot\Services\GeoCoders\GoogleMapsGeoCoder::geocode
+     * @covers \Belt\Spot\Services\GeoCoders\GoogleMapsGeoCoder::geocode
      * @expectedException \Exception
      */
     public function testException()

@@ -2,12 +2,12 @@
 
 use Mockery as m;
 
-use Ohio\Core\Testing\OhioTestCase;
-use Ohio\Spot\Address;
-use Ohio\Spot\Commands\GeoCoderCommand;
-use Ohio\Spot\Services\GeoCoders\GoogleMapsGeoCoder;
+use Belt\Core\Testing\BeltTestCase;
+use Belt\Spot\Address;
+use Belt\Spot\Commands\GeoCoderCommand;
+use Belt\Spot\Services\GeoCoders\GoogleMapsGeoCoder;
 
-class GeoCoderCommandTest extends OhioTestCase
+class GeoCoderCommandTest extends BeltTestCase
 {
 
     public function tearDown()
@@ -16,8 +16,8 @@ class GeoCoderCommandTest extends OhioTestCase
     }
 
     /**
-     * @covers \Ohio\Spot\Commands\GeoCoderCommand::getService
-     * @covers \Ohio\Spot\Commands\GeoCoderCommand::handle
+     * @covers \Belt\Spot\Commands\GeoCoderCommand::getService
+     * @covers \Belt\Spot\Commands\GeoCoderCommand::handle
      */
     public function testHandle()
     {

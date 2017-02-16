@@ -1,10 +1,10 @@
 <?php
 
-namespace Ohio\Spot\Http\Controllers\Api;
+namespace Belt\Spot\Http\Controllers\Api;
 
-use Ohio\Core\Http\Controllers\ApiController;
-use Ohio\Spot\Http\Requests;
-use Ohio\Spot\Place;
+use Belt\Core\Http\Controllers\ApiController;
+use Belt\Spot\Http\Requests;
+use Belt\Spot\Place;
 
 class PlacesController extends ApiController
 {

@@ -1,20 +1,20 @@
 <?php
 
 use Mockery as m;
-use Ohio\Core\Testing;
+use Belt\Core\Testing;
 
-use Ohio\Spot\Address;
-use Ohio\Spot\Http\Requests\StoreAddress;
-use Ohio\Spot\Http\Requests\PaginateAddresses;
-use Ohio\Spot\Http\Requests\UpdateAddress;
-use Ohio\Spot\Http\Controllers\Api\AddressesController;
-use Ohio\Core\Http\Exceptions\ApiNotFoundHttpException;
-use Ohio\Spot\Place;
+use Belt\Spot\Address;
+use Belt\Spot\Http\Requests\StoreAddress;
+use Belt\Spot\Http\Requests\PaginateAddresses;
+use Belt\Spot\Http\Requests\UpdateAddress;
+use Belt\Spot\Http\Controllers\Api\AddressesController;
+use Belt\Core\Http\Exceptions\ApiNotFoundHttpException;
+use Belt\Spot\Place;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
-class AddressesControllerTest extends Testing\OhioTestCase
+class AddressesControllerTest extends Testing\BeltTestCase
 {
 
     use Testing\CommonMocks;
@@ -25,13 +25,13 @@ class AddressesControllerTest extends Testing\OhioTestCase
     }
 
     /**
-     * @covers \Ohio\Spot\Http\Controllers\Api\AddressesController::__construct
-     * @covers \Ohio\Spot\Http\Controllers\Api\AddressesController::get
-     * @covers \Ohio\Spot\Http\Controllers\Api\AddressesController::show
-     * @covers \Ohio\Spot\Http\Controllers\Api\AddressesController::destroy
-     * @covers \Ohio\Spot\Http\Controllers\Api\AddressesController::update
-     * @covers \Ohio\Spot\Http\Controllers\Api\AddressesController::store
-     * @covers \Ohio\Spot\Http\Controllers\Api\AddressesController::index
+     * @covers \Belt\Spot\Http\Controllers\Api\AddressesController::__construct
+     * @covers \Belt\Spot\Http\Controllers\Api\AddressesController::get
+     * @covers \Belt\Spot\Http\Controllers\Api\AddressesController::show
+     * @covers \Belt\Spot\Http\Controllers\Api\AddressesController::destroy
+     * @covers \Belt\Spot\Http\Controllers\Api\AddressesController::update
+     * @covers \Belt\Spot\Http\Controllers\Api\AddressesController::store
+     * @covers \Belt\Spot\Http\Controllers\Api\AddressesController::index
      */
     public function test()
     {

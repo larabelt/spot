@@ -1,8 +1,8 @@
 <?php
 
-namespace Ohio\Spot\Commands;
+namespace Belt\Spot\Commands;
 
-use Ohio\Core\Commands\PublishCommand as Command;
+use Belt\Core\Commands\PublishCommand as Command;
 
 class PublishCommand extends Command
 {
@@ -12,21 +12,21 @@ class PublishCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'ohio-spot:publish {--force}';
+    protected $signature = 'belt-spot:publish {--force}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'publish assets for ohio spot';
+    protected $description = 'publish assets for belt spot';
 
     protected $dirs = [
-        'vendor/ohiocms/spot/config' => 'config/ohio',
-        'vendor/ohiocms/spot/resources' => 'resources/ohio/spot',
-        'vendor/ohiocms/spot/database/factories' => 'database/factories',
-        'vendor/ohiocms/spot/database/migrations' => 'database/migrations',
-        'vendor/ohiocms/spot/database/seeds' => 'database/seeds',
+        'vendor/larabelt/spot/config' => 'config/belt',
+        'vendor/larabelt/spot/resources' => 'resources/belt/storage',
+        'vendor/larabelt/spot/database/factories' => 'database/factories',
+        'vendor/larabelt/spot/database/migrations' => 'database/migrations',
+        'vendor/larabelt/spot/database/seeds' => 'database/seeds',
     ];
 
 }

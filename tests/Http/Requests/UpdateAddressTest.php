@@ -1,12 +1,12 @@
 <?php
 
-use Ohio\Spot\Http\Requests\UpdateAddress;
+use Belt\Spot\Http\Requests\UpdateAddress;
 
 class UpdateAddressTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
-     * @covers \Ohio\Spot\Http\Requests\UpdateAddress::rules
+     * @covers \Belt\Spot\Http\Requests\UpdateAddress::rules
      */
     public function test()
     {

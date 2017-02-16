@@ -1,7 +1,7 @@
 <?php
-namespace Ohio\Spot\Http\Requests;
+namespace Belt\Spot\Http\Requests;
 
-use Ohio\Core\Http\Requests\PaginateRequest;
+use Belt\Core\Http\Requests\PaginateRequest;
 
 class PaginatePlaces extends PaginateRequest
 {

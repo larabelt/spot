@@ -1,7 +1,7 @@
 <?php
-namespace Ohio\Spot\Services\GeoCoders;
+namespace Belt\Spot\Services\GeoCoders;
 
-use Ohio\Spot\Address;
+use Belt\Spot\Address;
 use Exception;
 
 class GoogleMapsGeoCoder extends BaseGeoCoder

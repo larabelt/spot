@@ -2,14 +2,14 @@
 
 use Mockery as m;
 
-use Ohio\Core\Testing\OhioTestCase;
-use Ohio\Spot\Behaviors\Addressable;
-use Ohio\Spot\Address;
+use Belt\Core\Testing\BeltTestCase;
+use Belt\Spot\Behaviors\Addressable;
+use Belt\Spot\Address;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Relation;
 
-class AddressableTest extends OhioTestCase
+class AddressableTest extends BeltTestCase
 {
 
     public function tearDown()
@@ -18,8 +18,8 @@ class AddressableTest extends OhioTestCase
     }
 
     /**
-     * @covers \Ohio\Spot\Behaviors\Addressable::address
-     * @covers \Ohio\Spot\Behaviors\Addressable::addresses
+     * @covers \Belt\Spot\Behaviors\Addressable::address
+     * @covers \Belt\Spot\Behaviors\Addressable::addresses
      */
     public function test()
     {

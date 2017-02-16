@@ -1,13 +1,13 @@
 <?php
 
-use Ohio\Spot\Services\GeoCoders\GoogleMapsGeoCoder;
+use Belt\Spot\Services\GeoCoders\GoogleMapsGeoCoder;
 use GuzzleHttp\Client;
 
 class BaseGeoCoderTest extends PHPUnit_Framework_TestCase
 {
 
     /**
-     * @covers \Ohio\Spot\Services\GeoCoders\BaseGeoCoder::guzzle
+     * @covers \Belt\Spot\Services\GeoCoders\BaseGeoCoder::guzzle
      */
     public function test()
     {

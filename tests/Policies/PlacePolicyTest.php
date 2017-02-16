@@ -1,16 +1,16 @@
 <?php
 
-use Ohio\Core\Testing;
-use Ohio\Spot\Policies\PlacePolicy;
+use Belt\Core\Testing;
+use Belt\Spot\Policies\PlacePolicy;
 
-class PlacePolicyTest extends Testing\OhioTestCase
+class PlacePolicyTest extends Testing\BeltTestCase
 {
 
     use Testing\CommonMocks;
 
     /**
-     * @covers \Ohio\Spot\Policies\PlacePolicy::index
-     * @covers \Ohio\Spot\Policies\PlacePolicy::view
+     * @covers \Belt\Spot\Policies\PlacePolicy::index
+     * @covers \Belt\Spot\Policies\PlacePolicy::view
      */
     public function test()
     {

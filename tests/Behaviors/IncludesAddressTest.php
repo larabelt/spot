@@ -1,27 +1,27 @@
 <?php
 
 use Illuminate\Database\Eloquent\Model;
-use Ohio\Spot\Behaviors\IncludesAddress;
+use Belt\Spot\Behaviors\IncludesAddress;
 
 class IncludesAddressTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
-     * @covers \Ohio\Spot\Behaviors\IncludesAddress::full
-     * @covers \Ohio\Spot\Behaviors\IncludesAddress::getFullAttribute
-     * @covers \Ohio\Spot\Behaviors\IncludesAddress::setNameAttribute
-     * @covers \Ohio\Spot\Behaviors\IncludesAddress::setNicknameAttribute
-     * @covers \Ohio\Spot\Behaviors\IncludesAddress::setLine1Attribute
-     * @covers \Ohio\Spot\Behaviors\IncludesAddress::setLine2Attribute
-     * @covers \Ohio\Spot\Behaviors\IncludesAddress::setLine3Attribute
-     * @covers \Ohio\Spot\Behaviors\IncludesAddress::setLine4Attribute
-     * @covers \Ohio\Spot\Behaviors\IncludesAddress::setLocalityAttribute
-     * @covers \Ohio\Spot\Behaviors\IncludesAddress::setSubLocalityAttribute
-     * @covers \Ohio\Spot\Behaviors\IncludesAddress::setRegionAttribute
-     * @covers \Ohio\Spot\Behaviors\IncludesAddress::setPostcodeAttribute
-     * @covers \Ohio\Spot\Behaviors\IncludesAddress::setCountryAttribute
-     * @covers \Ohio\Spot\Behaviors\IncludesAddress::setOriginalAttribute
-     * @covers \Ohio\Spot\Behaviors\IncludesAddress::setFormattedAttribute
+     * @covers \Belt\Spot\Behaviors\IncludesAddress::full
+     * @covers \Belt\Spot\Behaviors\IncludesAddress::getFullAttribute
+     * @covers \Belt\Spot\Behaviors\IncludesAddress::setNameAttribute
+     * @covers \Belt\Spot\Behaviors\IncludesAddress::setNicknameAttribute
+     * @covers \Belt\Spot\Behaviors\IncludesAddress::setLine1Attribute
+     * @covers \Belt\Spot\Behaviors\IncludesAddress::setLine2Attribute
+     * @covers \Belt\Spot\Behaviors\IncludesAddress::setLine3Attribute
+     * @covers \Belt\Spot\Behaviors\IncludesAddress::setLine4Attribute
+     * @covers \Belt\Spot\Behaviors\IncludesAddress::setLocalityAttribute
+     * @covers \Belt\Spot\Behaviors\IncludesAddress::setSubLocalityAttribute
+     * @covers \Belt\Spot\Behaviors\IncludesAddress::setRegionAttribute
+     * @covers \Belt\Spot\Behaviors\IncludesAddress::setPostcodeAttribute
+     * @covers \Belt\Spot\Behaviors\IncludesAddress::setCountryAttribute
+     * @covers \Belt\Spot\Behaviors\IncludesAddress::setOriginalAttribute
+     * @covers \Belt\Spot\Behaviors\IncludesAddress::setFormattedAttribute
      */
     public function test()
     {

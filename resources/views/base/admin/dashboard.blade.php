@@ -1,8 +1,8 @@
-@extends('ohio-core::layouts.admin.main')
+@extends('belt-core::layouts.admin.main')
 
 @section('main')
 
-    <div id="ohio-spot">
+    <div id="belt-spot">
         <router-view></router-view>
     </div>
 

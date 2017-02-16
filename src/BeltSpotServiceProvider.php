@@ -1,14 +1,14 @@
 <?php
 
-namespace Ohio\Spot;
+namespace Belt\Spot;
 
-use Ohio;
+use Belt;
 use Illuminate\Contracts\Auth\Access\Gate as GateContract;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
 
-class OhioSpotServiceProvider extends ServiceProvider
+class BeltSpotServiceProvider extends ServiceProvider
 {
 
     /**
@@ -17,8 +17,8 @@ class OhioSpotServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        Ohio\Spot\Address::class => Ohio\Spot\Policies\AddressPolicy::class,
-        Ohio\Spot\Place::class => Ohio\Spot\Policies\PlacePolicy::class,
+        Belt\Spot\Address::class => Belt\Spot\Policies\AddressPolicy::class,
+        Belt\Spot\Place::class => Belt\Spot\Policies\PlacePolicy::class,
     ];
 
     /**
@@ -42,23 +42,23 @@ class OhioSpotServiceProvider extends ServiceProvider
     {
 
         // set view paths
-        $this->loadViewsFrom(resource_path('ohio/spot/views'), 'ohio-spot');
+        $this->loadViewsFrom(resource_path('belt/storage/views'), 'belt-spot');
 
         // set backup view paths
-        $this->loadViewsFrom(__DIR__ . '/../../resources/views', 'ohio-spot');
+        $this->loadViewsFrom(__DIR__ . '/../../resources/views', 'belt-spot');
 
         // policies
         $this->registerPolicies($gate);
 
         // morphMap
         Relation::morphMap([
-            'addresses' => Ohio\Spot\Address::class,
-            'places' => Ohio\Spot\Place::class,
+            'addresses' => Belt\Spot\Address::class,
+            'places' => Belt\Spot\Place::class,
         ]);
 
         // commands
-        $this->commands(Ohio\Spot\Commands\GeoCoderCommand::class);
-        $this->commands(Ohio\Spot\Commands\PublishCommand::class);
+        $this->commands(Belt\Spot\Commands\GeoCoderCommand::class);
+        $this->commands(Belt\Spot\Commands\PublishCommand::class);
     }
 
     /**

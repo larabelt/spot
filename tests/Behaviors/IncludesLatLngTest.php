@@ -1,17 +1,17 @@
 <?php
 
 use Illuminate\Database\Eloquent\Model;
-use Ohio\Spot\Behaviors\IncludesLatLng;
+use Belt\Spot\Behaviors\IncludesLatLng;
 
 class IncludesLatLngTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @covers \Ohio\Spot\Behaviors\IncludesLatLng::setLatAttribute
-     * @covers \Ohio\Spot\Behaviors\IncludesLatLng::setNorthLatAttribute
-     * @covers \Ohio\Spot\Behaviors\IncludesLatLng::setSouthLatAttribute
-     * @covers \Ohio\Spot\Behaviors\IncludesLatLng::setLngAttribute
-     * @covers \Ohio\Spot\Behaviors\IncludesLatLng::setEastLngAttribute
-     * @covers \Ohio\Spot\Behaviors\IncludesLatLng::setWestLngAttribute
+     * @covers \Belt\Spot\Behaviors\IncludesLatLng::setLatAttribute
+     * @covers \Belt\Spot\Behaviors\IncludesLatLng::setNorthLatAttribute
+     * @covers \Belt\Spot\Behaviors\IncludesLatLng::setSouthLatAttribute
+     * @covers \Belt\Spot\Behaviors\IncludesLatLng::setLngAttribute
+     * @covers \Belt\Spot\Behaviors\IncludesLatLng::setEastLngAttribute
+     * @covers \Belt\Spot\Behaviors\IncludesLatLng::setWestLngAttribute
      */
     public function test()
     {

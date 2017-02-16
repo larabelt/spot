@@ -1,17 +1,17 @@
 <?php
-namespace Ohio\Spot;
+namespace Belt\Spot;
 
-use Ohio;
+use Belt;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 class Address extends Model implements
-    Ohio\Spot\Behaviors\IncludesAddressInterface,
-    Ohio\Spot\Behaviors\IncludesLatLngInterface
+    Belt\Spot\Behaviors\IncludesAddressInterface,
+    Belt\Spot\Behaviors\IncludesLatLngInterface
 {
 
-    use Ohio\Spot\Behaviors\IncludesAddress;
-    use Ohio\Spot\Behaviors\IncludesLatLng;
+    use Belt\Spot\Behaviors\IncludesAddress;
+    use Belt\Spot\Behaviors\IncludesLatLng;
 
     protected $table = 'addresses';
 

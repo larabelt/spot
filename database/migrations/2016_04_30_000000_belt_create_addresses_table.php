@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class OhioCreateAddressesTable extends Migration
+class BeltCreateAddressesTable extends Migration
 {
     /**
      * Run the migrations.

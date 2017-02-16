@@ -2,7 +2,9 @@
 
 use Illuminate\Database\Seeder;
 
-class OhioSpotSeeder extends Seeder
+use Belt\Spot\Address;
+
+class BeltSpotAddressSeeds extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,7 +13,6 @@ class OhioSpotSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(OhioSpotAddressSeeds::class);
-        $this->call(OhioSpotPlaceSeeds::class);
+        factory(Address::class, 25)->create();
     }
 }

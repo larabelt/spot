@@ -2,9 +2,9 @@
 
 use Illuminate\Database\Seeder;
 
-use Ohio\Spot\Place;
+use Belt\Spot\Place;
 
-class OhioSpotPlaceSeeds extends Seeder
+class BeltSpotPlaceSeeds extends Seeder
 {
     /**
      * Run the database seeds.

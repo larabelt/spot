@@ -1,7 +1,7 @@
 <?php
-namespace Ohio\Spot\Behaviors;
+namespace Belt\Spot\Behaviors;
 
-use Ohio\Spot\Address;
+use Belt\Spot\Address;
 
 trait Addressable
 {

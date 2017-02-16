@@ -1,11 +1,11 @@
 <?php
 use Mockery as m;
 
-use Ohio\Core\Testing\OhioTestCase;
-use Ohio\Spot\Place;
+use Belt\Core\Testing\BeltTestCase;
+use Belt\Spot\Place;
 use Illuminate\Database\Eloquent\Builder;
 
-class PlaceTest extends OhioTestCase
+class PlaceTest extends BeltTestCase
 {
     public function tearDown()
     {
@@ -13,7 +13,7 @@ class PlaceTest extends OhioTestCase
     }
 
     /**
-     * @covers \Ohio\Spot\Place::setIsSearchableAttribute
+     * @covers \Belt\Spot\Place::setIsSearchableAttribute
      */
     public function test()
     {

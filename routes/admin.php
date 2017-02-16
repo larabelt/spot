@@ -1,14 +1,14 @@
 <?php
 
 Route::group([
-    'prefix' => 'admin/ohio/spot',
+    'prefix' => 'admin/belt/spot',
     'middleware' => ['web', 'auth']
 ],
     function () {
 
-        # admin/ohio/spot home
+        # admin/belt/spot home
         Route::get('{any?}', function () {
-            return view('ohio-spot::base.admin.dashboard');
+            return view('belt-spot::base.admin.dashboard');
         })->where('any', '(.*)');
     }
 );

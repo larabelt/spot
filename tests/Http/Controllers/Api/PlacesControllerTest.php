@@ -1,19 +1,19 @@
 <?php
 
 use Mockery as m;
-use Ohio\Core\Testing;
+use Belt\Core\Testing;
 
-use Ohio\Spot\Place;
-use Ohio\Spot\Http\Requests\StorePlace;
-use Ohio\Spot\Http\Requests\PaginatePlaces;
-use Ohio\Spot\Http\Requests\UpdatePlace;
-use Ohio\Spot\Http\Controllers\Api\PlacesController;
-use Ohio\Core\Http\Exceptions\ApiNotFoundHttpException;
+use Belt\Spot\Place;
+use Belt\Spot\Http\Requests\StorePlace;
+use Belt\Spot\Http\Requests\PaginatePlaces;
+use Belt\Spot\Http\Requests\UpdatePlace;
+use Belt\Spot\Http\Controllers\Api\PlacesController;
+use Belt\Core\Http\Exceptions\ApiNotFoundHttpException;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
-class PlacesControllerTest extends Testing\OhioTestCase
+class PlacesControllerTest extends Testing\BeltTestCase
 {
 
     use Testing\CommonMocks;
@@ -24,13 +24,13 @@ class PlacesControllerTest extends Testing\OhioTestCase
     }
 
     /**
-     * @covers \Ohio\Spot\Http\Controllers\Api\PlacesController::__construct
-     * @covers \Ohio\Spot\Http\Controllers\Api\PlacesController::get
-     * @covers \Ohio\Spot\Http\Controllers\Api\PlacesController::show
-     * @covers \Ohio\Spot\Http\Controllers\Api\PlacesController::destroy
-     * @covers \Ohio\Spot\Http\Controllers\Api\PlacesController::update
-     * @covers \Ohio\Spot\Http\Controllers\Api\PlacesController::store
-     * @covers \Ohio\Spot\Http\Controllers\Api\PlacesController::index
+     * @covers \Belt\Spot\Http\Controllers\Api\PlacesController::__construct
+     * @covers \Belt\Spot\Http\Controllers\Api\PlacesController::get
+     * @covers \Belt\Spot\Http\Controllers\Api\PlacesController::show
+     * @covers \Belt\Spot\Http\Controllers\Api\PlacesController::destroy
+     * @covers \Belt\Spot\Http\Controllers\Api\PlacesController::update
+     * @covers \Belt\Spot\Http\Controllers\Api\PlacesController::store
+     * @covers \Belt\Spot\Http\Controllers\Api\PlacesController::index
      */
     public function test()
     {

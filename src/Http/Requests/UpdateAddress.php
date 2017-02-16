@@ -1,7 +1,7 @@
 <?php
-namespace Ohio\Spot\Http\Requests;
+namespace Belt\Spot\Http\Requests;
 
-use Ohio\Core\Http\Requests\FormRequest;
+use Belt\Core\Http\Requests\FormRequest;
 
 class UpdateAddress extends FormRequest
 {

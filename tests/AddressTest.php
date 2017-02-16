@@ -1,16 +1,16 @@
 <?php
 
-use Ohio\Core\Testing\OhioTestCase;
-use Ohio\Spot\Place;
-use Ohio\Spot\Address;
+use Belt\Core\Testing\BeltTestCase;
+use Belt\Spot\Place;
+use Belt\Spot\Address;
 
-class AddressTest extends OhioTestCase
+class AddressTest extends BeltTestCase
 {
     /**
-     * @covers \Ohio\Spot\Address::__toString
-     * @covers \Ohio\Spot\Address::addressable
-     * @covers \Ohio\Spot\Address::setGeoServiceAttribute
-     * @covers \Ohio\Spot\Address::setGeoCodeAttribute
+     * @covers \Belt\Spot\Address::__toString
+     * @covers \Belt\Spot\Address::addressable
+     * @covers \Belt\Spot\Address::setGeoServiceAttribute
+     * @covers \Belt\Spot\Address::setGeoCodeAttribute
      */
     public function test()
     {

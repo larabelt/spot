@@ -1,4 +1,4 @@
-import headingTemplate from 'ohio/core/js/templates/base/heading.html';
+import headingTemplate from 'belt/core/js/templates/base/heading.html';
 import addressService from './service';
 import addressFormTemplate from './templates/form';
 

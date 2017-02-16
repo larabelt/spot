@@ -1,10 +1,10 @@
 <?php
 
-namespace Ohio\Spot\Policies;
+namespace Belt\Spot\Policies;
 
-use Ohio\Core\User;
-use Ohio\Core\Policies\BaseAdminPolicy;
-use Ohio\Spot\Address;
+use Belt\Core\User;
+use Belt\Core\Policies\BaseAdminPolicy;
+use Belt\Spot\Address;
 
 class AddressPolicy extends BaseAdminPolicy
 {

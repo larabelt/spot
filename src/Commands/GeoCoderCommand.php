@@ -1,8 +1,8 @@
 <?php
 
-namespace Ohio\Spot\Commands;
+namespace Belt\Spot\Commands;
 
-use Ohio\Spot\Services\GeoCoders\GoogleMapsGeoCoder;
+use Belt\Spot\Services\GeoCoders\GoogleMapsGeoCoder;
 
 use Illuminate\Console\Command;
 
@@ -14,7 +14,7 @@ class GeoCoderCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'ohio-spot:geocoder {--address=}';
+    protected $signature = 'belt-spot:geocoder {--address=}';
 
     /**
      * The console command description.

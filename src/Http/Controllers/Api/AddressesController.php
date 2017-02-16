@@ -1,11 +1,11 @@
 <?php
 
-namespace Ohio\Spot\Http\Controllers\Api;
+namespace Belt\Spot\Http\Controllers\Api;
 
 use Route;
-use Ohio\Core\Http\Controllers\ApiController;
-use Ohio\Spot\Address;
-use Ohio\Spot\Http\Requests;
+use Belt\Core\Http\Controllers\ApiController;
+use Belt\Spot\Address;
+use Belt\Spot\Http\Requests;
 use Illuminate\Http\Request;
 
 class AddressesController extends ApiController
