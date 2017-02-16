@@ -11,7 +11,7 @@ class Place extends Model implements
     Belt\Content\Behaviors\IncludesSeoInterface,
     Belt\Content\Behaviors\TaggableInterface,
     Belt\Spot\Behaviors\AddressableInterface,
-    Belt\Storage\Behaviors\FileableInterface
+    Belt\Clip\Behaviors\ClippableInterface
 {
     use Belt\Core\Behaviors\Sluggable;
     use Belt\Content\Behaviors\IncludesContent;
@@ -19,7 +19,7 @@ class Place extends Model implements
     use Belt\Content\Behaviors\IncludesSeo;
     use Belt\Content\Behaviors\Taggable;
     use Belt\Spot\Behaviors\Addressable;
-    use Belt\Storage\Behaviors\Fileable;
+    use Belt\Clip\Behaviors\Clippable;
 
     protected $morphClass = 'places';
 

@@ -42,7 +42,7 @@ class BeltSpotServiceProvider extends ServiceProvider
     {
 
         // set view paths
-        $this->loadViewsFrom(resource_path('belt/storage/views'), 'belt-spot');
+        $this->loadViewsFrom(resource_path('belt/spot/views'), 'belt-spot');
 
         // set backup view paths
         $this->loadViewsFrom(__DIR__ . '/../../resources/views', 'belt-spot');
