@@ -23,7 +23,7 @@ class PublishCommand extends Command
 
     protected $dirs = [
         'vendor/larabelt/spot/config' => 'config/belt',
-        'vendor/larabelt/spot/resources' => 'resources/belt/spot',
+        //'vendor/larabelt/spot/resources' => 'resources/belt/spot',
         'vendor/larabelt/spot/database/factories' => 'database/factories',
         'vendor/larabelt/spot/database/migrations' => 'database/migrations',
         'vendor/larabelt/spot/database/seeds' => 'database/seeds',
