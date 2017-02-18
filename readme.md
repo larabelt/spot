@@ -1,14 +1,22 @@
 ## Installation
 
+Add the ServiceProvider to the providers array in config/app.php
+
+```php
+Belt\Spot\BeltSpotServiceProvider::class,
 ```
-# install assets & migrate
+
+```
+# publish
 php artisan belt-spot:publish
 composer dumpautoload
 
-# migrate & seed
+# migration
 php artisan migrate
+
+# seed
 php artisan db:seed --class=BeltSpotSeeder
 
 # compile assets
-gulp
+npm run
 ```

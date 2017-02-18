@@ -1,8 +1,7 @@
 <?php
 
-use Illuminate\Database\Seeder;
-
 use Belt\Spot\Place;
+use Illuminate\Database\Seeder;
 
 class BeltSpotPlaceSeeds extends Seeder
 {
