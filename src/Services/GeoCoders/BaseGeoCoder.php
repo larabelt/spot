@@ -4,6 +4,10 @@ namespace Belt\Spot\Services\GeoCoders;
 use Belt\Spot\Address;
 use GuzzleHttp;
 
+/**
+ * Class BaseGeoCoder
+ * @package Belt\Spot\Services\GeoCoders
+ */
 abstract class BaseGeoCoder
 {
     /**
@@ -29,6 +33,10 @@ abstract class BaseGeoCoder
         return $this->guzzle ?: $this->guzzle = new GuzzleHttp\Client();
     }
 
+    /**
+     * @param $address
+     * @return mixed
+     */
     abstract function geocode($address);
 
 }

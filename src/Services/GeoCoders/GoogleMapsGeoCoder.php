@@ -4,9 +4,17 @@ namespace Belt\Spot\Services\GeoCoders;
 use Belt\Spot\Address;
 use Exception;
 
+/**
+ * Class GoogleMapsGeoCoder
+ * @package Belt\Spot\Services\GeoCoders
+ */
 class GoogleMapsGeoCoder extends BaseGeoCoder
 {
 
+    /**
+     * @param $address
+     * @throws Exception
+     */
     public function geocode($address)
     {
         $this->address = new Address();
@@ -59,6 +67,11 @@ class GoogleMapsGeoCoder extends BaseGeoCoder
         $this->address->geo_code = array_get($this->result, 'place_id');
     }
 
+    /**
+     * @param $type
+     * @param string $field
+     * @return string
+     */
     public function component($type, $field = 'short_name')
     {
         $components = array_get($this->result, 'address_components', []);

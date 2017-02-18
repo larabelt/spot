@@ -6,6 +6,10 @@ use Belt\Core\User;
 use Belt\Core\Policies\BaseAdminPolicy;
 use Belt\Spot\Place;
 
+/**
+ * Class PlacePolicy
+ * @package Belt\Spot\Policies
+ */
 class PlacePolicy extends BaseAdminPolicy
 {
     /**

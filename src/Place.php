@@ -4,6 +4,10 @@ namespace Belt\Spot;
 use Belt;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class Place
+ * @package Belt\Spot
+ */
 class Place extends Model implements
     Belt\Core\Behaviors\SluggableInterface,
     Belt\Content\Behaviors\HandleableInterface,
@@ -21,12 +25,24 @@ class Place extends Model implements
     use Belt\Spot\Behaviors\Addressable;
     use Belt\Clip\Behaviors\Clippable;
 
+    /**
+     * @var string
+     */
     protected $morphClass = 'places';
 
+    /**
+     * @var string
+     */
     protected $table = 'places';
 
+    /**
+     * @var array
+     */
     protected $fillable = ['name'];
 
+    /**
+     * @var array
+     */
     public static $presets = [
         [100, 100, 'fit'],
         [222, 222, 'resize'],
@@ -34,6 +50,9 @@ class Place extends Model implements
         [500, 500, 'resize'],
     ];
 
+    /**
+     * @param $value
+     */
     public function setIsSearchableAttribute($value)
     {
         $this->attributes['is_searchable'] = boolval($value);
