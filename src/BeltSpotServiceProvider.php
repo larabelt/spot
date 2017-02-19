@@ -63,6 +63,10 @@ class BeltSpotServiceProvider extends ServiceProvider
         // commands
         $this->commands(Belt\Spot\Commands\GeoCoderCommand::class);
         $this->commands(Belt\Spot\Commands\PublishCommand::class);
+
+        # beltable values for global belt command
+        $this->app['belt']->publish('belt-spot:publish');
+        $this->app['belt']->seeders('BeltSpotSeeder');
     }
 
     /**
