@@ -21,6 +21,7 @@ class AddressesFunctionalTest extends Testing\BeltTestCase
             'name' => 'test',
         ]);
         $response->assertStatus(201);
+        $response->assertJsonFragment(['id']);
         $addressID = array_get($response->json(), 'id');
 
         # show

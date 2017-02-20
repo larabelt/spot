@@ -4,7 +4,7 @@ use Belt\Spot;
 
 Route::group([
     'prefix' => 'api/v1',
-    'middleware' => ['web', 'auth', 'api']
+    'middleware' => ['api']
 ],
     function () {
 

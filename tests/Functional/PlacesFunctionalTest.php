@@ -19,6 +19,7 @@ class PlacesFunctionalTest extends Testing\BeltTestCase
             'name' => 'test',
         ]);
         $response->assertStatus(201);
+        $response->assertJsonFragment(['id']);
         $placeID = array_get($response->json(), 'id');
 
         # show
