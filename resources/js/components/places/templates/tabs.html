@@ -1,0 +1,14 @@
+<ul class="nav nav-tabs pull-right">
+    <li :class="{active: $router.currentRoute.name == 'places.edit'}">
+        <router-link :to="{ name: 'places.edit', params: {id: $route.params.id}}">Main</router-link>
+    </li>
+    <li :class="{active: $router.currentRoute.name == 'places.attachments'}">
+        <router-link :to="{ name: 'places.attachments', params: {id: $route.params.id}}">Attachments</router-link>
+    </li>
+    <li :class="{active: $router.currentRoute.name == 'places.categories'}">
+        <router-link :to="{ name: 'places.categories', params: {id: $route.params.id}}">Categories</router-link>
+    </li>
+    <li :class="{active: $router.currentRoute.name == 'places.tags'}">
+        <router-link :to="{ name: 'places.tags', params: {id: $route.params.id}}">Tags</router-link>
+    </li>
+</ul>
