@@ -17,7 +17,7 @@ export default {
     components: {
         heading: {template: heading_html},
         tabs: {template: tabs_html},
-        edit: tags,
+        tab: tags,
     },
     template: edit_html,
 }
