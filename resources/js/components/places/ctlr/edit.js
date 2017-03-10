@@ -1,3 +1,7 @@
+import shared from './shared';
+
+// components
+import attachment from 'belt/clip/js/components/clippables/ctlr/attachment';
 
 // helpers
 import Form from '../form';
@@ -13,20 +17,18 @@ export default {
         return {
             morphable_type: 'places',
             morphable_id: this.$route.params.id,
+            place: new Form(),
         }
+    },
+    mounted() {
+        this.place.show(this.morphable_id);
     },
     components: {
         heading: {template: heading_html},
         tabs: {template: tabs_html},
         tab: {
-            data() {
-                return {
-                    form: new Form(),
-                }
-            },
-            mounted() {
-                this.form.show(this.$route.params.id);
-            },
+            mixins: [shared],
+            components: {attachment},
             template: form_html,
         },
     },

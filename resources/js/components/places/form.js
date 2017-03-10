@@ -9,11 +9,16 @@ class PlaceForm extends BaseForm {
         this.routeEditName = 'places.edit';
         this.setData({
             id: '',
+            attachment_id: '',
             is_active: 0,
             name: '',
             slug: '',
             body: '',
         })
+    }
+
+    getAttachmentId() {
+        return this.attachment_id;
     }
 
 }

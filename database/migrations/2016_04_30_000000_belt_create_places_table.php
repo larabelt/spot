@@ -15,6 +15,7 @@ class BeltCreatePlacesTable extends Migration
         Schema::create('places', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('team_id')->nullable()->index();
+            $table->integer('attachment_id')->nullable();
             $table->boolean('is_active')->default('0')->index();
             $table->boolean('is_searchable')->default('0')->index();
             $table->tinyInteger('status')->default('0')->index();
