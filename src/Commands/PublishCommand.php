@@ -12,7 +12,7 @@ class PublishCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'belt-spot:publish {--force}';
+    protected $signature = 'belt-spot:publish {--force} {--path=}';
 
     /**
      * The console command description.
