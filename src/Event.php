@@ -17,6 +17,7 @@ class Event extends Model implements
     Belt\Spot\Behaviors\AddressableInterface,
     Belt\Clip\Behaviors\ClippableInterface
 {
+    use Belt\Core\Behaviors\HasSortableTrait;
     use Belt\Core\Behaviors\Sluggable;
     use Belt\Content\Behaviors\IncludesContent;
     use Belt\Content\Behaviors\Handleable;
