@@ -22,6 +22,7 @@ class BeltSpotServiceProvider extends ServiceProvider
      */
     protected $policies = [
         Belt\Spot\Address::class => Belt\Spot\Policies\AddressPolicy::class,
+        Belt\Spot\Event::class => Belt\Spot\Policies\EventPolicy::class,
         Belt\Spot\Place::class => Belt\Spot\Policies\PlacePolicy::class,
     ];
 
@@ -57,6 +58,7 @@ class BeltSpotServiceProvider extends ServiceProvider
         // morphMap
         Relation::morphMap([
             'addresses' => Belt\Spot\Address::class,
+            'events' => Belt\Spot\Event::class,
             'places' => Belt\Spot\Place::class,
         ]);
 

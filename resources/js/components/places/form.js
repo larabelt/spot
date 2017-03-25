@@ -14,6 +14,7 @@ class PlaceForm extends BaseForm {
             name: '',
             slug: '',
             body: '',
+            intro: '',
         })
     }
 

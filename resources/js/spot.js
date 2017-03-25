@@ -1,3 +1,4 @@
+import events  from './components/events/routes';
 import places  from './components/places/routes';
 
 export default class BeltSpot {
@@ -12,6 +13,7 @@ export default class BeltSpot {
                 routes: []
             });
 
+            router.addRoutes(events);
             router.addRoutes(places);
 
             const app = new Vue({router}).$mount('#belt-spot');
