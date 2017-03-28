@@ -2,10 +2,10 @@
 use Mockery as m;
 
 use Belt\Core\Testing\BeltTestCase;
-use Belt\Spot\Place;
+use Belt\Spot\Event;
 use Illuminate\Database\Eloquent\Builder;
 
-class PlaceTest extends BeltTestCase
+class EventTest extends BeltTestCase
 {
     public function tearDown()
     {
@@ -13,15 +13,15 @@ class PlaceTest extends BeltTestCase
     }
 
     /**
-     * @covers \Belt\Spot\Place::setIsSearchableAttribute
+     * @covers \Belt\Spot\Event::setIsSearchableAttribute
      */
     public function test()
     {
-        $place = factory(Place::class)->make();
+        $event = factory(Event::class)->make();
 
         # is searchable
-        $place->setIsSearchableAttribute(' true!!! ');
-        $this->assertEquals(true, $place->is_searchable);
+        $event->setIsSearchableAttribute(' true!!! ');
+        $this->assertEquals(true, $event->is_searchable);
 
     }
 
