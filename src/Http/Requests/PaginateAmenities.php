@@ -12,7 +12,7 @@ class PaginateAmenities extends PaginateRequest
     /**
      * @var int
      */
-    public $perPage = 10;
+    public $perPage = 999;
 
     /**
      * @var string

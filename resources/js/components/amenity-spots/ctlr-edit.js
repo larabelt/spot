@@ -1,40 +1,75 @@
 // helpers
 import Form from './form';
 import Table from './table';
+import AmenityTable from '../amenities/table';
 
 // templates
 import index_html from './templates/index.html';
+import button_html from './templates/button.html';
 
 export default {
+    components: {
+        amenity: {
+            props: ['amenity'],
+            data() {
+                return {
+                    attached: this.$parent.attached,
+                    form: new Form({
+                        morphable_type: this.$parent.morphable_type,
+                        morphable_id: this.$parent.morphable_id,
+                    }),
+                }
+            },
+            computed: {
+                isAttached() {
+                    return _.get(this.attached.items, this.amenity.id) ? true : false;
+                },
+            },
+            methods: {
+                toggle() {
+                    let self = this;
+                    if (this.isAttached) {
+                        self.form.destroy(this.amenity.id)
+                            .then(function () {
+                                self.$parent.index();
+                            });
+                    } else {
+                        self.form.setData({id: this.amenity.id});
+                        self.form.store()
+                            .then(function () {
+                                self.$parent.index();
+                            });
+                    }
+                },
+            },
+            template: button_html,
+        }
+    },
     data() {
         return {
-            detached: new Table({
-                morphable_type: this.$parent.morphable_type,
-                morphable_id: this.$parent.morphable_id,
-                query: {not: 1},
-            }),
-            table: new Table({
+            morphable_type: this.$parent.morphable_type,
+            morphable_id: this.$parent.morphable_id,
+            attached: new Table({
                 morphable_type: this.$parent.morphable_type,
                 morphable_id: this.$parent.morphable_id,
             }),
-            form: new Form({
-                morphable_type: this.$parent.morphable_type,
-                morphable_id: this.$parent.morphable_id,
-            }),
+            amenities: new AmenityTable(),
         }
     },
     mounted() {
-        this.table.index();
+        let self = this;
+        this.amenities.index()
+            .then(function () {
+                self.index();
+            });
     },
     methods: {
-        attach(id) {
-            this.form.setData({id: id});
-            this.form.store()
-                .then(response => {
-                    this.table.index();
-                    this.detached.index();
-                })
-        }
+        index() {
+            let attached = this.attached;
+            attached.index().then(function () {
+                attached.items = _.keyBy(attached.items, 'id');
+            })
+        },
     },
     template: index_html
 }
