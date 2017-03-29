@@ -15,8 +15,8 @@ class AmenityTest extends BeltTestCase
     /**
      * @covers \Belt\Spot\Amenity::__toString
      * @covers \Belt\Spot\Amenity::setBodyAttribute
-     * @covers \Belt\Spot\Amenity::scopeAmenityged
-     * @covers \Belt\Spot\Amenity::scopeNotAmenityged
+     * @covers \Belt\Spot\Amenity::scopeAmenitied
+     * @covers \Belt\Spot\Amenity::scopeNotAmenitied
      */
     public function test()
     {
@@ -29,6 +29,30 @@ class AmenityTest extends BeltTestCase
         # setBodyAttribute
         $amenity->body = ' Test ';
         $this->assertEquals('Test', $amenity->body);
+
+        # scopeAmenitied
+        $qbMock = m::mock(Builder::class);
+        $qbMock->shouldReceive('select')->once()->with(['amenities.*']);
+        $qbMock->shouldReceive('join')->once()->with('amenity_spots', 'amenity_spots.amenity_id', '=', 'amenities.id');
+        $qbMock->shouldReceive('where')->once()->with('amenity_spots.owner_type', 'places');
+        $qbMock->shouldReceive('where')->once()->with('amenity_spots.owner_id', 1);
+        $amenity->scopeAmenitied($qbMock, 'places', 1);
+
+        # scopeNotAmenitied
+        $qbMock = m::mock(Builder::class);
+        $qbMock->shouldReceive('select')->once()->with(['amenities.*']);
+        $qbMock->shouldReceive('leftJoin')->once()->with('amenity_spots',
+            m::on(function (\Closure $closure) {
+                $subQBMock = m::mock(Builder::class);
+                $subQBMock->shouldReceive('on')->once()->with('amenity_spots.amenity_id', '=', 'amenities.id');
+                $subQBMock->shouldReceive('where')->once()->with('amenity_spots.owner_type', 'places');
+                $subQBMock->shouldReceive('where')->once()->with('amenity_spots.owner_id', 1);
+                $closure($subQBMock);
+                return is_callable($closure);
+            })
+        );
+        $qbMock->shouldReceive('whereNull')->once()->with('amenity_spots.id');
+        $amenity->scopeNotAmenitied($qbMock, 'places', 1);
 
     }
 

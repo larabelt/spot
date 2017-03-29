@@ -16,6 +16,7 @@ class Place extends Model implements
     Belt\Glue\Behaviors\CategorizableInterface,
     Belt\Glue\Behaviors\TaggableInterface,
     Belt\Spot\Behaviors\AddressableInterface,
+    Belt\Spot\Behaviors\HasAmenitiesInterface,
     Belt\Clip\Behaviors\ClippableInterface
 {
     use Belt\Core\Behaviors\HasSortableTrait;
@@ -26,6 +27,7 @@ class Place extends Model implements
     use Belt\Glue\Behaviors\Categorizable;
     use Belt\Glue\Behaviors\Taggable;
     use Belt\Spot\Behaviors\Addressable;
+    use Belt\Spot\Behaviors\HasAmenities;
     use Belt\Clip\Behaviors\Clippable;
 
     /**

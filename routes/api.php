@@ -22,6 +22,18 @@ Route::group([
         Route::get('amenities', Api\AmenitiesController::class . '@index');
         Route::post('amenities', Api\AmenitiesController::class . '@store');
 
+        # amenity_spots
+        Route::group([
+            'prefix' => '{owner_type}/{owner_id}/amenities',
+            'middleware' => 'request.injections:owner_type,owner_id'
+        ], function () {
+            Route::get('{id}', Api\AmenitySpotsController::class . '@show');
+            Route::put('{id}', Api\AmenitySpotsController::class . '@update');
+            Route::delete('{id}', Api\AmenitySpotsController::class . '@destroy');
+            Route::get('', Api\AmenitySpotsController::class . '@index');
+            Route::post('', Api\AmenitySpotsController::class . '@store');
+        });
+
         # events
         Route::get('events/{id}', Api\EventsController::class . '@show');
         Route::put('events/{id}', Api\EventsController::class . '@update');

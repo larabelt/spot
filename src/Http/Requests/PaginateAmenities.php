@@ -17,7 +17,7 @@ class PaginateAmenities extends PaginateRequest
     /**
      * @var string
      */
-    public $orderBy = 'amenities.id';
+    public $orderBy = 'amenities.name';
 
     /**
      * @var array
