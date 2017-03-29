@@ -4,6 +4,7 @@
     </a>
     <ul class="treeview-menu">
         <li><a href="/admin/belt/spot/amenities"><i class="fa fa-plug"></i> <span>Amenities</span></a></li>
+        <li><a href="/admin/belt/spot/deals"><i class="fa fa-usd"></i> <span>Deals</span></a></li>
         <li><a href="/admin/belt/spot/events"><i class="fa fa-calendar"></i> <span>Events</span></a></li>
         <li><a href="/admin/belt/spot/places"><i class="fa fa-building"></i> <span>Places</span></a></li>
     </ul>

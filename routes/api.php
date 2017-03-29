@@ -34,6 +34,13 @@ Route::group([
             Route::post('', Api\AmenitySpotsController::class . '@store');
         });
 
+        # deals
+        Route::get('deals/{id}', Api\DealsController::class . '@show');
+        Route::put('deals/{id}', Api\DealsController::class . '@update');
+        Route::delete('deals/{id}', Api\DealsController::class . '@destroy');
+        Route::get('deals', Api\DealsController::class . '@index');
+        Route::post('deals', Api\DealsController::class . '@store');
+
         # events
         Route::get('events/{id}', Api\EventsController::class . '@show');
         Route::put('events/{id}', Api\EventsController::class . '@update');
