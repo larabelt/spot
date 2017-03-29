@@ -21,6 +21,7 @@ class BeltSpotServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
+        Belt\Spot\Amenity::class => Belt\Spot\Policies\AmenityPolicy::class,
         Belt\Spot\Address::class => Belt\Spot\Policies\AddressPolicy::class,
         Belt\Spot\Event::class => Belt\Spot\Policies\EventPolicy::class,
         Belt\Spot\Place::class => Belt\Spot\Policies\PlacePolicy::class,
@@ -57,10 +58,14 @@ class BeltSpotServiceProvider extends ServiceProvider
 
         // morphMap
         Relation::morphMap([
+            'amenities' => Belt\Spot\Amenity::class,
             'addresses' => Belt\Spot\Address::class,
             'events' => Belt\Spot\Event::class,
             'places' => Belt\Spot\Place::class,
         ]);
+
+        // route model binding
+        $router->model('amenity', Belt\Spot\Amenity::class);
 
         // commands
         $this->commands(Belt\Spot\Commands\GeoCoderCommand::class);

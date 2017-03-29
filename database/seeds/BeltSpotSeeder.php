@@ -12,6 +12,7 @@ class BeltSpotSeeder extends Seeder
     public function run()
     {
         $this->call(BeltSpotAddressSeeds::class);
+        $this->call(BeltSpotAmenitySeeds::class);
         $this->call(BeltSpotEventSeeds::class);
         $this->call(BeltSpotPlaceSeeds::class);
     }

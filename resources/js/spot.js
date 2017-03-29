@@ -1,3 +1,4 @@
+import amenities  from './components/amenities/routes';
 import events  from './components/events/routes';
 import places  from './components/places/routes';
 
@@ -13,6 +14,7 @@ export default class BeltSpot {
                 routes: []
             });
 
+            router.addRoutes(amenities);
             router.addRoutes(events);
             router.addRoutes(places);
 

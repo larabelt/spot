@@ -1,6 +1,6 @@
 <?php
 
-use Belt\Spot;
+use Belt\Spot\Http\Controllers\Api;
 
 Route::group([
     'prefix' => 'api/v1',
@@ -9,24 +9,31 @@ Route::group([
     function () {
 
         # addresses
-        Route::get('addresses/{id}', Spot\Http\Controllers\Api\AddressesController::class . '@show');
-        Route::put('addresses/{id}', Spot\Http\Controllers\Api\AddressesController::class . '@update');
-        Route::delete('addresses/{id}', Spot\Http\Controllers\Api\AddressesController::class . '@destroy');
-        Route::get('addresses', Spot\Http\Controllers\Api\AddressesController::class . '@index');
-        Route::post('addresses', Spot\Http\Controllers\Api\AddressesController::class . '@store');
+        Route::get('addresses/{id}', Api\AddressesController::class . '@show');
+        Route::put('addresses/{id}', Api\AddressesController::class . '@update');
+        Route::delete('addresses/{id}', Api\AddressesController::class . '@destroy');
+        Route::get('addresses', Api\AddressesController::class . '@index');
+        Route::post('addresses', Api\AddressesController::class . '@store');
+
+        # amenities
+        Route::get('amenities/{amenity}', Api\AmenitiesController::class . '@show');
+        Route::put('amenities/{amenity}', Api\AmenitiesController::class . '@update');
+        Route::delete('amenities/{amenity}', Api\AmenitiesController::class . '@destroy');
+        Route::get('amenities', Api\AmenitiesController::class . '@index');
+        Route::post('amenities', Api\AmenitiesController::class . '@store');
 
         # events
-        Route::get('events/{id}', Spot\Http\Controllers\Api\EventsController::class . '@show');
-        Route::put('events/{id}', Spot\Http\Controllers\Api\EventsController::class . '@update');
-        Route::delete('events/{id}', Spot\Http\Controllers\Api\EventsController::class . '@destroy');
-        Route::get('events', Spot\Http\Controllers\Api\EventsController::class . '@index');
-        Route::post('events', Spot\Http\Controllers\Api\EventsController::class . '@store');
+        Route::get('events/{id}', Api\EventsController::class . '@show');
+        Route::put('events/{id}', Api\EventsController::class . '@update');
+        Route::delete('events/{id}', Api\EventsController::class . '@destroy');
+        Route::get('events', Api\EventsController::class . '@index');
+        Route::post('events', Api\EventsController::class . '@store');
 
         # places
-        Route::get('places/{id}', Spot\Http\Controllers\Api\PlacesController::class . '@show');
-        Route::put('places/{id}', Spot\Http\Controllers\Api\PlacesController::class . '@update');
-        Route::delete('places/{id}', Spot\Http\Controllers\Api\PlacesController::class . '@destroy');
-        Route::get('places', Spot\Http\Controllers\Api\PlacesController::class . '@index');
-        Route::post('places', Spot\Http\Controllers\Api\PlacesController::class . '@store');
+        Route::get('places/{id}', Api\PlacesController::class . '@show');
+        Route::put('places/{id}', Api\PlacesController::class . '@update');
+        Route::delete('places/{id}', Api\PlacesController::class . '@destroy');
+        Route::get('places', Api\PlacesController::class . '@index');
+        Route::post('places', Api\PlacesController::class . '@store');
     }
 );
