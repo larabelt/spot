@@ -55,16 +55,33 @@
             </div>
         </div>
     </div>
-    <div class="form-group" :class="{ 'has-error': event.error('intro') }">
-        <label for="intro">Intro</label>
-        <textarea class="form-control" rows="10" v-model="event.intro"></textarea>
-        <span v-for="error in event.error('intro')" class="text-danger">{{ error }}</span>
-    </div>
+    <!--<div class="form-group" :class="{ 'has-error': event.error('intro') }">-->
+        <!--<label for="intro">Intro</label>-->
+        <!--<textarea class="form-control" rows="10" v-model="event.intro"></textarea>-->
+        <!--<span v-for="error in event.error('intro')" class="text-danger">{{ error }}</span>-->
+    <!--</div>-->
     <div class="form-group" :class="{ 'has-error': event.error('body') }">
         <label for="body">Body</label>
         <textarea class="form-control" rows="10" v-model="event.body" v-tinymce></textarea>
         <span v-for="error in event.error('body')" class="text-danger">{{ error }}</span>
     </div>
+
+    <div class="form-group" :class="{ 'has-error': event.error('meta_title') }">
+        <label for="meta_title">Meta Title</label>
+        <input type="text" class="form-control" v-model="event.meta_title" placeholder="meta title">
+        <span v-for="error in event.error('meta_title')" class="text-danger">{{ error }}</span>
+    </div>
+    <div class="form-group" :class="{ 'has-error': event.error('meta_description') }">
+        <label for="meta_description">Meta Description</label>
+        <textarea class="form-control" rows="10" v-model="event.meta_description"></textarea>
+        <span v-for="error in event.error('meta_description')" class="text-danger">{{ error }}</span>
+    </div>
+    <div class="form-group" :class="{ 'has-error': event.error('meta_keywords') }">
+        <label for="meta_keywords">Meta Keywords</label>
+        <textarea class="form-control" rows="10" v-model="event.meta_keywords"></textarea>
+        <span v-for="error in event.error('meta_keywords')" class="text-danger">{{ error }}</span>
+    </div>
+
     <div class="text-right">
         <button type="submit" class="btn btn-primary" :disabled="event.errors.any()">
             <span v-if="event.saving"><i class="fa fa-spinner fa-pulse fa-fw"></i></span>
