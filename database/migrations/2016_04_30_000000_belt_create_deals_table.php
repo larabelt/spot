@@ -27,6 +27,8 @@ class BeltCreateDealsTable extends Migration
             $table->string('url')->nullable();
             $table->string('email', 100)->nullable();
             $table->string('phone', 25)->nullable();
+            $table->string('phone_tollfree', 25)->nullable();
+            $table->integer('capacity')->nullable();
             $table->string('meta_title')->nullable();
             $table->text('meta_description')->nullable();
             $table->text('meta_keywords')->nullable();
