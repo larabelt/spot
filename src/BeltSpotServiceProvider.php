@@ -68,10 +68,18 @@ class BeltSpotServiceProvider extends ServiceProvider
 
         // route model binding
         $router->model('address', Belt\Spot\Address::class);
-        $router->model('amenity', Belt\Spot\Amenity::class);
-        $router->model('deal', Belt\Spot\Deal::class);
-        $router->model('event', Belt\Spot\Event::class);
-        $router->model('place', Belt\Spot\Place::class);
+        $router->model('amenity', Belt\Spot\Amenity::class, function ($value) {
+            return Belt\Spot\Amenity::sluggish($value)->first();
+        });
+        $router->model('deal', Belt\Spot\Deal::class, function ($value) {
+            return Belt\Spot\Deal::sluggish($value)->first();
+        });
+        $router->model('event', Belt\Spot\Event::class, function ($value) {
+            return Belt\Spot\Event::sluggish($value)->first();
+        });
+        $router->model('place', Belt\Spot\Place::class, function ($value) {
+            return Belt\Spot\Place::sluggish($value)->first();
+        });
 
         // commands
         $this->commands(Belt\Spot\Commands\GeoCoderCommand::class);
