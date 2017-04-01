@@ -36,6 +36,8 @@ class BeltCreateEventsTable extends Migration
             $table->dateTime('ends_at')->nullable();
             $table->softDeletes();
             $table->timestamps();
+            $table->string('template')->default('default');
+            $table->text('searchable')->nullable();
         });
     }
 
