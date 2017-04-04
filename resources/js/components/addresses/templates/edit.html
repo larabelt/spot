@@ -1,0 +1,22 @@
+<div>
+    <div class="box box-warning">
+        <div class="box-header with-border">
+            <span class="pull-right"><button class="btn btn-default" @click.prevent="close()"><i class="fa fa-times"></i></button></span>
+            <h3 class="box-title">{{ form.name }}</h3>
+        </div>
+        <div class="box-body">
+
+            <address-form></address-form>
+
+            <div class="alt-box-footer text-right">
+                <button type="submit" class="btn btn-primary" :disabled="form.errors.any()" @click.prevent="save()">
+                    <span v-if="form.saving"><i class="fa fa-spinner fa-pulse fa-fw"></i></span>
+                    <span v-else>Save</span>
+                </button>
+            </div>
+        </div>
+        <div class="box-footer">
+
+        </div>
+    </div>
+</div>

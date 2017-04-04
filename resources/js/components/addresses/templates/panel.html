@@ -1,0 +1,37 @@
+<div class="box box-primary">
+    <div class="box-body">
+
+        <div class="row">
+            <div class="col-md-12">
+                <span class="pull-right">
+                    <span class="btn-group">
+                        <modal-delete :itemId="address.id"></modal-delete>
+                        <button class="btn btn-xs btn-default" @click.prevent="setEditing(address.id)">
+                            <i class="fa fa-edit"></i>
+                        </button>
+                    </span>
+                </span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <p v-if="address.name">{{ address.name }}</p>
+                <p v-if="address.line1">{{ address.line1 }}</p>
+                <p v-if="address.line2">{{ address.line2 }}</p>
+                <p v-if="address.line3">{{ address.line3 }}</p>
+                <p v-if="address.line4">{{ address.line4 }}</p>
+                <p><span v-if="address.locality">{{ address.locality }}</span>
+                    <span v-if="address.region">{{ address.region }},</span>
+                    <span v-if="address.postcode">{{ address.postcode }}</span>
+                </p>
+            </div>
+            <div class="col-md-6">
+                <p v-if="address.lat && address.lng">
+                    <i class="fa fa-map-marker"></i> {{ address.lat }}, {{ address.lng }}
+                </p>
+            </div>
+        </div>
+
+    </div>
+</div>

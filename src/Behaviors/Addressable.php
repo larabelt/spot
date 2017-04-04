@@ -8,12 +8,12 @@ trait Addressable
 
     public function address()
     {
-        return $this->morphOne(Address::class, 'addressable')->where('delta', 1.00);
+        return $this->morphOne(Address::class, 'addressable')->orderBy('delta');
     }
 
     public function addresses()
     {
-        return $this->morphMany(Address::class, 'addressable')->orderby('delta');
+        return $this->morphMany(Address::class, 'addressable')->orderBy('delta');
     }
 
 }

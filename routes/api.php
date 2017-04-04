@@ -9,11 +9,16 @@ Route::group([
     function () {
 
         # addresses
-        Route::get('addresses/{id}', Api\AddressesController::class . '@show');
-        Route::put('addresses/{id}', Api\AddressesController::class . '@update');
-        Route::delete('addresses/{id}', Api\AddressesController::class . '@destroy');
-        Route::get('addresses', Api\AddressesController::class . '@index');
-        Route::post('addresses', Api\AddressesController::class . '@store');
+        Route::group([
+            'prefix' => '{addressable_type}/{addressable_id}/addresses',
+            'middleware' => 'request.injections:addressable_type,addressable_id'
+        ], function () {
+            Route::get('{id}', Api\AddressesController::class . '@show');
+            Route::put('{id}', Api\AddressesController::class . '@update');
+            Route::delete('{id}', Api\AddressesController::class . '@destroy');
+            Route::get('', Api\AddressesController::class . '@index');
+            Route::post('', Api\AddressesController::class . '@store');
+        });
 
         # amenities
         Route::get('amenities/{amenity}', Api\AmenitiesController::class . '@show');

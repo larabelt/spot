@@ -1,0 +1,22 @@
+<div>
+    <create v-if="mode == 'create'"></create>
+    <edit v-if="mode == 'edit'" :address="form"></edit>
+    <div v-if="mode == 'index'" class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <button class="btn btn-xs btn-default" @click.prevent="setCreating()">New Address</button>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div v-if="addresses.items.length">
+                <div v-for="address in addresses.items">
+                    <panel :address="address"></panel>
+                </div>
+                <pagination :route="'addressIndex'"></pagination>
+            </div>
+            <div v-else>
+                <p>There are no addresses for this item.</p>
+            </div>
+        </div>
+    </div>
+</div>
