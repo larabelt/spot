@@ -16,7 +16,9 @@ class Event extends Model implements
     Belt\Glue\Behaviors\CategorizableInterface,
     Belt\Glue\Behaviors\TaggableInterface,
     Belt\Spot\Behaviors\AddressableInterface,
-    Belt\Clip\Behaviors\ClippableInterface
+    Belt\Clip\Behaviors\ClippableInterface,
+    Belt\Content\Behaviors\HasSectionsInterface,
+    Belt\Content\Behaviors\IncludesTemplateInterface
 {
     use Belt\Core\Behaviors\HasSortableTrait;
     use Belt\Core\Behaviors\Sluggable;
@@ -27,6 +29,8 @@ class Event extends Model implements
     use Belt\Glue\Behaviors\Taggable;
     use Belt\Spot\Behaviors\Addressable;
     use Belt\Clip\Behaviors\Clippable;
+    use Belt\Content\Behaviors\HasSections;
+    use Belt\Content\Behaviors\IncludesTemplate;
 
     /**
      * @var string
