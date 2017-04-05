@@ -1,0 +1,151 @@
+<?php
+
+namespace Belt\Spot\Http\Controllers\Api;
+
+use Belt\Core\Http\Controllers\ApiController;
+use Belt\Spot\Itinerary;
+use Belt\Spot\Http\Requests;
+
+/**
+ * Class ItinerariesController
+ * @package Belt\Spot\Http\Controllers\Api
+ */
+class ItinerariesController extends ApiController
+{
+
+    /**
+     * @var Itinerary
+     */
+    public $itinerary;
+
+    /**
+     * ApiController constructor.
+     * @param Itinerary $itinerary
+     */
+    public function __construct(Itinerary $itinerary)
+    {
+        $this->itineraries = $itinerary;
+    }
+
+    /**
+     * @param $id
+     */
+    public function get($id)
+    {
+        return $this->itineraries->with('attachment')->find($id) ?: $this->abort(404);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @param $request
+     * @return \Illuminate\Http\Response
+     */
+    public function index(Requests\PaginateItineraries $request)
+    {
+        $this->authorize('index', Itinerary::class);
+
+        $paginator = $this->paginator($this->itineraries->query(), $request->reCapture());
+
+        return response()->json($paginator->toArray());
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  Requests\StoreItinerary $request
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Requests\StoreItinerary $request)
+    {
+        $this->authorize('create', Itinerary::class);
+
+        $input = $request->all();
+
+        $itinerary = $this->itineraries->create([
+            'name' => $input['name'],
+        ]);
+
+        $this->set($itinerary, $input, [
+            'template',
+            'slug',
+            'body',
+            'heading',
+            'meta_title',
+            'meta_description',
+            'meta_keywords',
+        ]);
+
+        $itinerary->save();
+
+        return response()->json($itinerary, 201);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int $id
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        $itinerary = $this->get($id);
+
+        $this->authorize('view', $itinerary);
+
+        return response()->json($itinerary);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  Requests\UpdateItinerary $request
+     * @param  string $id
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Requests\UpdateItinerary $request, $id)
+    {
+        $itinerary = $this->get($id);
+
+        $this->authorize('update', $itinerary);
+
+        $input = $request->all();
+
+        $this->set($itinerary, $input, [
+            'template',
+            'slug',
+            'name',
+            'body',
+            'heading',
+            'meta_title',
+            'meta_description',
+            'meta_keywords',
+        ]);
+
+        $itinerary->save();
+
+        return response()->json($itinerary);
+    }
+
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int $id
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        $itinerary = $this->get($id);
+
+        $this->authorize('delete', $itinerary);
+
+        $itinerary->delete();
+
+        return response()->json(null, 204);
+    }
+}

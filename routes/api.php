@@ -53,6 +53,13 @@ Route::group([
         Route::get('events', Api\EventsController::class . '@index');
         Route::post('events', Api\EventsController::class . '@store');
 
+        # itineraries
+        Route::get('itineraries/{id}', Api\ItinerariesController::class . '@show');
+        Route::put('itineraries/{id}', Api\ItinerariesController::class . '@update');
+        Route::delete('itineraries/{id}', Api\ItinerariesController::class . '@destroy');
+        Route::get('itineraries', Api\ItinerariesController::class . '@index');
+        Route::post('itineraries', Api\ItinerariesController::class . '@store');
+
         # places
         Route::get('places/{id}', Api\PlacesController::class . '@show');
         Route::put('places/{id}', Api\PlacesController::class . '@update');

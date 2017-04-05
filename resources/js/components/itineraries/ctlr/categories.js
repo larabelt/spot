@@ -1,11 +1,11 @@
 import shared from './shared';
 
 // components
-import attachments from 'belt/clip/js/components/clippables/ctlr/index';
+import categories from 'belt/glue/js/components/categorizables/ctlr-edit';
 
 export default {
     mixins: [shared],
     components: {
-        tab: attachments,
+        tab: categories,
     },
 }

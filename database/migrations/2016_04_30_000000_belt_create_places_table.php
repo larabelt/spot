@@ -32,12 +32,11 @@ class BeltCreatePlacesTable extends Migration
             $table->string('meta_title')->nullable();
             $table->text('meta_description')->nullable();
             $table->text('meta_keywords')->nullable();
+            $table->text('searchable')->nullable();
             $table->dateTime('starts_at')->nullable();
             $table->dateTime('ends_at')->nullable();
             $table->softDeletes();
             $table->timestamps();
-            $table->string('template')->default('default');
-            $table->text('searchable')->nullable();
         });
     }
 

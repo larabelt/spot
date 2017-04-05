@@ -1,0 +1,38 @@
+<form role="form" @submit.prevent="itinerary.submit()" @keydown="itinerary.errors.clear($event.target.name)">
+    <div class="form-group" :class="{ 'has-error': itinerary.error('name') }">
+        <label for="name">Name</label>
+        <input type="name" class="form-control" v-model="itinerary.name" itineraryholder="name">
+        <span v-for="error in itinerary.error('name')" class="text-danger">{{ error }}</span>
+    </div>
+    <div v-if="itinerary.id" class="form-group" :class="{ 'has-error': itinerary.error('slug') }">
+        <label for="slug">Slug</label>
+        <input type="slug" class="form-control" v-model="itinerary.slug" itineraryholder="slug">
+        <span v-for="error in itinerary.error('slug')" class="text-danger">{{ error }}</span>
+    </div>
+    <div class="form-group" :class="{ 'has-error': itinerary.error('body') }">
+        <label for="body">Body</label>
+        <textarea class="form-control" rows="10" v-model="itinerary.body" tinymce="'body'"></textarea>
+        <span v-for="error in itinerary.error('body')" class="text-danger">{{ error }}</span>
+    </div>
+    <div class="form-group" :class="{ 'has-error': itinerary.error('meta_title') }">
+        <label for="meta_title">Meta Title</label>
+        <input type="text" class="form-control" v-model="itinerary.meta_title" itineraryholder="meta title">
+        <span v-for="error in itinerary.error('meta_title')" class="text-danger">{{ error }}</span>
+    </div>
+    <div class="form-group" :class="{ 'has-error': itinerary.error('meta_description') }">
+        <label for="meta_description">Meta Description</label>
+        <textarea class="form-control" rows="10" v-model="itinerary.meta_description"></textarea>
+        <span v-for="error in itinerary.error('meta_description')" class="text-danger">{{ error }}</span>
+    </div>
+    <div class="form-group" :class="{ 'has-error': itinerary.error('meta_keywords') }">
+        <label for="meta_keywords">Meta Keywords</label>
+        <textarea class="form-control" rows="10" v-model="itinerary.meta_keywords"></textarea>
+        <span v-for="error in itinerary.error('meta_keywords')" class="text-danger">{{ error }}</span>
+    </div>
+    <div class="text-right">
+        <button type="submit" class="btn btn-primary" :disabled="itinerary.errors.any()">
+            <span v-if="itinerary.saving"><i class="fa fa-spinner fa-pulse fa-fw"></i></span>
+            <span v-else>Save</span>
+        </button>
+    </div>
+</form>
