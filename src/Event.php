@@ -55,6 +55,11 @@ class Event extends Model implements
     /**
      * @var array
      */
+    protected $appends = ['image'];
+
+    /**
+     * @var array
+     */
     public static $presets = [
         [100, 100, 'fit'],
         [222, 222, 'resize'],
