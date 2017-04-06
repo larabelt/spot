@@ -1,9 +1,11 @@
 <?php
+
 namespace Belt\Spot;
 
 use Belt;
 use Belt\Clip\Attachment;
 use Illuminate\Database\Eloquent\Model;
+use Rutorika\Sortable\BelongsToSortedManyTrait;
 
 /**
  * Class Itinerary
@@ -30,6 +32,8 @@ class Itinerary extends Model implements
     use Belt\Content\Behaviors\Sectionable;
     use Belt\Glue\Behaviors\Categorizable;
     use Belt\Glue\Behaviors\Taggable;
+    use BelongsToSortedManyTrait;
+
 
     /**
      * @var string
@@ -45,5 +49,13 @@ class Itinerary extends Model implements
      * @var array
      */
     protected $fillable = ['name', 'body'];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function places()
+    {
+        return $this->hasMany(ItineraryPlace::class);
+    }
 
 }

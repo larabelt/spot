@@ -1,0 +1,31 @@
+<div>
+    <edit v-if="mode == 'edit'"></edit>
+    <template v-if="mode == 'index'">
+        <div class="sections-index">
+            <div>
+                <form role="form" class="form-inline" style="margin-bottom: 20px;">
+                    <div class="form-group">
+                        <input type="text" class="form-control" v-model.trim="places.query.q" @keyup="places.index()" placeholder="search places">
+                    </div>
+                </form>
+                <table v-if="places.query.q" class="table table-striped table-condensed table-hover">
+                    <tbody>
+                    <tr v-for="place in places.items">
+                        <td>{{ place.name }}</td>
+                        <td class="text-right">
+                            <a class="btn btn-xs btn-primary" @click="attach(place.id)"><i class="fa fa-link"></i></a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <template v-if="itineraryPlaces.items.length">
+                <template v-for="itineraryPlace in itineraryPlaces.items">
+                    <div class="row">
+                        <panel :itineraryPlace="itineraryPlace"></panel>
+                    </div>
+                </template>
+            </template>
+        </div>
+    </template>
+</div>

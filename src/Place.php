@@ -1,4 +1,5 @@
 <?php
+
 namespace Belt\Spot;
 
 use Belt;
@@ -23,6 +24,7 @@ class Place extends Model implements
 {
     use Belt\Core\Behaviors\HasSortableTrait;
     use Belt\Core\Behaviors\Sluggable;
+    use Belt\Clip\Behaviors\Clippable;
     use Belt\Content\Behaviors\IncludesContent;
     use Belt\Content\Behaviors\Handleable;
     use Belt\Content\Behaviors\IncludesSeo;
@@ -30,7 +32,6 @@ class Place extends Model implements
     use Belt\Glue\Behaviors\Taggable;
     use Belt\Spot\Behaviors\Addressable;
     use Belt\Spot\Behaviors\HasAmenities;
-    use Belt\Clip\Behaviors\Clippable;
     use Belt\Content\Behaviors\HasSections;
     use Belt\Content\Behaviors\IncludesTemplate;
 

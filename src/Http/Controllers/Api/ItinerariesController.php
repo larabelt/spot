@@ -24,15 +24,7 @@ class ItinerariesController extends ApiController
      */
     public function __construct(Itinerary $itinerary)
     {
-        $this->itineraries = $itinerary;
-    }
-
-    /**
-     * @param $id
-     */
-    public function get($id)
-    {
-        return $this->itineraries->with('attachment')->find($id) ?: $this->abort(404);
+        $this->itinerary = $itinerary;
     }
 
     /**
@@ -45,7 +37,7 @@ class ItinerariesController extends ApiController
     {
         $this->authorize('index', Itinerary::class);
 
-        $paginator = $this->paginator($this->itineraries->query(), $request->reCapture());
+        $paginator = $this->paginator($this->itinerary->query(), $request->reCapture());
 
         return response()->json($paginator->toArray());
     }
@@ -63,7 +55,7 @@ class ItinerariesController extends ApiController
 
         $input = $request->all();
 
-        $itinerary = $this->itineraries->create([
+        $itinerary = $this->itinerary->create([
             'name' => $input['name'],
         ]);
 
@@ -85,14 +77,12 @@ class ItinerariesController extends ApiController
     /**
      * Display the specified resource.
      *
-     * @param  int $id
+     * @param  Itinerary $itinerary
      *
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($itinerary)
     {
-        $itinerary = $this->get($id);
-
         $this->authorize('view', $itinerary);
 
         return response()->json($itinerary);
@@ -102,14 +92,12 @@ class ItinerariesController extends ApiController
      * Update the specified resource in storage.
      *
      * @param  Requests\UpdateItinerary $request
-     * @param  string $id
+     * @param  Itinerary $itinerary
      *
      * @return \Illuminate\Http\Response
      */
-    public function update(Requests\UpdateItinerary $request, $id)
+    public function update(Requests\UpdateItinerary $request, $itinerary)
     {
-        $itinerary = $this->get($id);
-
         $this->authorize('update', $itinerary);
 
         $input = $request->all();
@@ -134,14 +122,12 @@ class ItinerariesController extends ApiController
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
+     * @param  Itinerary $itinerary
      *
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($itinerary)
     {
-        $itinerary = $this->get($id);
-
         $this->authorize('delete', $itinerary);
 
         $itinerary->delete();

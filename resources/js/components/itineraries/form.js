@@ -9,19 +9,14 @@ class ItineraryForm extends BaseForm {
         this.routeEditName = 'itineraries.edit';
         this.setData({
             id: '',
-            attachment_id: '',
-            is_active: 0,
             name: '',
             slug: '',
+            heading: '',
             body: '',
-            intro: '',
-            phone: '',
-            phone_tollfree: '',
+            meta_title: '',
+            meta_keywords: '',
+            meta_description: '',
         })
-    }
-
-    getAttachmentId() {
-        return this.attachment_id;
     }
 
 }

@@ -71,19 +71,19 @@ class BeltSpotServiceProvider extends ServiceProvider
         // route model binding
         $router->model('address', Belt\Spot\Address::class);
         $router->model('amenity', Belt\Spot\Amenity::class, function ($value) {
-            return Belt\Spot\Amenity::sluggish($value)->first();
+            return Belt\Spot\Amenity::sluggish($value)->firstOrFail();
         });
         $router->model('deal', Belt\Spot\Deal::class, function ($value) {
-            return Belt\Spot\Deal::sluggish($value)->first();
+            return Belt\Spot\Deal::sluggish($value)->firstOrFail();
         });
         $router->model('event', Belt\Spot\Event::class, function ($value) {
-            return Belt\Spot\Event::sluggish($value)->first();
+            return Belt\Spot\Event::sluggish($value)->firstOrFail();
         });
         $router->model('itinerary', Belt\Spot\Itinerary::class, function ($value) {
-            return Belt\Spot\Itinerary::sluggish($value)->first();
+            return Belt\Spot\Itinerary::sluggish($value)->firstOrFail();
         });
         $router->model('place', Belt\Spot\Place::class, function ($value) {
-            return Belt\Spot\Place::sluggish($value)->first();
+            return Belt\Spot\Place::sluggish($value)->firstOrFail();
         });
 
         // commands
