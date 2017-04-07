@@ -57,7 +57,7 @@ class Event extends Model implements
     /**
      * @var array
      */
-    protected $appends = ['image', 'type', 'url'];
+    protected $appends = ['image', 'type', 'default_url'];
 
     /**
      * @var array
@@ -77,7 +77,7 @@ class Event extends Model implements
         $this->attributes['is_searchable'] = boolval($value);
     }
 
-    public function getUrlAttribute()
+    public function getDefaultUrlAttribute()
     {
         if( $this->handle ) {
             return $this->handle->url;
