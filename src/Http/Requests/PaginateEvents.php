@@ -16,6 +16,7 @@ class PaginateEvents extends PaginateRequest
 
     public $searchable = [
         'events.name',
+        'events.searchable',
     ];
 
 }
