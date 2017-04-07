@@ -65,7 +65,7 @@ class ItineraryPlacesController extends ApiController
 
         $this->authorize('view', $itinerary);
 
-        $paginator = $this->paginator($this->itineraryPlace->query(), $request);
+        $paginator = $this->paginator($this->itineraryPlace->with('place'), $request);
 
         return response()->json($paginator->toArray());
     }
