@@ -55,7 +55,7 @@ class Place extends Model implements
     /**
      * @var array
      */
-    protected $appends = ['image', 'type'];
+    protected $appends = ['image', 'type', 'url'];
 
     /**
      * @var array
@@ -75,4 +75,12 @@ class Place extends Model implements
         $this->attributes['is_searchable'] = boolval($value);
     }
 
+    public function getUrlAttribute()
+    {
+        if( $this->handle ) {
+            return $this->handle->url;
+        }
+
+        return '/events/' . $this->id . '/' . $this->slug;
+    }
 }
