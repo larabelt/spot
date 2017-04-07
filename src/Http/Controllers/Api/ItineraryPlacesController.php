@@ -20,17 +20,33 @@ class ItineraryPlacesController extends ApiController
      */
     public $itineraryPlace;
 
+    /**
+     * ItineraryPlacesController constructor.
+     * @param ItineraryPlace $itineraryPlace
+     * @param Place $place
+     */
     public function __construct(ItineraryPlace $itineraryPlace, Place $place)
     {
         $this->itineraryPlace = $itineraryPlace;
         $this->place = $place;
     }
 
+    /**
+     * @param $itinerary
+     * @param $id
+     */
     public function contains($itinerary, $id)
     {
         if (!$itinerary->places->contains($id)) {
             $this->abort(404, 'itinerary does not have this place');
         }
+    }
+
+    public function itineraryPlace($id)
+    {
+        $itineraryPlace = $this->itineraryPlace->with('place')->find($id);
+
+        return $itineraryPlace ?: $this->abort(404);
     }
 
     /**
@@ -68,7 +84,7 @@ class ItineraryPlacesController extends ApiController
 
         $place_id = $request->get('place_id');
 
-        if ($itinerary->places->contains($place_id)) {
+        if ($itinerary->places->where('place_id', $place_id)->first()) {
             $this->abort(422, ['id' => ['place already attached']]);
         }
 
@@ -85,6 +101,8 @@ class ItineraryPlacesController extends ApiController
         ]);
 
         $itineraryPlace->save();
+
+        $itineraryPlace = $this->itineraryPlace($itineraryPlace->id);
 
         return response()->json($itineraryPlace, 201);
     }
@@ -104,7 +122,7 @@ class ItineraryPlacesController extends ApiController
 
         $this->contains($itinerary, $id);
 
-        $itineraryPlace = $this->itineraryPlace->find($id);
+        $itineraryPlace = $this->itineraryPlace($id);
 
         $input = $request->all();
 
@@ -134,7 +152,7 @@ class ItineraryPlacesController extends ApiController
 
         $this->contains($itinerary, $id);
 
-        $itineraryPlace = $this->itineraryPlace->find($id);
+        $itineraryPlace = $this->itineraryPlace($id);
 
         return response()->json($itineraryPlace);
     }
@@ -154,7 +172,7 @@ class ItineraryPlacesController extends ApiController
 
         $this->contains($itinerary, $id);
 
-        $itineraryPlace = $this->itineraryPlace->find($id);
+        $itineraryPlace = $this->itineraryPlace($id);
 
         $itineraryPlace->delete();
 

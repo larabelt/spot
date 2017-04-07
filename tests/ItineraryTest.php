@@ -3,8 +3,7 @@ use Mockery as m;
 
 use Belt\Core\Testing\BeltTestCase;
 use Belt\Spot\Itinerary;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class ItineraryTest extends BeltTestCase
 {
@@ -14,10 +13,14 @@ class ItineraryTest extends BeltTestCase
     }
 
     /**
+     * @covers \Belt\Spot\Itinerary::places
      */
     public function test()
     {
         $itinerary = new Itinerary();
+
+        # places
+        $this->assertInstanceOf(HasMany::class, $itinerary->places());
     }
 
 }
