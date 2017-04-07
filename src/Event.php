@@ -83,6 +83,6 @@ class Event extends Model implements
             return $this->handle->url;
         }
 
-        return 'places/' . $this->id . '/' . $this->slug;
+        return 'events/' . $this->id . '/' . $this->slug;
     }
 }
