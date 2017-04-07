@@ -60,4 +60,12 @@ class Itinerary extends Model implements
         return $this->hasMany(ItineraryPlace::class);
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function itineraryPlaces()
+    {
+        return $this->hasMany(ItineraryPlace::class)->with('place');
+    }
+
 }
