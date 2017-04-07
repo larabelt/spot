@@ -74,13 +74,4 @@ class Place extends Model implements
     {
         $this->attributes['is_searchable'] = boolval($value);
     }
-
-    public function getDefaultUrlAttribute()
-    {
-        if( $this->handle ) {
-            return $this->handle->url;
-        }
-
-        return 'places/' . $this->id . '/' . $this->slug;
-    }
 }
