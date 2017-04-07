@@ -20,7 +20,8 @@ class Itinerary extends Model implements
     Belt\Content\Behaviors\IncludesSeoInterface,
     Belt\Content\Behaviors\SectionableInterface,
     Belt\Glue\Behaviors\CategorizableInterface,
-    Belt\Glue\Behaviors\TaggableInterface
+    Belt\Glue\Behaviors\TaggableInterface,
+    Belt\Content\Behaviors\HandleableInterface
 {
     use Belt\Core\Behaviors\HasSortableTrait;
     use Belt\Core\Behaviors\Sluggable;
@@ -33,6 +34,7 @@ class Itinerary extends Model implements
     use Belt\Glue\Behaviors\Categorizable;
     use Belt\Glue\Behaviors\Taggable;
     use BelongsToSortedManyTrait;
+    use Belt\Content\Behaviors\Handleable;
 
 
     /**
@@ -48,7 +50,7 @@ class Itinerary extends Model implements
     /**
      * @var array
      */
-    protected $fillable = ['name', 'body'];
+    protected $fillable = ['name', 'body', 'default_url'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
