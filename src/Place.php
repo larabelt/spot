@@ -81,6 +81,6 @@ class Place extends Model implements
             return $this->handle->url;
         }
 
-        return '/events/' . $this->id . '/' . $this->slug;
+        return 'events/' . $this->id . '/' . $this->slug;
     }
 }
