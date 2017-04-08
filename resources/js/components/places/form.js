@@ -17,6 +17,9 @@ class PlaceForm extends BaseForm {
             intro: '',
             phone: '',
             phone_tollfree: '',
+            meta_title: '',
+            meta_description: '',
+            meta_keywords: '',
         })
     }
 

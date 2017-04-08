@@ -24,6 +24,9 @@ class eventForm extends BaseForm {
             ends_at_time: '',
             phone: '',
             phone_tollfree: '',
+            meta_title: '',
+            meta_description: '',
+            meta_keywords: '',
         })
     }
 
