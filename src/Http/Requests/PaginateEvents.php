@@ -2,6 +2,9 @@
 namespace Belt\Spot\Http\Requests;
 
 use Belt\Core\Http\Requests\PaginateRequest;
+use Belt\Glue\Http\Requests\PaginateCategorizables;
+use Belt\Glue\Http\Requests\PaginateTaggables;
+use Illuminate\Database\Eloquent\Builder;
 
 class PaginateEvents extends PaginateRequest
 {
@@ -18,5 +21,13 @@ class PaginateEvents extends PaginateRequest
         'events.name',
         'events.searchable',
     ];
+
+    public function modifyQuery(Builder $query)
+    {
+        $query = PaginateCategorizables::scopeHasCategory($this, $query);
+        $query = PaginateTaggables::scopeHasTag($this, $query);
+
+        return $query;
+    }
 
 }

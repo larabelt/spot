@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Deal extends Model implements
     Belt\Core\Behaviors\SluggableInterface,
+    Belt\Core\Behaviors\TypeInterface,
     Belt\Content\Behaviors\HandleableInterface,
     Belt\Content\Behaviors\IncludesContentInterface,
     Belt\Content\Behaviors\IncludesSeoInterface,
@@ -20,6 +21,7 @@ class Deal extends Model implements
 {
     use Belt\Core\Behaviors\HasSortableTrait;
     use Belt\Core\Behaviors\Sluggable;
+    use Belt\Core\Behaviors\TypeTrait;
     use Belt\Clip\Behaviors\Clippable;
     use Belt\Content\Behaviors\IncludesContent;
     use Belt\Content\Behaviors\Handleable;
