@@ -1,4 +1,5 @@
 <?php
+
 namespace Belt\Spot\Http\Requests;
 
 use Belt\Core\Http\Requests\PaginateRequest;
@@ -26,6 +27,10 @@ class PaginatePlaces extends PaginateRequest
     {
         $query = PaginateCategorizables::scopeHasCategory($this, $query);
         $query = PaginateTaggables::scopeHasTag($this, $query);
+
+        if ($is_active = $this->get('is_active')) {
+            $query->where('is_active', $is_active);
+        }
 
         return $query;
     }
