@@ -52,7 +52,12 @@ class Itinerary extends Model implements
     /**
      * @var array
      */
-    protected $fillable = ['name', 'body', 'default_url', 'image'];
+    protected $fillable = ['name', 'body'];
+
+    /**
+     * @var array
+     */
+    protected $appends = ['image', 'type', 'default_url'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
