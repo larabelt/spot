@@ -78,6 +78,8 @@ class EventsController extends ApiController
             'meta_title',
             'meta_description',
             'meta_keywords',
+            'starts_at',
+            'ends_at',
         ]);
 
         $event->save();
@@ -135,6 +137,8 @@ class EventsController extends ApiController
             'meta_title',
             'meta_description',
             'meta_keywords',
+            'starts_at',
+            'ends_at',
         ]);
 
         $event->save();
