@@ -16,17 +16,17 @@ class eventForm extends BaseForm {
             slug: '',
             intro: '',
             body: '',
+            phone: '',
+            phone_tollfree: '',
+            meta_title: '',
+            meta_description: '',
+            meta_keywords: '',
             starts_at: '',
             starts_at_date: '',
             starts_at_time: '',
             ends_at: '',
             ends_at_date: '',
             ends_at_time: '',
-            phone: '',
-            phone_tollfree: '',
-            meta_title: '',
-            meta_description: '',
-            meta_keywords: '',
         })
     }
 
@@ -40,14 +40,28 @@ class eventForm extends BaseForm {
         if (this.starts_at) {
             let starts_at = moment(this.starts_at);
             this.starts_at_date = starts_at.format("YYYY-MM-DD");
-            this.starts_at_time = starts_at.format("HH:MM");
+            this.starts_at_time = starts_at.format("HH:mm");
         }
 
         if (this.ends_at) {
             let ends_at = moment(this.ends_at);
             this.ends_at_date = ends_at.format("YYYY-MM-DD");
-            this.ends_at_time = ends_at.format("HH:MM");
+            this.ends_at_time = ends_at.format("HH:mm");
         }
+    }
+
+    data() {
+        if (this.starts_at_date || this.starts_at_time) {
+            let starts_at = moment(this.starts_at_date + ' ' + this.starts_at_time);
+            this.starts_at = starts_at.format("YYYY-MM-DD HH:mm:00");
+        }
+
+        if (this.ends_at_date || this.ends_at_time) {
+            let ends_at = moment(this.ends_at_date + ' ' + this.ends_at_time);
+            this.ends_at = ends_at.format("YYYY-MM-DD HH:mm:00");
+        }
+
+        return super.data();
     }
 
 }
