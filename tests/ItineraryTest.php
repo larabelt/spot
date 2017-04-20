@@ -14,6 +14,7 @@ class ItineraryTest extends BeltTestCase
 
     /**
      * @covers \Belt\Spot\Itinerary::places
+     * @covers \Belt\Spot\Itinerary::itineraryPlaces
      */
     public function test()
     {
@@ -21,6 +22,9 @@ class ItineraryTest extends BeltTestCase
 
         # places
         $this->assertInstanceOf(HasMany::class, $itinerary->places());
+
+        # itineraryPlaces
+        $this->assertInstanceOf(HasMany::class, $itinerary->itineraryPlaces());
     }
 
 }

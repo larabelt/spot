@@ -84,10 +84,6 @@ class ItineraryPlacesController extends ApiController
 
         $place_id = $request->get('place_id');
 
-        //if ($itinerary->places->where('place_id', $place_id)->first()) {
-        //    $this->abort(422, ['id' => ['place already attached']]);
-        //}
-
         $itineraryPlace = $this->itineraryPlace->create([
             'itinerary_id' => $itinerary->id,
             'place_id' => $place_id,

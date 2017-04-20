@@ -23,12 +23,6 @@ class ItineraryPlacesFunctionalTest extends Testing\BeltTestCase
         $response->assertStatus(201);
         $placeID = array_get($response->json(), 'id');
 
-        # store (whre place_id already exists in itinerary)
-        $response = $this->json('POST', '/api/v1/itineraries/1/places', [
-            'place_id' => 10,
-        ]);
-        $response->assertStatus(422);
-
         # show
         $response = $this->json('GET', "/api/v1/itineraries/1/places/$placeID");
         $response->assertStatus(200);
