@@ -55,7 +55,7 @@ class Place extends Model implements
     /**
      * @var array
      */
-    protected $appends = ['image', 'type', 'default_url'];
+    protected $appends = ['image', 'type', 'default_url', 'morph_class'];
 
     /**
      * @var array

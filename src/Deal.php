@@ -53,7 +53,7 @@ class Deal extends Model implements
     /**
      * @var array
      */
-    protected $appends = ['image'];
+    protected $appends = ['image', 'morph_class'];
 
     /**
      * @var array
