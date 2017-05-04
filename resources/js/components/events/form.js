@@ -18,6 +18,7 @@ class eventForm extends BaseForm {
             body: '',
             phone: '',
             phone_tollfree: '',
+            url: '',
             meta_title: '',
             meta_description: '',
             meta_keywords: '',
