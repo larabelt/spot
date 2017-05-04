@@ -9,11 +9,12 @@ class PaginateEvents extends PaginateRequest
 {
     public $perEvent = 10;
 
-    public $orderBy = 'events.id';
+    public $orderBy = 'events.name';
 
     public $sortable = [
         'events.id',
         'events.name',
+        'events.starts_at',
     ];
 
     public $searchable = [

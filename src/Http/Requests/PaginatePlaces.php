@@ -10,7 +10,7 @@ class PaginatePlaces extends PaginateRequest
 {
     public $perPlace = 10;
 
-    public $orderBy = 'places.id';
+    public $orderBy = 'places.name';
 
     public $sortable = [
         'places.id',
