@@ -64,7 +64,7 @@ class Itinerary extends Model implements
      */
     public function places()
     {
-        return $this->hasMany(ItineraryPlace::class);
+        return $this->hasMany(ItineraryPlace::class)->orderBy('_lft');
     }
 
     /**
@@ -72,7 +72,7 @@ class Itinerary extends Model implements
      */
     public function itineraryPlaces()
     {
-        return $this->hasMany(ItineraryPlace::class)->with('place');
+        return $this->hasMany(ItineraryPlace::class)->with('place')->orderBy('_lft');
     }
 
 }
