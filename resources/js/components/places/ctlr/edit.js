@@ -13,16 +13,6 @@ import edit_html from '../templates/edit.html';
 import form_html from '../templates/form.html';
 
 export default {
-    data() {
-        return {
-            morphable_type: 'places',
-            morphable_id: this.$route.params.id,
-            place: new Form(),
-        }
-    },
-    mounted() {
-        this.place.show(this.morphable_id);
-    },
     components: {
         heading: {template: heading_html},
         tabs: {template: tabs_html},
@@ -32,5 +22,6 @@ export default {
             template: form_html,
         },
     },
+    mixins: [shared],
     template: edit_html,
 }
