@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Model;
  * @package Belt\Spot
  */
 class Place extends Model implements
+    Belt\Core\Behaviors\ParamableInterface,
     Belt\Core\Behaviors\SluggableInterface,
     Belt\Core\Behaviors\TypeInterface,
     Belt\Content\Behaviors\HandleableInterface,
@@ -24,6 +25,7 @@ class Place extends Model implements
     Belt\Content\Behaviors\IncludesTemplateInterface
 {
     use Belt\Core\Behaviors\HasSortableTrait;
+    use Belt\Core\Behaviors\Paramable;
     use Belt\Core\Behaviors\Sluggable;
     use Belt\Core\Behaviors\TypeTrait;
     use Belt\Clip\Behaviors\Clippable;

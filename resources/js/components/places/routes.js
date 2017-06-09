@@ -5,6 +5,7 @@ import addresses  from './ctlr/addresses';
 import amenities  from './ctlr/amenities';
 import categories  from './ctlr/categories';
 import attachments  from './ctlr/attachments';
+import params  from './ctlr/params';
 import sections  from './ctlr/sections';
 import tags  from './ctlr/tags';
 
@@ -18,4 +19,5 @@ export default [
     {path: '/places/edit/:id/categories', component: categories, name: 'places.categories'},
     {path: '/places/edit/:id/sections/:section?', component: sections, name: 'places.sections'},
     {path: '/places/edit/:id/tags', component: tags, name: 'places.tags'},
+    {path: '/places/edit/:id/params', component: params, name: 'places.params'},
 ]
