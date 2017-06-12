@@ -4,6 +4,8 @@ import shared from './shared';
 import edit_html from './templates/edit.html';
 import form_html from './templates/form.html';
 
+import coordinates from 'belt/core/js/components/base/coordinates';
+
 export default {
     mixins: [shared],
     methods: {
@@ -18,6 +20,9 @@ export default {
     components: {
         addressForm: {
             mixins: [shared],
+            components: {
+                coordinates,
+            },
             template: form_html,
         }
     },

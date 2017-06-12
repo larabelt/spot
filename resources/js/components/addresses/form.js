@@ -27,12 +27,15 @@ class Form extends BaseForm {
             postcode: '',
             region: '',
             country: '',
+            location: '',
             lat: 0,
             north_lat: 0,
             south_lat: 0,
             lng: 0,
             east_lng: 0,
             west_lng: 0,
+            altitude: 0,
+            zoom: 15,
         });
     }
 

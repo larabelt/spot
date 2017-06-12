@@ -35,6 +35,10 @@ export default {
                     });
             });
         },
+        saveCoordinates (payload) {
+            this.form.lat = payload.lat;
+            this.form.lng = payload.lng
+        },
         setEditing(id) {
             return new Promise((resolve, reject) => {
                 this.$router.push({params: {address: id}});

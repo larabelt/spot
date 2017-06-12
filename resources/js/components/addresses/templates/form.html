@@ -26,15 +26,37 @@
                             <input type="text" class="form-control" v-model="form.nickname" placeholder="nickname">
                             <span v-for="error in form.error('nickname')" class="text-danger">{{ error }}</span>
                         </div>
-                        <div class="form-group" :class="{ 'has-error': form.error('lat') }">
-                            <label for="lat">Latitude</label>
-                            <input type="text" class="form-control" v-model="form.lat" placeholder="latitude">
-                            <span v-for="error in form.error('lat')" class="text-danger">{{ error }}</span>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group" :class="{ 'has-error': form.error('lat') }">
+                                    <label for="lat">Latitude</label>
+                                    <input type="text" class="form-control" v-model="form.lat" placeholder="latitude">
+                                    <span v-for="error in form.error('lat')" class="text-danger">{{ error }}</span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group" :class="{ 'has-error': form.error('lng') }">
+                                    <label for="lng">Longitude</label>
+                                    <input type="text" class="form-control" v-model="form.lng" placeholder="longitude">
+                                    <span v-for="error in form.error('lng')" class="text-danger">{{ error }}</span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group" :class="{ 'has-error': form.error('lng') }">
-                            <label for="lng">Longitude</label>
-                            <input type="text" class="form-control" v-model="form.lng" placeholder="longitude">
-                            <span v-for="error in form.error('lng')" class="text-danger">{{ error }}</span>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group" :class="{ 'has-error': form.error('altitude') }">
+                                    <label for="altitude">Altitude</label>
+                                    <input type="text" class="form-control" v-model="form.altitude" placeholder="altitude">
+                                    <span v-for="error in form.error('altitude')" class="text-danger">{{ error }}</span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group" :class="{ 'has-error': form.error('zoom') }">
+                                    <label for="zoom">Zoom</label>
+                                    <input type="text" class="form-control" v-model="form.zoom" placeholder="zoom">
+                                    <span v-for="error in form.error('zoom')" class="text-danger">{{ error }}</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -97,6 +119,27 @@
                             <span v-for="error in form.error('east_lng')" class="text-danger">{{ error }}</span>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="" style="height: 500px" >
+                    <coordinates
+                            :lat="form.lat"
+                            :lng="form.lng"
+                            :zoom="form.zoom"
+                            @spot-updated="saveCoordinates">
+                    </coordinates>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group" :class="{ 'has-error': form.error('location') }">
+                    <label for="location">Location</label>
+                    <textarea class="form-control" rows="10" v-model="form.location"></textarea>
+                    <span v-for="error in form.error('location')" class="text-danger">{{ error }}</span>
                 </div>
             </div>
         </div>

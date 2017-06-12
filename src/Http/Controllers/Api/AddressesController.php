@@ -118,6 +118,8 @@ class AddressesController extends ApiController
             'east_lng',
             'west_lng',
             'delta',
+            'altitude',
+            'zoom',
         ]);
 
         $address->save();
@@ -185,6 +187,8 @@ class AddressesController extends ApiController
             'east_lng',
             'west_lng',
             'delta',
+            'altitude',
+            'zoom',
         ]);
 
         $address->save();
