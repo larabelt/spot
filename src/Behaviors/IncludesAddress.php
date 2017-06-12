@@ -23,7 +23,7 @@ trait IncludesAddress
         $lines = $this->sub_locality ? array_merge($lines, [$this->sub_locality]) : $lines;
         $lines[] = $this->country;
 
-        return implode($glue, $lines);
+        return trim( implode($glue, $lines), $glue );
     }
 
     /**
