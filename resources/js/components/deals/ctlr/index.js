@@ -1,4 +1,5 @@
 // helpers
+import Form from '../form';
 import Table from '../table';
 
 // templates make a change
@@ -18,6 +19,14 @@ export default {
             mounted() {
                 this.table.updateQueryFromRouter();
                 this.table.index();
+            },
+            methods: {
+                copy(id) {
+                    let form = new Form();
+                    form.service.baseUrl = '/api/v1/deals/?source=' + id;
+                    form.router = this.$router;
+                    form.submit();
+                }
             },
             template: index_html,
         },

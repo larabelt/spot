@@ -55,6 +55,10 @@ class PlacesController extends ApiController
     {
         $this->authorize('create', Place::class);
 
+        if ($source = $request->get('source')) {
+            return response()->json($this->places->copy($source), 201);
+        }
+
         $input = $request->all();
 
         $place = $this->places->create([

@@ -3,6 +3,8 @@
 namespace Belt\Spot;
 
 use Belt;
+use Belt\Content\Handle;
+use Belt\Content\Section;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -83,5 +85,44 @@ class Place extends Model implements
     public function setIsSearchableAttribute($value)
     {
         $this->attributes['is_searchable'] = boolval($value);
+    }
+
+    /**
+     * @param $place
+     * @return Model
+     */
+    public static function copy($place)
+    {
+        $place = $place instanceof Place ? $place : self::sluggish($place)->first();
+
+        $clone = $place->replicate();
+        $clone->slug .= '-' . strtotime('now');
+        $clone->push();
+
+        foreach ($place->addresses as $address) {
+            Address::copy($address, ['addressable_id' => $clone->id]);
+        }
+
+        foreach ($place->sections as $section) {
+            Section::copy($section, ['owner_id' => $clone->id]);
+        }
+
+        foreach ($place->attachments as $attachment) {
+            $clone->attachments()->attach($attachment);
+        }
+
+        foreach ($place->categories as $category) {
+            $clone->categories()->attach($category);
+        }
+
+        foreach ($place->handles as $handle) {
+            Handle::copy($handle, ['handleable_id' => $clone->id]);
+        }
+
+        foreach ($place->tags as $tag) {
+            $clone->tags()->attach($tag);
+        }
+
+        return $clone;
     }
 }

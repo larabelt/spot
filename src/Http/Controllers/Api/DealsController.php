@@ -55,6 +55,10 @@ class DealsController extends ApiController
     {
         $this->authorize('create', Deal::class);
 
+        if ($source = $request->get('source')) {
+            return response()->json($this->deals->copy($source), 201);
+        }
+
         $input = $request->all();
 
         $deal = $this->deals->create([

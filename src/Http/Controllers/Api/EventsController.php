@@ -55,6 +55,10 @@ class EventsController extends ApiController
     {
         $this->authorize('create', Event::class);
 
+        if ($source = $request->get('source')) {
+            return response()->json($this->events->copy($source), 201);
+        }
+
         $input = $request->all();
 
         $event = $this->events->create([

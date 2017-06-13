@@ -15,6 +15,12 @@ class StorePlace extends FormRequest
      */
     public function rules()
     {
+        if ($this->get('source')) {
+            return [
+                'source' => 'exists:places,id',
+            ];
+        }
+
         return [
             'name' => 'required',
         ];

@@ -66,4 +66,20 @@ class Address extends Model implements
         $this->attributes['geo_code'] = trim($value);
     }
 
+    /**
+     * @param $address
+     * @param array $options
+     * @return Model
+     */
+    public static function copy($address, $options = [])
+    {
+        $address = $address instanceof Address ? $address : self::find($address)->first();
+
+        $clone = $address->replicate();
+        $clone->addressable_id = array_get($options, 'addressable_id');
+        $clone->push();
+
+        return $clone;
+    }
+
 }

@@ -15,6 +15,12 @@ class StoreEvent extends FormRequest
      */
     public function rules()
     {
+        if ($this->get('source')) {
+            return [
+                'source' => 'exists:events,id',
+            ];
+        }
+
         return [
             'name' => 'required',
         ];

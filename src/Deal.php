@@ -2,6 +2,8 @@
 namespace Belt\Spot;
 
 use Belt;
+use Belt\Content\Handle;
+use Belt\Content\Section;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -71,6 +73,45 @@ class Deal extends Model implements
     public function setIsSearchableAttribute($value)
     {
         $this->attributes['is_searchable'] = boolval($value);
+    }
+
+    /**
+     * @param $deal
+     * @return Model
+     */
+    public static function copy($deal)
+    {
+        $deal = $deal instanceof Deal ? $deal : self::sluggish($deal)->first();
+
+        $clone = $deal->replicate();
+        $clone->slug .= '-' . strtotime('now');
+        $clone->push();
+
+        foreach ($deal->addresses as $address) {
+            Address::copy($address, ['addressable_id' => $clone->id]);
+        }
+
+        foreach ($deal->sections as $section) {
+            Section::copy($section, ['owner_id' => $clone->id]);
+        }
+
+        foreach ($deal->attachments as $attachment) {
+            $clone->attachments()->attach($attachment);
+        }
+
+        foreach ($deal->categories as $category) {
+            $clone->categories()->attach($category);
+        }
+
+        foreach ($deal->handles as $handle) {
+            Handle::copy($handle, ['handleable_id' => $clone->id]);
+        }
+
+        foreach ($deal->tags as $tag) {
+            $clone->tags()->attach($tag);
+        }
+
+        return $clone;
     }
 
 }

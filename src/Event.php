@@ -2,6 +2,8 @@
 namespace Belt\Spot;
 
 use Belt;
+use Belt\Content\Handle;
+use Belt\Content\Section;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -83,5 +85,44 @@ class Event extends Model implements
     public function setIsSearchableAttribute($value)
     {
         $this->attributes['is_searchable'] = boolval($value);
+    }
+
+    /**
+     * @param $event
+     * @return Model
+     */
+    public static function copy($event)
+    {
+        $event = $event instanceof Event ? $event : self::sluggish($event)->first();
+
+        $clone = $event->replicate();
+        $clone->slug .= '-' . strtotime('now');
+        $clone->push();
+
+        foreach ($event->addresses as $address) {
+            Address::copy($address, ['addressable_id' => $clone->id]);
+        }
+
+        foreach ($event->sections as $section) {
+            Section::copy($section, ['owner_id' => $clone->id]);
+        }
+
+        foreach ($event->attachments as $attachment) {
+            $clone->attachments()->attach($attachment);
+        }
+
+        foreach ($event->categories as $category) {
+            $clone->categories()->attach($category);
+        }
+
+        foreach ($event->handles as $handle) {
+            Handle::copy($handle, ['handleable_id' => $clone->id]);
+        }
+
+        foreach ($event->tags as $tag) {
+            $clone->tags()->attach($tag);
+        }
+
+        return $clone;
     }
 }

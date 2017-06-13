@@ -15,6 +15,12 @@ class StoreDeal extends FormRequest
      */
     public function rules()
     {
+        if ($this->get('source')) {
+            return [
+                'source' => 'exists:deals,id',
+            ];
+        }
+
         return [
             'name' => 'required',
         ];
