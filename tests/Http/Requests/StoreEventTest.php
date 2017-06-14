@@ -12,8 +12,10 @@ class StoreEventTest extends \PHPUnit_Framework_TestCase
     {
 
         $request = new StoreEvent();
-
         $this->assertNotEmpty($request->rules());
+
+        $request = new StoreEvent(['source' => 1]);
+        $this->assertArrayHasKey('source', $request->rules());
     }
 
 }

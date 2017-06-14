@@ -91,10 +91,6 @@ class Deal extends Model implements
             Address::copy($address, ['addressable_id' => $clone->id]);
         }
 
-        foreach ($deal->sections as $section) {
-            Section::copy($section, ['owner_id' => $clone->id]);
-        }
-
         foreach ($deal->attachments as $attachment) {
             $clone->attachments()->attach($attachment);
         }

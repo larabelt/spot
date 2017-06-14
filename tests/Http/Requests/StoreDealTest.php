@@ -12,8 +12,10 @@ class StoreDealTest extends \PHPUnit_Framework_TestCase
     {
 
         $request = new StoreDeal();
-
         $this->assertNotEmpty($request->rules());
+
+        $request = new StoreDeal(['source' => 1]);
+        $this->assertArrayHasKey('source', $request->rules());
     }
 
 }

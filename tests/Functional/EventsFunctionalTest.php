@@ -1,6 +1,7 @@
 <?php
 
 use Belt\Core\Testing;
+use Belt\Spot\Event;
 
 class EventsFunctionalTest extends Testing\BeltTestCase
 {
@@ -30,6 +31,21 @@ class EventsFunctionalTest extends Testing\BeltTestCase
         $this->json('PUT', "/api/v1/events/$eventID", ['name' => 'updated']);
         $response = $this->json('GET', "/api/v1/events/$eventID");
         $response->assertJson(['name' => 'updated']);
+
+        # copy
+        $this->json('POST', "/api/v1/events/$eventID/addresses", ['name' => 'test']);
+        $this->json('POST', "/api/v1/events/$eventID/attachments", ['id' => 1]);
+        $this->json('POST', "/api/v1/events/$eventID/categories", ['id' => 1]);
+        $this->json('POST', "/api/v1/events/$eventID/handles", ['url' => "events/$eventID"]);
+        $this->json('POST', "/api/v1/events/$eventID/sections", [
+            'sectionable_type' => 'sections',
+            'heading' => 'event',
+        ]);
+        $this->json('POST', "/api/v1/events/$eventID/tags", ['id' => 1]);
+        $response = $this->json('POST', "/api/v1/events", ['source' => $eventID]);
+        $newID = array_get($response->json(), 'id');
+        $response = $this->json('GET', "/api/v1/events/$newID");
+        $response->assertStatus(200);
 
         # delete
         $response = $this->json('DELETE', "/api/v1/events/$eventID");

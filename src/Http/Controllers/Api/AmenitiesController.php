@@ -23,11 +23,6 @@ class AmenitiesController extends ApiController
         $this->amenities = $amenity;
     }
 
-    public function get($id)
-    {
-        return $this->amenities->find($id) ?: $this->abort(404);
-    }
-
     /**
      * Display a listing of the resource.
      *

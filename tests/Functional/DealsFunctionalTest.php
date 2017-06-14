@@ -31,6 +31,21 @@ class DealsFunctionalTest extends Testing\BeltTestCase
         $response = $this->json('GET', "/api/v1/deals/$dealID");
         $response->assertJson(['name' => 'updated']);
 
+        # copy
+        $this->json('POST', "/api/v1/deals/$dealID/addresses", ['name' => 'test']);
+        $this->json('POST', "/api/v1/deals/$dealID/attachments", ['id' => 1]);
+        $this->json('POST', "/api/v1/deals/$dealID/categories", ['id' => 1]);
+        $this->json('POST', "/api/v1/deals/$dealID/handles", ['url' => "deals/$dealID"]);
+        $this->json('POST', "/api/v1/deals/$dealID/sections", [
+            'sectionable_type' => 'sections',
+            'heading' => 'deal',
+        ]);
+        $this->json('POST', "/api/v1/deals/$dealID/tags", ['id' => 1]);
+        $response = $this->json('POST', "/api/v1/deals", ['source' => $dealID]);
+        $newID = array_get($response->json(), 'id');
+        $response = $this->json('GET', "/api/v1/deals/$newID");
+        $response->assertStatus(200);
+
         # delete
         $response = $this->json('DELETE', "/api/v1/deals/$dealID");
         $response->assertStatus(204);

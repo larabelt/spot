@@ -12,8 +12,10 @@ class StorePlaceTest extends \PHPUnit_Framework_TestCase
     {
 
         $request = new StorePlace();
-
         $this->assertNotEmpty($request->rules());
+
+        $request = new StorePlace(['source' => 1]);
+        $this->assertArrayHasKey('source', $request->rules());
     }
 
 }

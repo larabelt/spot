@@ -31,6 +31,21 @@ class PlacesFunctionalTest extends Testing\BeltTestCase
         $response = $this->json('GET', "/api/v1/places/$placeID");
         $response->assertJson(['name' => 'updated']);
 
+        # copy
+        $this->json('POST', "/api/v1/places/$placeID/addresses", ['name' => 'test']);
+        $this->json('POST', "/api/v1/places/$placeID/attachments", ['id' => 1]);
+        $this->json('POST', "/api/v1/places/$placeID/categories", ['id' => 1]);
+        $this->json('POST', "/api/v1/places/$placeID/handles", ['url' => "places/$placeID"]);
+        $this->json('POST', "/api/v1/places/$placeID/sections", [
+            'sectionable_type' => 'sections',
+            'heading' => 'place',
+        ]);
+        $this->json('POST', "/api/v1/places/$placeID/tags", ['id' => 1]);
+        $response = $this->json('POST', "/api/v1/places", ['source' => $placeID]);
+        $newID = array_get($response->json(), 'id');
+        $response = $this->json('GET', "/api/v1/places/$newID");
+        $response->assertStatus(200);
+
         # delete
         $response = $this->json('DELETE', "/api/v1/places/$placeID");
         $response->assertStatus(204);
