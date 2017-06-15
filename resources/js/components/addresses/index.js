@@ -33,7 +33,13 @@ export default {
             this.modes.active = 'edit';
             this.form.show(address_id);
         } else {
-            this.addresses.index();
+            this.addresses.index()
+                .then(() => {
+                    if (this.addresses.items.length == 1) {
+                        this.modes.active = 'edit';
+                        this.form.show(this.addresses.items[0]['id']);
+                    }
+                });
         }
     },
     computed: {

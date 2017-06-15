@@ -120,6 +120,7 @@ class AddressesController extends ApiController
             'delta',
             'altitude',
             'zoom',
+            'location',
         ]);
 
         $address->save();
@@ -189,6 +190,7 @@ class AddressesController extends ApiController
             'delta',
             'altitude',
             'zoom',
+            'location',
         ]);
 
         $address->save();
