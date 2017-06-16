@@ -115,7 +115,7 @@ class PlacesController extends ApiController
         $place->address;
         $place->addresses;
         $place->attachments;
-        $place->categories->toFlatTree();
+        $place->categories;
         $place->tags;
 
         return response()->json($place);
