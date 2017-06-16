@@ -39,6 +39,20 @@ class Form extends BaseForm {
         });
     }
 
+    /**
+     * Fetch all relevant data for the form.
+     */
+    data() {
+
+        let data = super.data();
+
+        if (!data.zoom) {
+            data.zoom = larabelt.coords.zoom ? larabelt.coords.zoom : 15;
+        }
+
+        return data;
+    }
+
 }
 
 export default Form;

@@ -10,10 +10,9 @@ export default {
     mixins: [shared],
     methods: {
         save() {
-            let self = this;
-            self.form.submit()
-                .then(function () {
-                    self.setEditing(self.form.id);
+            this.form.submit()
+                .then(() => {
+                    this.setEditing(this.form.id);
                 });
         },
     },
