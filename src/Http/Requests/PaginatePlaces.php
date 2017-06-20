@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Builder;
 
 class PaginatePlaces extends PaginateRequest
 {
-    public $perPlace = 10;
+    public $perPage = 10;
 
     public $orderBy = 'places.name';
 
