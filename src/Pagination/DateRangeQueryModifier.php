@@ -22,8 +22,9 @@ class DateRangeQueryModifier extends PaginationQueryModifier
         $ends_at = $request->query->has('ends_at') ? $request->query->get('ends_at') : null;
 
         if ($starts_at || $ends_at) {
-            $starts_at = new Carbon(date('Y-m-d', strtotime($starts_at ?: 'now')));
-            $ends_at = new Carbon(date('Y-m-d', strtotime($ends_at ?: '+1 year')));
+            $starts_at = new Carbon(date('Y-m-d 00:00:00', strtotime($starts_at ?: 'now')));
+            $ends_at = new Carbon(date('Y-m-d 23:59:59', strtotime($ends_at ?: '+1 year')));
+
             if ($ends_at->timestamp <= $starts_at->timestamp) {
                 $ends_at = clone $starts_at;
                 $ends_at->addYear();
