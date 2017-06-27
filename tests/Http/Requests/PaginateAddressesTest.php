@@ -5,7 +5,7 @@ use Belt\Core\Testing;
 
 use Belt\Spot\Address;
 use Belt\Spot\Http\Requests\PaginateAddresses;
-use Belt\Core\Pagination\BaseLengthAwarePaginator;
+use Belt\Core\Pagination\DefaultLengthAwarePaginator;
 
 class PaginateAddressesTest extends Testing\BeltTestCase
 {
@@ -33,11 +33,12 @@ class PaginateAddressesTest extends Testing\BeltTestCase
         $qbMock->shouldReceive('where')->once()->withArgs(['addressable_id', 1]);
         $qbMock->shouldReceive('where')->once()->withArgs(['addressable_type', 'pages']);
 
-        new BaseLengthAwarePaginator($qbMock, new PaginateAddresses([
+        $paginator = new DefaultLengthAwarePaginator($qbMock, new PaginateAddresses([
             'delta' => 1,
             'addressable_id' => 1,
             'addressable_type' => 'pages'
         ]));
+        $paginator->build();
     }
 
 }
