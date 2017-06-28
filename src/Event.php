@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Model;
  * @package Belt\Spot
  */
 class Event extends Model implements
+    Belt\Core\Behaviors\IsSearchableInterface,
     Belt\Core\Behaviors\SluggableInterface,
     Belt\Core\Behaviors\TypeInterface,
     Belt\Content\Behaviors\HandleableInterface,
@@ -24,6 +25,7 @@ class Event extends Model implements
     Belt\Content\Behaviors\IncludesTemplateInterface
 {
     use Belt\Core\Behaviors\HasSortableTrait;
+    use Belt\Core\Behaviors\IsSearchable;
     use Belt\Core\Behaviors\Sluggable;
     use Belt\Core\Behaviors\TypeTrait;
     use Belt\Clip\Behaviors\Clippable;

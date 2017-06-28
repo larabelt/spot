@@ -12,6 +12,7 @@ use Rutorika\Sortable\BelongsToSortedManyTrait;
  * @package Belt\Spot
  */
 class Itinerary extends Model implements
+    Belt\Core\Behaviors\IsSearchableInterface,
     Belt\Core\Behaviors\SluggableInterface,
     Belt\Core\Behaviors\TypeInterface,
     Belt\Clip\Behaviors\ClippableInterface,
@@ -25,6 +26,7 @@ class Itinerary extends Model implements
     Belt\Content\Behaviors\HandleableInterface
 {
     use Belt\Core\Behaviors\HasSortableTrait;
+    use Belt\Core\Behaviors\IsSearchable;
     use Belt\Core\Behaviors\Sluggable;
     use Belt\Core\Behaviors\TypeTrait;
     use Belt\Clip\Behaviors\Clippable;
