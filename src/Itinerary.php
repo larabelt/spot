@@ -4,6 +4,8 @@ namespace Belt\Spot;
 
 use Belt;
 use Belt\Clip\Attachment;
+use Belt\Content\Handle;
+use Belt\Content\Section;
 use Illuminate\Database\Eloquent\Model;
 use Rutorika\Sortable\BelongsToSortedManyTrait;
 
@@ -75,6 +77,55 @@ class Itinerary extends Model implements
     public function itineraryPlaces()
     {
         return $this->hasMany(ItineraryPlace::class)->with('place')->orderBy('position');
+    }
+
+    /**
+     * @param $itinerary
+     * @return Model
+     */
+    public static function copy($itinerary)
+    {
+        $itinerary = $itinerary instanceof Itinerary ? $itinerary : self::sluggish($itinerary)->first();
+
+        /**
+         * @var $clone Itinerary
+         */
+        $clone = $itinerary->replicate();
+        $clone->slug .= '-' . strtotime('now');
+        $clone->push();
+
+        Itinerary::unguard();
+
+        foreach ($itinerary->itineraryPlaces as $itineraryPlace) {
+            $clone->itineraryPlaces()->create([
+                'place_id' => $itineraryPlace->place_id,
+                'position' => $itineraryPlace->position,
+                'heading' => $itineraryPlace->heading,
+                'body' => $itineraryPlace->body,
+            ]);
+        }
+
+        foreach ($itinerary->sections as $section) {
+            Section::copy($section, ['owner_id' => $clone->id]);
+        }
+
+        foreach ($itinerary->attachments as $attachment) {
+            $clone->attachments()->attach($attachment);
+        }
+
+        foreach ($itinerary->categories as $category) {
+            $clone->categories()->attach($category);
+        }
+
+        foreach ($itinerary->handles as $handle) {
+            Handle::copy($handle, ['handleable_id' => $clone->id]);
+        }
+
+        foreach ($itinerary->tags as $tag) {
+            $clone->tags()->attach($tag);
+        }
+
+        return $clone;
     }
 
 }

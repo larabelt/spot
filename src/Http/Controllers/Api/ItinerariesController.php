@@ -16,7 +16,7 @@ class ItinerariesController extends ApiController
     /**
      * @var Itinerary
      */
-    public $itinerary;
+    public $itineraries;
 
     /**
      * ApiController constructor.
@@ -24,7 +24,7 @@ class ItinerariesController extends ApiController
      */
     public function __construct(Itinerary $itinerary)
     {
-        $this->itinerary = $itinerary;
+        $this->itineraries = $itinerary;
     }
 
     /**
@@ -37,7 +37,7 @@ class ItinerariesController extends ApiController
     {
         $this->authorize('index', Itinerary::class);
 
-        $paginator = $this->paginator($this->itinerary->query(), $request->reCapture());
+        $paginator = $this->paginator($this->itineraries->query(), $request->reCapture());
 
         return response()->json($paginator->toArray());
     }
@@ -53,9 +53,13 @@ class ItinerariesController extends ApiController
     {
         $this->authorize('create', Itinerary::class);
 
+        if ($source = $request->get('source')) {
+            return response()->json($this->itineraries->copy($source), 201);
+        }
+
         $input = $request->all();
 
-        $itinerary = $this->itinerary->create([
+        $itinerary = $this->itineraries->create([
             'name' => $input['name'],
         ]);
 

@@ -15,6 +15,12 @@ class StoreItinerary extends FormRequest
      */
     public function rules()
     {
+        if ($this->get('source')) {
+            return [
+                'source' => 'exists:itineraries,id',
+            ];
+        }
+
         return [
             'name' => 'required|unique:itineraries,name',
             'body' => 'required',
