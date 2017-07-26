@@ -1,4 +1,4 @@
-import Form from '../form';
+import Form from 'belt/spot/js/components/deals/form';
 
 export default {
     data() {

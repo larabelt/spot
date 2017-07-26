@@ -1,7 +1,7 @@
-import shared from './shared';
+import shared from 'belt/spot/js/components/addresses/shared';
 
 // templates
-import panel_html from './templates/panel.html';
+import panel_html from 'belt/spot/js/components/addresses/templates/panel.html';
 
 export default {
     mixins: [shared],

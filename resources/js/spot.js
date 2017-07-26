@@ -1,8 +1,8 @@
-import amenities  from './components/amenities/routes';
-import deals  from './components/deals/routes';
-import events  from './components/events/routes';
-import itineraries  from './components/itineraries/routes';
-import places  from './components/places/routes';
+import amenities  from 'belt/spot/js/components/amenities/routes';
+import deals  from 'belt/spot/js/components/deals/routes';
+import events  from 'belt/spot/js/components/events/routes';
+import itineraries  from 'belt/spot/js/components/itineraries/routes';
+import places  from 'belt/spot/js/components/places/routes';
 
 export default class BeltSpot {
 

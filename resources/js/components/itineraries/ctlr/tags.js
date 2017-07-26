@@ -1,4 +1,4 @@
-import shared from './shared';
+import shared from 'belt/spot/js/components/itineraries/ctlr/shared';
 
 // components
 import tags from 'belt/glue/js/components/taggables/ctlr-edit';

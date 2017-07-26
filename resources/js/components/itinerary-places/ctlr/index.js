@@ -1,14 +1,14 @@
 // components
-import edit from './edit';
-import panel from './panel';
+import edit from 'belt/spot/js/components/itinerary-places/ctlr/edit';
+import panel from 'belt/spot/js/components/itinerary-places/ctlr/panel';
 
 // helpers
-import Form from '../form';
-import Table from '../table';
-import PlaceTable from '../../places/table';
+import Form from 'belt/spot/js/components/itinerary-places/form';
+import Table from 'belt/spot/js/components/itinerary-places/table';
+import PlaceTable from 'belt/spot/js/components/itinerary-places/../places/table';
 
 // templates
-import index_html from '../templates/index.html';
+import index_html from 'belt/spot/js/components/itinerary-places/templates/index.html';
 
 export default {
     data() {

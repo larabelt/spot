@@ -1,6 +1,6 @@
-import index from './ctlr/index';
-import create from './ctlr/create';
-import edit  from './ctlr/edit';
+import index from 'belt/spot/js/components/amenities/ctlr/index';
+import create from 'belt/spot/js/components/amenities/ctlr/create';
+import edit  from 'belt/spot/js/components/amenities/ctlr/edit';
 
 export default [
     {path: '/amenities', component: index, canReuse: false, name: 'amenities'},

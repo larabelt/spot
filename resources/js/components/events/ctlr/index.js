@@ -1,10 +1,10 @@
 // helpers
-import Form  from '../form';
-import Table from '../table';
+import Form  from 'belt/spot/js/components/events/form';
+import Table from 'belt/spot/js/components/events/table';
 
 // templates make a change
 import heading_html from 'belt/core/js/templates/heading.html';
-import index_html from '../templates/index.html';
+import index_html from 'belt/spot/js/components/events/templates/index.html';
 
 export default {
 

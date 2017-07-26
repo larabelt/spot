@@ -1,8 +1,8 @@
-import shared from './shared';
-import self from './panel';
+import shared from 'belt/spot/js/components/itinerary-places/ctlr/shared';
+import self from 'belt/spot/js/components/itinerary-places/ctlr/panel';
 
 // templates
-import panel_html from '../templates/panel.html';
+import panel_html from 'belt/spot/js/components/itinerary-places/templates/panel.html';
 
 export default {
     mixins: [shared],

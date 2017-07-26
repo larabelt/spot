@@ -1,9 +1,9 @@
-import index from './ctlr/index';
-import create from './ctlr/create';
-import edit  from './ctlr/edit';
-import categories  from './ctlr/categories';
-import attachments  from './ctlr/attachments';
-import tags  from './ctlr/tags';
+import index from 'belt/spot/js/components/deals/ctlr/index';
+import create from 'belt/spot/js/components/deals/ctlr/create';
+import edit  from 'belt/spot/js/components/deals/ctlr/edit';
+import categories  from 'belt/spot/js/components/deals/ctlr/categories';
+import attachments  from 'belt/spot/js/components/deals/ctlr/attachments';
+import tags  from 'belt/spot/js/components/deals/ctlr/tags';
 
 export default [
     {path: '/deals', component: index, canReuse: false, name: 'deals'},

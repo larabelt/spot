@@ -1,11 +1,11 @@
 // helpers
-import Form from './form';
-import Table from './table';
-import AmenityTable from '../amenities/table';
+import Form from 'belt/spot/js/components/amenity-spots/form';
+import Table from 'belt/spot/js/components/amenity-spots/table';
+import AmenityTable from 'belt/spot/js/components/amenity-spots/table';
 
 // templates
-import index_html from './templates/index.html';
-import button_html from './templates/button.html';
+import index_html from 'belt/spot/js/components/amenity-spots/templates/index.html';
+import button_html from 'belt/spot/js/components/amenity-spots/templates/button.html';
 
 export default {
     components: {

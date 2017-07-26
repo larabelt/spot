@@ -1,4 +1,4 @@
-import shared from './shared';
+import shared from 'belt/spot/js/components/places/ctlr/shared';
 
 // components
 import categories from 'belt/glue/js/components/categorizables/ctlr-edit';

@@ -1,10 +1,10 @@
-import shared from './shared';
+import shared from 'belt/spot/js/components/events/ctlr/shared';
 
 import heading_html from 'belt/core/js/templates/heading.html';
-import tabs_html from '../templates/tabs.html';
-import edit_html from '../templates/edit.html';
+import tabs_html from 'belt/spot/js/components/events/templates/tabs.html';
+import edit_html from 'belt/spot/js/components/events/templates/edit.html';
 
-import Form from '../form';
+import Form from 'belt/spot/js/components/events/form';
 
 export default {
     data() {

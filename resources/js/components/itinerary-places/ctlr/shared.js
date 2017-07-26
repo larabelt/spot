@@ -1,4 +1,4 @@
-import Form from '../form';
+import Form from 'belt/spot/js/components/itinerary-places/form';
 
 export default {
     props: {

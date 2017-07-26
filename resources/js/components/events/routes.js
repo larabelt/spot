@@ -1,11 +1,11 @@
-import index from './ctlr/index';
-import create from './ctlr/create';
-import edit  from './ctlr/edit';
-import addresses  from './ctlr/addresses';
-import categories  from './ctlr/categories';
-import attachments  from './ctlr/attachments';
-import sections  from './ctlr/sections';
-import tags  from './ctlr/tags';
+import index from 'belt/spot/js/components/events/ctlr/index';
+import create from 'belt/spot/js/components/events/ctlr/create';
+import edit  from 'belt/spot/js/components/events/ctlr/edit';
+import addresses  from 'belt/spot/js/components/events/ctlr/addresses';
+import categories  from 'belt/spot/js/components/events/ctlr/categories';
+import attachments  from 'belt/spot/js/components/events/ctlr/attachments';
+import sections  from 'belt/spot/js/components/events/ctlr/sections';
+import tags  from 'belt/spot/js/components/events/ctlr/tags';
 
 export default [
     {path: '/events', component: index, canReuse: false, name: 'events'},

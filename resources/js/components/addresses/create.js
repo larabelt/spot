@@ -1,10 +1,10 @@
-import shared from './shared';
+import shared from 'belt/spot/js/components/addresses/shared';
 
 import coordinates from 'belt/core/js/components/base/coordinates';
 
 // templates
-import edit_html from './templates/edit.html';
-import form_html from './templates/form.html';
+import edit_html from 'belt/spot/js/components/addresses/templates/edit.html';
+import form_html from 'belt/spot/js/components/addresses/templates/form.html';
 
 export default {
     mixins: [shared],

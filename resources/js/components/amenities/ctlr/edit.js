@@ -1,11 +1,11 @@
 
 // helpers
-import Form from '../form';
+import Form from 'belt/spot/js/components/amenities/form';
 
 // templates make a change
 import heading_html from 'belt/core/js/templates/heading.html';
-import edit_html from '../templates/edit.html';
-import form_html from '../templates/form.html';
+import edit_html from 'belt/spot/js/components/amenities/templates/edit.html';
+import form_html from 'belt/spot/js/components/amenities/templates/form.html';
 
 export default {
     components: {

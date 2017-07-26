@@ -1,13 +1,13 @@
-import create from './create';
-import edit from './edit';
-import panel from './panel';
+import create from 'belt/spot/js/components/addresses/create';
+import edit from 'belt/spot/js/components/addresses/edit';
+import panel from 'belt/spot/js/components/addresses/panel';
 
 // helpers
-import Form from './form';
-import Table from './table';
+import Form from 'belt/spot/js/components/addresses/form';
+import Table from 'belt/spot/js/components/addresses/table';
 
 // templates
-import index_html from './templates/index.html';
+import index_html from 'belt/spot/js/components/addresses/templates/index.html';
 
 export default {
     data() {

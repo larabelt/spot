@@ -1,11 +1,11 @@
-import index from './ctlr/index';
-import create from './ctlr/create';
-import edit  from './ctlr/edit';
-import attachments  from './ctlr/attachments';
-import categories  from './ctlr/categories';
-import places  from './ctlr/places';
-import sections  from './ctlr/sections';
-import tags  from './ctlr/tags';
+import index from 'belt/spot/js/components/itineraries/ctlr/index';
+import create from 'belt/spot/js/components/itineraries/ctlr/create';
+import edit  from 'belt/spot/js/components/itineraries/ctlr/edit';
+import attachments  from 'belt/spot/js/components/itineraries/ctlr/attachments';
+import categories  from 'belt/spot/js/components/itineraries/ctlr/categories';
+import places  from 'belt/spot/js/components/itineraries/ctlr/places';
+import sections  from 'belt/spot/js/components/itineraries/ctlr/sections';
+import tags  from 'belt/spot/js/components/itineraries/ctlr/tags';
 
 export default [
     {path: '/itineraries', component: index, canReuse: false, name: 'itineraries'},

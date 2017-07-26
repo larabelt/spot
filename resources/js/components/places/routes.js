@@ -1,13 +1,13 @@
-import index from './ctlr/index';
-import create from './ctlr/create';
-import edit  from './ctlr/edit';
-import addresses  from './ctlr/addresses';
-import amenities  from './ctlr/amenities';
-import categories  from './ctlr/categories';
-import attachments  from './ctlr/attachments';
-import params  from './ctlr/params';
-import sections  from './ctlr/sections';
-import tags  from './ctlr/tags';
+import index from 'belt/spot/js/components/places/ctlr/index';
+import create from 'belt/spot/js/components/places/ctlr/create';
+import edit  from 'belt/spot/js/components/places/ctlr/edit';
+import addresses  from 'belt/spot/js/components/places/ctlr/addresses';
+import amenities  from 'belt/spot/js/components/places/ctlr/amenities';
+import categories  from 'belt/spot/js/components/places/ctlr/categories';
+import attachments  from 'belt/spot/js/components/places/ctlr/attachments';
+import params  from 'belt/spot/js/components/places/ctlr/params';
+import sections  from 'belt/spot/js/components/places/ctlr/sections';
+import tags  from 'belt/spot/js/components/places/ctlr/tags';
 
 export default [
     {path: '/places', component: index, canReuse: false, name: 'places'},

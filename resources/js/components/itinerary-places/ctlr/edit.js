@@ -1,7 +1,7 @@
-import shared from './shared';
+import shared from 'belt/spot/js/components/itinerary-places/ctlr/shared';
 
 // templates
-import edit_html from '../templates/edit.html';
+import edit_html from 'belt/spot/js/components/itinerary-places/templates/edit.html';
 
 export default {
     mixins: [shared],
