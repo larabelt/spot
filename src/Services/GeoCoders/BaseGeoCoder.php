@@ -1,4 +1,5 @@
 <?php
+
 namespace Belt\Spot\Services\GeoCoders;
 
 use Belt\Spot\Address;
@@ -38,5 +39,32 @@ abstract class BaseGeoCoder
      * @return mixed
      */
     abstract function geocode($address);
+
+    /**
+     * Reset
+     */
+    public function reset()
+    {
+        $this->address = new Address();
+        $this->result = [];
+    }
+
+    /**
+     * @return array
+     */
+    public function result()
+    {
+        return $this->result ?: [];
+    }
+
+    /**
+     * @return array
+     */
+    public function address()
+    {
+        $address = $this->address ?: new Address();
+
+        return $address->toArray();
+    }
 
 }

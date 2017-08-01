@@ -119,12 +119,17 @@
                             <span v-for="error in form.error('east_lng')" class="text-danger">{{ error }}</span>
                         </div>
                     </div>
+                    <div class="col-md-6">
+                        <div class="btn-group">
+                            <button class="btn btn-default" @click.prevent="fetchLatLng()"><i class="fa fa-refresh"></i> Lat/Lng</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
-                <div class="" style="height: 500px" >
+                <div class="" style="height: 500px">
                     <coordinates
                             :lat="form.lat"
                             :lng="form.lng"

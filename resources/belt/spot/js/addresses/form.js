@@ -36,6 +36,8 @@ class Form extends BaseForm {
             west_lng: 0,
             altitude: 0,
             zoom: 15,
+            _address: '',
+            _geocode: '',
         });
     }
 
@@ -48,6 +50,14 @@ class Form extends BaseForm {
 
         if (!data.zoom) {
             data.zoom = larabelt.coords.zoom ? larabelt.coords.zoom : 15;
+        }
+
+        if (this._address) {
+            data._address = this._address;
+        }
+
+        if (this._geocode) {
+            data._geocode = this._geocode;
         }
 
         return data;

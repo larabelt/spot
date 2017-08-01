@@ -16,7 +16,6 @@ class GeoCoderCommandTest extends BeltTestCase
     }
 
     /**
-     * @covers \Belt\Spot\Commands\GeoCoderCommand::getService
      * @covers \Belt\Spot\Commands\GeoCoderCommand::handle
      */
     public function testHandle()
@@ -26,17 +25,14 @@ class GeoCoderCommandTest extends BeltTestCase
         $cmd->shouldReceive('option')->with('address')->andReturn('123 Some St.');
         $cmd->shouldReceive('info')->andReturn(null);
 
-        # service
-        $this->assertInstanceOf(GoogleMapsGeoCoder::class, $cmd->getService());
-
         # handle
         Address::unguard();
         $address = factory(Address::class)->make();
-        $service = m::mock(GoogleMapsGeoCoder::class);
+        $service = m::mock(GoogleMapsGeoCoder::class . '[geocode]');
         $service->result = [];
         $service->address = $address;
         $service->shouldReceive('geocode')->once()->andReturn(null);
-        $cmd->service = $service;
+        $cmd->geocoder = $service;
         $cmd->handle();
     }
 

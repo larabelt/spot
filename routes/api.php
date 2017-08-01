@@ -13,9 +13,9 @@ Route::group([
             'prefix' => '{addressable_type}/{addressable_id}/addresses',
             'middleware' => 'request.injections:addressable_type,addressable_id'
         ], function () {
-            Route::get('{id}', Api\AddressesController::class . '@show');
-            Route::put('{id}', Api\AddressesController::class . '@update');
-            Route::delete('{id}', Api\AddressesController::class . '@destroy');
+            Route::get('{address}', Api\AddressesController::class . '@show');
+            Route::put('{address}', Api\AddressesController::class . '@update');
+            Route::delete('{address}', Api\AddressesController::class . '@destroy');
             Route::get('', Api\AddressesController::class . '@index');
             Route::post('', Api\AddressesController::class . '@store');
         });

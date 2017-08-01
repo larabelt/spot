@@ -1,4 +1,5 @@
 <?php
+
 namespace Belt\Spot\Services\GeoCoders;
 
 use Belt\Spot\Address;
@@ -13,12 +14,12 @@ class GoogleMapsGeoCoder extends BaseGeoCoder
 
     /**
      * @param $address
+     * @return null
      * @throws Exception
      */
     public function geocode($address)
     {
-        $this->address = new Address();
-        $this->result = [];
+        $this->reset();
 
         $url = implode('?', [
             'http://maps.googleapis.com/maps/api/geocode/json',

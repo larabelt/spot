@@ -10,10 +10,9 @@ export default {
     mixins: [shared],
     methods: {
         save() {
-            let self = this;
-            self.form.submit()
-                .then(function () {
-                    self.addresses.index();
+            this.form.submit()
+                .then(() => {
+                    this.addresses.index();
                 });
         },
     },
@@ -22,6 +21,13 @@ export default {
             mixins: [shared],
             components: {
                 coordinates,
+            },
+            methods: {
+                fetchLatLng() {
+                    this.form.name = 'foo';
+                    this.form._geocode = 'lat,lng,north_lat,south_lat,west_lng,east_lng';
+                    this.form.submit();
+                }
             },
             template: form_html,
         }

@@ -3,65 +3,68 @@
 namespace Belt\Spot\Http\Controllers\Api;
 
 use Belt\Core\Http\Controllers\ApiController;
-use Belt\Core\Http\Controllers\Behaviors\Positionable;
+use Belt\Core\Http\Controllers\Morphable;
 use Belt\Spot\Address;
+use Belt\Spot\Behaviors\AddressableInterface;
 use Belt\Spot\Http\Requests;
 use Belt\Core\Helpers\MorphHelper;
+use Belt\Spot\Behaviors\HasGeoCoder;
+use Illuminate\Http\Request;
 
 class AddressesController extends ApiController
 {
-
-    //use Positionable;
+    use HasGeoCoder, Morphable;
 
     /**
      * @var Address
      */
     public $address;
 
-    /**
-     * @var MorphHelper
-     */
-    public $morphHelper;
-
     public function __construct(Address $address, MorphHelper $morphHelper)
     {
         $this->address = $address;
-        $this->morphHelper = $morphHelper;
     }
 
-    public function address($id, $addressable = null)
+    /**
+     * @param AddressableInterface $owner
+     * @param Address $address
+     */
+    public function contains(AddressableInterface $owner, Address $address)
     {
-        $qb = $this->address->query();
+        if (!$owner->addresses->contains($address->id)) {
+            $this->abort(404, 'item does not have this address');
+        }
+    }
 
-        if ($addressable) {
-            $qb->where('addressable_type', $addressable->getMorphClass());
-            $qb->where('addressable_id', $addressable->id);
+    /**
+     * @param array $input
+     * @param array $results
+     * @param array $include
+     * @return array
+     */
+    public function mergeGeocode($input = [], $results = [], $include = [])
+    {
+        foreach ($results as $key => $value) {
+            if ($include == '_all' || in_array($key, $include)) {
+                $input[$key] = $value;
+            }
         }
 
-        $address = $qb->where('addresses.id', $id)->first();
-
-        return $address ?: $this->abort(404);
-    }
-
-    public function addressable($addressable_type, $addressable_id)
-    {
-        $addressable = $this->morphHelper->morph($addressable_type, $addressable_id);
-
-        return $addressable ?: $this->abort(404);
+        return $input;
     }
 
     /**
      * Display a listing of the resource.
      *
-     * @param $request
+     * @param Request $request
      * @return \Illuminate\Http\Response
      */
-    public function index(Requests\PaginateAddresses $request, $addressable_type, $addressable_id)
+    public function index(Request $request, $addressable_type, $addressable_id)
     {
 
-        $request->reCapture();
+        $request = Requests\PaginateAddresses::extend($request);
 
-        $owner = $this->addressable($addressable_type, $addressable_id);
+        $owner = $this->morphable($addressable_type, $addressable_id);
 
         $this->authorize('view', $owner);
 
@@ -78,19 +81,23 @@ class AddressesController extends ApiController
     /**
      * Store a newly created resource in spot.
      *
-     * @param  Requests\StoreAddress $request
-     * @param  string $addressable_type
-     * @param  string $addressable_id
+     * @param Requests\StoreAddress $request
+     * @param string $addressable_type
+     * @param string $addressable_id
      *
      * @return \Illuminate\Http\Response
      */
     public function store(Requests\StoreAddress $request, $addressable_type, $addressable_id)
     {
-        $owner = $this->addressable($addressable_type, $addressable_id);
+        $owner = $this->morphable($addressable_type, $addressable_id);
 
         $this->authorize('update', $owner);
 
         $input = $request->all();
+
+        if ($_address = array_get($input, '_address')) {
+            $input = $this->mergeGeocode($input, $this->geocode($_address)->address(), '_all');
+        }
 
         $address = $this->address->create([
             'addressable_id' => $addressable_id,
@@ -131,17 +138,17 @@ class AddressesController extends ApiController
     /**
      * Display the specified resource.
      *
-     * @param  int $id
+     * @param Address $address
      *
      * @return \Illuminate\Http\Response
      */
-    public function show($addressable_type, $addressable_id, $id)
+    public function show($addressable_type, $addressable_id, Address $address)
     {
-        $owner = $this->addressable($addressable_type, $addressable_id);
+        $owner = $this->morphable($addressable_type, $addressable_id);
 
         $this->authorize('view', $owner);
 
-        $address = $this->address($id, $owner);
+        $this->contains($owner, $address);
 
         return response()->json($address);
     }
@@ -150,22 +157,28 @@ class AddressesController extends ApiController
     /**
      * Update the specified resource in storage.
      *
-     * @param  Requests\UpdateAddress $request
-     * @param  string $addressable_type
-     * @param  string $addressable_id
-     * @param  string $id
+     * @param Requests\UpdateAddress $request
+     * @param string $addressable_type
+     * @param string $addressable_id
+     * @param Address $address
      *
      * @return \Illuminate\Http\Response
      */
-    public function update(Requests\UpdateAddress $request, $addressable_type, $addressable_id, $id)
+    public function update(Requests\UpdateAddress $request, $addressable_type, $addressable_id, Address $address)
     {
-        $owner = $this->addressable($addressable_type, $addressable_id);
+        $owner = $this->morphable($addressable_type, $addressable_id);
 
         $this->authorize('update', $owner);
 
+        $this->contains($owner, $address);
+
         $input = $request->all();
 
-        $address = $this->address($id);
+        if ($geocode = array_get($input, '_geocode', [])) {
+            $str = $address->full();
+            $include = $geocode == '_all' ? '_all' : explode(',', $geocode);
+            $input = $this->mergeGeocode($input, $this->geocode($str)->address(), $include);
+        }
 
         $this->set($address, $input, [
             'is_active',
@@ -201,17 +214,17 @@ class AddressesController extends ApiController
     /**
      * Remove the specified resource from spot.
      *
-     * @param  int $id
+     * @param Address $address
      *
      * @return \Illuminate\Http\Response
      */
-    public function destroy($addressable_type, $addressable_id, $id)
+    public function destroy($addressable_type, $addressable_id, Address $address)
     {
-        $owner = $this->addressable($addressable_type, $addressable_id);
+        $owner = $this->morphable($addressable_type, $addressable_id);
 
         $this->authorize('update', $owner);
 
-        $address = $this->address($id);
+        $this->contains($owner, $address);
 
         $address->delete();
 

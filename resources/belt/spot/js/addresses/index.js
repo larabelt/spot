@@ -49,11 +49,24 @@ export default {
     },
     methods: {
         setCreating() {
-            return new Promise((resolve, reject) => {
-                this.modes.active = 'create';
-                this.form.reset();
-                resolve();
-            });
+
+            if (this.form._address) {
+                this.form.submit()
+                    .then((address) => {
+                        if (address.id) {
+                            this.modes.active = 'edit';
+                            this.form._address = '';
+                        }
+                    });
+            } else {
+                return new Promise((resolve, reject) => {
+                    this.modes.active = 'create';
+                    this.form.reset();
+                    resolve();
+                });
+            }
+
+
         },
     },
     components: {create, edit, panel},

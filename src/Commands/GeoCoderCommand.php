@@ -2,12 +2,12 @@
 
 namespace Belt\Spot\Commands;
 
-use Belt\Spot\Services\GeoCoders\GoogleMapsGeoCoder;
-
+use Belt\Spot\Behaviors\HasGeoCoder;
 use Illuminate\Console\Command;
 
 class GeoCoderCommand extends Command
 {
+    use HasGeoCoder;
 
     /**
      * The name and signature of the console command.
@@ -24,11 +24,6 @@ class GeoCoderCommand extends Command
     protected $description = 'run geocoder commands';
 
     /**
-     * @var GoogleMapsGeoCoder
-     */
-    public $service;
-
-    /**
      * Execute the console command.
      *
      * @return mixed
@@ -38,19 +33,12 @@ class GeoCoderCommand extends Command
 
         $address = $this->option('address');
 
-        $service = $this->getService();
-
         if ($address) {
-            $service->geocode($address);
-            $this->info(@\Kint::dump($service->result));
-            $this->info(@\Kint::dump($service->address->toArray()));
+            $this->geocode($address);
+            $this->info(@\Kint::dump($this->geocoder()->result()));
+            $this->info(@\Kint::dump($this->geocoder()->address()));
         }
 
-    }
-
-    public function getService()
-    {
-        return $this->service ?: new GoogleMapsGeoCoder();
     }
 
 }
