@@ -16,6 +16,7 @@ class BeltCreateEventsTable extends Migration
             $table->increments('id');
             $table->integer('team_id')->nullable()->index();
             $table->integer('attachment_id')->nullable();
+            $table->string('template')->default('default');
             $table->boolean('is_active')->default('0')->index();
             $table->boolean('is_searchable')->default('0')->index();
             $table->tinyInteger('status')->default('0')->index();
@@ -34,10 +35,9 @@ class BeltCreateEventsTable extends Migration
             $table->text('meta_keywords')->nullable();
             $table->dateTime('starts_at')->nullable();
             $table->dateTime('ends_at')->nullable();
+            $table->text('searchable')->nullable();
             $table->softDeletes();
             $table->timestamps();
-            $table->string('template')->default('default');
-            $table->text('searchable')->nullable();
         });
     }
 
