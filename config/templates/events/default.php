@@ -1,3 +1,6 @@
 <?php
 
-return ['path' => 'belt-spot::events.templates.default'];
+return [
+    'extends' => 'belt-spot::events.web.show',
+    'path' => 'belt-spot::events.templates.default',
+];

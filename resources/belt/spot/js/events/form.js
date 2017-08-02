@@ -28,6 +28,7 @@ class eventForm extends BaseForm {
             ends_at: '',
             ends_at_date: '',
             ends_at_time: '',
+            template: '',
         })
     }
 

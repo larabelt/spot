@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'extends' => 'belt-spot::itineraries.web.show',
     'path' => 'belt-spot::itineraries.sections.default',
     'params' => [
         'class' => [

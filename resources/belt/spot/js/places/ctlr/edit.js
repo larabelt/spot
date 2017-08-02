@@ -1,5 +1,5 @@
 import shared from 'belt/spot/js/places/ctlr/shared';
-
+import templateDropdown from 'belt/content/js/templates';
 // components
 import attachment from 'belt/clip/js/clippables/ctlr/attachment';
 
@@ -18,7 +18,7 @@ export default {
         tabs: {template: tabs_html},
         tab: {
             mixins: [shared],
-            components: {attachment},
+            components: {attachment, templateDropdown},
             template: form_html,
         },
     },

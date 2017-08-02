@@ -1,3 +1,6 @@
 <?php
 
-return ['path' => 'belt-spot::places.templates.default'];
+return [
+    'extends' => 'belt-spot::places.web.show',
+    'path' => 'belt-spot::places.templates.default',
+];
