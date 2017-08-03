@@ -1,6 +1,6 @@
 // helpers
 import Form from 'belt/spot/js/events/form';
-
+import datetimeInput from 'belt/core/js/inputs/datetime';
 // templates make a change
 import heading_html from 'belt/core/js/templates/heading.html';
 import form_html from 'belt/spot/js/events/templates/form.html';
@@ -14,6 +14,9 @@ export default {
                 return {
                     event: new Form({router: this.$router}),
                 }
+            },
+            components: {
+                datetimeInput
             },
             template: form_html,
         },

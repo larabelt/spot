@@ -1,6 +1,6 @@
 import shared from 'belt/spot/js/itineraries/ctlr/shared';
 import attachment from 'belt/clip/js/clippables/ctlr/attachment';
-
+import templateDropdown from 'belt/content/js/templates';
 // helpers
 import Form from 'belt/spot/js/itineraries/form';
 
@@ -26,7 +26,7 @@ export default {
         tabs: {template: tabs_html},
         tab: {
             mixins: [shared],
-            components: {attachment},
+            components: {attachment,templateDropdown},
             template: form_html,
         },
     },

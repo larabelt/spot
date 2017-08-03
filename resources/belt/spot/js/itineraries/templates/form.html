@@ -9,6 +9,7 @@
         <input type="slug" class="form-control" v-model="itinerary.slug" itineraryholder="slug">
         <span v-for="error in itinerary.error('slug')" class="text-danger">{{ error }}</span>
     </div>
+    <template-dropdown v-if="itinerary.id" templateType="itineraries" formKey="itinerary"></template-dropdown>
     <div class="form-group" :class="{ 'has-error': itinerary.error('body') }">
         <label for="body">Body</label>
         <textarea class="form-control" rows="10" v-model="itinerary.body" tinymce="'body'"></textarea>

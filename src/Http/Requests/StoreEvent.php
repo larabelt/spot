@@ -23,6 +23,8 @@ class StoreEvent extends FormRequest
 
         return [
             'name' => 'required',
+            'starts_at' => 'required',
+            'ends_at' => 'required|after:starts_at',
         ];
     }
 

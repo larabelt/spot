@@ -1,16 +1,18 @@
 // helpers
-import Form  from 'belt/spot/js/events/form';
+import Form from 'belt/spot/js/events/form';
 import Table from 'belt/spot/js/events/table';
+import datetime from 'belt/core/js/mixins/datetime';
+import datetimeInput from 'belt/core/js/inputs/datetime';
 
 // templates make a change
 import heading_html from 'belt/core/js/templates/heading.html';
 import index_html from 'belt/spot/js/events/templates/index.html';
 
 export default {
-
     components: {
         heading: {template: heading_html},
         index: {
+            mixins: [datetime],
             data() {
                 return {
                     table: new Table({router: this.$router}),
@@ -28,6 +30,7 @@ export default {
                     form.submit();
                 }
             },
+            components: {datetimeInput},
             template: index_html,
         },
     },

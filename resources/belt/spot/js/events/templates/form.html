@@ -16,45 +16,16 @@
         <input type="slug" class="form-control" v-model="event.slug" eventholder="slug">
         <span v-for="error in event.error('slug')" class="text-danger">{{ error }}</span>
     </div>
-    <template-dropdown templateType="events" formKey="event"></template-dropdown>
-    <attachment v-if="event.id" :owner="event" :path="'events'"></attachment>
+    <template-dropdown v-if="event.id" templateType="events" formKey="event"></template-dropdown>
+    <!--<attachment v-if="event.id" :owner="event" :path="'events'"></attachment>-->
     <div class="row">
         <div class="col-md-6">
-            <div class="form-group" :class="{ 'has-error': event.error('starts_at') }">
-                <label>Starts At</label>
-                <div class="form-inline">
-                    <div class="input-group date">
-                        <div class="input-group-addon">
-                            <i class="fa fa-calendar"></i>
-                        </div>
-                        <input type="date" name="starts_at_date" class="form-control" v-model="event.starts_at_date">
-                    </div>
-                    <div class="input-group date">
-                        <input type="time" name="starts_at_time" class="form-control" v-model="event.starts_at_time">
-                    </div>
-                </div>
-                <span v-for="error in event.error('starts_at')" class="text-danger">{{ error }}</span>
-            </div>
+            <datetime-input column="starts_at" :form="event" :time="true" default_date="+1,weeks">Starts At</datetime-input>
         </div>
         <div class="col-md-6">
-            <div class="form-group" :class="{ 'has-error': event.error('ends_at') }">
-                <label>Ends At</label>
-                <div class="form-inline">
-                    <div class="input-group date">
-                        <div class="input-group-addon">
-                            <i class="fa fa-calendar"></i>
-                        </div>
-                        <input type="date" name="ends_at_date" class="form-control" v-model="event.ends_at_date">
-                    </div>
-                    <div class="input-group date">
-                        <input type="time" name="ends_at_time" class="form-control" v-model="event.ends_at_time">
-                    </div>
-                </div>
-                <span v-for="error in event.error('ends_at')" class="text-danger">{{ error }}</span>
-            </div>
+            <datetime-input column="ends_at" :form="event" :time="true" default_date="+2,weeks" default_time="22:00:00">Ends At</datetime-input>
         </div>
     </div>
-
     <div class="form-group" :class="{ 'has-error': event.error('phone') }">
         <label for="phone">Phone Number</label>
         <input type="text" class="form-control" v-model="event.phone" placeholder="phone number">
@@ -71,12 +42,6 @@
         <input type="text" class="form-control" v-model="event.url" placeholder="website">
         <span v-for="error in event.error('url')" class="text-danger">{{ error }}</span>
     </div>
-
-    <!--<div class="form-group" :class="{ 'has-error': event.error('intro') }">-->
-        <!--<label for="intro">Intro</label>-->
-        <!--<textarea class="form-control" rows="10" v-model="event.intro"></textarea>-->
-        <!--<span v-for="error in event.error('intro')" class="text-danger">{{ error }}</span>-->
-    <!--</div>-->
     <div class="form-group" :class="{ 'has-error': event.error('body') }">
         <label for="body">Body</label>
         <textarea class="form-control" rows="10" v-model="event.body" v-tinymce></textarea>
