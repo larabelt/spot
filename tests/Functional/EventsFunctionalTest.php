@@ -18,7 +18,10 @@ class EventsFunctionalTest extends Testing\BeltTestCase
         # store
         $response = $this->json('POST', '/api/v1/events', [
             'name' => 'test',
+            'starts_at' => date('Y-m-d H:i:s', strtotime('+1 week')),
+            'ends_at' => date('Y-m-d H:i:s', strtotime('+2 week')),
         ]);
+
         $response->assertStatus(201);
         $response->assertJsonFragment(['id']);
         $eventID = array_get($response->json(), 'id');
