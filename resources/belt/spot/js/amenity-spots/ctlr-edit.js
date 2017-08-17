@@ -53,21 +53,22 @@ export default {
                 morphable_type: this.$parent.morphable_type,
                 morphable_id: this.$parent.morphable_id,
             }),
-            amenities: new AmenityTable(),
+            amenities: new AmenityTable({
+                morphable_type: this.$parent.morphable_type,
+                morphable_id: this.$parent.morphable_id,
+            }),
         }
     },
     mounted() {
-        let self = this;
         this.amenities.index()
-            .then(function () {
-                self.index();
+            .then(() => {
+                this.index();
             });
     },
     methods: {
         index() {
-            let attached = this.attached;
-            attached.index().then(function () {
-                attached.items = _.keyBy(attached.items, 'id');
+            this.attached.index().then(() => {
+                this.attached.items = _.keyBy(this.attached.items, 'id');
             })
         },
     },
