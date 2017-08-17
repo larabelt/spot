@@ -129,11 +129,12 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <div class="" style="height: 500px">
+                <div class="">
                     <coordinates
                             :lat="form.lat"
                             :lng="form.lng"
                             :zoom="form.zoom"
+                            :mapHeight="500"
                             @spot-updated="saveCoordinates">
                     </coordinates>
                 </div>
