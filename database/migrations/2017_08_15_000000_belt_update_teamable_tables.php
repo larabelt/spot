@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class BeltUpdateItinerariesTable1 extends Migration
+class BeltUpdateTeamableTables extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class BeltUpdateItinerariesTable1 extends Migration
     public function up()
     {
         Schema::table('itineraries', function (Blueprint $table) {
-            $table->string('template')->after('id')->default('default');
+            $table->integer('team_id')->nullable()->index();
         });
     }
 
@@ -25,7 +25,7 @@ class BeltUpdateItinerariesTable1 extends Migration
     public function down()
     {
         Schema::table('itineraries', function (Blueprint $table) {
-            $table->dropColumn('template');
+            $table->dropColumn('team_id');
         });
     }
 }

@@ -1,12 +1,8 @@
 import shared from 'belt/spot/js/places/ctlr/shared';
 import templateDropdown from 'belt/content/js/templates';
-// components
+import teamInput from 'belt/core/js/teams/input';
 import attachment from 'belt/clip/js/clippables/ctlr/attachment';
 
-// helpers
-import Form from 'belt/spot/js/places/form';
-
-// templates make a change
 import heading_html from 'belt/core/js/templates/heading.html';
 import tabs_html from 'belt/spot/js/places/templates/tabs.html';
 import edit_html from 'belt/spot/js/places/templates/edit.html';
@@ -18,7 +14,7 @@ export default {
         tabs: {template: tabs_html},
         tab: {
             mixins: [shared],
-            components: {attachment, templateDropdown},
+            components: {attachment, templateDropdown, teamInput},
             template: form_html,
         },
     },

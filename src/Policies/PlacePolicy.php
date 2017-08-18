@@ -34,4 +34,5 @@ class PlacePolicy extends BaseAdminPolicy
     {
         return true;
     }
+
 }

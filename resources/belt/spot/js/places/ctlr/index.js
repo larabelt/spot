@@ -9,7 +9,7 @@ import index_html from 'belt/spot/js/places/templates/index.html';
 export default {
 
     components: {
-        heading: {template: heading_html},
+        //heading: {template: heading_html},
         index: {
             data() {
                 return {
@@ -17,6 +17,7 @@ export default {
                 }
             },
             mounted() {
+                //console.log(window.larabelt.auth);
                 this.table.updateQueryFromRouter();
                 this.table.index();
             },

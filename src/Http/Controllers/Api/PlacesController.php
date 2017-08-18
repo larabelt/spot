@@ -5,6 +5,7 @@ namespace Belt\Spot\Http\Controllers\Api;
 use Belt\Core\Http\Controllers\ApiController;
 use Belt\Spot\Http\Requests;
 use Belt\Spot\Place;
+use Illuminate\Http\Request;
 
 class PlacesController extends ApiController
 {
@@ -34,12 +35,14 @@ class PlacesController extends ApiController
      * @param $request
      * @return \Illuminate\Http\Response
      */
-    public function index(Requests\PaginatePlaces $request)
+    public function index(Request $request)
     {
 
         $this->authorize('index', Place::class);
 
-        $paginator = $this->paginator($this->places->query(), $request->reCapture());
+        $request = Requests\PaginatePlaces::extend($request);
+
+        $paginator = $this->paginator($this->places->query(), $request);
 
         foreach ($paginator->paginator->items() as $item) {
             $item->address;
