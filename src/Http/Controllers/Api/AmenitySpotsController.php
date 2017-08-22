@@ -7,6 +7,7 @@ use Belt\Core\Http\Controllers\Behaviors\Positionable;
 use Belt\Spot\Amenity;
 use Belt\Spot\Http\Requests;
 use Belt\Core\Helpers\MorphHelper;
+use Illuminate\Http\Request;
 
 class AmenitySpotsController extends ApiController
 {
@@ -52,17 +53,16 @@ class AmenitySpotsController extends ApiController
     /**
      * Display a listing of the resource.
      *
-     * @param $request
+     * @param Request $request
      * @return \Illuminate\Http\Response
      */
-    public function index(Requests\PaginateAmenitySpots $request, $owner_type, $owner_id)
+    public function index(Request $request, $owner_type, $owner_id)
     {
-
-        $request->reCapture();
-
         $owner = $this->owner($owner_type, $owner_id);
 
         $this->authorize('view', $owner);
+
+        $request = Requests\PaginateAmenitySpots::extend($request);
 
         $request->merge([
             'owner_id' => $owner->id,

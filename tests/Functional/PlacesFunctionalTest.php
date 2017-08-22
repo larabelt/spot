@@ -1,6 +1,7 @@
 <?php
 
 use Belt\Core\Testing;
+use Belt\Spot\Place;
 
 class PlacesFunctionalTest extends Testing\BeltTestCase
 {
@@ -32,6 +33,9 @@ class PlacesFunctionalTest extends Testing\BeltTestCase
         $response->assertJson(['name' => 'updated']);
 
         # copy
+        Place::unguard();
+        $old = Place::find($placeID);
+        $old->handles()->create(['url' => '/copied-place']);
         $this->json('POST', "/api/v1/places/$placeID/addresses", ['name' => 'test']);
         $this->json('POST', "/api/v1/places/$placeID/attachments", ['id' => 1]);
         $this->json('POST', "/api/v1/places/$placeID/categories", ['id' => 1]);

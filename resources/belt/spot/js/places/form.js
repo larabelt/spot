@@ -11,6 +11,7 @@ class PlaceForm extends BaseForm {
         this.setData({
             id: '',
             attachment_id: '',
+            team_id: '',
             is_active: 0,
             name: '',
             slug: '',

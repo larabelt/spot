@@ -5,6 +5,7 @@ namespace Belt\Spot\Http\Controllers\Api;
 use Belt\Core\Http\Controllers\ApiController;
 use Belt\Spot\Http\Requests;
 use Belt\Spot\Event;
+use Illuminate\Http\Request;
 
 class EventsController extends ApiController
 {
@@ -31,15 +32,16 @@ class EventsController extends ApiController
     /**
      * Display a listing of the resource.
      *
-     * @param $request
+     * @param Request $request
      * @return \Illuminate\Http\Response
      */
-    public function index(Requests\PaginateEvents $request)
+    public function index(Request $request)
     {
+        $request = Requests\PaginateEvents::extend($request);
 
         $this->authorize('index', Event::class);
 
-        $paginator = $this->paginator($this->events->query(), $request->reCapture());
+        $paginator = $this->paginator($this->events->query(), $request);
 
         return response()->json($paginator->toArray());
     }

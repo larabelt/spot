@@ -27,6 +27,7 @@ class PaginatePlaces extends PaginateRequest
      */
     public $queryModifiers = [
         Belt\Core\Pagination\IsActiveQueryModifier::class,
+        Belt\Core\Pagination\TeamableQueryModifier::class,
         Belt\Glue\Pagination\CategorizableQueryModifier::class,
         Belt\Glue\Pagination\TaggableQueryModifier::class,
     ];

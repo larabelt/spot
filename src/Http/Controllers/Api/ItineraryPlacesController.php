@@ -52,14 +52,14 @@ class ItineraryPlacesController extends ApiController
     /**
      * Display a listing of the resource.
      *
-     * @param Requests\PaginateItineraryPlaces $request
+     * @param Request $request
      * @param Itinerary $itinerary
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Requests\PaginateItineraryPlaces $request, $itinerary)
+    public function index(Request $request, $itinerary)
     {
-        $request->reCapture();
+        $request = Requests\PaginateItineraryPlaces::extend($request);
 
         $request->merge(['itinerary_id' => $itinerary->id]);
 
