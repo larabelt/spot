@@ -5,6 +5,7 @@ namespace Belt\Spot\Http\Controllers\Api;
 use Belt\Core\Http\Controllers\ApiController;
 use Belt\Spot\Itinerary;
 use Belt\Spot\Http\Requests;
+use Illuminate\Http\Request;
 
 /**
  * Class ItinerariesController
@@ -30,14 +31,16 @@ class ItinerariesController extends ApiController
     /**
      * Display a listing of the resource.
      *
-     * @param $request
+     * @param Request $request
      * @return \Illuminate\Http\Response
      */
-    public function index(Requests\PaginateItineraries $request)
+    public function index(Request $request)
     {
+        $request = Requests\PaginateItineraries::extend($request);
+
         $this->authorize('index', Itinerary::class);
 
-        $paginator = $this->paginator($this->itineraries->query(), $request->reCapture());
+        $paginator = $this->paginator($this->itineraries->query(), $request);
 
         return response()->json($paginator->toArray());
     }

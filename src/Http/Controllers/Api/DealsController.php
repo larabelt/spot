@@ -5,6 +5,7 @@ namespace Belt\Spot\Http\Controllers\Api;
 use Belt\Core\Http\Controllers\ApiController;
 use Belt\Spot\Http\Requests;
 use Belt\Spot\Deal;
+use Illuminate\Http\Request;
 
 class DealsController extends ApiController
 {
@@ -31,15 +32,16 @@ class DealsController extends ApiController
     /**
      * Display a listing of the resource.
      *
-     * @param $request
+     * @param Request $request
      * @return \Illuminate\Http\Response
      */
-    public function index(Requests\PaginateDeals $request)
+    public function index(Request $request)
     {
-
         $this->authorize('index', Deal::class);
 
-        $paginator = $this->paginator($this->deals->query(), $request->reCapture());
+        $request = Requests\PaginateDeals::extend($request);
+
+        $paginator = $this->paginator($this->deals->query(), $request);
 
         return response()->json($paginator->toArray());
     }

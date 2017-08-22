@@ -5,6 +5,7 @@ namespace Belt\Spot\Http\Controllers\Api;
 use Belt\Core\Http\Controllers\ApiController;
 use Belt\Spot\Amenity;
 use Belt\Spot\Http\Requests;
+use Illuminate\Http\Request;
 
 class AmenitiesController extends ApiController
 {
@@ -26,14 +27,16 @@ class AmenitiesController extends ApiController
     /**
      * Display a listing of the resource.
      *
-     * @param $request
+     * @param Request $request
      * @return \Illuminate\Http\Response
      */
-    public function index(Requests\PaginateAmenities $request)
+    public function index(Request $request)
     {
         $this->authorize('index', Amenity::class);
 
-        $paginator = $this->paginator($this->amenities->query(), $request->reCapture());
+        $request = Requests\PaginateAmenities::extend($request);
+
+        $paginator = $this->paginator($this->amenities->query(), $request);
 
         return response()->json($paginator->toArray());
     }
