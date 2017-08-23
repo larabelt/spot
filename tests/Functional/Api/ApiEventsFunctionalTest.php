@@ -3,7 +3,7 @@
 use Belt\Core\Testing;
 use Belt\Spot\Event;
 
-class EventsFunctionalTest extends Testing\BeltTestCase
+class ApiEventsFunctionalTest extends Testing\BeltTestCase
 {
 
     public function test()

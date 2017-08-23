@@ -3,7 +3,7 @@
 use Belt\Core\Testing;
 use Belt\Spot\Services\GeoCoders;
 
-class AddressesFunctionalTest extends Testing\BeltTestCase
+class ApiAddressesFunctionalTest extends Testing\BeltTestCase
 {
 
     public function test()

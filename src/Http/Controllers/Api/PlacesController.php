@@ -50,6 +50,7 @@ class PlacesController extends ApiController
             $item->attachments;
             $item->categories;
             $item->tags;
+            $item->params;
         }
 
         return response()->json($paginator->toArray());
@@ -120,6 +121,7 @@ class PlacesController extends ApiController
         $place->attachments;
         $place->categories;
         $place->tags;
+        $place->params;
 
         return response()->json($place);
     }

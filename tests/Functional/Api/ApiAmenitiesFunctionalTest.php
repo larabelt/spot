@@ -2,7 +2,7 @@
 
 use Belt\Core\Testing;
 
-class AmenitiesFunctionalTest extends Testing\BeltTestCase
+class ApiAmenitiesFunctionalTest extends Testing\BeltTestCase
 {
 
     public function test()

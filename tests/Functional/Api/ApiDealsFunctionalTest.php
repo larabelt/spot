@@ -2,7 +2,7 @@
 
 use Belt\Core\Testing;
 
-class DealsFunctionalTest extends Testing\BeltTestCase
+class ApiDealsFunctionalTest extends Testing\BeltTestCase
 {
 
     public function test()

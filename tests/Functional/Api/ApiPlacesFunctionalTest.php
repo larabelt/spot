@@ -3,7 +3,7 @@
 use Belt\Core\Testing;
 use Belt\Spot\Place;
 
-class PlacesFunctionalTest extends Testing\BeltTestCase
+class ApiPlacesFunctionalTest extends Testing\BeltTestCase
 {
 
     public function test()

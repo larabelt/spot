@@ -4,7 +4,7 @@ use Belt\Core\Testing;
 
 use Belt\Spot\Itinerary;
 
-class ItinerariesFunctionalTest extends Testing\BeltTestCase
+class ApiItinerariesFunctionalTest extends Testing\BeltTestCase
 {
 
     public function test()
