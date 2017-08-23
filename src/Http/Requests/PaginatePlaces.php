@@ -19,7 +19,7 @@ class PaginatePlaces extends PaginateRequest
 
     public $searchable = [
         'places.name',
-        'places.searchable',
+        //'places.searchable',
     ];
 
     /**

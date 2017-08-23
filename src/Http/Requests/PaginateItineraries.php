@@ -17,7 +17,7 @@ class PaginateItineraries extends PaginateRequest
 
     public $searchable = [
         'itineraries.name',
-        'itineraries.searchable',
+        //'itineraries.searchable',
     ];
 
     /**
