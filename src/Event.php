@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Event extends Model implements
     Belt\Core\Behaviors\IsSearchableInterface,
+    Belt\Core\Behaviors\ParamableInterface,
     Belt\Core\Behaviors\SluggableInterface,
     Belt\Core\Behaviors\TeamableInterface,
     Belt\Core\Behaviors\TypeInterface,
@@ -26,6 +27,7 @@ class Event extends Model implements
     Belt\Content\Behaviors\IncludesTemplateInterface
 {
     use Belt\Core\Behaviors\HasSortableTrait;
+    use Belt\Core\Behaviors\Paramable;
     use Belt\Core\Behaviors\IsSearchable;
     use Belt\Core\Behaviors\Sluggable;
     use Belt\Core\Behaviors\Teamable;
