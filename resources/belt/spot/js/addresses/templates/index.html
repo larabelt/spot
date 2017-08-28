@@ -6,7 +6,7 @@
             <div class="form">
                 <div class="input-group">
                     <div class="form-group" :class="{ 'has-error': form.error('_address') }">
-                        <input type="text" class="form-control" v-model="form._address" placeholder="enter address">
+                        <input class="form-control" v-model="form._address" placeholder="enter address">
                         <span v-for="error in form.error('_address')" class="text-danger">{{ error }}</span>
                     </div>
                     <div class="input-group-addon" @click.prevent="setCreating()">

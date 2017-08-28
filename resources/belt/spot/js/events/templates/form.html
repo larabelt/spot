@@ -1,4 +1,4 @@
-<form role="form" @submit.prevent="event.submit()" @keydown="event.errors.clear($event.target.name)">
+<form @submit.prevent="event.submit()" @keydown="event.errors.clear($event.target.name)">
     <div class="checkbox">
         <label>
             <input type="checkbox"
@@ -7,7 +7,7 @@
         </label>
     </div>
     <div class="form-group" :class="{ 'has-error': event.error('name') }">
-        <label for="name">Name</label>
+        <label for="name">Name *</label>
         <input type="name" class="form-control" v-model="event.name" eventholder="name">
         <span v-for="error in event.error('name')" class="text-danger">{{ error }}</span>
     </div>
@@ -17,29 +17,28 @@
         <span v-for="error in event.error('slug')" class="text-danger">{{ error }}</span>
     </div>
     <template-dropdown v-if="event.id" templateType="events" formKey="event"></template-dropdown>
-    <!--<attachment v-if="event.id" :owner="event" :path="'events'"></attachment>-->
     <div class="row">
         <div class="col-md-6">
-            <datetime-input column="starts_at" :form="event" :time="true" default_date="+1,weeks">Starts At</datetime-input>
+            <datetime-input column="starts_at" :form="event" :time="true" default_date="+1,weeks">Starts At *</datetime-input>
         </div>
         <div class="col-md-6">
-            <datetime-input column="ends_at" :form="event" :time="true" default_date="+2,weeks" default_time="22:00:00">Ends At</datetime-input>
+            <datetime-input column="ends_at" :form="event" :time="true" default_date="+2,weeks" default_time="22:00:00">Ends At *</datetime-input>
         </div>
     </div>
     <div class="form-group" :class="{ 'has-error': event.error('phone') }">
         <label for="phone">Phone Number</label>
-        <input type="text" class="form-control" v-model="event.phone" placeholder="phone number">
+        <input class="form-control" v-model="event.phone" placeholder="phone number">
         <span v-for="error in event.error('phone')" class="text-danger">{{ error }}</span>
     </div>
     <div class="form-group" :class="{ 'has-error': event.error('phone_tollfree') }">
         <label for="phone_tollfree">Toll Free Phone Number</label>
-        <input type="text" class="form-control" v-model="event.phone_tollfree" placeholder="phone number">
+        <input class="form-control" v-model="event.phone_tollfree" placeholder="phone number">
         <span v-for="error in event.error('phone_tollfree')" class="text-danger">{{ error }}</span>
     </div>
 
     <div class="form-group" :class="{ 'has-error': event.error('url') }">
         <label for="url">Website</label>
-        <input type="text" class="form-control" v-model="event.url" placeholder="website">
+        <input class="form-control" v-model="event.url" placeholder="website">
         <span v-for="error in event.error('url')" class="text-danger">{{ error }}</span>
     </div>
     <div class="form-group" :class="{ 'has-error': event.error('body') }">
@@ -50,7 +49,7 @@
 
     <div class="form-group" :class="{ 'has-error': event.error('meta_title') }">
         <label for="meta_title">Meta Title</label>
-        <input type="text" class="form-control" v-model="event.meta_title" placeholder="meta title">
+        <input class="form-control" v-model="event.meta_title" placeholder="meta title">
         <span v-for="error in event.error('meta_title')" class="text-danger">{{ error }}</span>
     </div>
     <div class="form-group" :class="{ 'has-error': event.error('meta_description') }">
@@ -65,7 +64,7 @@
     </div>
 
     <div class="text-right">
-        <button type="submit" class="btn btn-primary" :disabled="event.errors.any()">
+        <button class="btn btn-primary" :disabled="event.errors.any()">
             <span v-if="event.saving"><i class="fa fa-spinner fa-pulse fa-fw"></i></span>
             <span v-else>Save</span>
         </button>

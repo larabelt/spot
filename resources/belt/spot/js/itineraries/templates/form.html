@@ -1,6 +1,6 @@
-<form role="form" @submit.prevent="itinerary.submit()" @keydown="itinerary.errors.clear($event.target.name)">
+<form @submit.prevent="itinerary.submit()" @keydown="itinerary.errors.clear($event.target.name)">
     <div class="form-group" :class="{ 'has-error': itinerary.error('name') }">
-        <label for="name">Name</label>
+        <label for="name">Name *</label>
         <input type="name" class="form-control" v-model="itinerary.name" itineraryholder="name">
         <span v-for="error in itinerary.error('name')" class="text-danger">{{ error }}</span>
     </div>
@@ -11,13 +11,13 @@
     </div>
     <template-dropdown v-if="itinerary.id" templateType="itineraries" formKey="itinerary"></template-dropdown>
     <div class="form-group" :class="{ 'has-error': itinerary.error('body') }">
-        <label for="body">Body</label>
+        <label for="body">Body *</label>
         <textarea class="form-control" rows="10" v-model="itinerary.body" tinymce="'body'"></textarea>
         <span v-for="error in itinerary.error('body')" class="text-danger">{{ error }}</span>
     </div>
     <div class="form-group" :class="{ 'has-error': itinerary.error('meta_title') }">
         <label for="meta_title">Meta Title</label>
-        <input type="text" class="form-control" v-model="itinerary.meta_title" itineraryholder="meta title">
+        <input class="form-control" v-model="itinerary.meta_title" itineraryholder="meta title">
         <span v-for="error in itinerary.error('meta_title')" class="text-danger">{{ error }}</span>
     </div>
     <div class="form-group" :class="{ 'has-error': itinerary.error('meta_description') }">
@@ -31,7 +31,7 @@
         <span v-for="error in itinerary.error('meta_keywords')" class="text-danger">{{ error }}</span>
     </div>
     <div class="text-right">
-        <button type="submit" class="btn btn-primary" :disabled="itinerary.errors.any()">
+        <button class="btn btn-primary" :disabled="itinerary.errors.any()">
             <span v-if="itinerary.saving"><i class="fa fa-spinner fa-pulse fa-fw"></i></span>
             <span v-else>Save</span>
         </button>

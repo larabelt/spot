@@ -9,7 +9,7 @@
             <address-form></address-form>
 
             <div class="alt-box-footer text-right">
-                <button type="submit" class="btn btn-primary" :disabled="form.errors.any()" @click.prevent="save()">
+                <button class="btn btn-primary" :disabled="form.errors.any()" @click.prevent="save()">
                     <span v-if="form.saving"><i class="fa fa-spinner fa-pulse fa-fw"></i></span>
                     <span v-else>Save</span>
                 </button>
