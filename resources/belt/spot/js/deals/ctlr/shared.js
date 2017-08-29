@@ -4,8 +4,8 @@ export default {
     data() {
         return {
             morphable_type: 'deals',
-            morphable_id: this.$parent.morphable_id,
-            deal: new Form(),
+            morphable_id: this.$parent.morphable_id ? this.$parent.morphable_id : this.$route.params.id,
+            deal: this.$parent.deal ? this.$parent.deal : new Form(),
         }
     },
     mounted() {

@@ -25,6 +25,7 @@ export default {
             modes: {
                 active: 'index',
             },
+            showHelp: false,
         }
     },
     mounted() {
@@ -45,11 +46,13 @@ export default {
     computed: {
         mode() {
             return this.modes.active;
+        },
+        table() {
+            return this.addresses;
         }
     },
     methods: {
         setCreating() {
-
             if (this.form._address) {
                 this.form.submit()
                     .then((address) => {
@@ -65,9 +68,10 @@ export default {
                     resolve();
                 });
             }
-
-
         },
+        toggleHelp() {
+            this.showHelp = !this.showHelp;
+        }
     },
     components: {create, edit, panel},
     template: index_html
