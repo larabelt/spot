@@ -61,6 +61,9 @@ export default {
                     this.places.query.q = '';
                 })
         },
+        clearPlaces() {
+            this.places.query.q = '';
+        },
     },
     template: index_html
 }

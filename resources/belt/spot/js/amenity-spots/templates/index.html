@@ -1,15 +1,16 @@
 <div>
+    <h4>Amenity List</h4>
     <div v-if="amenities.items.length">
+        <p class="help-block">Highlighted amenities are linked to this item.</p>
         <div class="row">
             <template v-for="amenity in amenities.items">
                 <div class="col-md-3 form-group">
-<!--                    <button class="btn btn-default btn-block">{{ amenity.name }}</button>-->
                     <amenity :amenity="amenity"></amenity>
                 </div>
             </template>
         </div>
     </div>
     <div v-else>
-        <p>There are no amenities to add.</p>
+        <p style="font-style: italic;">No amenities are available to link to this item.</p>
     </div>
 </div>
