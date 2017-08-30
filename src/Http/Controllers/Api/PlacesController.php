@@ -80,6 +80,7 @@ class PlacesController extends ApiController
         $this->set($place, $input, [
             'team_id',
             'attachment_id',
+            'template',
             'is_active',
             'is_searchable',
             'status',
@@ -145,6 +146,7 @@ class PlacesController extends ApiController
         $this->set($place, $input, [
             'team_id',
             'attachment_id',
+            'template',
             'is_active',
             'is_searchable',
             'status',
