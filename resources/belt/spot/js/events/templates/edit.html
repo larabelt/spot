@@ -15,7 +15,7 @@
                         </div>
                     </div>
                 </div>
-                <tab :morphable="event"></tab>
+                <tab v-if="event.id" :morphable="event" :_config="config"></tab>
             </div>
         </div>
     </section>

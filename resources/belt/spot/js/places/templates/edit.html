@@ -15,7 +15,7 @@
                         </div>
                     </div>
                 </div>
-                <tab :morphable="place"></tab>
+                <tab v-if="place.id" :morphable="place" :_config="config"></tab>
             </div>
         </div>
     </section>
