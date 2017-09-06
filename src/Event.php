@@ -27,7 +27,6 @@ class Event extends Model implements
     Belt\Content\Behaviors\IncludesTemplateInterface
 {
     use Belt\Core\Behaviors\HasSortableTrait;
-    use Belt\Core\Behaviors\Paramable;
     use Belt\Core\Behaviors\IsSearchable;
     use Belt\Core\Behaviors\Sluggable;
     use Belt\Core\Behaviors\Teamable;

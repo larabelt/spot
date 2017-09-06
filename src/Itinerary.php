@@ -15,6 +15,7 @@ use Rutorika\Sortable\BelongsToSortedManyTrait;
  */
 class Itinerary extends Model implements
     Belt\Core\Behaviors\IsSearchableInterface,
+    Belt\Core\Behaviors\ParamableInterface,
     Belt\Core\Behaviors\SluggableInterface,
     Belt\Core\Behaviors\TeamableInterface,
     Belt\Core\Behaviors\TypeInterface,

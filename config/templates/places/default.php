@@ -3,6 +3,7 @@
 return [
     'extends' => 'belt-spot::places.web.show',
     'path' => 'belt-spot::places.templates.default',
+    'builder' => \App\Builders\DefaultBuilder::class,
     'can_create_params' => false,
     'params' => [
         'trip_advisor_id' => '',

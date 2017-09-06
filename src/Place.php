@@ -30,7 +30,6 @@ class Place extends Model implements
 {
     use Belt\Core\Behaviors\HasSortableTrait;
     use Belt\Core\Behaviors\IsSearchable;
-    use Belt\Core\Behaviors\Paramable;
     use Belt\Core\Behaviors\Sluggable;
     use Belt\Core\Behaviors\Teamable;
     use Belt\Core\Behaviors\TypeTrait;
