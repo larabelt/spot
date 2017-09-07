@@ -62,6 +62,11 @@ class Place extends Model implements
     /**
      * @var array
      */
+    protected $with = ['handles'];
+
+    /**
+     * @var array
+     */
     protected $appends = ['image', 'type', 'default_url', 'morph_class'];
 
     public function toArray()
