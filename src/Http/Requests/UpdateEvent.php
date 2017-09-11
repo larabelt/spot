@@ -19,6 +19,7 @@ class UpdateEvent extends FormRequest
             'name' => 'sometimes|required',
             'starts_at' => 'sometimes',
             'ends_at' => 'sometimes|after:starts_at',
+            'url' => 'sometimes|nullable|url',
         ];
     }
 

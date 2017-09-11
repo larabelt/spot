@@ -23,6 +23,7 @@ class StoreDeal extends FormRequest
 
         return [
             'name' => 'required',
+            'url' => 'sometimes|nullable|url',
         ];
     }
 

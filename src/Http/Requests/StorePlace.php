@@ -23,6 +23,7 @@ class StorePlace extends FormRequest
 
         return [
             'name' => 'required',
+            'url' => 'sometimes|nullable|url',
         ];
     }
 

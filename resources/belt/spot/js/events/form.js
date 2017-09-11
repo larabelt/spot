@@ -1,6 +1,6 @@
 import BaseForm from 'belt/core/js/helpers/form';
 import BaseService from 'belt/core/js/helpers/service';
-import moment from 'moment';
+import * as URI from "uri-js";
 
 class eventForm extends BaseForm {
 
@@ -30,6 +30,16 @@ class eventForm extends BaseForm {
 
     getAttachmentId() {
         return this.attachment_id;
+    }
+
+    normalizeUrl() {
+        if (this.url) {
+            let bits = URI.parse(this.url);
+            if (!bits.scheme) {
+                this.url = 'http://' + this.url;
+            }
+            this.url = URI.normalize(this.url);
+        }
     }
 
 }

@@ -25,6 +25,7 @@ class StoreEvent extends FormRequest
             'name' => 'required',
             'starts_at' => 'required',
             'ends_at' => 'required|after:starts_at',
+            'url' => 'sometimes|nullable|url',
         ];
     }
 

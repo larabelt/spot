@@ -17,6 +17,7 @@ class UpdateDeal extends FormRequest
     {
         return [
             'name' => 'sometimes|required',
+            'url' => 'sometimes|nullable|url',
         ];
     }
 
