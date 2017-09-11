@@ -14,7 +14,7 @@
                             <i class="fa fa-gear"></i>
                         </button>
                         <ul class="dropdown-menu dropdown-menu-right">
-                            <li><modal-delete :item-id="address.id" _class="''" :callingObject="table"><i class="fa fa-trash"></i> Remove</modal-delete></li>
+                            <li><modal-delete :item-id="address.id" _class="''" :callingObject="addresses"><i class="fa fa-trash"></i> Remove</modal-delete></li>
                         </ul>
                         <button class="btn btn-xs btn-default" @click.prevent="setEditing(address.id)">
                             <i class="fa fa-edit"></i>

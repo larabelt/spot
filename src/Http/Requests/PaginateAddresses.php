@@ -1,11 +1,17 @@
 <?php
 namespace Belt\Spot\Http\Requests;
 
+use Belt;
 use Belt\Core\Http\Requests\PaginateRequest;
 use Illuminate\Database\Eloquent\Builder;
 
 class PaginateAddresses extends PaginateRequest
 {
+    /**
+     * @var \Illuminate\Database\Eloquent\Model
+     */
+    public $modelClass = Belt\Spot\Address::class;
+
     public $perPage = 10;
 
     public $orderBy = 'addresses.id';
@@ -29,6 +35,13 @@ class PaginateAddresses extends PaginateRequest
         'addresses.region',
         'addresses.postcode',
         'addresses.country',
+    ];
+
+    /**
+     * @var Belt\Core\Pagination\PaginationQueryModifier[]
+     */
+    public $queryModifiers = [
+        Belt\Core\Pagination\InQueryModifier::class,
     ];
 
     public function modifyQuery(Builder $query)

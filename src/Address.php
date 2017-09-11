@@ -55,6 +55,7 @@ class Address extends Model implements
      */
     public function setGeoServiceAttribute($value)
     {
+        $this->primaryKey;
         $this->attributes['geo_service'] = trim($value);
     }
 

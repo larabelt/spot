@@ -16,7 +16,7 @@ class DateRangeQueryModifier extends PaginationQueryModifier
      * @param  PaginateRequest $request
      * @return void
      */
-    public static function modify(Builder $qb, PaginateRequest $request)
+    public function modify(Builder $qb, PaginateRequest $request)
     {
         $starts_at = $request->query->has('starts_at') ? $request->query->get('starts_at') : null;
         $ends_at = $request->query->has('ends_at') ? $request->query->get('ends_at') : null;

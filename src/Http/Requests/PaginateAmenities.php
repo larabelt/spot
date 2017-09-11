@@ -1,6 +1,7 @@
 <?php
 namespace Belt\Spot\Http\Requests;
 
+use Belt;
 use Belt\Core\Http\Requests\PaginateRequest;
 
 /**
@@ -9,6 +10,11 @@ use Belt\Core\Http\Requests\PaginateRequest;
  */
 class PaginateAmenities extends PaginateRequest
 {
+    /**
+     * @var \Illuminate\Database\Eloquent\Model
+     */
+    public $modelClass = Belt\Spot\Amenity::class;
+
     /**
      * @var int
      */
@@ -32,6 +38,13 @@ class PaginateAmenities extends PaginateRequest
      */
     public $searchable = [
         'amenities.name',
+    ];
+
+    /**
+     * @var Belt\Core\Pagination\PaginationQueryModifier[]
+     */
+    public $queryModifiers = [
+        Belt\Core\Pagination\InQueryModifier::class,
     ];
 
 }

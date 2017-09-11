@@ -59,7 +59,8 @@ class DateRangeQueryModifierTest extends Testing\BeltTestCase
             'ends_at' => '2001-09-01',
         ]);
 
-        DateRangeQueryModifier::modify($qb, $request);
+        $modifier = new DateRangeQueryModifier($qb, $request);
+        $modifier->modify($qb, $request);
     }
 
 }

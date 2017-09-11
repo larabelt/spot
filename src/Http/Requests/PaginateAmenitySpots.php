@@ -1,6 +1,7 @@
 <?php
 namespace Belt\Spot\Http\Requests;
 
+use Belt;
 use Belt\Spot\Amenity;
 use Illuminate\Database\Eloquent\Builder;
 use Belt\Core\Http\Requests\PaginateRequest;
@@ -11,6 +12,7 @@ use Belt\Core\Http\Requests\PaginateRequest;
  */
 class PaginateAmenitySpots extends PaginateRequest
 {
+
     /**
      * @var int
      */
@@ -20,6 +22,11 @@ class PaginateAmenitySpots extends PaginateRequest
      * @var string
      */
     public $orderBy = 'amenity_spots.id';
+
+    /**
+     * @var Belt\Core\Pagination\PaginationQueryModifier[]
+     */
+    public $queryModifiers = [];
 
     /**
      * @var Amenity

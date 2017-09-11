@@ -2,7 +2,7 @@
 
 namespace Belt\Spot\Http\Requests;
 
-use Belt\Spot\Itinerary;
+use Belt;
 use Illuminate\Database\Eloquent\Builder;
 use Belt\Core\Http\Requests\PaginateRequest;
 
@@ -12,6 +12,7 @@ use Belt\Core\Http\Requests\PaginateRequest;
  */
 class PaginateItineraryPlaces extends PaginateRequest
 {
+
     /**
      * @var int
      */
@@ -21,6 +22,11 @@ class PaginateItineraryPlaces extends PaginateRequest
      * @var string
      */
     public $orderBy = 'itinerary_place.position';
+
+    /**
+     * @var Belt\Core\Pagination\PaginationQueryModifier[]
+     */
+    public $queryModifiers = [];
 
     /**
      * @inheritdoc
