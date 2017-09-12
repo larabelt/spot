@@ -43,6 +43,15 @@ class EventsController extends ApiController
 
         $paginator = $this->paginator($this->events->query(), $request);
 
+        foreach ($paginator->paginator->items() as $item) {
+            $item->address;
+            $item->addresses;
+            $item->attachments;
+            $item->categories;
+            $item->tags;
+            $item->params;
+        }
+
         return response()->json($paginator->toArray());
     }
 
@@ -105,6 +114,13 @@ class EventsController extends ApiController
         $event = $this->get($id);
 
         $this->authorize('view', $event);
+
+        $event->address;
+        $event->addresses;
+        $event->attachments;
+        $event->categories;
+        $event->tags;
+        $event->params;
 
         return response()->json($event);
     }
