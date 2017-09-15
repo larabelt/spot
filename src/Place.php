@@ -17,16 +17,17 @@ class Place extends Model implements
     Belt\Core\Behaviors\SluggableInterface,
     Belt\Core\Behaviors\TeamableInterface,
     Belt\Core\Behaviors\TypeInterface,
+    Belt\Clip\Behaviors\ClippableInterface,
     Belt\Content\Behaviors\HandleableInterface,
+    Belt\Content\Behaviors\HasSectionsInterface,
     Belt\Content\Behaviors\IncludesContentInterface,
     Belt\Content\Behaviors\IncludesSeoInterface,
+    Belt\Content\Behaviors\IncludesTemplateInterface,
     Belt\Glue\Behaviors\CategorizableInterface,
     Belt\Glue\Behaviors\TaggableInterface,
     Belt\Spot\Behaviors\AddressableInterface,
     Belt\Spot\Behaviors\HasAmenitiesInterface,
-    Belt\Clip\Behaviors\ClippableInterface,
-    Belt\Content\Behaviors\HasSectionsInterface,
-    Belt\Content\Behaviors\IncludesTemplateInterface
+    Belt\Spot\Behaviors\RateableInterface
 {
     use Belt\Core\Behaviors\HasSortableTrait;
     use Belt\Core\Behaviors\IsSearchable;
@@ -34,15 +35,16 @@ class Place extends Model implements
     use Belt\Core\Behaviors\Teamable;
     use Belt\Core\Behaviors\TypeTrait;
     use Belt\Clip\Behaviors\Clippable;
-    use Belt\Content\Behaviors\IncludesContent;
+    use Belt\Content\Behaviors\HasSections;
     use Belt\Content\Behaviors\Handleable;
+    use Belt\Content\Behaviors\IncludesContent;
     use Belt\Content\Behaviors\IncludesSeo;
+    use Belt\Content\Behaviors\IncludesTemplate;
     use Belt\Glue\Behaviors\Categorizable;
     use Belt\Glue\Behaviors\Taggable;
     use Belt\Spot\Behaviors\Addressable;
     use Belt\Spot\Behaviors\HasAmenities;
-    use Belt\Content\Behaviors\HasSections;
-    use Belt\Content\Behaviors\IncludesTemplate;
+    use Belt\Spot\Behaviors\Rateable;
 
     /**
      * @var string

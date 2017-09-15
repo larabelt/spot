@@ -11,6 +11,7 @@ class ItineraryForm extends BaseForm {
             id: '',
             name: '',
             slug: '',
+            rating: '',
             heading: '',
             body: '',
             meta_title: '',

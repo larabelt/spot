@@ -13,6 +13,7 @@ class dealForm extends BaseForm {
             is_active: 0,
             name: '',
             slug: '',
+            rating: '',
             intro: '',
             body: '',
             starts_at: '',

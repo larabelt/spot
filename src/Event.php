@@ -1,4 +1,5 @@
 <?php
+
 namespace Belt\Spot;
 
 use Belt;
@@ -24,7 +25,8 @@ class Event extends Model implements
     Belt\Spot\Behaviors\AddressableInterface,
     Belt\Clip\Behaviors\ClippableInterface,
     Belt\Content\Behaviors\HasSectionsInterface,
-    Belt\Content\Behaviors\IncludesTemplateInterface
+    Belt\Content\Behaviors\IncludesTemplateInterface,
+    Belt\Spot\Behaviors\RateableInterface
 {
     use Belt\Core\Behaviors\HasSortableTrait;
     use Belt\Core\Behaviors\IsSearchable;
@@ -32,14 +34,15 @@ class Event extends Model implements
     use Belt\Core\Behaviors\Teamable;
     use Belt\Core\Behaviors\TypeTrait;
     use Belt\Clip\Behaviors\Clippable;
-    use Belt\Content\Behaviors\IncludesContent;
     use Belt\Content\Behaviors\Handleable;
+    use Belt\Content\Behaviors\HasSections;
+    use Belt\Content\Behaviors\IncludesContent;
     use Belt\Content\Behaviors\IncludesSeo;
+    use Belt\Content\Behaviors\IncludesTemplate;
     use Belt\Glue\Behaviors\Categorizable;
     use Belt\Glue\Behaviors\Taggable;
     use Belt\Spot\Behaviors\Addressable;
-    use Belt\Content\Behaviors\HasSections;
-    use Belt\Content\Behaviors\IncludesTemplate;
+    use Belt\Spot\Behaviors\Rateable;
 
     /**
      * @var string

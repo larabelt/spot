@@ -14,6 +14,7 @@ class eventForm extends BaseForm {
             is_active: 0,
             name: '',
             slug: '',
+            rating: '',
             intro: '',
             body: '',
             phone: '',

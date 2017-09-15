@@ -27,14 +27,17 @@ class Itinerary extends Model implements
     Belt\Content\Behaviors\SectionableInterface,
     Belt\Glue\Behaviors\CategorizableInterface,
     Belt\Glue\Behaviors\TaggableInterface,
-    Belt\Content\Behaviors\HandleableInterface
+    Belt\Content\Behaviors\HandleableInterface,
+    Belt\Spot\Behaviors\RateableInterface
 {
+    use BelongsToSortedManyTrait;
     use Belt\Core\Behaviors\HasSortableTrait;
     use Belt\Core\Behaviors\IsSearchable;
     use Belt\Core\Behaviors\Sluggable;
     use Belt\Core\Behaviors\Teamable;
     use Belt\Core\Behaviors\TypeTrait;
     use Belt\Clip\Behaviors\Clippable;
+    use Belt\Content\Behaviors\Handleable;
     use Belt\Content\Behaviors\HasSections;
     use Belt\Content\Behaviors\IncludesContent;
     use Belt\Content\Behaviors\IncludesSeo;
@@ -42,8 +45,7 @@ class Itinerary extends Model implements
     use Belt\Content\Behaviors\Sectionable;
     use Belt\Glue\Behaviors\Categorizable;
     use Belt\Glue\Behaviors\Taggable;
-    use BelongsToSortedManyTrait;
-    use Belt\Content\Behaviors\Handleable;
+    use Belt\Spot\Behaviors\Rateable;
 
 
     /**

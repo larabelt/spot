@@ -14,6 +14,7 @@ class PlaceForm extends BaseForm {
             is_active: 0,
             name: '',
             slug: '',
+            rating: '',
             body: '',
             intro: '',
             phone: '',
