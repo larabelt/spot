@@ -18,6 +18,7 @@ class PaginateDeals extends PaginateRequest
     public $sortable = [
         'deals.id',
         'deals.name',
+        'deals.rating',
     ];
 
     public $searchable = [

@@ -20,6 +20,7 @@ class PaginatePlaces extends PaginateRequest
     public $sortable = [
         'places.id',
         'places.name',
+        'places.rating',
     ];
 
     public $searchable = [

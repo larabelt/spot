@@ -18,6 +18,7 @@ class PaginateItineraries extends PaginateRequest
     public $sortable = [
         'itineraries.id',
         'itineraries.name',
+        'itineraries.rating',
     ];
 
     public $searchable = [
