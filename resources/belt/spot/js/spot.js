@@ -3,6 +3,7 @@ import deals  from 'belt/spot/js/deals/routes';
 import events  from 'belt/spot/js/events/routes';
 import itineraries  from 'belt/spot/js/itineraries/routes';
 import places  from 'belt/spot/js/places/routes';
+import store from 'belt/core/js/store/index';
 
 export default class BeltSpot {
 
@@ -22,7 +23,7 @@ export default class BeltSpot {
             router.addRoutes(itineraries);
             router.addRoutes(places);
 
-            const app = new Vue({router}).$mount('#belt-spot');
+            const app = new Vue({router, store}).$mount('#belt-spot');
         }
     }
 
