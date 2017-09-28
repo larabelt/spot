@@ -36,6 +36,7 @@ class PaginateEvents extends PaginateRequest
         Belt\Core\Pagination\IsActiveQueryModifier::class,
         Belt\Glue\Pagination\CategorizableQueryModifier::class,
         Belt\Glue\Pagination\TaggableQueryModifier::class,
+        Belt\Spot\Pagination\AddressableQueryModifier::class,
         Belt\Spot\Pagination\DateRangeQueryModifier::class,
     ];
 
