@@ -2,6 +2,7 @@
 
 namespace Belt\Spot\Pagination;
 
+use Belt, DB;
 use Belt\Core\Http\Requests\PaginateRequest;
 use Belt\Core\Pagination\PaginationQueryModifier;
 use Illuminate\Database\Eloquent\Builder;
@@ -36,6 +37,26 @@ class AddressableQueryModifier extends PaginationQueryModifier
         if ($elng = $request->get('elng')) {
             $this->joinAddressTable($qb, $request);
             $qb->where('addresses.lng', '>=', $elng);
+        }
+
+        $lat = $request->get('lat');
+        $lng = $request->get('lng');
+        if ($lat && $lng) {
+            $this->joinAddressTable($qb, $request);
+            $qb->select([
+                    'places.id',
+                    DB::raw("( 3959 * acos ( cos ( radians( $lat ) ) 
+                    * cos( radians( addresses.lat ) ) 
+                    * cos( radians( addresses.lng ) - radians( $lng ) ) 
+                    + sin ( radians( $lat ) ) 
+                    * sin( radians( addresses.lat ) ) ) ) 
+                    as distance")
+                ]
+            );
+            $qb->orderBy('distance');
+            if ($radius = $request->get('radius')) {
+                $qb->havingRaw('distance < ?', [$radius]);
+            }
         }
 
     }
