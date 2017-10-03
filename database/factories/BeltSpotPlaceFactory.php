@@ -1,6 +1,7 @@
 <?php
 
 use Belt\Core\Helpers\FactoryHelper;
+use Illuminate\Support\Str;
 
 $factory->define(Belt\Spot\Place::class, function (Faker\Generator $faker) {
 
@@ -13,7 +14,6 @@ $factory->define(Belt\Spot\Place::class, function (Faker\Generator $faker) {
         'is_active' => $faker->boolean(),
         'is_searchable' => $faker->boolean(),
         'template' => 'default',
-        //'name' => $faker->words(random_int(1, 2), true),
         'name' => Str::title($faker->words(3, true)),
         'intro' => $faker->paragraphs(1, true),
         'body' => $faker->paragraphs(3, true),
@@ -23,5 +23,6 @@ $factory->define(Belt\Spot\Place::class, function (Faker\Generator $faker) {
         'meta_title' => $faker->words(3, true),
         'meta_description' => $faker->paragraphs(1, true),
         'meta_keywords' => $faker->words(12, true),
+        'rating' => rand(0, 5000) / 1000,
     ];
 });
