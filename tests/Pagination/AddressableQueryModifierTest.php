@@ -63,6 +63,15 @@ class AddressableQueryModifierTest extends Testing\BeltTestCase
         $modifer = new AddressableQueryModifier($qb, $request);
         $modifer->modify($qb, $request);
 
+        # modify (lat & lng)
+        $qb = m::mock(Builder::class);
+        $qb->shouldReceive('select')->once();
+        $qb->shouldReceive('orderBy')->once()->with('distance');
+        $qb->shouldReceive('havingRaw')->once();
+        $request = new PaginatePlaces(['lat' => 100, 'lng' => 100, 'radius' => 10]);
+        $modifer = new AddressableQueryModifier($qb, $request);
+        $modifer->modify($qb, $request);
+
     }
 
 }
