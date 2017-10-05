@@ -30,20 +30,6 @@ class BeltSpotServiceProvider extends ServiceProvider
     ];
 
     /**
-     * The elastic modifiers for this application
-     *
-     * @var array
-     */
-    protected $modifiers = [
-        'events' => [
-            Belt\Content\Search\Elastic\Pagination\IsActiveQueryModifier::class,
-        ],
-        'places' => [
-            Belt\Content\Search\Elastic\Pagination\IsActiveQueryModifier::class,
-        ],
-    ];
-
-    /**
      * Register the application services.
      *
      * @return void
@@ -53,11 +39,6 @@ class BeltSpotServiceProvider extends ServiceProvider
         include __DIR__ . '/../routes/admin.php';
         include __DIR__ . '/../routes/api.php';
         include __DIR__ . '/../routes/web.php';
-
-        # elastic
-        foreach ($this->modifiers as $type => $classes) {
-            Belt\Content\Search\Elastic\ElasticEngine::addModifiers($type, $classes);
-        }
     }
 
     /**
