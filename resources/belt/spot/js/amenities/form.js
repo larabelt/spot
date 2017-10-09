@@ -11,8 +11,20 @@ class AmenityForm extends BaseForm {
             id: '',
             name: '',
             slug: '',
+            template: '',
             body: '',
         })
+    }
+
+    dropdown() {
+
+        let templates = {
+            boolean: 'boolean',
+            text: 'text',
+            textarea: 'textarea',
+        };
+
+        return templates;
     }
 
 }

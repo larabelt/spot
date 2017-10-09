@@ -1,0 +1,16 @@
+<div>
+    <h4>Amenity List</h4>
+    <div v-if="parentAmenities.length">
+        <p class="help-block">Highlighted amenities are linked to this item.</p>
+        <div class="amenities-index">
+            <div class="row">
+                <div v-for="parent in parentAmenities" :key="parent.id" class="col-md-12">
+                    <edit :amenity="parent"></edit>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div v-else>
+        <p style="font-style: italic;">No amenities are available to link to this item.</p>
+    </div>
+</div>

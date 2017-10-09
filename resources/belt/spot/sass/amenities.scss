@@ -1,0 +1,69 @@
+.amenities-index {
+    .box {
+        border: 2px solid #357ca5;
+        margin-bottom: 2px;
+        .box {
+            border: 2px solid #b5bbc8;
+            border-left-width: 8px !important;
+            border-right-width: 1px !important;
+            margin-bottom: 2px !important;
+            .box {
+                border-color: #357ca5;
+                .box {
+                    border-color: #b5bbc8;
+                    .box {
+                        border-color: #357ca5;
+                    }
+                }
+            }
+        }
+        .box-header {
+            .box-title {
+                font-size: 15px;
+            }
+            .btn-group {
+                margin:0 ;
+            }
+        }
+        .box-body {
+            padding: 0;
+        }
+        [class*="col-"] {
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+        }
+        &.moving {
+            background-color: #d2d6de !important;
+            .box {
+                background-color: #d2d6de !important;
+            }
+        }
+    }
+    .section-content {
+        clear: both;
+        display: block;
+        h6 {
+            font-size: 11px;
+            font-weight: 700;
+            margin: 5px 10px;
+            color: #bfbfbf;
+        }
+        & > div {
+            padding: 5px 10px;
+        }
+        p {
+            margin: 0;
+            padding: 0 0 10px;
+        }
+    }
+    .box-actions {
+        margin: 0 10px 10px;
+    }
+}
+
+.section-sub-item {
+    padding: 20px;
+    background-color: #f4f4f4;
+    border:1px dashed #ccc;
+    margin-bottom: 20px;
+}

@@ -55,11 +55,16 @@ class AmenitiesController extends ApiController
         $input = $request->all();
 
         $amenity = $this->amenities->create([
+            'parent_id' => $request->get('parent_id'),
             'name' => $request->get('name'),
         ]);
 
         $this->set($amenity, $input, [
+            'is_active',
+            'parent_id',
+            'name',
             'slug',
+            'template',
             'body',
         ]);
 
@@ -97,8 +102,11 @@ class AmenitiesController extends ApiController
         $input = $request->all();
 
         $this->set($amenity, $input, [
+            'is_active',
+            'parent_id',
             'name',
             'slug',
+            'template',
             'body',
         ]);
 

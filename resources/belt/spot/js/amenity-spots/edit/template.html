@@ -1,0 +1,32 @@
+<div class="box box-primary">
+    <div class="box-header with-border" @click.prevent="expanded = !expanded">
+        <span v-if="hasChildren" class="pull-right">
+           <div class="btn-group">
+               <a class="btn btn-xs btn-default" href="#" @click.prevent="expanded = !expanded" title="toggle amenity group"><i class="fa fa-plus"></i></a>
+           </div>
+        </span>
+<!--        <h6 class="box-title">-->
+<!--            <div class="checkbox">-->
+<!--                <label>-->
+<!--                    <input type="checkbox" name="active" v-model="active" @change="toggle"> {{ amenity.name }}-->
+<!--                </label>-->
+<!--            </div>-->
+<!--        </h6>-->
+        <h6 class="box-title">{{ amenity.name }}</h6>
+    </div>
+    <div class="box-body">
+        <div class="form">
+            <div v-if="amenity.template == 'text'" class="form-group">
+                <input class="form-control" name="value" v-model="value" placeholder="value" @keyup="update">
+            </div>
+            <div v-if="amenity.template == 'textarea'" class="form-group">
+                <textarea class="form-control" rows="10" v-model="value" @keyup="update"></textarea>
+            </div>
+        </div>
+    </div>
+    <template v-if="expanded">
+        <template v-if="hasChildren">
+            <edit v-for="child in childAmenities" :key="child.id" :amenity="child" :depth="depth + 1"></edit>
+        </template>
+    </template>
+</div>

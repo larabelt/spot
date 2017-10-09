@@ -13,7 +13,7 @@ trait HasAmenities
      */
     public function amenities()
     {
-        return $this->morphToMany(Amenity::class, 'owner', 'amenity_spots');
+        return $this->morphToMany(Amenity::class, 'owner', 'amenity_spots')->withPivot('value');
     }
 
     /**

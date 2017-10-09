@@ -2,9 +2,6 @@
 import Form from 'belt/spot/js/amenity-spots/form';
 import Table from 'belt/spot/js/amenity-spots/table';
 import AmenityTable from 'belt/spot/js/amenities/table';
-
-//asdf
-// templates
 import index_html from 'belt/spot/js/amenity-spots/templates/index.html';
 import button_html from 'belt/spot/js/amenity-spots/templates/button.html';
 

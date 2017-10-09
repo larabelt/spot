@@ -3,6 +3,7 @@ namespace Belt\Spot;
 
 use Belt;
 use Illuminate\Database\Eloquent\Model;
+use Kalnoy\Nestedset\NodeTrait;
 
 /**
  * Class Amenity
@@ -12,6 +13,7 @@ class Amenity extends Model implements
     Belt\Core\Behaviors\SluggableInterface,
     Belt\Content\Behaviors\IncludesContentInterface
 {
+    use NodeTrait;
     use Belt\Core\Behaviors\Sluggable;
     use Belt\Content\Behaviors\IncludesContent;
 

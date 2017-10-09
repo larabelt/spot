@@ -47,6 +47,7 @@ class PlacesController extends ApiController
         foreach ($paginator->paginator->items() as $item) {
             $item->address;
             $item->addresses;
+            $item->amenities;
             $item->attachments;
             $item->categories;
             $item->tags;
@@ -119,6 +120,7 @@ class PlacesController extends ApiController
 
         $place->address;
         $place->addresses;
+        $place->amenities;
         $place->attachments;
         $place->categories;
         $place->tags;

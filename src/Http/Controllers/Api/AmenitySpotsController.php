@@ -3,16 +3,15 @@
 namespace Belt\Spot\Http\Controllers\Api;
 
 use Belt\Core\Http\Controllers\ApiController;
-use Belt\Core\Http\Controllers\Behaviors\Positionable;
+use Belt\Core\Http\Controllers\Morphable;
 use Belt\Spot\Amenity;
 use Belt\Spot\Http\Requests;
-use Belt\Core\Helpers\MorphHelper;
 use Illuminate\Http\Request;
 
 class AmenitySpotsController extends ApiController
 {
 
-    use Positionable;
+    use Morphable;
 
     /**
      * @var Amenity
@@ -20,114 +19,129 @@ class AmenitySpotsController extends ApiController
     public $amenities;
 
     /**
-     * @var MorphHelper
+     * AmenitySpotsController constructor.
+     * @param Amenity $amenity
      */
-    public $morphHelper;
-
-    public function __construct(Amenity $amenity, MorphHelper $morphHelper)
+    public function __construct(Amenity $amenity)
     {
         $this->amenities = $amenity;
-        $this->morphHelper = $morphHelper;
     }
 
+    /**
+     * @param $id
+     * @param null $owner
+     */
     public function amenity($id, $owner = null)
     {
-        $qb = $this->amenities->query();
-
         if ($owner) {
-            $qb->amenitied($owner->getMorphClass(), $owner->id);
+            $amenity = $owner->amenities->where('id', $id)->first();
+        } else {
+            $amenity = $this->amenities->query()->where('amenities.id', $id)->first();
         }
 
-        $amenity = $qb->where('amenities.id', $id)->first();
-
         return $amenity ?: $this->abort(404);
-    }
-
-    public function owner($owner_type, $owner_id)
-    {
-        $owner = $this->morphHelper->morph($owner_type, $owner_id);
-
-        return $owner ?: $this->abort(404);
     }
 
     /**
      * Display a listing of the resource.
      *
      * @param Request $request
+     * @param string $owner_type
+     * @param integer $owner_id
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request, $owner_type, $owner_id)
     {
-        $owner = $this->owner($owner_type, $owner_id);
+        $owner = $this->morphable($owner_type, $owner_id);
 
         $this->authorize('view', $owner);
 
-        $request = Requests\PaginateAmenitySpots::extend($request);
+//        $request = Requests\PaginateAmenitySpots::extend($request);
+//
+//        $request->merge([
+//            'owner_id' => $owner->id,
+//            'owner_type' => $owner->getMorphClass()
+//        ]);
 
-        $request->merge([
-            'owner_id' => $owner->id,
-            'owner_type' => $owner->getMorphClass()
-        ]);
+        //$paginator = $this->paginator($this->amenities->query(), $request);
 
-        $paginator = $this->paginator($this->amenities->query(), $request);
-
-        return response()->json($paginator->toArray());
+        return response()->json($owner->amenities->toArray());
+        //return response()->json($paginator->toArray());
     }
 
     /**
-     * Store a newly created resource in glue.
+     * Store a newly created resource in spot.
      *
-     * @param  Requests\AttachAmenity $request
-     *
-     * @return \Illuminate\Http\Response
+     * @param Requests\AttachAmenity $request
+     * @param string $owner_type
+     * @param integer $owner_id
+     * @return \Illuminate\Http\JsonResponse
      */
     public function store(Requests\AttachAmenity $request, $owner_type, $owner_id)
     {
-        $owner = $this->owner($owner_type, $owner_id);
+        $owner = $this->morphable($owner_type, $owner_id);
 
         $this->authorize('update', $owner);
 
         $id = $request->get('id');
 
-        $amenity = $this->amenity($id);
+        $this->amenity($id);
 
-        if ($owner->amenities->contains($id)) {
-            $this->abort(422, ['id' => ['amenity already attached']]);
-        }
+        $owner->amenities()->syncWithoutDetaching([$id => ['value' => $request->get('value')]]);
 
-        $owner->amenities()->attach($id);
+        $amenity = $this->amenity($id, $owner);
 
         return response()->json($amenity, 201);
     }
 
     /**
+     * Store a newly created resource in spot.
+     *
+     * @param Requests\AttachAmenity $request
+     * @param string $owner_type
+     * @param integer $owner_id
+     * @param integer $id
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function update(Requests\AttachAmenity $request, $owner_type, $owner_id, $id)
+    {
+        $request->merge(['id' => $id]);
+
+        return $this->store($request, $owner_type, $owner_id);
+    }
+
+    /**
      * Display the specified resource.
      *
-     * @param  int $id
-     *
-     * @return \Illuminate\Http\Response
+     * @param string $owner_type
+     * @param integer $owner_id
+     * @param integer $id
+     * @return \Illuminate\Http\JsonResponse
      */
     public function show($owner_type, $owner_id, $id)
     {
-        $owner = $this->owner($owner_type, $owner_id);
+        $owner = $this->morphable($owner_type, $owner_id);
 
         $this->authorize('view', $owner);
 
-        $amenity = $this->amenity($id, $owner);
+        $this->amenity($id, $owner);
+
+        $amenity = $owner->amenities->where('id', $id)->first();
 
         return response()->json($amenity);
     }
 
     /**
-     * Remove the specified resource from glue.
+     * Remove the specified resource from spot.
      *
-     * @param  int $id
-     *
+     * @param string $owner_type
+     * @param integer $owner_id
+     * @param integer $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($owner_type, $owner_id, $id)
     {
-        $owner = $this->owner($owner_type, $owner_id);
+        $owner = $this->morphable($owner_type, $owner_id);
 
         $this->authorize('update', $owner);
 
