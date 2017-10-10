@@ -1,7 +1,6 @@
 import amenitiesStore from 'belt/spot/js/amenities/store';
 import store from 'belt/spot/js/amenity-spots/store';
 
-// ux improvements
 // amenities itself with sort by alpha by node
 // revisit api/index??? (remember store response vs response.data)
 

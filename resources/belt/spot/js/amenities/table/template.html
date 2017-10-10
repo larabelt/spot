@@ -1,0 +1,46 @@
+<div class="box" :class="{'box-primary': mode == 'admin'}">
+    <div class="box-body">
+        <div class="filter-set clearfix">
+            <div class="pull-left">
+                <filter-search @filter-search-update="filter"></filter-search>
+            </div>
+            <div v-if="mode == 'admin'" class="pull-right">
+                <router-link :to="{ name: 'amenities.create' }" :class="'btn btn-primary'">add amenity</router-link>
+            </div>
+        </div>
+        <div class="table-responsive">
+            <div v-if="loading">
+                <i class="fa fa-spinner fa-spin fa-fw"></i>
+                <span class="sr-only">Loading...</span>
+            </div>
+            <table v-if="table.items.length" class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                    <th>ID
+                        <column-sorter :column="'amenities.id'"></column-sorter>
+                    </th>
+                    <th>Name
+                        <column-sorter :column="'amenities.name'"></column-sorter>
+                    </th>
+                    <th class="text-right">Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <row v-for="item in table.items"
+                     :item="item"
+                     :key="item.id"
+                     :mode="mode"
+                ></row>
+                </tbody>
+                <tfoot v-if="mode == 'admin'">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th class="text-right">Actions</th>
+                </tr>
+                </tfoot>
+            </table>
+        </div>
+        <pagination></pagination>
+    </div>
+</div>

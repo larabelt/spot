@@ -6,6 +6,7 @@ class AmenityTable extends BaseTable {
     constructor(options = {}) {
         super(options);
         this.service = new BaseService({baseUrl: '/api/v1/amenities/'});
+        this.name = 'admin.amenities';
     }
 
 }

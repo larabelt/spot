@@ -1,4 +1,4 @@
-import Table from 'belt/spot/js/amenities/table';
+import Table from 'belt/spot/js/amenities/helpers/table';
 
 export default {
     namespaced: true,

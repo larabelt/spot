@@ -3,17 +3,17 @@ namespace Belt\Spot;
 
 use Belt;
 use Illuminate\Database\Eloquent\Model;
-use Kalnoy\Nestedset\NodeTrait;
 
 /**
  * Class Amenity
  * @package Belt\Spot
  */
 class Amenity extends Model implements
+    Belt\Core\Behaviors\IsNestedInterface,
     Belt\Core\Behaviors\SluggableInterface,
     Belt\Content\Behaviors\IncludesContentInterface
 {
-    use NodeTrait;
+    use Belt\Core\Behaviors\IsNested;
     use Belt\Core\Behaviors\Sluggable;
     use Belt\Content\Behaviors\IncludesContent;
 
@@ -31,6 +31,11 @@ class Amenity extends Model implements
      * @var array
      */
     protected $fillable = ['name'];
+
+    /**
+     * @var array
+     */
+    protected $appends = ['nested_name', 'hierarchy'];
 
     /**
      * Return amenities associated with amenity_spots
