@@ -1,11 +1,17 @@
 <div>
     <h4>Amenity List</h4>
-    <div v-if="parentAmenities.length">
-        <p class="help-block">Highlighted amenities are linked to this item.</p>
+    <div v-if="chunks.length">
+        <p class="help-block">Checked and non-empty amenities are linked to this item.</p>
         <div class="amenities-index">
             <div class="row">
-                <div v-for="parent in parentAmenities" :key="parent.id" class="col-md-12">
-                    <edit :amenity="parent"></edit>
+                <div v-for="chunk in chunks">
+                    <div class="col-md-6">
+                        <div v-for="parent in chunk" :key="parent.id">
+                            <div class="box box-primary">
+                                <edit :amenity="parent" :collapsable="true"></edit>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

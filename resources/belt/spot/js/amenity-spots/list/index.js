@@ -16,6 +16,19 @@ export default {
             }
         },
     },
+    computed: {
+        chunks() {
+
+            let size = 1;
+            let length = this.parentAmenities.length;
+
+            if (length) {
+                size = Math.ceil(length / 2);
+            }
+
+            return _.chunk(this.parentAmenities, size);
+        },
+    },
     components: {
         edit: edit,
     },
