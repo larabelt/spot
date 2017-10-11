@@ -12,7 +12,9 @@
     </div>
     <div v-if="search">
         <amenities-table
+            :name="'admin.amenities.select'"
             :mode="'select'"
+            :query="{perPage: 10, template:'group', not_in: form.id}"
             @select-amenity="updateParent"
         ></amenities-table>
     </div>

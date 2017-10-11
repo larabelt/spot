@@ -4,6 +4,23 @@
             <div class="pull-left">
                 <filter-search @filter-search-update="filter"></filter-search>
             </div>
+            <div class="pull-left">
+                <div class="form-inline filter">
+                    <div class="form-group">
+                        <select
+                                v-model="table.query.template"
+                                name="template"
+                                class="form-control"
+                                @change="table.index()"
+                        >
+                            <option :value="false">template?</option>
+                            <template v-for="label, value in moving.dropdown()">
+                                <option :value="value">{{ value }}</option>
+                            </template>
+                        </select>
+                    </div>
+                </div>
+            </div>
             <div v-if="mode == 'admin'" class="pull-right">
                 <router-link :to="{ name: 'amenities.create' }" :class="'btn btn-primary'">add amenity</router-link>
             </div>
@@ -18,6 +35,8 @@
                 <tr>
                     <th>ID
                         <column-sorter :column="'amenities.id'"></column-sorter>
+                    </th>
+                    <th>Template</th>
                     </th>
                     <th>Name
                         <column-sorter :column="'amenities.name'"></column-sorter>
@@ -35,6 +54,7 @@
                 <tfoot v-if="mode == 'admin'">
                 <tr>
                     <th>ID</th>
+                    <th>Template</th>
                     <th>Name</th>
                     <th class="text-right">Actions</th>
                 </tr>

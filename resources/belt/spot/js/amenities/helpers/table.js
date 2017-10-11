@@ -7,6 +7,7 @@ class AmenityTable extends BaseTable {
         super(options);
         this.service = new BaseService({baseUrl: '/api/v1/amenities/'});
         this.name = 'admin.amenities';
+        this.updateQuery({template:'',not_in:''});
     }
 
 }

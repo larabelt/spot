@@ -44,9 +44,13 @@ class PaginateAddresses extends PaginateRequest
         Belt\Core\Pagination\InQueryModifier::class,
     ];
 
+    /**
+     * @param Builder $query
+     * @return Builder
+     */
     public function modifyQuery(Builder $query)
     {
-        if ($this->get('delta')) {
+        if ($type = $this->get('delta')) {
             $query->where('delta', $this->get('delta'));
         }
 

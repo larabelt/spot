@@ -18,26 +18,24 @@ class BeltSpotAmenitySeeds extends Seeder
         factory(Amenity::class, 1)->create(['template' => 'textarea']);
 
         factory(Amenity::class, 3)
-            ->create()
+            ->create(['template' => 'group'])
             ->each(function ($c1) {
-                factory(Amenity::class, random_int(3, 5))->create(['parent_id' => $c1->id]);
+                $templates = ['boolean', 'text', 'textarea'];
+                factory(Amenity::class)->create(['parent_id' => $c1->id, 'template' => $templates[array_rand($templates)]]);
+                factory(Amenity::class)->create(['parent_id' => $c1->id, 'template' => $templates[array_rand($templates)]]);
+                factory(Amenity::class)->create(['parent_id' => $c1->id, 'template' => $templates[array_rand($templates)]]);
             });
 
         factory(Amenity::class, 3)
-            ->create()
+            ->create(['template' => 'group'])
             ->each(function ($c1) {
                 factory(Amenity::class, random_int(3, 5))
-                    ->create(['parent_id' => $c1->id])
+                    ->create(['template' => 'group', 'parent_id' => $c1->id])
                     ->each(function ($c2) {
-                        $count = random_int(0, 3);
                         $templates = ['boolean', 'text', 'textarea'];
-                        if ($count) {
-                            factory(Amenity::class, random_int(3, 5))
-                                ->create([
-                                    'parent_id' => $c2->id,
-                                    'template' => $templates[array_rand($templates)],
-                                ]);
-                        }
+                        factory(Amenity::class)->create(['parent_id' => $c2->id, 'template' => $templates[array_rand($templates)]]);
+                        factory(Amenity::class)->create(['parent_id' => $c2->id, 'template' => $templates[array_rand($templates)]]);
+                        factory(Amenity::class)->create(['parent_id' => $c2->id, 'template' => $templates[array_rand($templates)]]);
                     });
             });
     }

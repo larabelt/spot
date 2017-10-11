@@ -1,5 +1,3 @@
-import Form from 'belt/spot/js/amenities/helpers/form';
-import Table from 'belt/spot/js/amenities/helpers/table';
 import TreeForm from 'belt/spot/js/amenities/helpers/tree';
 import html from 'belt/spot/js/amenities/table/row/template.html';
 
@@ -12,11 +10,10 @@ export default {
     },
     data() {
         return {
-            loading: false,
-            moving: new Form(),
+            moving: this.$parent.moving,
             table: this.$parent.table,
-            morphable_type: 'amenities',
-            morphable_id: null,
+            morphable_type: this.$parent.morphable_type,
+            morphable_id: this.$parent.morphable_id,
         }
     },
     computed: {
@@ -69,16 +66,15 @@ export default {
 
             return output;
         },
-        setMoving(id) {
+        setMoving(amenity) {
             if (!this.moving.id) {
-                this.moving.show(id);
+                this.moving.setData(amenity);
+                //this.table.updateQuery({template: 'group'});
+                //this.table.index();
             } else {
                 this.moving.reset();
             }
         },
-    },
-    mounted() {
-
     },
     template: html,
 }

@@ -1,5 +1,6 @@
 <tr>
     <td>{{ item.id }}</td>
+    <td>{{ item.template }}</td>
     <td v-html="parentCheck(item)"></td>
     <td class="text-right">
 
@@ -8,15 +9,15 @@
             <template v-if="isMoving">
                 <template v-if="isMoving != item.id">
                     <div class="btn-group">
-                        <button class="btn btn-default btn-xs" @click.prevent="move(item.id, 'before')"
-                                title="move before this item">
-                            <i class="fa fa-caret-up"></i>
-                        </button>
-                        <button class="btn btn-default btn-xs" @click.prevent="move(item.id, 'after')"
-                                title="move after this item">
-                            <i class="fa fa-caret-down"></i>
-                        </button>
-                        <button class="btn btn-default btn-xs" @click.prevent="move(item.id, 'in')"
+<!--                        <button class="btn btn-default btn-xs" @click.prevent="move(item.id, 'before')"-->
+<!--                                title="move before this item">-->
+<!--                            <i class="fa fa-caret-up"></i>-->
+<!--                        </button>-->
+<!--                        <button class="btn btn-default btn-xs" @click.prevent="move(item.id, 'after')"-->
+<!--                                title="move after this item">-->
+<!--                            <i class="fa fa-caret-down"></i>-->
+<!--                        </button>-->
+                        <button v-if="item.template == 'group'" class="btn btn-default btn-xs" @click.prevent="move(item.id, 'in')"
                                 title="add as child to this item">
                             <i class="fa fa-caret-right"></i>
                         </button>
@@ -33,7 +34,7 @@
                 <button
                         title="move amenity"
                         class="btn btn-default btn-xs"
-                        @click.prevent="setMoving(item.id)"
+                        @click.prevent="setMoving(item)"
                 >
                     <i class="fa fa-arrows-alt"></i>
                 </button>

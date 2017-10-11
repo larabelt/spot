@@ -18,7 +18,7 @@ class PaginateAmenities extends PaginateRequest
     /**
      * @var int
      */
-    public $perPage = 999;
+    public $perPage = 20;
 
     /**
      * @var string
@@ -45,6 +45,7 @@ class PaginateAmenities extends PaginateRequest
      */
     public $queryModifiers = [
         Belt\Core\Pagination\InQueryModifier::class,
+        Belt\Content\Pagination\TemplateQueryModifier::class,
     ];
 
 }

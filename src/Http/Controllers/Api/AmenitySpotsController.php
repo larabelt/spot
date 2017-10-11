@@ -56,28 +56,26 @@ class AmenitySpotsController extends ApiController
 
         $this->authorize('view', $owner);
 
+        return response()->json($owner->amenities->toArray());
+
 //        $request = Requests\PaginateAmenitySpots::extend($request);
-//
 //        $request->merge([
 //            'owner_id' => $owner->id,
 //            'owner_type' => $owner->getMorphClass()
 //        ]);
-
-        //$paginator = $this->paginator($this->amenities->query(), $request);
-
-        return response()->json($owner->amenities->toArray());
-        //return response()->json($paginator->toArray());
+//        $paginator = $this->paginator($this->amenities->query(), $request);
+//        return response()->json($paginator->toArray());
     }
 
     /**
      * Store a newly created resource in spot.
      *
-     * @param Requests\AttachAmenity $request
+     * @param Requests\StoreAmenitySpot $request
      * @param string $owner_type
      * @param integer $owner_id
      * @return \Illuminate\Http\JsonResponse
      */
-    public function store(Requests\AttachAmenity $request, $owner_type, $owner_id)
+    public function store(Requests\StoreAmenitySpot $request, $owner_type, $owner_id)
     {
         $owner = $this->morphable($owner_type, $owner_id);
 
@@ -97,15 +95,17 @@ class AmenitySpotsController extends ApiController
     /**
      * Store a newly created resource in spot.
      *
-     * @param Requests\AttachAmenity $request
+     * @param Requests\UpdateAmenitySpot $request
      * @param string $owner_type
      * @param integer $owner_id
      * @param integer $id
      * @return \Illuminate\Http\JsonResponse
      */
-    public function update(Requests\AttachAmenity $request, $owner_type, $owner_id, $id)
+    public function update(Requests\UpdateAmenitySpot $request, $owner_type, $owner_id, $id)
     {
         $request->merge(['id' => $id]);
+
+        $request = new Requests\StoreAmenitySpot($request->all());
 
         return $this->store($request, $owner_type, $owner_id);
     }

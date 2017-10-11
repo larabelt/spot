@@ -3,7 +3,7 @@ namespace Belt\Spot\Http\Requests;
 
 use Belt\Core\Http\Requests\FormRequest;
 
-class AttachAmenity extends FormRequest
+class StoreAmenitySpot extends FormRequest
 {
 
 

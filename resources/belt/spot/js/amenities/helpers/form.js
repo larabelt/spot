@@ -22,6 +22,7 @@ class AmenityForm extends BaseForm {
     dropdown() {
 
         let templates = {
+            group: 'group',
             boolean: 'boolean',
             text: 'text',
             textarea: 'textarea',

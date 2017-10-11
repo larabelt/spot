@@ -15,7 +15,7 @@ class BeltUpdateAmenitiesTable1 extends Migration
     public function up()
     {
         Schema::table('amenities', function (Blueprint $table) {
-            $table->string('template')->default('boolean');
+            $table->string('template')->default('boolean')->after('id');
             NestedSet::columns($table);
         });
 
