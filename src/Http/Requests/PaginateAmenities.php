@@ -23,7 +23,7 @@ class PaginateAmenities extends PaginateRequest
     /**
      * @var string
      */
-    public $orderBy = 'amenities._lft';
+    public $orderBy = 'amenities.name';
 
     /**
      * @var array

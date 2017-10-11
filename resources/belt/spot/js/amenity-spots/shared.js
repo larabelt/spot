@@ -8,7 +8,7 @@ export default {
     created() {
         if (!this.$store.state['amenities']) {
             this.$store.registerModule('amenities', amenitiesStore);
-            this.$store.dispatch('amenities/load');
+            this.$store.dispatch('amenities/load', {perPage:99999});
         }
         if (!this.$store.state[this.storeKey]) {
             this.$store.registerModule(this.storeKey, store);

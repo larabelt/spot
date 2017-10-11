@@ -10,9 +10,12 @@ export default {
     },
     actions: {
         data: (context, value) => context.commit('data', value),
-        load: (context) => {
+        load: (context, query) => {
             context.commit('data', {});
             let table = new Table({morphable_type: context.state.morphType, morphable_id: context.state.morphID});
+            if (query) {
+                table.updateQuery(query);
+            }
             return new Promise((resolve, reject) => {
                 table.index()
                     .then(response => {

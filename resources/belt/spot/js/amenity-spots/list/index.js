@@ -23,7 +23,7 @@ export default {
             let length = this.parentAmenities.length;
 
             if (length) {
-                size = Math.ceil(length / 2);
+                size = Math.ceil(length / 4);
             }
 
             return _.chunk(this.parentAmenities, size);

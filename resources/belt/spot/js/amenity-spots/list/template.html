@@ -5,7 +5,7 @@
         <div class="amenities-index">
             <div class="row">
                 <div v-for="chunk in chunks">
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <div v-for="parent in chunk" :key="parent.id">
                             <div class="box box-primary">
                                 <edit :amenity="parent" :collapsable="true"></edit>
