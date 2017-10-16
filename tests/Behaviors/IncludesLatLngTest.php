@@ -12,6 +12,7 @@ class IncludesLatLngTest extends \PHPUnit_Framework_TestCase
      * @covers \Belt\Spot\Behaviors\IncludesLatLng::setLngAttribute
      * @covers \Belt\Spot\Behaviors\IncludesLatLng::setEastLngAttribute
      * @covers \Belt\Spot\Behaviors\IncludesLatLng::setWestLngAttribute
+     * @covers \Belt\Spot\Behaviors\IncludesLatLng::getLatLngAttribute
      */
     public function test()
     {
@@ -40,6 +41,11 @@ class IncludesLatLngTest extends \PHPUnit_Framework_TestCase
         # west lng
         $latLngStub->setWestLngAttribute(1);
         $this->assertEquals(1, $latLngStub->west_lng);
+
+        # getLatLngAttribute
+        $this->assertEquals("1, 1", $latLngStub->latLng);
+        $latLngStub = new IncludesLatLngTestStub();
+        $this->assertEmpty($latLngStub->latLng);
     }
 
 }
