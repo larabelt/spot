@@ -83,6 +83,24 @@ class Place extends Model implements
     }
 
     /**
+     * Get the indexable data array for the model.
+     *
+     * @return array
+     */
+    public function toSearchableArray()
+    {
+        $this->setAppends([]);
+
+        $array = parent::toArray();
+        $array['categories'] = $this->categories ? $this->categories->pluck('id')->all() : null;
+        $array['tags'] = $this->tags ? $this->tags->pluck('id')->all() : null;
+        $array['location'] = $this->address->latLng;
+
+        return $array;
+    }
+
+    /**
+     * @todo deprecate
      * @var array
      */
     public static $presets = [
