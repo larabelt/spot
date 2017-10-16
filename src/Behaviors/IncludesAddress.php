@@ -1,4 +1,5 @@
 <?php
+
 namespace Belt\Spot\Behaviors;
 
 trait IncludesAddress
@@ -8,12 +9,13 @@ trait IncludesAddress
      * Get full address string
      *
      * @param string $glue
+     * @param boolean $name
      * @return string
      */
-    public function full($glue = ', ')
+    public function full($glue = ', ', $name = true)
     {
         $lines = [];
-        $lines = $this->name ? array_merge($lines, [$this->name]) : $lines;
+        $lines = $name && $this->name ? array_merge($lines, [$this->name]) : $lines;
         $lines = $this->line1 ? array_merge($lines, [$this->line1]) : $lines;
         $lines = $this->line2 ? array_merge($lines, [$this->line2]) : $lines;
         $lines = $this->line3 ? array_merge($lines, [$this->line3]) : $lines;
@@ -23,7 +25,7 @@ trait IncludesAddress
         $lines = $this->sub_locality ? array_merge($lines, [$this->sub_locality]) : $lines;
         $lines[] = $this->country;
 
-        return trim( implode($glue, $lines), $glue );
+        return trim(implode($glue, $lines), $glue);
     }
 
     /**

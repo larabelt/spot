@@ -8,9 +8,10 @@ interface IncludesAddressInterface
      * Get full address string
      *
      * @param string $glue
+     * @param boolean $name
      * @return string
      */
-    public function full($glue = ', ');
+    public function full($glue = ', ', $name = true);
 
     /**
      * Get full address string
