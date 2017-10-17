@@ -97,7 +97,7 @@ class Event extends Model implements
         $array = parent::toArray();
         $array['categories'] = $this->categories ? $this->categories->pluck('id')->all() : null;
         $array['tags'] = $this->tags ? $this->tags->pluck('id')->all() : null;
-        $array['location'] = $this->address->latLng;
+        $array['location'] = $this->address ? $this->address->latLng : null;
 
         return $array;
     }

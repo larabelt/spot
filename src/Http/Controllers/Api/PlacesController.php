@@ -116,6 +116,10 @@ class PlacesController extends ApiController
     {
         $place = $this->get($id);
 
+        dump(111);
+        dump($place->toSearchableArray());
+        exit;
+
         $this->authorize('view', $place);
 
         $place->address;
@@ -125,6 +129,8 @@ class PlacesController extends ApiController
         $place->categories;
         $place->tags;
         $place->params;
+
+
 
         return response()->json($place);
     }
