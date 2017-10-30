@@ -3,15 +3,7 @@
         <div class="clearfix">
             <div class="pull-left">
                 <label>Filter</label>
-                <div class="form-group">
-                    <input
-                            type="text"
-                            class="form-control"
-                            v-model="table.query.q"
-                            eventholder="filter"
-                            @keydown="table.index()"
-                    >
-                </div>
+                <filter-search @filter-search-update="filter"></filter-search>
             </div>
             <div class="pull-left">
                 <datetime-input :table="table" column="starts_at">Starts At</datetime-input>
