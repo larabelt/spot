@@ -24,7 +24,7 @@ export default {
             },
             methods: {
                 fetchLatLng() {
-                    this.form.name = 'foo';
+                    this.form.name = '';
                     this.form._geocode = 'lat,lng,north_lat,south_lat,west_lng,east_lng';
                     this.form.submit();
                 }
