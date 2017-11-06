@@ -80,9 +80,7 @@ class Itinerary extends Model implements
      */
     public function toSearchableArray()
     {
-        $this->setAppends([]);
-
-        $array = parent::toArray();
+        $array = $this->__toSearchableArray();
         $array['categories'] = $this->categories ? $this->categories->pluck('id')->all() : null;
         $array['tags'] = $this->tags ? $this->tags->pluck('id')->all() : null;
 
