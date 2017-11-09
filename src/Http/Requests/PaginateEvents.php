@@ -34,6 +34,7 @@ class PaginateEvents extends PaginateRequest
     public $queryModifiers = [
         Belt\Core\Pagination\InQueryModifier::class,
         Belt\Core\Pagination\IsActiveQueryModifier::class,
+        Belt\Core\Pagination\PriorityQueryModifier::class,
         Belt\Glue\Pagination\CategorizableQueryModifier::class,
         Belt\Glue\Pagination\TaggableQueryModifier::class,
         Belt\Spot\Pagination\AddressableQueryModifier::class,

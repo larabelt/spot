@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\Model;
 class Place extends Model implements
     Belt\Core\Behaviors\IsSearchableInterface,
     Belt\Core\Behaviors\ParamableInterface,
+    Belt\Core\Behaviors\PriorityInterface,
     Belt\Core\Behaviors\SluggableInterface,
     Belt\Core\Behaviors\TeamableInterface,
     Belt\Core\Behaviors\TypeInterface,
@@ -31,6 +32,7 @@ class Place extends Model implements
 {
     use Belt\Core\Behaviors\HasSortableTrait;
     use Belt\Core\Behaviors\IsSearchable;
+    use Belt\Core\Behaviors\PriorityTrait;
     use Belt\Core\Behaviors\Sluggable;
     use Belt\Core\Behaviors\Teamable;
     use Belt\Core\Behaviors\TypeTrait;

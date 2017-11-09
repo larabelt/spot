@@ -21,12 +21,14 @@ class PlaceForm extends BaseForm {
             phone_tollfree: '',
             hours: '',
             url: '',
+            email: '',
             meta_title: '',
             meta_description: '',
             meta_keywords: '',
             starts_at: '',
             ends_at: '',
             template: '',
+            priority: '',
         })
     }
 

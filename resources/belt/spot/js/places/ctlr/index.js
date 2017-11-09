@@ -1,13 +1,12 @@
+import filterPriority from 'belt/core/js/inputs/priority/filter';
 import filterSearch from 'belt/core/js/inputs/filter-search';
 import Form from 'belt/spot/js/places/form';
 import Table from 'belt/spot/js/places/table';
-import heading_html from 'belt/core/js/templates/heading.html';
 import index_html from 'belt/spot/js/places/templates/index.html';
 
 export default {
 
     components: {
-        //heading: {template: heading_html},
         index: {
             data() {
                 return {
@@ -15,7 +14,6 @@ export default {
                 }
             },
             mounted() {
-                //console.log(window.larabelt.auth);
                 this.table.updateQueryFromRouter();
                 this.table.index();
             },
@@ -30,7 +28,7 @@ export default {
                             //this.table.pushQueryToHistory();
                             this.table.pushQueryToRouter();
                         });
-                }, 250),
+                }, 750),
                 copy(id) {
                     let form = new Form();
                     form.service.baseUrl = '/api/v1/places/?source=' + id;
@@ -39,7 +37,8 @@ export default {
                 }
             },
             components: {
-                filterSearch
+                filterPriority,
+                filterSearch,
             },
             template: index_html,
         },

@@ -6,6 +6,7 @@ class PlaceTable extends BaseTable {
     constructor(options = {}) {
         super(options);
         this.service = new BaseService({baseUrl: '/api/v1/places/'});
+        this.query.priority = '';
     }
 
 }

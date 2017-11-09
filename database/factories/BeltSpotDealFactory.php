@@ -13,6 +13,7 @@ $factory->define(Belt\Spot\Deal::class, function (Faker\Generator $faker) {
         'is_active' => $faker->boolean(),
         'is_searchable' => $faker->boolean(),
         'name' => $faker->words(random_int(1, 2), true),
+        'priority' => $faker->numberBetween(0, 10),
         'intro' => $faker->paragraphs(1, true),
         'body' => $faker->paragraphs(3, true),
         'email' => $faker->email,

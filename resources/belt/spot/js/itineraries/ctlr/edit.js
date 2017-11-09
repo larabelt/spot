@@ -1,10 +1,8 @@
 import shared from 'belt/spot/js/itineraries/ctlr/shared';
 import attachment from 'belt/clip/js/clippables/ctlr/attachment';
+import priorityDropdown from 'belt/core/js/inputs/priority/form';
 import templateDropdown from 'belt/content/js/templates';
-// helpers
 import Form from 'belt/spot/js/itineraries/form';
-
-// templates make a change
 import heading_html from 'belt/core/js/templates/heading.html';
 import tabs_html from 'belt/spot/js/itineraries/templates/tabs.html';
 import edit_html from 'belt/spot/js/itineraries/templates/edit.html';
@@ -26,7 +24,11 @@ export default {
         tabs: {template: tabs_html},
         tab: {
             mixins: [shared],
-            components: {attachment,templateDropdown},
+            components: {
+                attachment,
+                priorityDropdown,
+                templateDropdown,
+            },
             template: form_html,
         },
     },

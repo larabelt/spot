@@ -21,6 +21,7 @@ class PaginatePlaces extends PaginateRequest
         'places.id',
         'places.name',
         'places.rating',
+        'places.priority',
     ];
 
     public $searchable = [
@@ -33,6 +34,7 @@ class PaginatePlaces extends PaginateRequest
     public $queryModifiers = [
         Belt\Core\Pagination\InQueryModifier::class,
         Belt\Core\Pagination\IsActiveQueryModifier::class,
+        Belt\Core\Pagination\PriorityQueryModifier::class,
         Belt\Core\Pagination\TeamableQueryModifier::class,
         Belt\Glue\Pagination\CategorizableQueryModifier::class,
         Belt\Glue\Pagination\TaggableQueryModifier::class,

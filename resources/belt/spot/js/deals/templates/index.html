@@ -1,23 +1,18 @@
 <div class="box box-primary">
     <div class="box-body">
-        <div class="clearfix">
+
+        <div class="filter-set clearfix">
             <div class="pull-left">
-                <div class="form-group">
-                    <input
-                            type="text"
-                            class="form-control"
-                            v-model="table.query.q"
-                            placeholder="filter"
-                            @keydown="table.index()"
-                    >
-                </div>
+                <filter-search @filter-search-update="filter"></filter-search>
+            </div>
+            <div class="pull-left">
+                <filter-priority @filter-priority-update="filter"></filter-priority>
             </div>
             <div class="pull-right">
-                <div class="btn-group">
-                    <router-link :to="{ name: 'deals.create' }" :class="'btn btn-primary'">add deal</router-link>
-                </div>
+                <router-link :to="{ name: 'deals.create' }" :class="'btn btn-primary'">add deal</router-link>
             </div>
         </div>
+
         <div class="table-responsive">
             <table class="table table-bordered table-hover">
                 <thead>
@@ -30,6 +25,10 @@
                             Name
                             <column-sorter :column="'deals.name'"></column-sorter>
                         </th>
+                        <th>
+                            Priority
+                            <column-sorter :column="'deals.priority'"></column-sorter>
+                        </th>
                         <th class="text-right">Actions</th>
                     </tr>
                 </thead>
@@ -37,6 +36,7 @@
                     <tr v-for="item in table.items">
                         <td>{{ item.id }}</td>
                         <td>{{ item.name }}</td>
+                        <td>{{ item.priority }}</td>
                         <td class="text-right">
                             <div class="btn-group">
                                 <button
@@ -64,6 +64,7 @@
                     <tr>
                         <th>ID</th>
                         <th>Name</th>
+                        <th>Priority</th>
                         <th class="text-right">Actions</th>
                     </tr>
                 </tfoot>

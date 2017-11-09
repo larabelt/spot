@@ -1,3 +1,4 @@
+import filterPriority from 'belt/core/js/inputs/priority/filter';
 import filterSearch from 'belt/core/js/inputs/filter-search';
 import Form from 'belt/spot/js/events/form';
 import Table from 'belt/spot/js/events/table';
@@ -28,10 +29,10 @@ export default {
                     }
                     this.table.index()
                         .then(() => {
-                            this.table.pushQueryToHistory();
+                            //this.table.pushQueryToHistory();
                             this.table.pushQueryToRouter();
                         });
-                }, 250),
+                }, 750),
                 copy(id) {
                     let form = new Form();
                     form.service.baseUrl = '/api/v1/events/?source=' + id;
@@ -41,7 +42,8 @@ export default {
             },
             components: {
                 datetimeInput,
-                filterSearch
+                filterPriority,
+                filterSearch,
             },
             template: index_html,
         },

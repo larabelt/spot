@@ -1,9 +1,9 @@
 <div class="box box-primary">
     <div class="box-body">
-        <div class="clearfix">
+
+        <div class="filter-set clearfix">
             <div class="pull-left">
-                <label>Filter</label>
-                <filter-search @filter-search-update="filter"></filter-search>
+                <filter-search @filter-search-update="filter">Filter</filter-search>
             </div>
             <div class="pull-left">
                 <datetime-input :table="table" column="starts_at">Starts At</datetime-input>
@@ -11,12 +11,14 @@
             <div class="pull-left">
                 <datetime-input :table="table" column="ends_at">Ends At</datetime-input>
             </div>
+            <div class="pull-left">
+                <filter-priority @filter-priority-update="filter"></filter-priority>
+            </div>
             <div class="pull-right">
-                <div class="btn-group">
-                    <router-link :to="{ name: 'events.create' }" :class="'btn btn-primary'">add event</router-link>
-                </div>
+                <router-link :to="{ name: 'events.create' }" :class="'btn btn-primary'">add event</router-link>
             </div>
         </div>
+
         <div class="table-responsive">
             <table class="table table-bordered table-hover">
                 <thead>
@@ -37,6 +39,10 @@
                             Ends
                             <column-sorter :column="'events.ends_at'"></column-sorter>
                         </th>
+                        <th>
+                            Priority
+                            <column-sorter :column="'events.priority'"></column-sorter>
+                        </th>
                         <th class="text-right">Actions</th>
                     </tr>
                 </thead>
@@ -46,6 +52,7 @@
                         <td>{{ item.name }}</td>
                         <td>{{ datetime(item.starts_at, 'L LT') }}</td>
                         <td>{{ datetime(item.ends_at, 'L LT') }}</td>
+                        <td>{{ item.priority }}</td>
                         <td class="text-right">
                             <div class="btn-group">
                                 <button
@@ -75,6 +82,7 @@
                         <th>Name</th>
                         <th>Starts</th>
                         <th>Ends</th>
+                        <th>Priority</th>
                         <th class="text-right">Actions</th>
                     </tr>
                 </tfoot>

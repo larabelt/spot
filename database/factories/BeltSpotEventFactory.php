@@ -12,6 +12,7 @@ $factory->define(Belt\Spot\Event::class, function (Faker\Generator $faker) {
         'team_id' => $faker->randomElement(FactoryHelper::$ids['teams']),
         'is_active' => $faker->boolean(),
         'is_searchable' => $faker->boolean(),
+        'priority' => $faker->numberBetween(0, 10),
         'name' => $faker->words(random_int(1, 2), true),
         'intro' => $faker->paragraphs(1, true),
         'body' => $faker->paragraphs(3, true),

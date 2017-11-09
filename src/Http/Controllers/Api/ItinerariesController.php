@@ -69,6 +69,7 @@ class ItinerariesController extends ApiController
         $this->set($itinerary, $input, [
             'template',
             'slug',
+            'priority',
             'body',
             'heading',
             'meta_title',
@@ -112,6 +113,7 @@ class ItinerariesController extends ApiController
         $this->set($itinerary, $input, [
             'template',
             'slug',
+            'priority',
             'name',
             'body',
             'heading',
