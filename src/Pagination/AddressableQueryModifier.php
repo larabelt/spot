@@ -44,7 +44,8 @@ class AddressableQueryModifier extends PaginationQueryModifier
         if ($lat && $lng) {
             $this->joinAddressTable($qb, $request);
             $qb->select([
-                    'places.id',
+                    //'places.id',
+                    $request->morphClass() . '.id',
                     DB::raw("( 3959 * acos ( cos ( radians( $lat ) ) 
                     * cos( radians( addresses.lat ) ) 
                     * cos( radians( addresses.lng ) - radians( $lng ) ) 
