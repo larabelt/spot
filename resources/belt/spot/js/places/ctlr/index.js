@@ -28,7 +28,7 @@ export default {
                             //this.table.pushQueryToHistory();
                             this.table.pushQueryToRouter();
                         });
-                }, 750),
+                }, 300),
                 copy(id) {
                     let form = new Form();
                     form.service.baseUrl = '/api/v1/places/?source=' + id;
