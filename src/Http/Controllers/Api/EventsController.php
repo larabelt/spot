@@ -2,6 +2,7 @@
 
 namespace Belt\Spot\Http\Controllers\Api;
 
+use Belt;
 use Belt\Core\Http\Controllers\ApiController;
 use Belt\Spot\Http\Requests;
 use Belt\Spot\Event;
@@ -99,6 +100,8 @@ class EventsController extends ApiController
         ]);
 
         $event->save();
+
+        event(new Belt\Spot\Events\EventCreated($event));
 
         return response()->json($event, 201);
     }

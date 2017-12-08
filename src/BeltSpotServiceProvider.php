@@ -2,7 +2,7 @@
 
 namespace Belt\Spot;
 
-use Belt;
+use Belt, Event;
 use Illuminate\Contracts\Auth\Access\Gate as GateContract;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Routing\Router;
@@ -54,6 +54,11 @@ class BeltSpotServiceProvider extends ServiceProvider
 
         // policies
         $this->registerPolicies($gate);
+
+        // events
+        Event::subscribe(Belt\Spot\Listeners\DealEventSubscriber::class);
+        Event::subscribe(Belt\Spot\Listeners\EventEventSubscriber::class);
+        Event::subscribe(Belt\Spot\Listeners\PlaceEventSubscriber::class);
 
         // morphMap
         Relation::morphMap([

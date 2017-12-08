@@ -2,6 +2,7 @@
 
 namespace Belt\Spot\Http\Controllers\Api;
 
+use Belt;
 use Belt\Core\Http\Controllers\ApiController;
 use Belt\Spot\Http\Requests;
 use Belt\Spot\Place;
@@ -102,6 +103,8 @@ class PlacesController extends ApiController
         ]);
 
         $place->save();
+
+        event(new Belt\Spot\Events\PlaceCreated($place));
 
         return response()->json($place, 201);
     }

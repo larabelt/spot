@@ -2,6 +2,7 @@
 
 namespace Belt\Spot\Http\Controllers\Api;
 
+use Belt;
 use Belt\Core\Http\Controllers\ApiController;
 use Belt\Spot\Http\Requests;
 use Belt\Spot\Deal;
@@ -90,6 +91,8 @@ class DealsController extends ApiController
         ]);
 
         $deal->save();
+
+        event(new Belt\Spot\Events\DealCreated($deal));
 
         return response()->json($deal, 201);
     }
