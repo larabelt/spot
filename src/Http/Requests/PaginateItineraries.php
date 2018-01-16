@@ -32,6 +32,7 @@ class PaginateItineraries extends PaginateRequest
     public $queryModifiers = [
         Belt\Core\Pagination\InQueryModifier::class,
         Belt\Core\Pagination\PriorityQueryModifier::class,
+        Belt\Core\Pagination\TeamableQueryModifier::class,
         Belt\Glue\Pagination\CategorizableQueryModifier::class,
         Belt\Glue\Pagination\TaggableQueryModifier::class,
     ];
