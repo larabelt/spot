@@ -71,7 +71,7 @@
     </div>
     <div class="form-group" :class="{ 'has-error': event.error('body') }">
         <label for="body">Body</label>
-        <textarea class="form-control" rows="10" v-model="event.body" v-tinymce></textarea>
+        <textarea class="form-control" rows="10" v-model="event.body" v-editor></textarea>
         <span v-for="error in event.error('body')" class="text-danger">{{ error }}</span>
     </div>
     <div class="form-group" :class="{ 'has-error': event.error('meta_title') }">
