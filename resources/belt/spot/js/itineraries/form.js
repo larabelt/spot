@@ -18,7 +18,7 @@ class ItineraryForm extends BaseForm {
             meta_keywords: '',
             meta_description: '',
             template: '',
-            priority: '',
+            priority: 0,
         })
     }
 

@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Model;
  * @package Belt\Spot
  */
 class Deal extends Model implements
+    Belt\Core\Behaviors\PriorityInterface,
     Belt\Core\Behaviors\SluggableInterface,
     Belt\Core\Behaviors\TeamableInterface,
     Belt\Core\Behaviors\TypeInterface,
@@ -24,6 +25,7 @@ class Deal extends Model implements
     Belt\Spot\Behaviors\RateableInterface
 {
     use Belt\Core\Behaviors\HasSortableTrait;
+    use Belt\Core\Behaviors\PriorityTrait;
     use Belt\Core\Behaviors\Sluggable;
     use Belt\Core\Behaviors\Teamable;
     use Belt\Core\Behaviors\TypeTrait;

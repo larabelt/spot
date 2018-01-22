@@ -19,7 +19,7 @@ class dealForm extends BaseForm {
             starts_at: '',
             ends_at: '',
             url: '',
-            priority: '',
+            priority: 0,
         })
     }
 
