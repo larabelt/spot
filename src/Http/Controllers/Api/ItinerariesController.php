@@ -38,7 +38,7 @@ class ItinerariesController extends ApiController
     {
         $request = Requests\PaginateItineraries::extend($request);
 
-        $this->authorize('index', Itinerary::class);
+        $this->authorize('view', Itinerary::class);
 
         $paginator = $this->paginator($this->itineraries->query(), $request);
 

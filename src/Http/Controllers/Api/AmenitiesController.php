@@ -32,7 +32,7 @@ class AmenitiesController extends ApiController
      */
     public function index(Request $request)
     {
-        $this->authorize('index', Amenity::class);
+        $this->authorize('view', Amenity::class);
 
         $request = Requests\PaginateAmenities::extend($request);
 
