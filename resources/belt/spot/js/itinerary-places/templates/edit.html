@@ -15,7 +15,7 @@
                 </div>
                 <div class="form-group" :class="{ 'has-error': active.error('body') }">
                     <label for="body">Body</label>
-                    <textarea @change="active.submit()" class="form-control" rows="10" v-model="active.body" v-tinymce></textarea>
+                    <textarea @change="active.submit()" class="form-control" rows="10" v-model="active.body" v-editor></textarea>
                     <span v-for="error in active.error('body')" class="content-danger">{{ error }}</span>
                 </div>
             </form>
