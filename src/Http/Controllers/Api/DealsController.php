@@ -38,7 +38,7 @@ class DealsController extends ApiController
      */
     public function index(Request $request)
     {
-        $this->authorize('index', Deal::class);
+        $this->authorize('view', Deal::class);
 
         $request = Requests\PaginateDeals::extend($request);
 
