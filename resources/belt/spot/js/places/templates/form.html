@@ -20,7 +20,7 @@
     <template-dropdown v-if="place.id" templateType="places" formKey="place"></template-dropdown>
     <div class="form-group" :class="{ 'has-error': place.error('body') }">
         <label for="body">Body</label>
-        <textarea class="form-control" rows="10" v-model="place.body" tinymce="'body'"></textarea>
+        <belt-editor v-model="place.body"></belt-editor>
         <span v-for="error in place.error('body')" class="text-danger">{{ error }}</span>
     </div>
     <div class="row">

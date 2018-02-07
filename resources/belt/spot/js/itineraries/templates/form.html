@@ -19,7 +19,7 @@
     </div>
     <div class="form-group" :class="{ 'has-error': itinerary.error('body') }">
         <label for="body">Body *</label>
-        <textarea class="form-control" rows="10" v-model="itinerary.body" tinymce="'body'"></textarea>
+        <belt-editor v-model="itinerary.body"></belt-editor>
         <span v-for="error in itinerary.error('body')" class="text-danger">{{ error }}</span>
     </div>
     <div class="form-group" :class="{ 'has-error': itinerary.error('meta_title') }">
