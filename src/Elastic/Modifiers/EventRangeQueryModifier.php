@@ -20,8 +20,33 @@ class EventRangeQueryModifier extends PaginationQueryModifier
         $starts_at = $request->query->get('starts_at');
         $ends_at = $request->query->get('ends_at');
 
-        if ($starts_at && $ends_at) {
+        $filter = [];
 
+        if ($starts_at && !$ends_at) {
+            $filter = [
+                [
+                    'range' => [
+                        'starts_at' => [
+                            'gte' => strtotime($starts_at),
+                        ],
+                    ],
+                ],
+            ];
+        }
+
+        if (!$starts_at && $ends_at) {
+            $filter = [
+                [
+                    'range' => [
+                        'ends_at' => [
+                            'lte' => strtotime($ends_at),
+                        ]
+                    ],
+                ],
+            ];
+        }
+
+        if ($starts_at && $ends_at) {
             $filter = [
                 // event.starts_at happens between posted date range
                 [
@@ -65,7 +90,9 @@ class EventRangeQueryModifier extends PaginationQueryModifier
                     ],
                 ]
             ];
+        }
 
+        if ($filter) {
             $this->engine->filter[]['bool']['should'] = $filter;
         }
 
