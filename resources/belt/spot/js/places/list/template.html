@@ -1,0 +1,74 @@
+<div class="box box-primary">
+    <div class="box-body">
+        <div class="clearfix">
+            <div class="pull-left">
+                <div class="form-group">
+                    <input
+                            type="text"
+                            class="form-control"
+                            v-model="table.query.q"
+                            placeholder="filter"
+                            @keydown="table.index()"
+                    >
+                </div>
+            </div>
+            <div class="pull-right">
+                <div class="btn-group">
+                    <router-link :to="{ name: 'places.create' }" :class="'btn btn-primary'">add place</router-link>
+                </div>
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>
+                            ID
+                            <column-sorter :column="'places.id'"></column-sorter>
+                        </th>
+                        <th>
+                            Name
+                            <column-sorter :column="'places.name'"></column-sorter>
+                        </th>
+                        <th class="text-right">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="place in table.items">
+                        <td>{{ place.id }}</td>
+                        <td>{{ place.name }}</td>
+                        <td class="text-right">
+                            <div class="btn-group">
+                                <button
+                                        type="button"
+                                        class="btn btn-xs btn-default dropdown-toggle text-muted"
+                                        data-toggle="dropdown"
+                                        aria-expanded="false"
+                                        title="options"
+                                >
+                                    <i class="fa fa-gear"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-right">
+                                    <li><a :href="'/admin/belt/spot/places/edit/' + place.id + '?place_id=' + place.id"><i class="fa fa-clone"></i> Admin as Place</i></a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><modal-delete :place-id="place.id" _class="''" :callingObject="table"><i class="fa fa-trash"></i> Remove</modal-delete></li>
+                                </ul>
+                                <router-link :to="{ name: 'places.edit', params: { id: place.id } }" :class="'btn btn-xs btn-default'" title="edit place">
+                                    <i class="fa fa-edit"></i>
+                                </router-link>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th class="text-right">Actions</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <pagination></pagination>
+    </div>
+</div>

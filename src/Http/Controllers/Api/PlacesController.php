@@ -175,6 +175,8 @@ class PlacesController extends ApiController
 
         $place->save();
 
+        $this->itemEvent('updated', $place);
+
         return response()->json($place);
     }
 
