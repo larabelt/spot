@@ -106,6 +106,8 @@ class PlacesController extends ApiController
 
         event(new Belt\Spot\Events\PlaceCreated($place));
 
+        $this->itemEvent('created', $place);
+
         return response()->json($place, 201);
     }
 
@@ -193,6 +195,8 @@ class PlacesController extends ApiController
         $place = $this->get($id);
 
         $this->authorize('delete', $place);
+
+        $this->itemEvent('deleted', $place);
 
         $place->delete();
 
