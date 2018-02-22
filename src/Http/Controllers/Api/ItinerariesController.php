@@ -79,6 +79,8 @@ class ItinerariesController extends ApiController
 
         $itinerary->save();
 
+        $this->itemEvent('created', $itinerary);
+
         return response()->json($itinerary, 201);
     }
 
@@ -124,6 +126,8 @@ class ItinerariesController extends ApiController
 
         $itinerary->save();
 
+        $this->itemEvent('updated', $itinerary);
+
         return response()->json($itinerary);
     }
 
@@ -138,6 +142,8 @@ class ItinerariesController extends ApiController
     public function destroy($itinerary)
     {
         $this->authorize('delete', $itinerary);
+
+        $this->itemEvent('deleted', $itinerary);
 
         $itinerary->delete();
 
