@@ -103,6 +103,8 @@ class EventsController extends ApiController
 
         event(new Belt\Spot\Events\EventCreated($event));
 
+        $this->itemEvent('created', $event);
+
         return response()->json($event, 201);
     }
 
@@ -170,6 +172,8 @@ class EventsController extends ApiController
 
         $event->save();
 
+        $this->itemEvent('updated', $event);
+
         return response()->json($event);
     }
 
@@ -186,6 +190,8 @@ class EventsController extends ApiController
         $event = $this->get($id);
 
         $this->authorize('delete', $event);
+
+        $this->itemEvent('deleted', $event);
 
         $event->delete();
 

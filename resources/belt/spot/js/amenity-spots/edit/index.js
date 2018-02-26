@@ -1,7 +1,7 @@
 import shared from 'belt/spot/js/amenity-spots/shared';
 import self from 'belt/spot/js/amenity-spots/edit';
 import html from 'belt/spot/js/amenity-spots/edit/template.html';
-import amenities from "../../places/ctlr/amenities";
+//import amenities from "../../places/ctlr/amenities";
 
 export default {
     mixins: [shared],

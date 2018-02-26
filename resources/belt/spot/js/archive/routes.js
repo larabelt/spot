@@ -1,16 +1,16 @@
-import list from 'belt/spot/js/places/list';
-import create from 'belt/spot/js/places/create';
-import edit from 'belt/spot/js/places/edit';
-import addresses from 'belt/spot/js/places/edit/addresses';
-import amenities from 'belt/spot/js/places/edit/amenities';
-import categories from 'belt/spot/js/places/edit/categories';
-import attachments from 'belt/spot/js/places/edit/attachments';
-import params from 'belt/spot/js/places/edit/params';
-import sections from 'belt/spot/js/places/edit/sections';
-import tags from 'belt/spot/js/places/edit/tags';
+import index from 'belt/spot/js/places/ctlr/index';
+import create from 'belt/spot/js/places/ctlr/create';
+import edit  from 'belt/spot/js/places/ctlr/edit';
+import addresses  from 'belt/spot/js/places/ctlr/addresses';
+import amenities  from 'belt/spot/js/places/ctlr/amenities';
+import categories  from 'belt/spot/js/places/ctlr/categories';
+import attachments  from 'belt/spot/js/places/ctlr/attachments';
+import params  from 'belt/spot/js/places/ctlr/params';
+import sections  from 'belt/spot/js/places/ctlr/sections';
+import tags  from 'belt/spot/js/places/ctlr/tags';
 
 export default [
-    {path: '/places', component: list, canReuse: false, name: 'places'},
+    {path: '/places', component: index, canReuse: false, name: 'places'},
     {path: '/places/create', component: create, name: 'places.create'},
     {path: '/places/edit/:id', component: edit, name: 'places.edit'},
     {path: '/places/edit/:id/addresses/:address?', component: addresses, name: 'places.addresses'},

@@ -94,6 +94,8 @@ class DealsController extends ApiController
 
         event(new Belt\Spot\Events\DealCreated($deal));
 
+        $this->itemEvent('created', $deal);
+
         return response()->json($deal, 201);
     }
 
@@ -154,6 +156,8 @@ class DealsController extends ApiController
 
         $deal->save();
 
+        $this->itemEvent('updated', $deal);
+
         return response()->json($deal);
     }
 
@@ -170,6 +174,8 @@ class DealsController extends ApiController
         $deal = $this->get($id);
 
         $this->authorize('delete', $deal);
+
+        $this->itemEvent('deleted', $deal);
 
         $deal->delete();
 

@@ -1,37 +1,28 @@
-import config from 'belt/core/js/configs/store/local';
-import params from 'belt/core/js/paramables/store';
+import Form from 'belt/spot/js/places/form';
 
-/**
- * Places
- */
 export default {
     namespaced: true,
-    modules: {
-        config,
-        params,
-    },
     state: {
-        data: {},
+        form: new Form(),
     },
     mutations: {
-        config: (state, value) => state.config = value,
-        data: (state, value) => state.data = value,
+        form: (state, form) => state.form = form,
     },
     actions: {
-        config: (context, value) => context.commit('config', value),
-        construct: ({dispatch, commit}, options) => {
-            dispatch('config/set', {morphType: 'places'});
-            dispatch('params/set', {morphType: 'places', morphID: options.id});
+        load: ({commit, dispatch, state}, placeID) => {
+            return new Promise((resolve, reject) => {
+                state.form.show(placeID)
+                    .then(response => {
+                        resolve(response);
+                    })
+                    .catch(error => {
+                        reject(error);
+                    })
+            });
         },
-        data: (context, value) => context.commit('data', value),
-        load: ({dispatch, commit}, place) => {
-            commit('data', place.data());
-            dispatch('config/set', {configKey: place.template});
-            dispatch('config/load');
-        },
+        form: (context, form) => context.commit('form', form),
     },
     getters: {
-        config: state => state.config,
-        data: state => state.data,
+        form: state => state.form,
     }
 };
