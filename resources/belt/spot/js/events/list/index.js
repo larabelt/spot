@@ -1,14 +1,17 @@
+import Table from 'belt/spot/js/events/table';
+import heading_html from 'belt/core/js/templates/heading.html';
+import index_html from 'belt/spot/js/events/list/template.html';
 import filterPriority from 'belt/core/js/inputs/priority/filter';
 import filterSearch from 'belt/core/js/inputs/filter-search';
-import Table from 'belt/spot/js/places/table';
-import heading_html from 'belt/core/js/templates/heading.html';
-import index_html from 'belt/spot/js/places/list/template.html';
+import datetime from 'belt/core/js/mixins/datetime';
+import datetimeInput from 'belt/core/js/inputs/datetime';
 
 export default {
 
     components: {
         heading: {template: heading_html},
         index: {
+            mixins: [datetime],
             data() {
                 return {
                     table: new Table({router: this.$router}),
@@ -32,12 +35,13 @@ export default {
                 }, 750),
                 copy(id) {
                     let form = new Form();
-                    form.service.baseUrl = '/api/v1/places/?source=' + id;
+                    form.service.baseUrl = '/api/v1/events/?source=' + id;
                     form.router = this.$router;
                     form.submit();
                 }
             },
             components: {
+                datetimeInput,
                 filterPriority,
                 filterSearch,
             },
@@ -48,7 +52,7 @@ export default {
     template: `
         <div>
             <heading>
-                <span slot="title">Place Manager</span>
+                <span slot="title">Event Manager</span>
             </heading>
             <section class="content">
                 <index></index>

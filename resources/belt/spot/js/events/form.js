@@ -1,8 +1,7 @@
 import BaseForm from 'belt/core/js/helpers/form';
 import BaseService from 'belt/core/js/helpers/service';
-import * as URI from "uri-js";
 
-class eventForm extends BaseForm {
+class EventForm extends BaseForm {
 
     constructor(options = {}) {
         super(options);
@@ -10,40 +9,14 @@ class eventForm extends BaseForm {
         this.routeEditName = 'events.edit';
         this.setData({
             id: '',
-            attachment_id: '',
-            is_active: 0,
+            default_user_id: null,
+            is_active: false,
             name: '',
             slug: '',
-            rating: '',
-            intro: '',
             body: '',
-            phone: '',
-            phone_tollfree: '',
-            url: '',
-            meta_title: '',
-            meta_description: '',
-            meta_keywords: '',
-            starts_at: '',
-            ends_at: '',
-            template: '',
-            priority: 0,
         })
-    }
-
-    getAttachmentId() {
-        return this.attachment_id;
-    }
-
-    normalizeUrl() {
-        if (this.url) {
-            let bits = URI.parse(this.url);
-            if (!bits.scheme) {
-                this.url = 'http://' + this.url;
-            }
-            this.url = URI.normalize(this.url);
-        }
     }
 
 }
 
-export default eventForm;
+export default EventForm;

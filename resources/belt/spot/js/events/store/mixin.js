@@ -1,22 +1,22 @@
-import Form from 'belt/spot/js/places/form';
-import store from 'belt/spot/js/places/store';
+import Form from 'belt/spot/js/events/form';
+import store from 'belt/spot/js/events/store';
 
 export default {
     created() {
         if (!this.$store.state[this.storeKey]) {
             this.$store.registerModule(this.storeKey, store);
-            this.$store.dispatch(this.storeKey + '/construct', {id: this.place_id});
+            this.$store.dispatch(this.storeKey + '/construct', {id: this.event_id});
         }
     },
     computed: {
         config() {
             return this.$store.getters[this.storeKey + '/config/data'];
         },
-        place() {
+        event() {
             return this.$store.getters[this.storeKey + '/form'];
         },
         storeKey() {
-            return 'places' + this.place_id;
+            return 'events' + this.event_id;
         },
     },
     methods: {
@@ -24,7 +24,7 @@ export default {
     },
     data() {
         return {
-            place_id: null,
+            event_id: null,
         }
     },
 }

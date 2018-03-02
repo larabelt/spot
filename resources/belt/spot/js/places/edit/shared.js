@@ -8,6 +8,14 @@ export default {
             morphable_id: this.$route.params.id,
         }
     },
+    computed: {
+        config() {
+            return this.$store.getters[this.storeKey + '/config/data'];
+        },
+        storeKey() {
+            return 'places' + this.morphable_id;
+        },
+    },
     components: {
         tabs: {template: tabs_html},
         edit: {},
