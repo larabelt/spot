@@ -1,9 +1,7 @@
+import Form from 'belt/spot/js/events/form';
 import config from 'belt/core/js/configs/store/local';
 import params from 'belt/core/js/paramables/store';
 
-/**
- * Events
- */
 export default {
     namespaced: true,
     modules: {
@@ -11,27 +9,30 @@ export default {
         params,
     },
     state: {
-        data: {},
+        form: new Form(),
     },
     mutations: {
-        config: (state, value) => state.config = value,
-        data: (state, value) => state.data = value,
+        form: (state, form) => state.form = form,
     },
     actions: {
-        config: (context, value) => context.commit('config', value),
         construct: ({dispatch, commit}, options) => {
             dispatch('config/set', {morphType: 'events'});
             dispatch('params/set', {morphType: 'events', morphID: options.id});
         },
-        data: (context, value) => context.commit('data', value),
-        load: ({dispatch, commit}, event) => {
-            commit('data', event.data());
-            dispatch('config/set', {configKey: event.template});
-            dispatch('config/load');
+        load: ({commit, dispatch, state}, eventID) => {
+            return new Promise((resolve, reject) => {
+                state.form.show(eventID)
+                    .then(response => {
+                        resolve(response);
+                    })
+                    .catch(error => {
+                        reject(error);
+                    })
+            });
         },
+        form: (context, form) => context.commit('form', form),
     },
     getters: {
-        config: state => state.config,
-        data: state => state.data,
+        form: state => state.form,
     }
 };

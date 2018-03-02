@@ -22,6 +22,7 @@ class DateRangeQueryModifier extends PaginationQueryModifier
         $ends_at = $request->query->has('ends_at') ? $request->query->get('ends_at') : null;
 
         if ($starts_at || $ends_at) {
+
             $starts_at = new Carbon(date('Y-m-d 00:00:00', strtotime($starts_at ?: 'now')));
             $ends_at = new Carbon(date('Y-m-d 23:59:59', strtotime($ends_at ?: '+1 year')));
 
@@ -44,5 +45,6 @@ class DateRangeQueryModifier extends PaginationQueryModifier
                 });
             });
         }
+
     }
 }

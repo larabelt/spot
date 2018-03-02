@@ -1,15 +1,15 @@
-import list from 'belt/spot/js/events/list';
-import create from 'belt/spot/js/events/create';
-import edit from 'belt/spot/js/events/edit';
-import addresses from 'belt/spot/js/events/edit/addresses';
-import categories from 'belt/spot/js/events/edit/categories';
-import attachments from 'belt/spot/js/events/edit/attachments';
-import params from 'belt/spot/js/events/edit/params';
-import sections from 'belt/spot/js/events/edit/sections';
-import tags from 'belt/spot/js/events/edit/tags';
+import index from 'belt/spot/js/events/ctlr/index';
+import create from 'belt/spot/js/events/ctlr/create';
+import edit  from 'belt/spot/js/events/ctlr/edit';
+import addresses  from 'belt/spot/js/events/ctlr/addresses';
+import categories  from 'belt/spot/js/events/ctlr/categories';
+import attachments  from 'belt/spot/js/events/ctlr/attachments';
+import params  from 'belt/spot/js/events/ctlr/params';
+import sections  from 'belt/spot/js/events/ctlr/sections';
+import tags  from 'belt/spot/js/events/ctlr/tags';
 
 export default [
-    {path: '/events', component: list, canReuse: false, name: 'events'},
+    {path: '/events', component: index, canReuse: false, name: 'events'},
     {path: '/events/create', component: create, name: 'events.create'},
     {path: '/events/edit/:id', component: edit, name: 'events.edit'},
     {path: '/events/edit/:id/addresses/:address?', component: addresses, name: 'events.addresses'},
