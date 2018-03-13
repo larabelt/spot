@@ -1,3 +1,4 @@
+import Form from 'belt/spot/js/events/form';
 import Table from 'belt/spot/js/events/table';
 import heading_html from 'belt/core/js/templates/heading.html';
 import index_html from 'belt/spot/js/events/list/template.html';

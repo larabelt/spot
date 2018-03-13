@@ -1,5 +1,6 @@
 import filterPriority from 'belt/core/js/inputs/priority/filter';
 import filterSearch from 'belt/core/js/inputs/filter-search';
+import Form from 'belt/spot/js/places/form';
 import Table from 'belt/spot/js/places/table';
 import heading_html from 'belt/core/js/templates/heading.html';
 import index_html from 'belt/spot/js/places/list/template.html';
