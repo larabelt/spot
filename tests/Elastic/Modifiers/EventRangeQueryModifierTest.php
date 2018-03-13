@@ -33,13 +33,13 @@ class EventRangeQueryModifierTest extends BeltTestCase
 
         # starts_at only
         $engine = $this->engine(['starts_at' => '1999-01-01']);
-        $this->assertFalse(isset($engine->filter[0]['bool']['should'][0]['range']['starts_at']['lte']));
-        $this->assertTrue(isset($engine->filter[0]['bool']['should'][0]['range']['starts_at']['gte']));
+        $this->assertTrue(isset($engine->filter[0]['bool']['should'][0]['bool']['should'][0]['range']['starts_at']['gte']));
+        $this->assertTrue(isset($engine->filter[0]['bool']['should'][0]['bool']['should'][1]['range']['ends_at']['gte']));
 
         # ends_at only
         $engine = $this->engine(['ends_at' => '1999-12-31']);
-        $this->assertTrue(isset($engine->filter[0]['bool']['should'][0]['range']['ends_at']['lte']));
-        $this->assertFalse(isset($engine->filter[0]['bool']['should'][0]['range']['ends_at']['gte']));
+        $this->assertTrue(isset($engine->filter[0]['bool']['should'][0]['bool']['should'][0]['range']['starts_at']['lte']));
+        $this->assertTrue(isset($engine->filter[0]['bool']['should'][0]['bool']['should'][1]['range']['ends_at']['lte']));
 
         # starts_at & ends_at
         $engine = $this->engine(['starts_at' => '1999-01-01', 'ends_at' => '1999-12-31']);
