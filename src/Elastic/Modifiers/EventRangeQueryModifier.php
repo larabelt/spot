@@ -24,25 +24,53 @@ class EventRangeQueryModifier extends PaginationQueryModifier
 
         if ($starts_at && !$ends_at) {
             $filter = [
+                // event starts or ends after starts_at date
                 [
-                    'range' => [
-                        'starts_at' => [
-                            'gte' => strtotime($starts_at),
+                    'bool' => [
+                        'should' => [
+                            [
+                                'range' => [
+                                    'starts_at' => [
+                                        'gte' => strtotime($starts_at),
+                                    ],
+                                ],
+                            ],
+                            [
+                                'range' => [
+                                    'ends_at' => [
+                                        'gte' => strtotime($starts_at),
+                                    ]
+                                ],
+                            ],
                         ],
                     ],
-                ],
+                ]
             ];
         }
 
         if (!$starts_at && $ends_at) {
             $filter = [
+                // event starts or ends before ends_at date
                 [
-                    'range' => [
-                        'ends_at' => [
-                            'lte' => strtotime($ends_at),
-                        ]
+                    'bool' => [
+                        'should' => [
+                            [
+                                'range' => [
+                                    'starts_at' => [
+                                        'lte' => strtotime($ends_at),
+                                    ],
+                                ],
+                            ],
+                            [
+                                'range' => [
+                                    'ends_at' => [
+                                        'lte' => strtotime($ends_at),
+                                    ]
+                                ],
+                            ],
+                        ],
                     ],
-                ],
+                ]
             ];
         }
 
