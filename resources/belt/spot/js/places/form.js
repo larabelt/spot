@@ -9,11 +9,25 @@ class PlaceForm extends BaseForm {
         this.routeEditName = 'places.edit';
         this.setData({
             id: '',
-            default_user_id: null,
-            is_active: false,
+            team_id: '',
+            is_active: 0,
             name: '',
             slug: '',
+            rating: '',
             body: '',
+            intro: '',
+            phone: '',
+            phone_tollfree: '',
+            hours: '',
+            url: '',
+            email: '',
+            meta_title: '',
+            meta_description: '',
+            meta_keywords: '',
+            starts_at: '',
+            ends_at: '',
+            template: '',
+            priority: 0,
         })
     }
 

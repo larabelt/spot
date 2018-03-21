@@ -3,6 +3,7 @@ import edit from 'belt/spot/js/places/edit/shared';
 import html from 'belt/spot/js/places/edit/form.html';
 import priorityDropdown from 'belt/core/js/inputs/priority/form';
 import templateDropdown from 'belt/content/js/templates';
+import teamInput from 'belt/core/js/teams/input';
 
 export default {
     mixins: [edit],
@@ -27,6 +28,7 @@ export default {
             components: {
                 priorityDropdown,
                 templateDropdown,
+                teamInput,
             },
             template: html,
         },

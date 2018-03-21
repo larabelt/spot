@@ -10,11 +10,23 @@ class EventForm extends BaseForm {
         this.routeEditName = 'events.edit';
         this.setData({
             id: '',
-            default_user_id: null,
-            is_active: false,
+            team_id: '',
+            is_active: 0,
             name: '',
             slug: '',
+            rating: '',
+            intro: '',
             body: '',
+            phone: '',
+            phone_tollfree: '',
+            url: '',
+            meta_title: '',
+            meta_description: '',
+            meta_keywords: '',
+            starts_at: '',
+            ends_at: '',
+            template: '',
+            priority: 0,
         })
     }
 
