@@ -22,6 +22,8 @@ class PaginatePlaces extends PaginateRequest
         'places.name',
         'places.rating',
         'places.priority',
+        'places.created_at',
+        'places.updated_at',
     ];
 
     public $searchable = [

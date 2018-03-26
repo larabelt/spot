@@ -23,6 +23,8 @@ class PaginateAddresses extends PaginateRequest
         'addresses.region',
         'addresses.postcode',
         'addresses.country',
+        'addresses.created_at',
+        'addresses.updated_at',
     ];
 
     public $searchable = [

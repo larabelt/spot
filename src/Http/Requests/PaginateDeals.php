@@ -19,6 +19,8 @@ class PaginateDeals extends PaginateRequest
         'deals.id',
         'deals.name',
         'deals.rating',
+        'deals.created_at',
+        'deals.updated_at',
     ];
 
     public $searchable = [

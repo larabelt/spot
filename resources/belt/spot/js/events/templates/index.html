@@ -43,6 +43,8 @@
                             Priority
                             <column-sorter :column="'events.priority'"></column-sorter>
                         </th>
+                        <th>Created<column-sorter :column="'events.created_at'"></column-sorter></th>
+                        <th>Updated<column-sorter :column="'events.updated_at'"></column-sorter></th>
                         <th class="text-right">Actions</th>
                     </tr>
                 </thead>
@@ -53,6 +55,8 @@
                         <td>{{ datetime(item.starts_at, 'L LT') }}</td>
                         <td>{{ datetime(item.ends_at, 'L LT') }}</td>
                         <td>{{ item.priority }}</td>
+                        <td>{{ item.created_at }}</td>
+                        <td>{{ item.updated_at }}</td>
                         <td class="text-right">
                             <div class="btn-group">
                                 <button
@@ -83,6 +87,8 @@
                         <th>Starts</th>
                         <th>Ends</th>
                         <th>Priority</th>
+                        <th>Created</th>
+                        <th>Updated</th>
                         <th class="text-right">Actions</th>
                     </tr>
                 </tfoot>
