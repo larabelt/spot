@@ -67,6 +67,7 @@ class ItinerariesController extends ApiController
         ]);
 
         $this->set($itinerary, $input, [
+            'is_active',
             'template',
             'slug',
             'priority',
@@ -113,6 +114,7 @@ class ItinerariesController extends ApiController
         $input = $request->all();
 
         $this->set($itinerary, $input, [
+            'is_active',
             'template',
             'slug',
             'priority',

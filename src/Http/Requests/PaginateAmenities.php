@@ -31,6 +31,8 @@ class PaginateAmenities extends PaginateRequest
     public $sortable = [
         'amenities.id',
         'amenities.name',
+        'amenities.created_at',
+        'amenities.updated_at',
     ];
 
     /**

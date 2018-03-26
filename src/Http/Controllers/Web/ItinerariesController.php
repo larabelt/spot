@@ -32,6 +32,10 @@ class ItinerariesController extends BaseController
      */
     public function show(Itinerary $itinerary)
     {
+        if (!$itinerary->is_active) {
+            abort(404);
+        }
+
         $compiled = $this->compile($itinerary);
 
         $owner = $itinerary;

@@ -9,6 +9,7 @@ class ItineraryForm extends BaseForm {
         this.routeEditName = 'itineraries.edit';
         this.setData({
             id: '',
+            is_active: 0,
             name: '',
             slug: '',
             rating: '',

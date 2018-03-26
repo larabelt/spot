@@ -29,6 +29,8 @@
                             Priority
                             <column-sorter :column="'places.priority'"></column-sorter>
                         </th>
+                        <th>Created<column-sorter :column="'places.created_at'"></column-sorter></th>
+                        <th>Updated<column-sorter :column="'places.updated_at'"></column-sorter></th>
                         <th class="text-right">Actions</th>
                     </tr>
                 </thead>
@@ -37,6 +39,8 @@
                         <td>{{ item.id }}</td>
                         <td>{{ item.name }}</td>
                         <td>{{ item.priority }}</td>
+                        <td>{{ item.created_at }}</td>
+                        <td>{{ item.updated_at }}</td>
                         <td class="text-right">
                             <div class="btn-group">
                                 <button
@@ -65,6 +69,8 @@
                         <th>ID</th>
                         <th>Name</th>
                         <th>Priority</th>
+                        <th>Created</th>
+                        <th>Updated</th>
                         <th class="text-right">Actions</th>
                     </tr>
                 </tfoot>

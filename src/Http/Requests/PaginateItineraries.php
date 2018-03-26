@@ -19,6 +19,8 @@ class PaginateItineraries extends PaginateRequest
         'itineraries.id',
         'itineraries.name',
         'itineraries.rating',
+        'itineraries.created_at',
+        'itineraries.updated_at',
     ];
 
     public $searchable = [

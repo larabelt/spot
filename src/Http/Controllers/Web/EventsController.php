@@ -32,6 +32,10 @@ class EventsController extends BaseController
      */
     public function show(Event $event)
     {
+        if (!$event->is_active) {
+            abort(404);
+        }
+
         $compiled = $this->compile($event);
 
         $owner = $event;

@@ -22,6 +22,8 @@ class PaginateEvents extends PaginateRequest
         'events.starts_at',
         'events.ends_at',
         'events.rating',
+        'events.created_at',
+        'events.updated_at',
     ];
 
     public $searchable = [
