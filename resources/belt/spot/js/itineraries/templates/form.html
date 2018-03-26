@@ -1,4 +1,11 @@
 <form @submit.prevent="itinerary.submit()" @keydown="itinerary.errors.clear($event.target.name)">
+    <div class="checkbox">
+        <label>
+            <input type="checkbox"
+                   v-model="itinerary.is_active"
+            > Is Active
+        </label>
+    </div>
     <div class="form-group" :class="{ 'has-error': itinerary.error('name') }">
         <label for="name">Name *</label>
         <input type="name" class="form-control" v-model="itinerary.name" itineraryholder="name">

@@ -32,6 +32,10 @@ class PlacesController extends BaseController
      */
     public function show(Place $place)
     {
+        if (!$place->is_active) {
+            abort(404);
+        }
+
         $compiled = $this->compile($place);
 
         $owner = $place;
