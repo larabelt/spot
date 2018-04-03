@@ -1,5 +1,5 @@
 import edit from 'belt/spot/js/places/edit/shared';
-import sections from 'belt/content/js/sectionables/ctlr/index';
+import sections from 'belt/content/js/sectionables/router/index';
 
 export default {
     mixins: [edit],
