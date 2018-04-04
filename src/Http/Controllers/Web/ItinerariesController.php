@@ -33,7 +33,11 @@ class ItinerariesController extends BaseController
     public function show(Itinerary $itinerary)
     {
         if (!$itinerary->is_active) {
-            abort(404);
+            try {
+                $this->authorize('update', $itinerary);
+            } catch (\Exception $e) {
+                abort(404);
+            }
         }
 
         $compiled = $this->compile($itinerary);

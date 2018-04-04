@@ -5,8 +5,8 @@ import itineraries  from 'belt/spot/js/itineraries/routes';
 import places  from 'belt/spot/js/places/routes';
 import store from 'belt/core/js/store/index';
 
-import inputItineraries from 'belt/spot/js/inputs/itineraries';
-Vue.component('input-itineraries', inputItineraries);
+//import inputItineraries from 'belt/spot/js/inputs/itineraries';
+//Vue.component('input-itineraries', inputItineraries);
 
 window.larabelt.spot = _.get(window, 'larabelt.spot', {});
 

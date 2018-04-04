@@ -33,7 +33,11 @@ class PlacesController extends BaseController
     public function show(Place $place)
     {
         if (!$place->is_active) {
-            abort(404);
+            try {
+                $this->authorize('update', $place);
+            } catch (\Exception $e) {
+                abort(404);
+            }
         }
 
         $compiled = $this->compile($place);
