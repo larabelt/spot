@@ -11,6 +11,8 @@ class ApiEventsFunctionalTest extends Testing\BeltTestCase
         $this->refreshDB();
         $this->actAsSuper();
 
+        app()['config']->set('belt.templates.events.default.builder', null);
+
         # index
         $response = $this->json('GET', '/api/v1/events');
         $response->assertStatus(200);

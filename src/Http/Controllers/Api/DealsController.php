@@ -92,8 +92,6 @@ class DealsController extends ApiController
 
         $deal->save();
 
-        event(new Belt\Spot\Events\DealCreated($deal));
-
         $this->itemEvent('created', $deal);
 
         return response()->json($deal, 201);

@@ -101,8 +101,6 @@ class EventsController extends ApiController
 
         $event->save();
 
-        event(new Belt\Spot\Events\EventCreated($event));
-
         $this->itemEvent('created', $event);
 
         return response()->json($event, 201);

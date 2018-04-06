@@ -11,6 +11,8 @@ class ApiPlacesFunctionalTest extends Testing\BeltTestCase
         $this->refreshDB();
         $this->actAsSuper();
 
+        app()['config']->set('belt.templates.places.default.builder', null);
+
         # index
         $response = $this->json('GET', '/api/v1/places');
         $response->assertStatus(200);
@@ -18,7 +20,9 @@ class ApiPlacesFunctionalTest extends Testing\BeltTestCase
         # store
         $response = $this->json('POST', '/api/v1/places', [
             'name' => 'test',
+            'template' => 'foo',
         ]);
+
         $response->assertStatus(201);
         $response->assertJsonFragment(['id']);
         $placeID = array_get($response->json(), 'id');

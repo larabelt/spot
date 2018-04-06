@@ -104,8 +104,6 @@ class PlacesController extends ApiController
 
         $place->save();
 
-        event(new Belt\Spot\Events\PlaceCreated($place));
-
         $this->itemEvent('created', $place);
 
         return response()->json($place, 201);
