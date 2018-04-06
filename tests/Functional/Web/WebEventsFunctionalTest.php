@@ -9,21 +9,24 @@ class WebEventsFunctionalTest extends Testing\BeltTestCase
     public function testAsSuper()
     {
         $this->refreshDB();
-        $this->actAsSuper();
 
         Event::unguard();
         $event = Event::find(1);
-        $event->update(['is_active' => true]);
 
         # show
+        $event->update(['is_active' => true]);
         $response = $this->json('GET', '/events/1');
         $response->assertStatus(200);
 
-        $event->update(['is_active' => false]);
-
         # show (404)
+        $event->update(['is_active' => false]);
         $response = $this->json('GET', '/events/1');
         $response->assertStatus(404);
+
+        # show (super, avoid 404)
+        $this->actAsSuper();
+        $response = $this->json('GET', '/events/1');
+        $response->assertStatus(200);
     }
 
 }
