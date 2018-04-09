@@ -31,9 +31,9 @@ class BeltUpdateItinerariesTable2 extends Migration
     public function down()
     {
         Schema::table('itineraries', function (Blueprint $table) {
-            $table->boolean('is_active')->default('0')->index();
-            $table->boolean('is_searchable')->default('0')->index();
-            $table->tinyInteger('status')->default('0')->index();
+            $table->dropColumn('is_active');
+            $table->dropColumn('is_searchable');
+            $table->dropColumn('status');
         });
     }
 }
