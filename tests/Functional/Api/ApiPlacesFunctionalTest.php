@@ -45,8 +45,7 @@ class ApiPlacesFunctionalTest extends Testing\BeltTestCase
         $this->json('POST', "/api/v1/places/$placeID/categories", ['id' => 1]);
         $this->json('POST', "/api/v1/places/$placeID/handles", ['url' => "places/$placeID"]);
         $this->json('POST', "/api/v1/places/$placeID/sections", [
-            'sectionable_type' => 'sections',
-            'heading' => 'place',
+            'template' => 'containers.default',
         ]);
         $this->json('POST', "/api/v1/places/$placeID/tags", ['id' => 1]);
         $response = $this->json('POST', "/api/v1/places", ['source' => $placeID]);
