@@ -1,5 +1,5 @@
 @php
-    $itinerary = $section->sectionable;
+    $itinerary = $section->morphParam('intineraries');
 @endphp
 
 @if($itinerary)

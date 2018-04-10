@@ -9,7 +9,7 @@
 @if($team || $can['amenities'] || $can['deals'] || $can['events'] || $can['itineraries'] || $can['places'])
     <li id="spot-admin-sidebar-left" class="treeview">
         <a href="#">
-            <i class="fa fa-globe"></i> <span>Spot Admin</span> <i class="fa fa-angle-left pull-right"></i>
+            <i class="fa fa-globe"></i> <span>POIs</span> <i class="fa fa-angle-left pull-right"></i>
         </a>
         <ul class="treeview-menu">
             @if($can['amenities'])
