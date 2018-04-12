@@ -51,7 +51,7 @@
                                 <ul class="dropdown-menu dropdown-menu-right">
                                     <li><a :href="'/admin/belt/spot/places/edit/' + place.id + '?place_id=' + place.id"><i class="fa fa-clone"></i> Admin as Place</i></a></li>
                                     <li role="separator" class="divider"></li>
-                                    <li><modal-delete :place-id="place.id" _class="''" :callingObject="table"><i class="fa fa-trash"></i> Remove</modal-delete></li>
+                                    <li><modal-delete :item-id="place.id" _class="''" :callingObject="table"><i class="fa fa-trash"></i> Remove</modal-delete></li>
                                 </ul>
                                 <router-link :to="{ name: 'places.edit', params: { id: place.id } }" :class="'btn btn-xs btn-default'" title="edit place">
                                     <i class="fa fa-edit"></i>
