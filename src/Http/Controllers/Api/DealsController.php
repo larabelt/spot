@@ -38,7 +38,7 @@ class DealsController extends ApiController
      */
     public function index(Request $request)
     {
-        $this->authorize('view', Deal::class);
+        $this->authorize(['view', 'create', 'update', 'delete'], Deal::class);
 
         $request = Requests\PaginateDeals::extend($request);
 
@@ -108,7 +108,7 @@ class DealsController extends ApiController
     {
         $deal = $this->get($id);
 
-        $this->authorize('view', $deal);
+        $this->authorize(['view', 'create', 'update', 'delete'], $deal);
 
         return response()->json($deal);
     }

@@ -54,7 +54,7 @@ class AmenitySpotsController extends ApiController
     {
         $owner = $this->morphable($owner_type, $owner_id);
 
-        $this->authorize('view', $owner);
+        $this->authorize(['view', 'create', 'update', 'delete'], $owner);
 
         return response()->json($owner->amenities->toArray());
 
@@ -122,7 +122,7 @@ class AmenitySpotsController extends ApiController
     {
         $owner = $this->morphable($owner_type, $owner_id);
 
-        $this->authorize('view', $owner);
+        $this->authorize(['view', 'create', 'update', 'delete'], $owner);
 
         $this->amenity($id, $owner);
 

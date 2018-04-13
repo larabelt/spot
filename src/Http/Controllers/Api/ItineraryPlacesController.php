@@ -63,7 +63,7 @@ class ItineraryPlacesController extends ApiController
 
         $request->merge(['itinerary_id' => $itinerary->id]);
 
-        $this->authorize('view', $itinerary);
+        $this->authorize(['view', 'create', 'update', 'delete'], $itinerary);
 
         $paginator = $this->paginator($this->itineraryPlace->with('place'), $request);
 
@@ -144,7 +144,7 @@ class ItineraryPlacesController extends ApiController
      */
     public function show($itinerary, $id)
     {
-        $this->authorize('view', $itinerary);
+        $this->authorize(['view', 'create', 'update', 'delete'], $itinerary);
 
         $this->contains($itinerary, $id);
 

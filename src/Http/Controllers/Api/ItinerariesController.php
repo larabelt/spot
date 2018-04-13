@@ -38,7 +38,7 @@ class ItinerariesController extends ApiController
     {
         $request = Requests\PaginateItineraries::extend($request);
 
-        $this->authorize('view', Itinerary::class);
+        $this->authorize(['view', 'create', 'update', 'delete'], Itinerary::class);
 
         $paginator = $this->paginator($this->itineraries->query(), $request);
 
@@ -94,7 +94,7 @@ class ItinerariesController extends ApiController
      */
     public function show($itinerary)
     {
-        $this->authorize('view', $itinerary);
+        $this->authorize(['view', 'create', 'update', 'delete'], $itinerary);
 
         return response()->json($itinerary);
     }
