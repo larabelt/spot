@@ -1,9 +1,9 @@
 @php
-    $can['amenities'] = Auth::user()->can('edit', Belt\Spot\Amenity::class);
-    $can['deals'] = Auth::user()->can('edit', Belt\Spot\Deal::class);
-    $can['events'] = Auth::user()->can('edit', Belt\Spot\Event::class);
-    $can['itineraries'] = Auth::user()->can('edit', Belt\Spot\Itinerary::class);
-    $can['places'] = Auth::user()->can('edit', Belt\Spot\Place::class);
+    $can['amenities'] = $auth->can(['create','update','delete'], Belt\Spot\Amenity::class);
+    $can['deals'] = $auth->can(['create','update','delete'], Belt\Spot\Deal::class);
+    $can['events'] = $auth->can(['create','update','delete'], Belt\Spot\Event::class);
+    $can['itineraries'] = $auth->can(['create','update','delete'], Belt\Spot\Itinerary::class);
+    $can['places'] = $auth->can(['create','update','delete'], Belt\Spot\Place::class);
 @endphp
 
 @if($team || $can['amenities'] || $can['deals'] || $can['events'] || $can['itineraries'] || $can['places'])
