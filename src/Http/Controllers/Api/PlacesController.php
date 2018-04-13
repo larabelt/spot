@@ -39,7 +39,7 @@ class PlacesController extends ApiController
     public function index(Request $request)
     {
 
-        $this->authorize('view', Place::class);
+        $this->authorize(['view', 'create', 'update', 'delete'], Place::class);
 
         $request = Requests\PaginatePlaces::extend($request);
 
@@ -122,7 +122,7 @@ class PlacesController extends ApiController
     {
         $place = $this->get($id);
 
-        $this->authorize('view', $place);
+        $this->authorize(['view', 'create', 'update', 'delete'], $place);
 
         $place->address;
         $place->addresses;

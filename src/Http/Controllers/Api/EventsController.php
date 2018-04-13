@@ -40,7 +40,7 @@ class EventsController extends ApiController
     {
         $request = Requests\PaginateEvents::extend($request);
 
-        $this->authorize('view', Event::class);
+        $this->authorize(['view', 'create', 'update', 'delete'], Event::class);
 
         $paginator = $this->paginator($this->events->query(), $request);
 
@@ -119,7 +119,7 @@ class EventsController extends ApiController
     {
         $event = $this->get($id);
 
-        $this->authorize('view', $event);
+        $this->authorize(['view', 'create', 'update', 'delete'], $event);
 
         $event->address;
         $event->addresses;

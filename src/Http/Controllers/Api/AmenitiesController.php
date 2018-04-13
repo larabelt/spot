@@ -32,7 +32,7 @@ class AmenitiesController extends ApiController
      */
     public function index(Request $request)
     {
-        $this->authorize('view', Amenity::class);
+        $this->authorize(['view', 'create', 'update', 'delete'], Amenity::class);
 
         $request = Requests\PaginateAmenities::extend($request);
 
@@ -82,7 +82,7 @@ class AmenitiesController extends ApiController
      */
     public function show(Amenity $amenity)
     {
-        $this->authorize('view', $amenity);
+        $this->authorize(['view', 'create', 'update', 'delete'], $amenity);
 
         return response()->json($amenity);
     }

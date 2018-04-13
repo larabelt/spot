@@ -66,7 +66,7 @@ class AddressesController extends ApiController
 
         $owner = $this->morphable($addressable_type, $addressable_id);
 
-        $this->authorize('view', $owner);
+        $this->authorize(['view', 'create', 'update', 'delete'], $owner);
 
         $request->merge([
             'addressable_id' => $owner->id,
@@ -146,7 +146,7 @@ class AddressesController extends ApiController
     {
         $owner = $this->morphable($addressable_type, $addressable_id);
 
-        $this->authorize('view', $owner);
+        $this->authorize(['view', 'create', 'update', 'delete'], $owner);
 
         $this->contains($owner, $address);
 
