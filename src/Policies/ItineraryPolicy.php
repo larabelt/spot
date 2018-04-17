@@ -13,6 +13,17 @@ use Belt\Spot\Itinerary;
 class ItineraryPolicy extends BaseAdminPolicy
 {
     /**
+     * Determine whether the user can create object.
+     *
+     * @param  User $auth
+     * @return mixed
+     */
+    public function create(User $auth, $arguments = null)
+    {
+        return $this->teamService()->team();
+    }
+
+    /**
      * Determine whether the user can view the object.
      *
      * @param  User $auth
