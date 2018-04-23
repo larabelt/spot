@@ -49,7 +49,7 @@
                                     <i class="fa fa-gear"></i>
                                 </button>
                                 <ul class="dropdown-menu dropdown-menu-right">
-                                    <li><a :href="'/admin/belt/spot/places/edit/' + place.id + '?place_id=' + place.id"><i class="fa fa-clone"></i> Admin as Place</i></a></li>
+                                    <li><a href="#" @click.prevent="copy(place.id)"><i class="fa fa-clone"></i> Copy</i></a></li>
                                     <li role="separator" class="divider"></li>
                                     <li><modal-delete :item-id="place.id" _class="''" :callingObject="table"><i class="fa fa-trash"></i> Remove</modal-delete></li>
                                 </ul>
