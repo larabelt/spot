@@ -4,8 +4,10 @@
             <div class="pull-left">
                 <filter-search @filter-search-update="filter"></filter-search>
             </div>
+
             <div class="pull-left">
-                <div class="form-inline filter">
+                <div class="form-group filter pull-left">
+                    <label>Template</label>
                     <div class="form-group">
                         <select
                                 v-model="table.query.template"
@@ -21,6 +23,7 @@
                     </div>
                 </div>
             </div>
+
             <div v-if="mode == 'admin'" class="pull-right">
                 <router-link :to="{ name: 'amenities.create' }" :class="'btn btn-primary'">add amenity</router-link>
             </div>
