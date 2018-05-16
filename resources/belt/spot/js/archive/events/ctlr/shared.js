@@ -1,6 +1,6 @@
 import Form from 'belt/spot/js/events/form';
 import store from 'belt/spot/js/events/store';
-import heading_html from 'belt/core/js/templates/heading.html';
+
 import tabs_html from 'belt/spot/js/events/templates/tabs.html';
 import edit_html from 'belt/spot/js/events/templates/edit.html';
 
@@ -33,7 +33,7 @@ export default {
         }
     },
     components: {
-        heading: {template: heading_html},
+
         tabs: {template: tabs_html},
     },
     // mounted() {

@@ -3,13 +3,13 @@
 import Form from 'belt/spot/js/amenities/form';
 
 // templates make a change
-import heading_html from 'belt/core/js/templates/heading.html';
+
 import edit_html from 'belt/spot/js/amenities/templates/edit.html';
 import form_html from 'belt/spot/js/amenities/templates/form.html';
 
 export default {
     components: {
-        heading: {template: heading_html},
+
         edit: {
             data() {
                 return {

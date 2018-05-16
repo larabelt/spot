@@ -2,13 +2,13 @@ import filterPriority from 'belt/core/js/inputs/priority/filter';
 import filterSearch from 'belt/core/js/inputs/filter-search';
 import Form from 'belt/spot/js/itineraries/form';
 import Table from 'belt/spot/js/itineraries/table';
-import heading_html from 'belt/core/js/templates/heading.html';
+
 import index_html from 'belt/spot/js/itineraries/templates/index.html';
 
 export default {
 
     components: {
-        heading: {template: heading_html},
+
         index: {
             data() {
                 return {

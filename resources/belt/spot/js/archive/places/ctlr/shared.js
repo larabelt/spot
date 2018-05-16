@@ -1,6 +1,6 @@
 import Form from 'belt/spot/js/places/form';
 import store from 'belt/spot/js/places/store';
-import heading_html from 'belt/core/js/templates/heading.html';
+
 import tabs_html from 'belt/spot/js/places/templates/tabs.html';
 import edit_html from 'belt/spot/js/places/templates/edit.html';
 
@@ -41,7 +41,7 @@ export default {
         }
     },
     components: {
-        heading: {template: heading_html},
+
         tabs: {template: tabs_html},
     },
     template: edit_html,

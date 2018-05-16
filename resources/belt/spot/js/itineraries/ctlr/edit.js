@@ -3,7 +3,7 @@ import attachment from 'belt/clip/js/clippables/ctlr/attachment';
 import priorityDropdown from 'belt/core/js/inputs/priority/form';
 import templateDropdown from 'belt/content/js/templates';
 import Form from 'belt/spot/js/itineraries/form';
-import heading_html from 'belt/core/js/templates/heading.html';
+
 import tabs_html from 'belt/spot/js/itineraries/templates/tabs.html';
 import edit_html from 'belt/spot/js/itineraries/templates/edit.html';
 import form_html from 'belt/spot/js/itineraries/templates/form.html';
@@ -20,7 +20,7 @@ export default {
         this.itinerary.show(this.morphable_id);
     },
     components: {
-        heading: {template: heading_html},
+
         tabs: {template: tabs_html},
         tab: {
             mixins: [shared],
