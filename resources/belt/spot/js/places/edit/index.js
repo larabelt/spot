@@ -9,21 +9,11 @@ export default {
     mixins: [edit],
     components: {
         edit: {
-            mixins: [place],
             data() {
                 return {
-                    morphable_type: 'places',
-                    morphable_id: this.$parent.morphable_id,
-                    place_id: this.$parent.morphable_id,
+                    form: this.$parent.form,
+                    place: this.$parent.place,
                 }
-            },
-            computed: {
-                form() {
-                    return this.place;
-                }
-            },
-            mounted() {
-                this.$store.dispatch(this.storeKey + '/load', this.place_id);
             },
             components: {
                 priorityDropdown,
