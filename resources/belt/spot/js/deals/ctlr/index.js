@@ -52,6 +52,9 @@ export default {
                 <span slot="title">Deal Manager</span>
                 <li><router-link :to="{ name: 'deals' }">Deal Manager</router-link></li>
             </heading>
+            <section class="content-subheader">
+                <p class="text-muted">{{ trans('belt-spot::deals.manager.overall') }}</p>
+            </section>
             <section class="content">
                 <index></index>
             </section>

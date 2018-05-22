@@ -1,12 +1,8 @@
 <?php
 
 return [
-    'class' => [
-        'icon' => 'fa fa-users'
-    ],
-    'label' => 'Place',
     'manager' => [
-        'overall' => 'Manage your place.',
+        'overall' => 'Manage your places.',
     ],
     'creator' => [
         'overall' => 'Create your place.',

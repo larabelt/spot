@@ -4,6 +4,9 @@
         <li><router-link :to="{ name: 'events' }">Event Manager</router-link></li>
         <li>{{ event.name }}</li>
     </heading>
+    <section class="content-subheader">
+        <p class="text-muted">{{ trans('belt-spot::events.editor.overall') }}</p>
+    </section>
     <section class="content">
         <div class="nav-tabs-custom">
             <tabs></tabs>

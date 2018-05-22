@@ -1,6 +1,9 @@
 <div>
     <form @submit.prevent="deal.submit()" @keydown="deal.errors.clear($event.target.name)">
         <div class="clearfix">
+            <div v-if="deal.id" class="pull-left">
+                <p class="text-muted">{{ trans('belt-spot::deals.editor.main') }}</p>
+            </div>
             <div class="pull-right">
                 <div class="btn-group">
                     <a v-if="deal.id" class="btn btn-sm btn-default" target="_blank" :href="'/deals/' + deal.id">preview</a>

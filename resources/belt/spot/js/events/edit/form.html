@@ -1,6 +1,9 @@
 <div>
     <form @submit.prevent="form.submit()" @keydown="form.errors.clear($form.target.name)">
         <div class="clearfix">
+            <div class="pull-left">
+                <p class="text-muted">{{ trans('belt-spot::events.editor.main') }}</p>
+            </div>
             <div class="pull-right">
                 <div class="btn-group">
                     <a class="btn btn-sm btn-default" target="_blank" :href="'/events/' + form.id">preview</a>

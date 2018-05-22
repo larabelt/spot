@@ -56,6 +56,9 @@ export default {
                 <span slot="title">Event Manager</span>
                 <li><router-link :to="{ name: 'events' }">Event Manager</router-link></li>
             </heading>
+            <section class="content-subheader">
+                <p class="text-muted">{{ trans('belt-spot::events.manager.overall') }}</p>
+            </section>
             <section class="content">
                 <index></index>
             </section>
