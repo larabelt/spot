@@ -1,16 +1,16 @@
 <div>
-    <div class="clearfix">
-        <div class="pull-right">
-            <div class="btn-group">
-                <a v-if="deal.id" class="btn btn-sm btn-default" target="_blank" :href="'/deals/' + deal.id">preview</a>
-                <button class="btn btn-sm btn-primary" :disabled="deal.errors.any()">
-                    <span v-if="deal.saving"><i class="fa fa-spinner fa-pulse fa-fw"></i></span>
-                    <span v-else>save</span>
-                </button>
+    <form @submit.prevent="deal.submit()" @keydown="deal.errors.clear($event.target.name)">
+        <div class="clearfix">
+            <div class="pull-right">
+                <div class="btn-group">
+                    <a v-if="deal.id" class="btn btn-sm btn-default" target="_blank" :href="'/deals/' + deal.id">preview</a>
+                    <button class="btn btn-sm btn-primary" :disabled="deal.errors.any()">
+                        <span v-if="deal.saving"><i class="fa fa-spinner fa-pulse fa-fw"></i></span>
+                        <span v-else>save</span>
+                    </button>
+                </div>
             </div>
         </div>
-    </div>
-    <form @submit.prevent="deal.submit()" @keydown="deal.errors.clear($event.target.name)">
         <div class="checkbox">
             <label>
                 <input type="checkbox"
@@ -74,16 +74,17 @@
             <belt-editor v-model="deal.body"></belt-editor>
             <span v-for="error in deal.error('body')" class="text-danger">{{ error }}</span>
         </div>
-    </form>
-    <div class="clearfix">
-        <div class="pull-right">
-            <div class="btn-group">
-                <a v-if="deal.id" class="btn btn-sm btn-default" target="_blank" :href="'/deals/' + deal.id">preview</a>
-                <button class="btn btn-sm btn-primary" :disabled="deal.errors.any()">
-                    <span v-if="deal.saving"><i class="fa fa-spinner fa-pulse fa-fw"></i></span>
-                    <span v-else>save</span>
-                </button>
+        <seo :form="deal"></seo>
+        <div class="clearfix">
+            <div class="pull-right">
+                <div class="btn-group">
+                    <a v-if="deal.id" class="btn btn-sm btn-default" target="_blank" :href="'/deals/' + deal.id">preview</a>
+                    <button class="btn btn-sm btn-primary" :disabled="deal.errors.any()">
+                        <span v-if="deal.saving"><i class="fa fa-spinner fa-pulse fa-fw"></i></span>
+                        <span v-else>save</span>
+                    </button>
+                </div>
             </div>
         </div>
-    </div>
+    </form>
 </div>

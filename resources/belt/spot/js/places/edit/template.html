@@ -4,6 +4,9 @@
         <li><router-link :to="{ name: 'places' }">Place Manager</router-link></li>
         <li>{{ place.name }}</li>
     </heading>
+    <section class="content-subheader">
+        <p class="text-muted">{{ trans('belt-spot::places.editor.overall') }}</p>
+    </section>
     <section class="content">
         <div class="nav-tabs-custom">
             <tabs></tabs>
