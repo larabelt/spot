@@ -39,6 +39,11 @@ class BeltSpotServiceProvider extends ServiceProvider
         include __DIR__ . '/../routes/admin.php';
         include __DIR__ . '/../routes/api.php';
         include __DIR__ . '/../routes/web.php';
+
+        # beltable values for global belt command
+        $this->app['belt']->addPackage('spot', ['dir' => __DIR__ . '/..']);
+        $this->app['belt']->publish('belt-spot:publish');
+        $this->app['belt']->seeders('BeltSpotSeeder');
     }
 
     /**
@@ -51,6 +56,9 @@ class BeltSpotServiceProvider extends ServiceProvider
 
         // set backup view paths
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'belt-spot');
+
+        // set backup translation paths
+        $this->loadTranslationsFrom(__DIR__ . '/../resources/lang', 'belt-spot');
 
         // policies
         $this->registerPolicies($gate);
@@ -86,10 +94,6 @@ class BeltSpotServiceProvider extends ServiceProvider
         // commands
         $this->commands(Belt\Spot\Commands\GeoCoderCommand::class);
         $this->commands(Belt\Spot\Commands\PublishCommand::class);
-
-        # beltable values for global belt command
-        $this->app['belt']->publish('belt-spot:publish');
-        $this->app['belt']->seeders('BeltSpotSeeder');
     }
 
     /**
