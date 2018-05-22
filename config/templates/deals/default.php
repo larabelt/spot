@@ -3,10 +3,10 @@
 return [
 
     // Required. A blade view path to the main template layout.
-    'path' => 'belt-spot::places.templates.default',
+    'path' => 'belt-spot::deals.templates.default',
 
     // A blade view path that can be extended by the layout found in :path.
-    'extends' => 'belt-spot::places.web.show',
+    'extends' => 'belt-spot::deals.web.show',
 
     // The human-readable name of your template.
     'label' => '',
@@ -42,10 +42,6 @@ return [
     */
 
     'params' => [
-        'trip_advisor_id' => [
-            'type' => 'text',
-            'label' => 'Trip Advisor ID',
-        ],
         'class' => [
             'type' => 'select',
             'label' => 'class',
