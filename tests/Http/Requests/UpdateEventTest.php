@@ -2,7 +2,7 @@
 
 use Belt\Spot\Http\Requests\UpdateEvent;
 
-class UpdateEventTest extends \PHPUnit_Framework_TestCase
+class UpdateEventTest extends \PHPUnit\Framework\TestCase
 {
 
     /**

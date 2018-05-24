@@ -2,7 +2,7 @@
 
 use Belt\Spot\Http\Requests\UpdateDeal;
 
-class UpdateDealTest extends \PHPUnit_Framework_TestCase
+class UpdateDealTest extends \PHPUnit\Framework\TestCase
 {
 
     /**

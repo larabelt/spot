@@ -2,7 +2,7 @@
 
 use Belt\Spot\Http\Requests\UpdateAddress;
 
-class UpdateAddressTest extends \PHPUnit_Framework_TestCase
+class UpdateAddressTest extends \PHPUnit\Framework\TestCase
 {
 
     /**

@@ -2,7 +2,7 @@
 
 use Belt\Spot\Http\Requests\StorePlace;
 
-class StorePlaceTest extends \PHPUnit_Framework_TestCase
+class StorePlaceTest extends \PHPUnit\Framework\TestCase
 {
 
     /**

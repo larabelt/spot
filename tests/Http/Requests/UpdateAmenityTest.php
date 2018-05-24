@@ -2,7 +2,7 @@
 
 use Belt\Spot\Http\Requests\UpdateAmenity;
 
-class UpdateAmenityTest extends \PHPUnit_Framework_TestCase
+class UpdateAmenityTest extends \PHPUnit\Framework\TestCase
 {
 
     /**

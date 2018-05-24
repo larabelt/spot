@@ -3,7 +3,7 @@
 use Illuminate\Database\Eloquent\Model;
 use Belt\Spot\Behaviors\Rateable;
 
-class RateableTest extends \PHPUnit_Framework_TestCase
+class RateableTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @covers \Belt\Spot\Behaviors\Rateable::setRatingAttribute

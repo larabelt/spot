@@ -2,7 +2,7 @@
 
 use Belt\Spot\Http\Requests\UpdatePlace;
 
-class UpdatePlaceTest extends \PHPUnit_Framework_TestCase
+class UpdatePlaceTest extends \PHPUnit\Framework\TestCase
 {
 
     /**

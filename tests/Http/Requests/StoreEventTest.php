@@ -2,7 +2,7 @@
 
 use Belt\Spot\Http\Requests\StoreEvent;
 
-class StoreEventTest extends \PHPUnit_Framework_TestCase
+class StoreEventTest extends \PHPUnit\Framework\TestCase
 {
 
     /**

@@ -3,7 +3,7 @@
 use Illuminate\Database\Eloquent\Model;
 use Belt\Spot\Behaviors\IncludesLatLng;
 
-class IncludesLatLngTest extends \PHPUnit_Framework_TestCase
+class IncludesLatLngTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @covers \Belt\Spot\Behaviors\IncludesLatLng::setLatAttribute

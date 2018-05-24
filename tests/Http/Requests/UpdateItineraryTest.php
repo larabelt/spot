@@ -2,7 +2,7 @@
 
 use Belt\Spot\Http\Requests\UpdateItinerary;
 
-class UpdateItineraryTest extends \PHPUnit_Framework_TestCase
+class UpdateItineraryTest extends \PHPUnit\Framework\TestCase
 {
 
     /**

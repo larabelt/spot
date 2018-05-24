@@ -2,7 +2,7 @@
 
 use Belt\Spot\Http\Requests\StoreAmenity;
 
-class StoreAmenityTest extends \PHPUnit_Framework_TestCase
+class StoreAmenityTest extends \PHPUnit\Framework\TestCase
 {
 
     /**

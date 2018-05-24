@@ -2,7 +2,7 @@
 
 use Belt\Spot\Http\Requests\StoreDeal;
 
-class StoreDealTest extends \PHPUnit_Framework_TestCase
+class StoreDealTest extends \PHPUnit\Framework\TestCase
 {
 
     /**

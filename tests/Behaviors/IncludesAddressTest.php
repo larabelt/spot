@@ -3,7 +3,7 @@
 use Illuminate\Database\Eloquent\Model;
 use Belt\Spot\Behaviors\IncludesAddress;
 
-class IncludesAddressTest extends \PHPUnit_Framework_TestCase
+class IncludesAddressTest extends \PHPUnit\Framework\TestCase
 {
 
     /**
