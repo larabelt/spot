@@ -5,10 +5,7 @@
     <li :class="{active: $router.currentRoute.name == 'deals.attachments'}">
         <router-link :to="{ name: 'deals.attachments', params: {id: $route.params.id}}">Attachments</router-link>
     </li>
-    <li :class="{active: $router.currentRoute.name == 'deals.categories'}">
-        <router-link :to="{ name: 'deals.categories', params: {id: $route.params.id}}">Categories</router-link>
-    </li>
-    <li :class="{active: $router.currentRoute.name == 'deals.tags'}">
-        <router-link :to="{ name: 'deals.tags', params: {id: $route.params.id}}">Tags</router-link>
+    <li :class="{active: $router.currentRoute.name == 'deals.terms'}">
+        <router-link :to="{ name: 'deals.terms', params: {id: $route.params.id}}">Terms</router-link>
     </li>
 </ul>

@@ -26,8 +26,7 @@ class Itinerary extends Model implements
     Belt\Content\Behaviors\IncludesTemplateInterface,
     Belt\Content\Behaviors\IncludesSeoInterface,
     Belt\Content\Behaviors\SectionableInterface,
-    Belt\Glue\Behaviors\CategorizableInterface,
-    Belt\Glue\Behaviors\TaggableInterface,
+    Belt\Content\Behaviors\TermableInterface,
     Belt\Content\Behaviors\HandleableInterface,
     Belt\Spot\Behaviors\RateableInterface
 {
@@ -45,10 +44,8 @@ class Itinerary extends Model implements
     use Belt\Content\Behaviors\IncludesSeo;
     use Belt\Content\Behaviors\IncludesTemplate;
     use Belt\Content\Behaviors\Sectionable;
-    use Belt\Glue\Behaviors\Categorizable;
-    use Belt\Glue\Behaviors\Taggable;
+    use Belt\Content\Behaviors\Termable;
     use Belt\Spot\Behaviors\Rateable;
-
 
     /**
      * @var string

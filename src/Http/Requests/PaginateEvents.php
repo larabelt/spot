@@ -38,8 +38,7 @@ class PaginateEvents extends PaginateRequest
         Belt\Core\Pagination\IsActiveQueryModifier::class,
         Belt\Core\Pagination\PriorityQueryModifier::class,
         Belt\Core\Pagination\TeamableQueryModifier::class,
-        Belt\Glue\Pagination\CategorizableQueryModifier::class,
-        Belt\Glue\Pagination\TaggableQueryModifier::class,
+        Belt\Content\Pagination\TermableQueryModifier::class,
         Belt\Spot\Pagination\AddressableQueryModifier::class,
         Belt\Spot\Pagination\DateRangeQueryModifier::class,
     ];

@@ -11,13 +11,10 @@
     <li :class="{active: $router.currentRoute.name == 'events.attachments'}">
         <router-link :to="{ name: 'events.attachments', params: {id: $route.params.id}}">Attachments</router-link>
     </li>
-    <li :class="{active: $router.currentRoute.name == 'events.categories'}">
-        <router-link :to="{ name: 'events.categories', params: {id: $route.params.id}}">Categories</router-link>
-    </li>
     <li :class="{active: $router.currentRoute.name == 'events.params'}">
         <router-link :to="{ name: 'events.params', params: {id: $route.params.id}}">Params</router-link>
     </li>
-    <li :class="{active: $router.currentRoute.name == 'events.tags'}">
-        <router-link :to="{ name: 'events.tags', params: {id: $route.params.id}}">Tags</router-link>
+    <li :class="{active: $router.currentRoute.name == 'events.terms'}">
+        <router-link :to="{ name: 'events.terms', params: {id: $route.params.id}}">Terms</router-link>
     </li>
 </ul>

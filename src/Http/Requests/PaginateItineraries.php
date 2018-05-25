@@ -25,7 +25,6 @@ class PaginateItineraries extends PaginateRequest
 
     public $searchable = [
         'itineraries.name',
-        //'itineraries.searchable',
     ];
 
     /**
@@ -35,8 +34,7 @@ class PaginateItineraries extends PaginateRequest
         Belt\Core\Pagination\InQueryModifier::class,
         Belt\Core\Pagination\PriorityQueryModifier::class,
         Belt\Core\Pagination\TeamableQueryModifier::class,
-        Belt\Glue\Pagination\CategorizableQueryModifier::class,
-        Belt\Glue\Pagination\TaggableQueryModifier::class,
+        Belt\Content\Pagination\TermableQueryModifier::class,
     ];
 
 }
