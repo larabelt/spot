@@ -23,6 +23,8 @@ export default {
             return new Promise((resolve, reject) => {
                 state.form.show(eventID)
                     .then(response => {
+                        dispatch('config/set', {configKey: response.template});
+                        dispatch('config/load');
                         resolve(response);
                     })
                     .catch(error => {
