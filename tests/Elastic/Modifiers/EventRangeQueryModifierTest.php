@@ -3,7 +3,7 @@
 use Mockery as m;
 use Belt\Core\Http\Requests\PaginateRequest;
 use Belt\Core\Testing\BeltTestCase;
-use Belt\Content\Elastic\ElasticEngine;
+use Belt\Elastic\Engine as ElasticEngine;
 use Belt\Spot\Elastic\Modifiers\EventRangeQueryModifier;
 
 class EventRangeQueryModifierTest extends BeltTestCase

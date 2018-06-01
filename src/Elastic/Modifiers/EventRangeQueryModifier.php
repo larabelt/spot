@@ -3,7 +3,7 @@
 namespace Belt\Spot\Elastic\Modifiers;
 
 use Belt\Core\Http\Requests\PaginateRequest;
-use Belt\Content\Elastic\Modifiers\PaginationQueryModifier;
+use Belt\Elastic\Modifiers\PaginationQueryModifier;
 use Belt\Core\Helpers;
 
 class EventRangeQueryModifier extends PaginationQueryModifier
