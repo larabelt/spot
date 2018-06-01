@@ -25,7 +25,6 @@ class BeltSpotServiceProvider extends ServiceProvider
         Belt\Spot\Address::class => Belt\Spot\Policies\AddressPolicy::class,
         Belt\Spot\Deal::class => Belt\Spot\Policies\DealPolicy::class,
         Belt\Spot\Event::class => Belt\Spot\Policies\EventPolicy::class,
-        Belt\Spot\Itinerary::class => Belt\Spot\Policies\ItineraryPolicy::class,
         Belt\Spot\Place::class => Belt\Spot\Policies\PlacePolicy::class,
     ];
 
@@ -69,7 +68,6 @@ class BeltSpotServiceProvider extends ServiceProvider
             'addresses' => Belt\Spot\Address::class,
             'deals' => Belt\Spot\Deal::class,
             'events' => Belt\Spot\Event::class,
-            'itineraries' => Belt\Spot\Itinerary::class,
             'places' => Belt\Spot\Place::class,
         ]);
 
@@ -83,9 +81,6 @@ class BeltSpotServiceProvider extends ServiceProvider
         });
         $router->model('event', Belt\Spot\Event::class, function ($value) {
             return Belt\Spot\Event::sluggish($value)->firstOrFail();
-        });
-        $router->model('itinerary', Belt\Spot\Itinerary::class, function ($value) {
-            return Belt\Spot\Itinerary::sluggish($value)->firstOrFail();
         });
         $router->model('place', Belt\Spot\Place::class, function ($value) {
             return Belt\Spot\Place::sluggish($value)->firstOrFail();

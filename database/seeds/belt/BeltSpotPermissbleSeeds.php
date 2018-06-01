@@ -17,7 +17,6 @@ class BeltSpotPermissbleSeeds extends Seeder
             'amenities',
             'deals',
             'events',
-            'itineraries',
             'places',
         ];
         foreach ($abilities as $entity_type => $set) {

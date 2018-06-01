@@ -9,7 +9,7 @@ class BeltUpdateRatableTables extends Migration
     /**
      * @var array
      */
-    private $tables = ['deals', 'events', 'itineraries', 'places'];
+    private $tables = ['deals', 'events', 'places'];
 
     /**
      * Run the migrations.

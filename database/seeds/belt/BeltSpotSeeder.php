@@ -16,7 +16,6 @@ class BeltSpotSeeder extends Seeder
         $this->call(BeltSpotDealSeeds::class);
         $this->call(BeltSpotEventSeeds::class);
         $this->call(BeltSpotPlaceSeeds::class);
-        $this->call(BeltSpotItinerarySeeds::class);
         $this->call(BeltSpotPermissbleSeeds::class);
     }
 }

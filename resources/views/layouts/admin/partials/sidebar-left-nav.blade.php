@@ -2,11 +2,10 @@
     $can['amenities'] = $auth->can(['create','update','delete'], Belt\Spot\Amenity::class);
     $can['deals'] = $auth->can(['create','update','delete'], Belt\Spot\Deal::class);
     $can['events'] = $auth->can(['create','update','delete'], Belt\Spot\Event::class);
-    $can['itineraries'] = $auth->can(['create','update','delete'], Belt\Spot\Itinerary::class);
     $can['places'] = $auth->can(['create','update','delete'], Belt\Spot\Place::class);
 @endphp
 
-@if($team || $can['amenities'] || $can['deals'] || $can['events'] || $can['itineraries'] || $can['places'])
+@if($team || $can['amenities'] || $can['deals'] || $can['events'] || $can['places'])
     <li id="spot-admin-sidebar-left" class="treeview">
         <a href="#">
             <i class="fa fa-globe"></i> <span>POIs</span> <i class="fa fa-angle-left pull-right"></i>
@@ -20,9 +19,6 @@
             @endif
             @if($team || $can['events'])
                 <li id="spot-admin-sidebar-left-events"><a href="/admin/belt/spot/events"><i class="fa fa-calendar"></i> <span>Events</span></a></li>
-            @endif
-            @if($can['itineraries'])
-                <li id="spot-admin-sidebar-left-itineraries"><a href="/admin/belt/spot/itineraries"><i class="fa fa-map-marker"></i> <span>Itineraries</span></a></li>
             @endif
             @if($team || $can['places'])
                 <li id="spot-admin-sidebar-left-places"><a href="/admin/belt/spot/places"><i class="fa fa-building"></i> <span>Places</span></a></li>

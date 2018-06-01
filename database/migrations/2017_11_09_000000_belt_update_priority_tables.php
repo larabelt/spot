@@ -8,7 +8,6 @@ class BeltUpdatePriorityTables extends Migration
     private $tables = [
         'deals',
         'events',
-        'itineraries',
         'places',
     ];
 

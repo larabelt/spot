@@ -53,24 +53,6 @@ Route::group([
         Route::get('events', Api\EventsController::class . '@index');
         Route::post('events', Api\EventsController::class . '@store');
 
-        # itinerary/places
-        Route::group([
-            'prefix' => 'itineraries/{itinerary}/places',
-        ], function () {
-            Route::get('{id}', Api\ItineraryPlacesController::class . '@show');
-            Route::put('{id}', Api\ItineraryPlacesController::class . '@update');
-            Route::delete('{id}', Api\ItineraryPlacesController::class . '@destroy');
-            Route::get('', Api\ItineraryPlacesController::class . '@index');
-            Route::post('', Api\ItineraryPlacesController::class . '@store');
-        });
-
-        # itineraries
-        Route::get('itineraries/{itinerary}', Api\ItinerariesController::class . '@show');
-        Route::put('itineraries/{itinerary}', Api\ItinerariesController::class . '@update');
-        Route::delete('itineraries/{itinerary}', Api\ItinerariesController::class . '@destroy');
-        Route::get('itineraries', Api\ItinerariesController::class . '@index');
-        Route::post('itineraries', Api\ItinerariesController::class . '@store');
-
         # places
         Route::get('places/{id}', Api\PlacesController::class . '@show');
         Route::put('places/{id}', Api\PlacesController::class . '@update');
