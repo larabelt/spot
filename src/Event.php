@@ -143,16 +143,12 @@ class Event extends Model implements
             $clone->attachments()->attach($attachment);
         }
 
-        foreach ($event->categories as $category) {
-            $clone->categories()->attach($category);
-        }
-
         foreach ($event->handles as $handle) {
             Handle::copy($handle, ['handleable_id' => $clone->id]);
         }
 
-        foreach ($event->tags as $tag) {
-            $clone->tags()->attach($tag);
+        foreach ($event->terms as $term) {
+            $clone->terms()->attach($term);
         }
 
         return $clone;

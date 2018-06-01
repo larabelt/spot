@@ -140,16 +140,12 @@ class Place extends Model implements
             $clone->attachments()->attach($attachment);
         }
 
-        foreach ($place->categories as $category) {
-            $clone->categories()->attach($category);
-        }
-
         foreach ($place->handles as $handle) {
             Handle::copy($handle, ['handleable_id' => $clone->id]);
         }
 
-        foreach ($place->tags as $tag) {
-            $clone->tags()->attach($tag);
+        foreach ($place->terms as $term) {
+            $clone->terms()->attach($term);
         }
 
         return $clone;

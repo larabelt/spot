@@ -104,16 +104,12 @@ class Deal extends Model implements
             $clone->attachments()->attach($attachment);
         }
 
-        foreach ($deal->categories as $category) {
-            $clone->categories()->attach($category);
-        }
-
         foreach ($deal->handles as $handle) {
             Handle::copy($handle, ['handleable_id' => $clone->id]);
         }
 
-        foreach ($deal->tags as $tag) {
-            $clone->tags()->attach($tag);
+        foreach ($deal->terms as $term) {
+            $clone->terms()->attach($term);
         }
 
         return $clone;
