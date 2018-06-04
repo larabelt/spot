@@ -34,7 +34,7 @@ class ApiDealsFunctionalTest extends Testing\BeltTestCase
         # copy
         $this->json('POST', "/api/v1/deals/$dealID/addresses", ['name' => 'test']);
         $this->json('POST', "/api/v1/deals/$dealID/attachments", ['id' => 1]);
-        $this->json('POST', "/api/v1/deals/$dealID/categories", ['id' => 1]);
+        $this->json('POST', "/api/v1/deals/$dealID/terms", ['id' => 1]);
         $this->json('POST', "/api/v1/deals/$dealID/handles", ['url' => "deals/$dealID"]);
         $this->json('POST', "/api/v1/deals/$dealID/sections", [
             'template' => 'containers.default',

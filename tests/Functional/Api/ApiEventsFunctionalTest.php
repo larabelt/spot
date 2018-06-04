@@ -41,6 +41,7 @@ class ApiEventsFunctionalTest extends Testing\BeltTestCase
         Event::unguard();
         $old = Event::find($eventID);
         $old->handles()->create(['url' => '/copied-event']);
+        $old->terms()->attach(1);
         $this->json('POST', "/api/v1/events/$eventID/addresses", ['name' => 'test']);
         $this->json('POST', "/api/v1/events/$eventID/attachments", ['id' => 1]);
         $this->json('POST', "/api/v1/events/$eventID/categories", ['id' => 1]);
