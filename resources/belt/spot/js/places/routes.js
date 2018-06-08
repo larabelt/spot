@@ -5,7 +5,6 @@ import addresses from 'belt/spot/js/places/edit/addresses';
 import amenities from 'belt/spot/js/places/edit/amenities';
 import categories from 'belt/spot/js/places/edit/categories';
 import attachments from 'belt/spot/js/places/edit/attachments';
-import params from 'belt/spot/js/places/edit/params';
 import sections from 'belt/spot/js/places/edit/sections';
 import tags from 'belt/spot/js/places/edit/tags';
 
@@ -19,5 +18,4 @@ export default [
     {path: '/places/edit/:id/categories', component: categories, name: 'places.categories'},
     {path: '/places/edit/:id/sections/:section?', component: sections, name: 'places.sections'},
     {path: '/places/edit/:id/tags', component: tags, name: 'places.tags'},
-    {path: '/places/edit/:id/params', component: params, name: 'places.params'},
 ]

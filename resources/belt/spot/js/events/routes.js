@@ -4,7 +4,6 @@ import edit from 'belt/spot/js/events/edit';
 import addresses from 'belt/spot/js/events/edit/addresses';
 import categories from 'belt/spot/js/events/edit/categories';
 import attachments from 'belt/spot/js/events/edit/attachments';
-import params from 'belt/spot/js/events/edit/params';
 import sections from 'belt/spot/js/events/edit/sections';
 import tags from 'belt/spot/js/events/edit/tags';
 
@@ -17,5 +16,4 @@ export default [
     {path: '/events/edit/:id/categories', component: categories, name: 'events.categories'},
     {path: '/events/edit/:id/sections/:section?', component: sections, name: 'events.sections'},
     {path: '/events/edit/:id/tags', component: tags, name: 'events.tags'},
-    {path: '/events/edit/:id/params', component: params, name: 'events.params'},
 ]

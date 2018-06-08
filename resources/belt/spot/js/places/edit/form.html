@@ -22,8 +22,6 @@
             </label>
         </div>
 
-        <param-list paramable_type="places" :paramable_id="morphable_id"></param-list>
-
         <team-input :form="place">{{ trans('belt-core::teams.label') }}</team-input>
         <div class="form-group" :class="{ 'has-error': form.error('name') }">
             <label for="name">Name</label>
@@ -36,11 +34,15 @@
             <span v-for="error in form.error('slug')" class="text-danger">{{ error }}</span>
         </div>
         <template-dropdown templateType="places" formKey="place"></template-dropdown>
-        <div class="form-group" :class="{ 'has-error': form.error('body') }">
-            <label for="body">Body</label>
-            <belt-editor v-model="form.body"></belt-editor>
-            <span v-for="error in form.error('body')" class="text-danger">{{ error }}</span>
-        </div>
+
+        <param-list paramable_type="places" :paramable_id="morphable_id"></param-list>
+
+<!--        <div class="form-group" :class="{ 'has-error': form.error('body') }">-->
+<!--            <label for="body">Body</label>-->
+<!--            <belt-editor v-model="form.body"></belt-editor>-->
+<!--            <span v-for="error in form.error('body')" class="text-danger">{{ error }}</span>-->
+<!--        </div>-->
+
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group" :class="{ 'has-error': form.error('phone') }">

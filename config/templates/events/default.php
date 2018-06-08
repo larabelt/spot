@@ -50,6 +50,11 @@ return [
                 'false' => 'No',
             ]
         ],
+        'body' => [
+            'type' => 'editor',
+            'label' => 'Body',
+            'description' => 'Enter main content of place here.',
+        ],
     ],
 
 ];
