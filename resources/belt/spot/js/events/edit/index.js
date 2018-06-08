@@ -14,6 +14,13 @@ export default {
                 return {
                     form: this.$parent.form,
                     event: this.$parent.event,
+                    morphable_id: this.$parent.morphable_id,
+                }
+            },
+            methods: {
+                submit() {
+                    Events.$emit('events:' + this.morphable_id + ':updating', this.form);
+                    this.form.submit();
                 }
             },
             components: {

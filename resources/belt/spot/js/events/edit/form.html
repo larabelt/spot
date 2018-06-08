@@ -1,5 +1,5 @@
 <div>
-    <form @submit.prevent="form.submit()" @keydown="form.errors.clear($form.target.name)">
+    <form @submit.prevent="submit()" @keydown="form.errors.clear($event.target.name)">
         <div class="clearfix">
             <div class="pull-left">
                 <p class="text-muted">{{ trans('belt-spot::events.editor.main') }}</p>
@@ -33,6 +33,9 @@
             <span v-for="error in form.error('slug')" class="text-danger">{{ error }}</span>
         </div>
         <template-dropdown templateType="events" formKey="event"></template-dropdown>
+
+        <param-list paramable_type="events" :paramable_id="morphable_id"></param-list>
+
         <div class="row">
             <div class="col-md-6">
                 <datetime-input column="starts_at" :form="event" :time="true" default_date="+1,weeks">Starts At *</datetime-input>
@@ -85,11 +88,11 @@
                 <priorityDropdown :form="event"></priorityDropdown>
             </div>
         </div>
-        <div class="form-group" :class="{ 'has-error': form.error('body') }">
-            <label for="body">Body</label>
-            <belt-editor v-model="form.body"></belt-editor>
-            <span v-for="error in form.error('body')" class="text-danger">{{ error }}</span>
-        </div>
+<!--        <div class="form-group" :class="{ 'has-error': form.error('body') }">-->
+<!--            <label for="body">Body</label>-->
+<!--            <belt-editor v-model="form.body"></belt-editor>-->
+<!--            <span v-for="error in form.error('body')" class="text-danger">{{ error }}</span>-->
+<!--        </div>-->
         <seo></seo>
         <div class="clearfix">
             <div class="pull-right">
