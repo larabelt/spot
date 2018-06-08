@@ -1,5 +1,5 @@
 <div>
-    <form @submit.prevent="form.submit()" @keydown="form.errors.clear($event.target.name)">
+    <form @submit.prevent="submit()" @keydown="form.errors.clear($event.target.name)">
         <div class="clearfix">
             <div class="pull-left">
                 <p class="text-muted">{{ trans('belt-spot::places.editor.main') }}</p>
@@ -21,6 +21,9 @@
                 > Is Active
             </label>
         </div>
+
+        <param-list paramable_type="places" :paramable_id="morphable_id"></param-list>
+
         <team-input :form="place">{{ trans('belt-core::teams.label') }}</team-input>
         <div class="form-group" :class="{ 'has-error': form.error('name') }">
             <label for="name">Name</label>
