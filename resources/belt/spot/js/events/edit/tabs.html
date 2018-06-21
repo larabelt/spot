@@ -1,17 +1,17 @@
 <ul class="nav nav-tabs">
     <li :class="{active: $router.currentRoute.name == 'events.edit'}">
-        <router-link :to="{ name: 'events.edit', params: {id: $route.params.id}}"><span class="hidden-sm">Main</span> <i class="fa fa-home visible-sm"></i></router-link>
+        <router-link :to="{ name: 'events.edit', params: {id: $route.params.id}}"><span class="hidden-sm hidden-xs">Main</span> <i class="fa fa-home visible-sm visible-xs"></i></router-link>
     </li>
     <li :class="{active: $router.currentRoute.name == 'events.sections'}">
-        <router-link :to="{ name: 'events.sections', params: {id: $route.params.id}}"><span class="hidden-sm">Sections</span> <i class="fa fa-table visible-sm"></i></router-link>
+        <router-link :to="{ name: 'events.sections', params: {id: $route.params.id}}"><span class="hidden-sm hidden-xs">Sections</span> <i class="fa fa-table visible-sm visible-xs"></i></router-link>
     </li>
     <li :class="{active: $router.currentRoute.name == 'events.addresses'}">
-        <router-link :to="{ name: 'events.addresses', params: {id: $route.params.id}}"><span class="hidden-sm">Addresses</span> <i class="fa fa-map-o visible-sm"></i></router-link>
+        <router-link :to="{ name: 'events.addresses', params: {id: $route.params.id}}"><span class="hidden-sm hidden-xs">Addresses</span> <i class="fa fa-map-o visible-sm visible-xs"></i></router-link>
     </li>
     <li :class="{active: $router.currentRoute.name == 'events.attachments'}">
-        <router-link :to="{ name: 'events.attachments', params: {id: $route.params.id}}"><span class="hidden-sm">Attachments</span> <i class="fa fa-file-o visible-sm"></i></router-link>
+        <router-link :to="{ name: 'events.attachments', params: {id: $route.params.id}}"><span class="hidden-sm hidden-xs">Attachments</span> <i class="fa fa-file-o visible-sm visible-xs"></i></router-link>
     </li>
     <li :class="{active: $router.currentRoute.name == 'events.terms'}">
-        <router-link :to="{ name: 'events.terms', params: {id: $route.params.id}}"><span class="hidden-sm">Terms</span> <i class="fa fa-sitemap visible-sm"></i></router-link>
+        <router-link :to="{ name: 'events.terms', params: {id: $route.params.id}}"><span class="hidden-sm hidden-xs">Terms</span> <i class="fa fa-sitemap visible-sm visible-xs"></i></router-link>
     </li>
 </ul>
