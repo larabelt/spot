@@ -95,6 +95,12 @@ class BeltSpotServiceProvider extends ServiceProvider
         # beltable values for global belt command
         $this->app['belt']->publish('belt-spot:publish');
         $this->app['belt']->seeders('BeltSpotSeeder');
+
+        // access map for window config
+        Belt\Core\Services\AccessService::put('*', 'amenities');
+        Belt\Core\Services\AccessService::put('*', 'deals');
+        Belt\Core\Services\AccessService::put('*', 'events');
+        Belt\Core\Services\AccessService::put('*', 'places');
     }
 
     /**
