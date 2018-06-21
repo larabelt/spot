@@ -126,6 +126,8 @@ class EventsController extends ApiController
         $event->tags;
         $event->params;
 
+        $event->append(['config']);
+
         return response()->json($event);
     }
 

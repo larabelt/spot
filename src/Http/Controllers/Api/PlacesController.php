@@ -130,6 +130,8 @@ class PlacesController extends ApiController
         $place->tags;
         $place->params;
 
+        $place->append(['config']);
+
         return response()->json($place);
     }
 
