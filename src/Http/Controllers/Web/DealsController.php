@@ -4,13 +4,13 @@ namespace Belt\Spot\Http\Controllers\Web;
 
 use Belt\Content\Http\Controllers\Compiler;
 use Belt\Core\Http\Controllers\BaseController;
-use Belt\Spot\Place;
+use Belt\Spot\Deal;
 
 /**
- * Class PlacesController
+ * Class DealsController
  * @package Belt\Spot\Http\Controllers\Web
  */
-class PlacesController extends BaseController
+class DealsController extends BaseController
 {
 
     use Compiler;
@@ -26,11 +26,11 @@ class PlacesController extends BaseController
     /**
      * Display the specified resource.
      *
-     * @param  Place $deal
+     * @param  Deal $deal
      *
      * @return \Illuminate\View\View
      */
-    public function show(Place $deal)
+    public function show(Deal $deal)
     {
         if (!$deal->is_active) {
             try {
