@@ -16,10 +16,14 @@ export default {
     },
     computed: {
         config() {
-            return this.$store.getters[this.storeKey + '/config/data'];
+            return this.form.config;
+            //return this.$store.getters[this.storeKey + '/config/data'];
         },
         form() {
             return this.place;
+        },
+        sectionable() {
+            return _.get(this.config, 'sectionable', false);
         },
         storeKey() {
             return 'places' + this.morphable_id;

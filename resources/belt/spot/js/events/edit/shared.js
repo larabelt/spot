@@ -15,9 +15,15 @@ export default {
         this.$store.dispatch(this.storeKey + '/load', this.event_id);
     },
     computed: {
+        config() {
+            return this.form.config;
+        },
         form() {
             return this.event;
-        }
+        },
+        sectionable() {
+            return _.get(this.config, 'sectionable', false);
+        },
     },
     components: {
         tabs: {template: tabs_html},
