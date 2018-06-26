@@ -11,16 +11,19 @@ use Illuminate\Database\Eloquent\Model;
  * @package Belt\Spot
  */
 class Deal extends Model implements
+    Belt\Core\Behaviors\ParamableInterface,
     Belt\Core\Behaviors\PriorityInterface,
     Belt\Core\Behaviors\SluggableInterface,
     Belt\Core\Behaviors\TeamableInterface,
     Belt\Core\Behaviors\TypeInterface,
+    Belt\Clip\Behaviors\ClippableInterface,
     Belt\Content\Behaviors\HandleableInterface,
+    Belt\Content\Behaviors\HasSectionsInterface,
     Belt\Content\Behaviors\IncludesContentInterface,
     Belt\Content\Behaviors\IncludesSeoInterface,
+    Belt\Content\Behaviors\IncludesTemplateInterface,
     Belt\Content\Behaviors\TermableInterface,
     Belt\Spot\Behaviors\AddressableInterface,
-    Belt\Clip\Behaviors\ClippableInterface,
     Belt\Spot\Behaviors\RateableInterface
 {
     use Belt\Core\Behaviors\HasSortableTrait;
@@ -30,8 +33,10 @@ class Deal extends Model implements
     use Belt\Core\Behaviors\TypeTrait;
     use Belt\Clip\Behaviors\Clippable;
     use Belt\Content\Behaviors\Handleable;
+    use Belt\Content\Behaviors\HasSections;
     use Belt\Content\Behaviors\IncludesContent;
     use Belt\Content\Behaviors\IncludesSeo;
+    use Belt\Content\Behaviors\IncludesTemplate;
     use Belt\Content\Behaviors\Termable;
     use Belt\Spot\Behaviors\Addressable;
     use Belt\Spot\Behaviors\Rateable;
@@ -106,6 +111,10 @@ class Deal extends Model implements
 
         foreach ($deal->handles as $handle) {
             Handle::copy($handle, ['handleable_id' => $clone->id]);
+        }
+
+        foreach ($deal->sections as $section) {
+            Section::copy($section, ['owner_id' => $clone->id]);
         }
 
         foreach ($deal->terms as $term) {

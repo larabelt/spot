@@ -5,7 +5,7 @@ use Belt\Spot\Http\Controllers\Web;
 Route::group(['middleware' => ['web']], function () {
 
     # deals
-    Route::get('deals/{deal}/{slug?}', Web\PlacesController::class . '@show');
+    Route::get('deals/{deal}/{slug?}', Web\DealsController::class . '@show');
     
     # events
     Route::get('events/{event}/{slug?}', Web\EventsController::class . '@show');

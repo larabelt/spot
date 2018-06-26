@@ -19,13 +19,13 @@ class Event extends Model implements
     Belt\Core\Behaviors\TeamableInterface,
     Belt\Core\Behaviors\TypeInterface,
     Belt\Content\Behaviors\HandleableInterface,
+    Belt\Content\Behaviors\HasSectionsInterface,
     Belt\Content\Behaviors\IncludesContentInterface,
     Belt\Content\Behaviors\IncludesSeoInterface,
-    Belt\Content\Behaviors\TermableInterface,
-    Belt\Spot\Behaviors\AddressableInterface,
-    Belt\Clip\Behaviors\ClippableInterface,
-    Belt\Content\Behaviors\HasSectionsInterface,
     Belt\Content\Behaviors\IncludesTemplateInterface,
+    Belt\Content\Behaviors\TermableInterface,
+    Belt\Clip\Behaviors\ClippableInterface,
+    Belt\Spot\Behaviors\AddressableInterface,
     Belt\Spot\Behaviors\RateableInterface
 {
     use Belt\Core\Behaviors\HasSortableTrait;
