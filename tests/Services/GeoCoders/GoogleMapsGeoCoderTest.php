@@ -27,7 +27,7 @@ class GoogleMapsGeoCoderTest extends BeltTestCase
         $service = new GoogleMapsGeoCoder();
         $service->guzzle = $guzzle;
         $service->result = [
-            'address_components' => [
+            'location_components' => [
                 [
                     'long_name' => 'Some City',
                     'short_name' => 'Some City',
@@ -54,8 +54,8 @@ class GoogleMapsGeoCoderTest extends BeltTestCase
         $this->assertEquals('', $service->component('neighborhood'));
 
         # service
-        $service->geocode('Some Address');
-        $this->assertTrue(is_array($service->address->toArray()));
+        $service->geocode('Some Location');
+        $this->assertTrue(is_array($service->location->toArray()));
     }
 
     /**
@@ -70,7 +70,7 @@ class GoogleMapsGeoCoderTest extends BeltTestCase
         $guzzle = m::mock(\GuzzleHttp\Client::class . '[get]');
         $guzzle->shouldReceive('get')->andThrow(new \Exception());
         $service->guzzle = $guzzle;
-        $service->geocode('Some Address');
+        $service->geocode('Some Location');
     }
 
 }

@@ -3,7 +3,7 @@
 use Mockery as m;
 
 use Belt\Core\Testing\BeltTestCase;
-use Belt\Spot\Address;
+use Belt\Spot\Location;
 use Belt\Spot\Commands\GeoCoderCommand;
 use Belt\Spot\Services\GeoCoders\GoogleMapsGeoCoder;
 
@@ -22,15 +22,15 @@ class GeoCoderCommandTest extends BeltTestCase
     {
 
         $cmd = m::mock(GeoCoderCommand::class . '[option, info]');
-        $cmd->shouldReceive('option')->with('address')->andReturn('123 Some St.');
+        $cmd->shouldReceive('option')->with('location')->andReturn('123 Some St.');
         $cmd->shouldReceive('info')->andReturn(null);
 
         # handle
-        Address::unguard();
-        $address = factory(Address::class)->make();
+        Location::unguard();
+        $location = factory(Location::class)->make();
         $service = m::mock(GoogleMapsGeoCoder::class . '[geocode]');
         $service->result = [];
-        $service->address = $address;
+        $service->location = $location;
         $service->shouldReceive('geocode')->once()->andReturn(null);
         $cmd->geocoder = $service;
         $cmd->handle();

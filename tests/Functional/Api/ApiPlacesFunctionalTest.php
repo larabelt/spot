@@ -41,7 +41,7 @@ class ApiPlacesFunctionalTest extends Testing\BeltTestCase
         $old = Place::find($placeID);
         $old->handles()->create(['url' => '/copied-place']);
         $old->terms()->attach(1);
-        $this->json('POST', "/api/v1/places/$placeID/addresses", ['name' => 'test']);
+        $this->json('POST', "/api/v1/places/$placeID/locations", ['name' => 'test']);
         $this->json('POST', "/api/v1/places/$placeID/attachments", ['id' => 1]);
         $this->json('POST', "/api/v1/places/$placeID/categories", ['id' => 1]);
         $this->json('POST', "/api/v1/places/$placeID/handles", ['url' => "places/$placeID"]);

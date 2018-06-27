@@ -32,7 +32,7 @@ class ApiDealsFunctionalTest extends Testing\BeltTestCase
         $response->assertJson(['name' => 'updated']);
 
         # copy
-        $this->json('POST', "/api/v1/deals/$dealID/addresses", ['name' => 'test']);
+        $this->json('POST', "/api/v1/deals/$dealID/locations", ['name' => 'test']);
         $this->json('POST', "/api/v1/deals/$dealID/attachments", ['id' => 1]);
         $this->json('POST', "/api/v1/deals/$dealID/terms", ['id' => 1]);
         $this->json('POST', "/api/v1/deals/$dealID/handles", ['url' => "cool-deal"]);

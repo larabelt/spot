@@ -5,8 +5,8 @@
     <li v-if="$parent.sectionable" :class="{active: $router.currentRoute.name == 'places.sections'}">
         <router-link :to="{ name: 'places.sections', params: {id: $route.params.id}}"><span class="hidden-sm hidden-xs">Sections</span> <i class="fa fa-table visible-sm visible-xs"></i></router-link>
     </li>
-    <li :class="{active: $router.currentRoute.name == 'places.addresses'}">
-        <router-link :to="{ name: 'places.addresses', params: {id: $route.params.id}}"><span class="hidden-sm hidden-xs">Addresses</span> <i class="fa fa-map-o visible-sm visible-xs"></i></router-link>
+    <li :class="{active: $router.currentRoute.name == 'places.locations'}">
+        <router-link :to="{ name: 'places.locations', params: {id: $route.params.id}}"><span class="hidden-sm hidden-xs">Locations</span> <i class="fa fa-map-o visible-sm visible-xs"></i></router-link>
     </li>
     <li :class="{active: $router.currentRoute.name == 'places.amenities'}">
         <router-link :to="{ name: 'places.amenities', params: {id: $route.params.id}}"><span class="hidden-sm hidden-xs">Amenities</span> <i class="fa fa-plug visible-sm visible-xs"></i></router-link>

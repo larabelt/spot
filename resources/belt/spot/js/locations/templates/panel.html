@@ -1,0 +1,45 @@
+<div class="box box-primary">
+    <div class="box-body">
+        <div class="row">
+            <div class="col-md-12">
+                <span class="pull-right">
+                    <span class="btn-group">
+                        <button
+                                type="button"
+                                class="btn btn-xs btn-default dropdown-toggle text-muted"
+                                data-toggle="dropdown"
+                                aria-expanded="false"
+                                title="options"
+                        >
+                            <i class="fa fa-gear"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li><modal-delete :item-id="location.id" _class="''" :callingObject="locations"><i class="fa fa-trash"></i> Remove</modal-delete></li>
+                        </ul>
+                        <button class="btn btn-xs btn-default" @click.prevent="setEditing(location.id)">
+                            <i class="fa fa-edit"></i>
+                        </button>
+                    </span>
+                </span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <p v-if="location.name">{{ location.name }}</p>
+                <p v-if="location.line1">{{ location.line1 }}</p>
+                <p v-if="location.line2">{{ location.line2 }}</p>
+                <p v-if="location.line3">{{ location.line3 }}</p>
+                <p v-if="location.line4">{{ location.line4 }}</p>
+                <p><span v-if="location.locality">{{ location.locality }}</span>
+                    <span v-if="location.region">{{ location.region }},</span>
+                    <span v-if="location.postcode">{{ location.postcode }}</span>
+                </p>
+            </div>
+            <div class="col-md-6">
+                <p v-if="location.lat && location.lng">
+                    <i class="fa fa-map-marker"></i> {{ location.lat }}, {{ location.lng }}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

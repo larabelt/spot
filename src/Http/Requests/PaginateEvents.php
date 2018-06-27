@@ -39,7 +39,7 @@ class PaginateEvents extends PaginateRequest
         Belt\Core\Pagination\PriorityQueryModifier::class,
         Belt\Core\Pagination\TeamableQueryModifier::class,
         Belt\Content\Pagination\TermableQueryModifier::class,
-        Belt\Spot\Pagination\AddressableQueryModifier::class,
+        Belt\Spot\Pagination\LocatableQueryModifier::class,
         Belt\Spot\Pagination\DateRangeQueryModifier::class,
     ];
 

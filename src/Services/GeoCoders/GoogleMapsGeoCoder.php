@@ -2,7 +2,7 @@
 
 namespace Belt\Spot\Services\GeoCoders;
 
-use Belt\Spot\Address;
+use Belt\Spot\Location;
 use Exception;
 
 /**
@@ -13,11 +13,11 @@ class GoogleMapsGeoCoder extends BaseGeoCoder
 {
 
     /**
-     * @param $address
+     * @param $location
      * @return null
      * @throws Exception
      */
-    public function geocode($address)
+    public function geocode($location)
     {
         $this->reset();
 
@@ -25,7 +25,7 @@ class GoogleMapsGeoCoder extends BaseGeoCoder
             'http://maps.googleapis.com/maps/api/geocode/json',
             http_build_query([
                 'sensor' => 'false',
-                'address' => $address,
+                'location' => $location,
             ])
         ]);
 
@@ -41,31 +41,31 @@ class GoogleMapsGeoCoder extends BaseGeoCoder
         $streetNumber = $this->component('street_number');
         $route = $this->component('route');
         $line1 = $streetNumber && $route ? "$streetNumber $route" : null;
-        $this->address->line1 = $line1;
-        $this->address->line2 = $this->component('subpremise', 'long_name');
+        $this->location->line1 = $line1;
+        $this->location->line2 = $this->component('subpremise', 'long_name');
 
         # city, state, country & post code
         $locality = $this->component('locality', 'long_name');
         $locality = $locality ?: $this->component('sublocality', 'long_name');
         $locality = $locality ?: $this->component('neighborhood', 'long_name');
-        $this->address->locality = $locality;
-        $this->address->region = $this->component('administrative_area_level_1');
-        $this->address->postcode = $this->component('postal_code');
-        $this->address->country = $this->component('country');
+        $this->location->locality = $locality;
+        $this->location->region = $this->component('administrative_area_level_1');
+        $this->location->postcode = $this->component('postal_code');
+        $this->location->country = $this->component('country');
 
         # lat & lng
-        $this->address->lat = array_get($this->result, 'geometry.location.lat');
-        $this->address->north_lat = array_get($this->result, 'geometry.viewport.northeast.lat');
-        $this->address->south_lat = array_get($this->result, 'geometry.viewport.southwest.lat');
-        $this->address->lng = array_get($this->result, 'geometry.location.lng');
-        $this->address->east_lng = array_get($this->result, 'geometry.viewport.northeast.lng');
-        $this->address->west_lng = array_get($this->result, 'geometry.viewport.southwest.lng');
+        $this->location->lat = array_get($this->result, 'geometry.location.lat');
+        $this->location->north_lat = array_get($this->result, 'geometry.viewport.northeast.lat');
+        $this->location->south_lat = array_get($this->result, 'geometry.viewport.southwest.lat');
+        $this->location->lng = array_get($this->result, 'geometry.location.lng');
+        $this->location->east_lng = array_get($this->result, 'geometry.viewport.northeast.lng');
+        $this->location->west_lng = array_get($this->result, 'geometry.viewport.southwest.lng');
 
         # misc
-        $this->address->formatted = array_get($this->result, 'formatted_address');
-        $this->address->original = $address;
-        $this->address->geo_service = 'GoogleMaps';
-        $this->address->geo_code = array_get($this->result, 'place_id');
+        $this->location->formatted = array_get($this->result, 'formatted_location');
+        $this->location->original = $location;
+        $this->location->geo_service = 'GoogleMaps';
+        $this->location->geo_code = array_get($this->result, 'place_id');
     }
 
     /**
@@ -75,7 +75,7 @@ class GoogleMapsGeoCoder extends BaseGeoCoder
      */
     public function component($type, $field = 'short_name')
     {
-        $components = array_get($this->result, 'address_components', []);
+        $components = array_get($this->result, 'location_components', []);
 
         foreach ($components as $component) {
             if (array_get($component, 'types.0') == $type) {

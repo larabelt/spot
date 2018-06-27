@@ -2,7 +2,7 @@
 
 namespace Belt\Spot\Services\GeoCoders;
 
-use Belt\Spot\Address;
+use Belt\Spot\Location;
 use Exception;
 
 /**
@@ -13,20 +13,20 @@ class MockGeoCoder extends BaseGeoCoder
 {
 
     /**
-     * @param $address
+     * @param $location
      * @return null
      * @throws Exception
      */
-    public function geocode($address)
+    public function geocode($location)
     {
         $this->reset();
 
         $this->result = [
-            'input' => $address,
+            'input' => $location,
             'foo' => 'bar',
         ];
 
-        $this->address = factory(Address::class)->make(['lat' => 1.23, 'lng' => 4.56]);
+        $this->location = factory(Location::class)->make(['lat' => 1.23, 'lng' => 4.56]);
     }
 
 }

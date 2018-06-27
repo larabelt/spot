@@ -23,7 +23,7 @@ class Deal extends Model implements
     Belt\Content\Behaviors\IncludesSeoInterface,
     Belt\Content\Behaviors\IncludesTemplateInterface,
     Belt\Content\Behaviors\TermableInterface,
-    Belt\Spot\Behaviors\AddressableInterface,
+    Belt\Spot\Behaviors\LocatableInterface,
     Belt\Spot\Behaviors\RateableInterface
 {
     use Belt\Core\Behaviors\HasSortableTrait;
@@ -38,7 +38,7 @@ class Deal extends Model implements
     use Belt\Content\Behaviors\IncludesSeo;
     use Belt\Content\Behaviors\IncludesTemplate;
     use Belt\Content\Behaviors\Termable;
-    use Belt\Spot\Behaviors\Addressable;
+    use Belt\Spot\Behaviors\Locatable;
     use Belt\Spot\Behaviors\Rateable;
 
     /**
@@ -101,8 +101,8 @@ class Deal extends Model implements
         $clone->slug .= '-' . strtotime('now');
         $clone->push();
 
-        foreach ($deal->addresses as $address) {
-            Address::copy($address, ['addressable_id' => $clone->id]);
+        foreach ($deal->locations as $location) {
+            Location::copy($location, ['locatable_id' => $clone->id]);
         }
 
         foreach ($deal->attachments as $attachment) {

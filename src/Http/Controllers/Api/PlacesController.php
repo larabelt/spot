@@ -46,8 +46,8 @@ class PlacesController extends ApiController
         $paginator = $this->paginator($this->places->query(), $request);
 
         foreach ($paginator->paginator->items() as $item) {
-            $item->address;
-            $item->addresses;
+            $item->location;
+            $item->locations;
             $item->amenities;
             $item->attachments;
             $item->categories;
@@ -122,8 +122,8 @@ class PlacesController extends ApiController
 
         $this->authorize(['view', 'create', 'update', 'delete'], $place);
 
-        $place->address;
-        $place->addresses;
+        $place->location;
+        $place->locations;
         $place->amenities;
         $place->attachments;
         $place->categories;

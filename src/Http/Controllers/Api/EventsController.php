@@ -45,8 +45,8 @@ class EventsController extends ApiController
         $paginator = $this->paginator($this->events->query(), $request);
 
         foreach ($paginator->paginator->items() as $item) {
-            $item->address;
-            $item->addresses;
+            $item->location;
+            $item->locations;
             $item->attachments;
             $item->categories;
             $item->tags;
@@ -119,8 +119,8 @@ class EventsController extends ApiController
 
         $this->authorize(['view', 'create', 'update', 'delete'], $event);
 
-        $event->address;
-        $event->addresses;
+        $event->location;
+        $event->locations;
         $event->attachments;
         $event->categories;
         $event->tags;

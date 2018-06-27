@@ -2,7 +2,7 @@
 use Mockery as m;
 
 use Belt\Core\Testing\BeltTestCase;
-use Belt\Spot\Address;
+use Belt\Spot\Location;
 use Belt\Spot\Event;
 
 class EventTest extends BeltTestCase
@@ -19,7 +19,7 @@ class EventTest extends BeltTestCase
     public function test()
     {
         $event = factory(Event::class)->make();
-        $event->address = factory(Address::class)->make();
+        $event->location = factory(Location::class)->make();
 
         # is searchable
         $event->setIsSearchableAttribute(' true!!! ');

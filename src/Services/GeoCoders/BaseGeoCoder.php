@@ -2,7 +2,7 @@
 
 namespace Belt\Spot\Services\GeoCoders;
 
-use Belt\Spot\Address;
+use Belt\Spot\Location;
 use GuzzleHttp;
 
 /**
@@ -12,9 +12,9 @@ use GuzzleHttp;
 abstract class BaseGeoCoder
 {
     /**
-     * @var Address
+     * @var Location
      */
-    public $address;
+    public $location;
 
     /**
      * @var GuzzleHttp\Client
@@ -35,17 +35,17 @@ abstract class BaseGeoCoder
     }
 
     /**
-     * @param $address
+     * @param $location
      * @return mixed
      */
-    abstract function geocode($address);
+    abstract function geocode($location);
 
     /**
      * Reset
      */
     public function reset()
     {
-        $this->address = new Address();
+        $this->location = new Location();
         $this->result = [];
     }
 
@@ -60,11 +60,11 @@ abstract class BaseGeoCoder
     /**
      * @return array
      */
-    public function address()
+    public function location()
     {
-        $address = $this->address ?: new Address();
+        $location = $this->location ?: new Location();
 
-        return $address->toArray();
+        return $location->toArray();
     }
 
 }

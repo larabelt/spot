@@ -1,0 +1,162 @@
+<div>
+    <form @submit.prevent="form.submit()" @keydown="form.errors.clear($event.target.name)">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="form-group" :class="{ 'has-error': form.error('name') }">
+                            <label for="name">Name</label>
+                            <input class="form-control" v-model="form.name" placeholder="name">
+                            <span v-for="error in form.error('name')" class="text-danger">{{ error }}</span>
+                        </div>
+                        <div class="form-group" :class="{ 'has-error': form.error('line1') }">
+                            <label for="line1">Location, Line 1</label>
+                            <input class="form-control" v-model="form.line1" placeholder="line1">
+                            <span v-for="error in form.error('line1')" class="text-danger">{{ error }}</span>
+                        </div>
+                        <div class="form-group" :class="{ 'has-error': form.error('line2') }">
+                            <label for="line2">Location, Line 2</label>
+                            <input class="form-control" v-model="form.line2" placeholder="line2">
+                            <span v-for="error in form.error('line2')" class="text-danger">{{ error }}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="form-group" :class="{ 'has-error': form.error('nickname') }">
+                            <label for="nickname">Nickname</label>
+                            <input class="form-control" v-model="form.nickname" placeholder="nickname">
+                            <span v-for="error in form.error('nickname')" class="text-danger">{{ error }}</span>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group" :class="{ 'has-error': form.error('lat') }">
+                                    <label for="lat">Latitude</label>
+                                    <input class="form-control" v-model="form.lat" placeholder="latitude">
+                                    <span v-for="error in form.error('lat')" class="text-danger">{{ error }}</span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group" :class="{ 'has-error': form.error('lng') }">
+                                    <label for="lng">Longitude</label>
+                                    <input class="form-control" v-model="form.lng" placeholder="longitude">
+                                    <span v-for="error in form.error('lng')" class="text-danger">{{ error }}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group" :class="{ 'has-error': form.error('altitude') }">
+                                    <label for="altitude">Elevation</label>
+                                    <input class="form-control" v-model="form.altitude" placeholder="altitude">
+                                    <span v-for="error in form.error('altitude')" class="text-danger">{{ error }}</span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group" :class="{ 'has-error': form.error('zoom') }">
+                                    <label for="zoom">Zoom</label>
+                                    <input class="form-control" v-model="form.zoom" placeholder="zoom">
+                                    <span v-for="error in form.error('zoom')" class="text-danger">{{ error }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group" :class="{ 'has-error': form.error('locality') }">
+                            <label for="locality">City</label>
+                            <input class="form-control" v-model.trim="form.locality" placeholder="city">
+                            <span v-for="error in form.error('locality')" class="text-danger">{{ error }}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group" :class="{ 'has-error': form.error('region') }">
+                            <label for="region">State</label>
+                            <input class="form-control" v-model.trim="form.region" placeholder="state">
+                            <span v-for="error in form.error('region')" class="text-danger">{{ error }}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group" :class="{ 'has-error': form.error('postcode') }">
+                            <label for="postcode">Postcode</label>
+                            <input class="form-control" v-model.trim="form.postcode" placeholder="postcode">
+                            <span v-for="error in form.error('postcode')" class="text-danger">{{ error }}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group" :class="{ 'has-error': form.error('country') }">
+                            <label for="country">Country</label>
+                            <input class="form-control" v-model.trim="form.country" placeholder="country">
+                            <span v-for="error in form.error('country')" class="text-danger">{{ error }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <template v-if="form.id">
+                    <div class="text-right">
+                        <div class="btn-group">
+                            <button class="btn btn-default" @click.prevent="fetchLatLng()" title="fetch lat/lng from remote service">
+                                <i class="fa fa-refresh"></i> Lat/Lng
+                            </button>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">bounding box</div>
+                        <div class="panel-body">
+                            <div class="col-md-6">
+                                <div class="form-group" :class="{ 'has-error': form.error('north_lat') }">
+                                    <label for="locality">North Lat</label>
+                                    <input class="form-control" v-model.trim="form.north_lat" placeholder="north_lat">
+                                    <span v-for="error in form.error('north_lat')" class="text-danger">{{ error }}</span>
+                                </div>
+                                <div class="form-group" :class="{ 'has-error': form.error('south_lat') }">
+                                    <label for="locality">South Lat</label>
+                                    <input class="form-control" v-model.trim="form.south_lat" placeholder="south_lat">
+                                    <span v-for="error in form.error('south_lat')" class="text-danger">{{ error }}</span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group" :class="{ 'has-error': form.error('west_lng') }">
+                                    <label for="locality">West Lng</label>
+                                    <input class="form-control" v-model.trim="form.west_lng" placeholder="west_lng">
+                                    <span v-for="error in form.error('west_lng')" class="text-danger">{{ error }}</span>
+                                </div>
+                                <div class="form-group" :class="{ 'has-error': form.error('east_lng') }">
+                                    <label for="locality">East Lng</label>
+                                    <input class="form-control" v-model.trim="form.east_lng" placeholder="east_lng">
+                                    <span v-for="error in form.error('east_lng')" class="text-danger">{{ error }}</span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="">
+                    <coordinates
+                            :lat="form.lat"
+                            :lng="form.lng"
+                            :zoom="form.zoom"
+                            :mapHeight="500"
+                            @spot-updated="saveCoordinates">
+                    </coordinates>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group" :class="{ 'has-error': form.error('location') }">
+                    <label for="location">Location</label>
+                    <textarea class="form-control" rows="10" v-model="form.location"></textarea>
+                    <span v-for="error in form.error('location')" class="text-danger">{{ error }}</span>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

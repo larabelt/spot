@@ -8,16 +8,16 @@ Route::group([
 ],
     function () {
 
-        # addresses
+        # locations
         Route::group([
-            'prefix' => '{addressable_type}/{addressable_id}/addresses',
-            'middleware' => 'request.injections:addressable_type,addressable_id'
+            'prefix' => '{locatable_type}/{locatable_id}/locations',
+            'middleware' => 'request.injections:locatable_type,locatable_id'
         ], function () {
-            Route::get('{address}', Api\AddressesController::class . '@show');
-            Route::put('{address}', Api\AddressesController::class . '@update');
-            Route::delete('{address}', Api\AddressesController::class . '@destroy');
-            Route::get('', Api\AddressesController::class . '@index');
-            Route::post('', Api\AddressesController::class . '@store');
+            Route::get('{location}', Api\LocationsController::class . '@show');
+            Route::put('{location}', Api\LocationsController::class . '@update');
+            Route::delete('{location}', Api\LocationsController::class . '@destroy');
+            Route::get('', Api\LocationsController::class . '@index');
+            Route::post('', Api\LocationsController::class . '@store');
         });
 
         # amenities
