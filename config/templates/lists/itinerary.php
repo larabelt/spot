@@ -27,6 +27,9 @@ return [
     // Sectionable. Allow highly customizable page to be built via the Sections tab.
     'sectionable' => false,
 
+    // Allowed related types. A comma-delimited string of data types that can be added to this list.
+    'indexable_types' => 'places',
+
     /*
     | A set of custom parameters that belong to the templatable object.
     |
