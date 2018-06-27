@@ -22,6 +22,10 @@
                             <column-sorter :column="'places.id'"></column-sorter>
                         </th>
                         <th>
+                            Type
+                            <column-sorter :column="'places.template'"></column-sorter>
+                        </th>
+                        <th>
                             Name
                             <column-sorter :column="'places.name'"></column-sorter>
                         </th>
@@ -35,6 +39,7 @@
                 <tbody>
                     <tr v-for="place in table.items">
                         <td>{{ place.id }}</td>
+                        <td>{{ place.template }}</td>
                         <td>{{ place.name }}</td>
                         <td>{{ place.priority }}</td>
                         <td class="text-right">
@@ -63,6 +68,7 @@
                 <tfoot>
                     <tr>
                         <th>ID</th>
+                        <th>Type</th>
                         <th>Name</th>
                         <th>Priority</th>
                         <th class="text-right">Actions</th>

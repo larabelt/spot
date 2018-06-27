@@ -28,6 +28,10 @@
                         <column-sorter :column="'events.id'"></column-sorter>
                     </th>
                     <th>
+                        Type
+                        <column-sorter :column="'events.template'"></column-sorter>
+                    </th>
+                    <th>
                         Name
                         <column-sorter :column="'events.name'"></column-sorter>
                     </th>
@@ -49,6 +53,7 @@
                 <tbody>
                 <tr v-for="event in table.items">
                     <td>{{ event.id }}</td>
+                    <td>{{ event.template }}</td>
                     <td>{{ event.name }}</td>
                     <td>{{ datetime(event.starts_at, 'L LT') }}</td>
                     <td>{{ datetime(event.ends_at, 'L LT') }}</td>
@@ -79,6 +84,7 @@
                 <tfoot>
                 <tr>
                     <th>ID</th>
+                    <th>Type</th>
                     <th>Name</th>
                     <th>Starts</th>
                     <th>Ends</th>
