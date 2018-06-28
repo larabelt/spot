@@ -17,7 +17,7 @@ class GoogleMapsGeoCoder extends BaseGeoCoder
      * @return null
      * @throws Exception
      */
-    public function geocode($location)
+    public function geocode($address)
     {
         $this->reset();
 
