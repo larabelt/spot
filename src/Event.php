@@ -24,7 +24,7 @@ class Event extends Model implements
     Belt\Content\Behaviors\IncludesSeoInterface,
     Belt\Content\Behaviors\IncludesTemplateInterface,
     Belt\Content\Behaviors\TermableInterface,
-    Belt\Clip\Behaviors\ClippableInterface,
+    Belt\Content\Behaviors\ClippableInterface,
     Belt\Spot\Behaviors\LocatableInterface,
     Belt\Spot\Behaviors\RateableInterface
 {
@@ -34,7 +34,7 @@ class Event extends Model implements
     use Belt\Core\Behaviors\Sluggable;
     use Belt\Core\Behaviors\Teamable;
     use Belt\Core\Behaviors\TypeTrait;
-    use Belt\Clip\Behaviors\Clippable;
+    use Belt\Content\Behaviors\Clippable;
     use Belt\Content\Behaviors\Handleable;
     use Belt\Content\Behaviors\HasSections;
     use Belt\Content\Behaviors\IncludesContent;
