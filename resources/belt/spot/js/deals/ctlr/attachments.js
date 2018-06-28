@@ -1,7 +1,7 @@
 import shared from 'belt/spot/js/deals/ctlr/shared';
 
 // components
-import attachments from 'belt/clip/js/clippables/ctlr/index';
+import attachments from 'belt/content/js/clippables/ctlr/index';
 
 // templates
 
