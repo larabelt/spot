@@ -130,6 +130,7 @@ class Event extends Model implements
         $event = $event instanceof Event ? $event : self::sluggish($event)->first();
 
         $clone = $event->replicate();
+        $clone->setIsCopy(true);
         $clone->slug .= '-' . strtotime('now');
         $clone->push();
 
