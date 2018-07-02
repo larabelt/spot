@@ -125,6 +125,7 @@ class Place extends Model implements
         $place = $place instanceof Place ? $place : self::sluggish($place)->first();
 
         $clone = $place->replicate();
+        $clone->setIsCopy(true);
         $clone->slug .= '-' . strtotime('now');
         $clone->push();
 
