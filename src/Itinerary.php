@@ -117,6 +117,7 @@ class Itinerary extends Model implements
          * @var $clone Itinerary
          */
         $clone = $itinerary->replicate();
+        $clone->setIsCopy(true);
         $clone->slug .= '-' . strtotime('now');
         $clone->push();
 
