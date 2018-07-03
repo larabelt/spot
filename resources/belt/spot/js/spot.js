@@ -6,6 +6,16 @@ import store from 'belt/core/js/store/index';
 
 window.larabelt.spot = _.get(window, 'larabelt.spot', {});
 
+import inputPlaces from 'belt/spot/js/places/inputs';
+
+Vue.component('input-places', inputPlaces);
+
+import tilePlaceDefault from 'belt/spot/js/places/tiles/default';
+import tilePlaceListItem from 'belt/spot/js/places/tiles/list-item';
+
+Vue.component('tile-place-default', tilePlaceDefault);
+Vue.component('tile-place-list-item', tilePlaceListItem);
+
 export default class BeltSpot {
 
     constructor() {
