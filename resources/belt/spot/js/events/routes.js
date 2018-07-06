@@ -14,6 +14,6 @@ export default [
     {path: '/events/edit/:id/addresses/:address?', component: addresses, name: 'events.addresses'},
     {path: '/events/edit/:id/attachments', component: attachments, name: 'events.attachments'},
     {path: '/events/edit/:id/categories', component: categories, name: 'events.categories'},
-    {path: '/events/edit/:id/sections/:section?', component: sections, name: 'events.sections'},
+    {path: '/events/edit/:id/sections/:section_mode?/:section_id?', component: sections, name: 'events.sections'},
     {path: '/events/edit/:id/tags', component: tags, name: 'events.tags'},
 ]
