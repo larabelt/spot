@@ -121,6 +121,10 @@ class Deal extends Model implements
             $clone->terms()->attach($term);
         }
 
+        foreach ($deal->params as $param) {
+            $clone->saveParam($param->key, $param->value);
+        }
+
         return $clone;
     }
 

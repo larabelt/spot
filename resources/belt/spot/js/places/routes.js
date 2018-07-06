@@ -14,6 +14,6 @@ export default [
     {path: '/places/edit/:id/locations/:location?', component: locations, name: 'places.locations'},
     {path: '/places/edit/:id/amenities', component: amenities, name: 'places.amenities'},
     {path: '/places/edit/:id/attachments', component: attachments, name: 'places.attachments'},
-    {path: '/places/edit/:id/sections/:section?', component: sections, name: 'places.sections'},
     {path: '/places/edit/:id/terms', component: terms, name: 'places.terms'},
+    {path: '/places/edit/:id/sections/:section_mode?/:section_id?', component: sections, name: 'places.sections'},
 ]
