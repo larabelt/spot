@@ -158,6 +158,10 @@ class Event extends Model implements
             $clone->tags()->attach($tag);
         }
 
+        foreach ($event->params as $param) {
+            $clone->saveParam($param->key, $param->value);
+        }
+
         return $clone;
     }
 }

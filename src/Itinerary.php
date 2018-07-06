@@ -152,6 +152,10 @@ class Itinerary extends Model implements
             $clone->tags()->attach($tag);
         }
 
+        foreach ($itinerary->params as $param) {
+            $clone->saveParam($param->key, $param->value);
+        }
+
         return $clone;
     }
 

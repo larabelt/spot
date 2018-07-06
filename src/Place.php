@@ -155,6 +155,14 @@ class Place extends Model implements
             $clone->tags()->attach($tag);
         }
 
+        foreach ($place->amenities as $amenity) {
+            $clone->amenities()->attach($amenity);
+        }
+
+        foreach ($place->params as $param) {
+            $clone->saveParam($param->key, $param->value);
+        }
+
         return $clone;
     }
 }
