@@ -6,6 +6,9 @@
                 <filter-search @filter-search-update="filter">Filter</filter-search>
             </div>
             <div class="pull-left">
+                <filter-templates @filter-template-update="filter" templateType="places"></filter-templates>
+            </div>
+            <div class="pull-left">
                 <filter-priority @filter-priority-update="filter"></filter-priority>
             </div>
             <div class="pull-right">
