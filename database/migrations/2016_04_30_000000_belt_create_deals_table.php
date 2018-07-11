@@ -46,6 +46,6 @@ class BeltCreateDealsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('deals');
+        Schema::dropIfExists('deals');
     }
 }

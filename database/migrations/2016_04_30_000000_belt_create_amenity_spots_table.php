@@ -27,6 +27,6 @@ class BeltCreateAmenitySpotsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('amenity_spots');
+        Schema::dropIfExists('amenity_spots');
     }
 }

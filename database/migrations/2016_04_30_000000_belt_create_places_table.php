@@ -47,6 +47,6 @@ class BeltCreatePlacesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('places');
+        Schema::dropIfExists('places');
     }
 }

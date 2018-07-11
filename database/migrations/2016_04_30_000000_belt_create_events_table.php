@@ -48,6 +48,6 @@ class BeltCreateEventsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('events');
+        Schema::dropIfExists('events');
     }
 }
