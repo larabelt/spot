@@ -1,4 +1,5 @@
 <?php
+
 namespace Belt\Spot\Http\Requests;
 
 use Belt\Core\Http\Requests\FormRequest;
@@ -9,7 +10,6 @@ use Belt\Core\Http\Requests\FormRequest;
  */
 class UpdateEvent extends FormRequest
 {
-
     /**
      * @return array
      */
@@ -17,9 +17,9 @@ class UpdateEvent extends FormRequest
     {
         return [
             'name' => 'sometimes|required',
-            'starts_at' => 'sometimes',
-            'ends_at' => 'sometimes|after:starts_at',
             'url' => 'sometimes|nullable|url',
+            'ends_at' => 'sometimes|date|after:starts_at',
+            'starts_at' => 'sometimes|date',
         ];
     }
 
