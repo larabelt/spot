@@ -19,7 +19,7 @@ class ApiDealsFunctionalTest extends Testing\BeltTestCase
             'name' => 'test',
         ]);
         $response->assertStatus(201);
-        $response->assertJsonFragment(['id']);
+        $response->assertJsonFragment(['name' => 'test']);
         $dealID = array_get($response->json(), 'id');
 
         # show

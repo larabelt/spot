@@ -31,7 +31,7 @@ class ApiLocationsFunctionalTest extends Testing\BeltTestCase
             'name' => 'test',
         ]);
         $response->assertStatus(201);
-        $response->assertJsonFragment(['id']);
+        $response->assertJsonFragment(['name' => 'TEST']);
         $locationID = array_get($response->json(), 'id');
 
         # store (with _location)
@@ -41,7 +41,8 @@ class ApiLocationsFunctionalTest extends Testing\BeltTestCase
             '_location' => '123 some st',
         ]);
         $response->assertStatus(201);
-        $response->assertJsonFragment(['id']);
+        $response->assertJsonFragment(['locatable_type' => 'places']);
+        $response->assertJsonFragment(['locatable_id' => '1']);
 
         # show
         $response = $this->json('GET', "/api/v1/places/1/locations/$locationID");

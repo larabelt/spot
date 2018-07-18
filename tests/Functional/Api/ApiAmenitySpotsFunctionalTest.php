@@ -20,7 +20,7 @@ class ApiAmenitySpotsFunctionalTest extends Testing\BeltTestCase
             'value' => 'foo',
         ]);
         $response->assertStatus(201);
-        $response->assertJsonFragment(['id']);
+        $response->assertJsonFragment(['id' => 1]);
         $response = $this->json('GET', '/api/v1/places/1/amenities/1');
         $response->assertStatus(200);
 

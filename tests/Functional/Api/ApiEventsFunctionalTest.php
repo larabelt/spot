@@ -25,7 +25,7 @@ class ApiEventsFunctionalTest extends Testing\BeltTestCase
         ]);
 
         $response->assertStatus(201);
-        $response->assertJsonFragment(['id']);
+        $response->assertJsonFragment(['name' => 'test']);
         $eventID = array_get($response->json(), 'id');
 
         # show
