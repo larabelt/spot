@@ -1,6 +1,7 @@
 <?php
 
 use Belt\Core\Testing;
+use Belt\Spot\Amenity;
 use Belt\Spot\Place;
 
 class ApiPlacesFunctionalTest extends Testing\BeltTestCase
@@ -40,9 +41,9 @@ class ApiPlacesFunctionalTest extends Testing\BeltTestCase
         Place::unguard();
         $old = Place::find($placeID);
         $old->handles()->create(['url' => '/copied-place']);
-        $old->terms()->attach(1);
         $this->json('POST', "/api/v1/places/$placeID/locations", ['name' => 'test']);
-        $this->json('POST', "/api/v1/places/$placeID/attachments", ['id' => 1]);
+        $this->json('POST', "/api/v1/places/$placeID/amenities", ['id' => 1]);
+        $this->json('POST', "/api/v1/places/$placeID/terms", ['id' => 1]);
         $this->json('POST', "/api/v1/places/$placeID/categories", ['id' => 1]);
         $this->json('POST', "/api/v1/places/$placeID/handles", ['url' => "places/$placeID"]);
         $this->json('POST', "/api/v1/places/$placeID/sections", [
