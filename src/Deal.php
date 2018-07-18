@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Model;
  * @package Belt\Spot
  */
 class Deal extends Model implements
+    Belt\Core\Behaviors\ParamableInterface,
     Belt\Core\Behaviors\PriorityInterface,
     Belt\Core\Behaviors\SluggableInterface,
     Belt\Core\Behaviors\TeamableInterface,
@@ -18,6 +19,7 @@ class Deal extends Model implements
     Belt\Content\Behaviors\HandleableInterface,
     Belt\Content\Behaviors\IncludesContentInterface,
     Belt\Content\Behaviors\IncludesSeoInterface,
+    Belt\Content\Behaviors\IncludesTemplateInterface,
     Belt\Glue\Behaviors\CategorizableInterface,
     Belt\Glue\Behaviors\TaggableInterface,
     Belt\Spot\Behaviors\AddressableInterface,
@@ -33,6 +35,7 @@ class Deal extends Model implements
     use Belt\Content\Behaviors\Handleable;
     use Belt\Content\Behaviors\IncludesContent;
     use Belt\Content\Behaviors\IncludesSeo;
+    use Belt\Content\Behaviors\IncludesTemplate;
     use Belt\Glue\Behaviors\Categorizable;
     use Belt\Glue\Behaviors\Taggable;
     use Belt\Spot\Behaviors\Addressable;
