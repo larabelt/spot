@@ -3,10 +3,10 @@
 return [
 
     // Required. A blade view path to the main template layout.
-    'path' => 'belt-content::lists.templates.default',
+    'path' => 'belt-spot::places.subtypes.default',
 
     // A blade view path that can be extended by the layout found in :path.
-    'extends' => 'belt-content::lists.web.show',
+    'extends' => 'belt-spot::places.web.show',
 
     // The human-readable name of your template.
     'label' => '',
@@ -27,9 +27,6 @@ return [
     // Sectionable. Allow highly customizable page to be built via the Sections tab.
     'sectionable' => false,
 
-    // Allowed related types. A comma-delimited string of data types that can be added to this list.
-    'indexable_types' => 'places',
-
     /*
     | A set of custom parameters that belong to the templatable object.
     |
@@ -47,10 +44,30 @@ return [
     */
 
     'params' => [
+        'trip_advisor_id' => [
+            'type' => 'text',
+            'label' => 'Trip Advisor ID',
+        ],
+        'class' => [
+            'type' => 'select',
+            'label' => 'class',
+            'options' => [
+                'col-md-3' => 'default',
+                'col-md-12' => 'wide',
+            ]
+        ],
+        'icon' => [
+            'type' => 'select',
+            'label' => 'Icon',
+            'options' => [
+                '' => 'default',
+                'fa-star' => 'featured',
+            ]
+        ],
         'body' => [
             'type' => 'editor',
             'label' => 'Body',
-            'description' => 'Enter main content of itinerary here.',
+            'description' => 'Enter main content of place here.',
         ],
     ],
 

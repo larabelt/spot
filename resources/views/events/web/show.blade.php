@@ -7,7 +7,7 @@
 @section('main')
 
     <div class="container">
-        @include($event->template_view)
+        @include($event->subtype_view)
     </div>
 
 @endsection

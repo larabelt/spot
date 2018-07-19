@@ -3,7 +3,7 @@
 return [
 
     // Required. A blade view path to the main template layout.
-    'path' => 'belt-spot::deals.templates.default',
+    'path' => 'belt-spot::deals.subtypes.default',
 
     // A blade view path that can be extended by the layout found in :path.
     'extends' => 'belt-spot::deals.web.show',

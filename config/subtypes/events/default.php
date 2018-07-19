@@ -3,10 +3,10 @@
 return [
 
     // Required. A blade view path to the main template layout.
-    'path' => 'belt-spot::places.templates.default',
+    'path' => 'belt-spot::events.subtypes.default',
 
     // A blade view path that can be extended by the layout found in :path.
-    'extends' => 'belt-spot::places.web.show',
+    'extends' => 'belt-spot::events.web.show',
 
     // The human-readable name of your template.
     'label' => '',
@@ -44,24 +44,12 @@ return [
     */
 
     'params' => [
-        'trip_advisor_id' => [
-            'type' => 'text',
-            'label' => 'Trip Advisor ID',
-        ],
-        'class' => [
+        'show_datetime' => [
             'type' => 'select',
-            'label' => 'class',
+            'label' => 'Show DateTime',
             'options' => [
-                'col-md-3' => 'default',
-                'col-md-12' => 'wide',
-            ]
-        ],
-        'icon' => [
-            'type' => 'select',
-            'label' => 'Icon',
-            'options' => [
-                '' => 'default',
-                'fa-star' => 'featured',
+                'true' => 'Yes',
+                'false' => 'No',
             ]
         ],
         'body' => [
