@@ -20,7 +20,7 @@ class ApiPlacesFunctionalTest extends Testing\BeltTestCase
         # store
         $response = $this->json('POST', '/api/v1/places', [
             'name' => 'test',
-            'template' => 'foo',
+            'subtype' => 'foo',
         ]);
 
         $response->assertStatus(201);
@@ -46,7 +46,7 @@ class ApiPlacesFunctionalTest extends Testing\BeltTestCase
         $this->json('POST', "/api/v1/places/$placeID/terms", ['id' => 1]);
         $this->json('POST', "/api/v1/places/$placeID/handles", ['url' => "places/$placeID"]);
         $this->json('POST', "/api/v1/places/$placeID/sections", [
-            'template' => 'containers.default',
+            'subtype' => 'containers.default',
         ]);
         $response = $this->json('POST', "/api/v1/places", ['source' => $placeID]);
         $newID = array_get($response->json(), 'id');

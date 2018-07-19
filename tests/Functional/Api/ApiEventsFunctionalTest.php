@@ -47,7 +47,7 @@ class ApiEventsFunctionalTest extends Testing\BeltTestCase
         $this->json('POST', "/api/v1/events/$eventID/categories", ['id' => 1]);
         $this->json('POST', "/api/v1/events/$eventID/handles", ['url' => "events/$eventID"]);
         $this->json('POST', "/api/v1/events/$eventID/sections", [
-            'template' => 'containers.default',
+            'subtype' => 'containers.default',
         ]);
         $this->json('POST', "/api/v1/events/$eventID/tags", ['id' => 1]);
 

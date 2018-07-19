@@ -38,7 +38,7 @@ class PaginatePlaces extends PaginateRequest
         Belt\Core\Pagination\IsActiveQueryModifier::class,
         Belt\Core\Pagination\PriorityQueryModifier::class,
         Belt\Core\Pagination\TeamableQueryModifier::class,
-        Belt\Content\Pagination\TemplateQueryModifier::class,
+        Belt\Content\Pagination\SubtypeQueryModifier::class,
         Belt\Content\Pagination\TermableQueryModifier::class,
         Belt\Spot\Pagination\LocatableQueryModifier::class,
     ];
