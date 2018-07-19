@@ -3,7 +3,7 @@
 namespace Belt\Spot\Http\Controllers\Api;
 
 use Belt\Core\Http\Controllers\ApiController;
-use Belt\Core\Http\Controllers\Morphable;
+use Belt\Core\Http\Controllers\Behaviors\Morphable;
 use Belt\Spot\Amenity;
 use Belt\Spot\Http\Requests;
 use Illuminate\Http\Request;
@@ -52,7 +52,7 @@ class AmenitySpotsController extends ApiController
      */
     public function index(Request $request, $owner_type, $owner_id)
     {
-        $owner = $this->morphable($owner_type, $owner_id);
+        $owner = $this->morph($owner_type, $owner_id);
 
         $this->authorize(['view', 'create', 'update', 'delete'], $owner);
 
@@ -77,7 +77,7 @@ class AmenitySpotsController extends ApiController
      */
     public function store(Requests\StoreAmenitySpot $request, $owner_type, $owner_id)
     {
-        $owner = $this->morphable($owner_type, $owner_id);
+        $owner = $this->morph($owner_type, $owner_id);
 
         $this->authorize('update', $owner);
 
@@ -120,7 +120,7 @@ class AmenitySpotsController extends ApiController
      */
     public function show($owner_type, $owner_id, $id)
     {
-        $owner = $this->morphable($owner_type, $owner_id);
+        $owner = $this->morph($owner_type, $owner_id);
 
         $this->authorize(['view', 'create', 'update', 'delete'], $owner);
 
@@ -141,7 +141,7 @@ class AmenitySpotsController extends ApiController
      */
     public function destroy($owner_type, $owner_id, $id)
     {
-        $owner = $this->morphable($owner_type, $owner_id);
+        $owner = $this->morph($owner_type, $owner_id);
 
         $this->authorize('update', $owner);
 

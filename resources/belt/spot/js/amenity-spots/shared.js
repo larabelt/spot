@@ -12,7 +12,7 @@ export default {
         }
         if (!this.$store.state[this.storeKey]) {
             this.$store.registerModule(this.storeKey, store);
-            this.$store.dispatch(this.storeKey + '/set', {morphType: this.morphable_type, morphID: this.morphable_id});
+            this.$store.dispatch(this.storeKey + '/set', {entity_type: this.entity_type, entity_id: this.entity_id});
             this.$store.dispatch(this.storeKey + '/load');
         }
     },
@@ -24,7 +24,7 @@ export default {
             return this.amenities();
         },
         storeKey() {
-            return `${this.morphable_type}/${this.morphable_id}/amenities`;
+            return `${this.entity_type}/${this.entity_id}/amenities`;
         },
     },
     methods: {

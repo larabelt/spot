@@ -17,8 +17,8 @@ export default {
             loading: false,
             moving: new Form(),
             table: new Table({router: this.$router}),
-            morphable_type: 'amenities',
-            morphable_id: null,
+            entity_type: 'amenities',
+            entity_id: null,
         }
     },
     methods: {

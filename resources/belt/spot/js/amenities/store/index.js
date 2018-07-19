@@ -12,7 +12,7 @@ export default {
         data: (context, value) => context.commit('data', value),
         load: (context, query) => {
             context.commit('data', {});
-            let table = new Table({morphable_type: context.state.morphType, morphable_id: context.state.morphID});
+            let table = new Table({entity_type: context.state.entity_type, entity_id: context.state.entity_id});
             if (query) {
                 table.updateQuery(query);
             }

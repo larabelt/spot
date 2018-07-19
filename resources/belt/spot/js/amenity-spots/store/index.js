@@ -5,17 +5,17 @@ export default {
     namespaced: true,
     state: {
         data: {},
-        morphID: '',
-        morphType: '',
+        entity_id: '',
+        entity_type: '',
     },
     mutations: {
         data: (state, value) => state.data = value,
-        morphID: (state, value) => state.morphID = value,
-        morphType: (state, value) => state.morphType = value,
+        entity_id: (state, value) => state.entity_id = value,
+        entity_type: (state, value) => state.entity_type = value,
     },
     actions: {
         attach: ({dispatch, commit, state}, request) => {
-            let form = new Form({morphable_type: state.morphType, morphable_id: state.morphID});
+            let form = new Form({entity_type: state.entity_type, entity_id: state.entity_id});
             form.setData({id: request.id, value: request.value});
             return new Promise((resolve, reject) => {
                 form.store()
@@ -29,7 +29,7 @@ export default {
             });
         },
         detach: ({dispatch, commit, state}, request) => {
-            let form = new Form({morphable_type: state.morphType, morphable_id: state.morphID});
+            let form = new Form({entity_type: state.entity_type, entity_id: state.entity_id});
             return new Promise((resolve, reject) => {
                 form.destroy(request.id)
                     .then(response => {
@@ -44,7 +44,7 @@ export default {
         data: (context, value) => context.commit('data', value),
         load: (context) => {
             context.commit('data', {});
-            let table = new Table({morphable_type: context.state.morphType, morphable_id: context.state.morphID});
+            let table = new Table({entity_type: context.state.entity_type, entity_id: context.state.entity_id});
             return new Promise((resolve, reject) => {
                 table.index()
                     .then(response => {
@@ -57,11 +57,11 @@ export default {
             });
         },
         set: (context, options) => {
-            if (options.morphType) {
-                context.commit('morphType', options.morphType);
+            if (options.entity_type) {
+                context.commit('entity_type', options.entity_type);
             }
-            if (options.morphID) {
-                context.commit('morphID', options.morphID);
+            if (options.entity_id) {
+                context.commit('entity_id', options.entity_id);
             }
         },
     },

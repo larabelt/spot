@@ -7,7 +7,7 @@ export default {
     data() {
         return {
             form: new Form(),
-            morphable_type: 'places',
+            entity_type: 'places',
         }
     },
     computed: {

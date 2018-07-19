@@ -6,8 +6,8 @@ export default {
     mixins: [place],
     data() {
         return {
-            morphable_type: 'places',
-            morphable_id: this.$route.params.id,
+            entity_type: 'places',
+            entity_id: this.$route.params.id,
             place_id: this.$route.params.id,
         }
     },
@@ -26,7 +26,7 @@ export default {
             return _.get(this.config, 'sectionable', false);
         },
         storeKey() {
-            return 'places' + this.morphable_id;
+            return 'places' + this.entity_id;
         },
     },
     components: {

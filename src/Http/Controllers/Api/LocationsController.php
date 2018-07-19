@@ -3,7 +3,7 @@
 namespace Belt\Spot\Http\Controllers\Api;
 
 use Belt\Core\Http\Controllers\ApiController;
-use Belt\Core\Http\Controllers\Morphable;
+use Belt\Core\Http\Controllers\Behaviors\Morphable;
 use Belt\Spot\Location;
 use Belt\Spot\Behaviors\LocatableInterface;
 use Belt\Spot\Http\Requests;
@@ -64,7 +64,7 @@ class LocationsController extends ApiController
 
         $request = Requests\PaginateLocations::extend($request);
 
-        $owner = $this->morphable($locatable_type, $locatable_id);
+        $owner = $this->morph($locatable_type, $locatable_id);
 
         $this->authorize(['view', 'create', 'update', 'delete'], $owner);
 
@@ -89,7 +89,7 @@ class LocationsController extends ApiController
      */
     public function store(Requests\StoreLocation $request, $locatable_type, $locatable_id)
     {
-        $owner = $this->morphable($locatable_type, $locatable_id);
+        $owner = $this->morph($locatable_type, $locatable_id);
 
         $this->authorize('update', $owner);
 
@@ -144,7 +144,7 @@ class LocationsController extends ApiController
      */
     public function show($locatable_type, $locatable_id, Location $location)
     {
-        $owner = $this->morphable($locatable_type, $locatable_id);
+        $owner = $this->morph($locatable_type, $locatable_id);
 
         $this->authorize(['view', 'create', 'update', 'delete'], $owner);
 
@@ -166,7 +166,7 @@ class LocationsController extends ApiController
      */
     public function update(Requests\UpdateLocation $request, $locatable_type, $locatable_id, Location $location)
     {
-        $owner = $this->morphable($locatable_type, $locatable_id);
+        $owner = $this->morph($locatable_type, $locatable_id);
 
         $this->authorize('update', $owner);
 
@@ -220,7 +220,7 @@ class LocationsController extends ApiController
      */
     public function destroy($locatable_type, $locatable_id, Location $location)
     {
-        $owner = $this->morphable($locatable_type, $locatable_id);
+        $owner = $this->morph($locatable_type, $locatable_id);
 
         $this->authorize('update', $owner);
 

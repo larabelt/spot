@@ -6,8 +6,8 @@ export default {
     mixins: [event],
     data() {
         return {
-            morphable_type: 'events',
-            morphable_id: this.$route.params.id,
+            entity_type: 'events',
+            entity_id: this.$route.params.id,
             event_id: this.$route.params.id,
         }
     },

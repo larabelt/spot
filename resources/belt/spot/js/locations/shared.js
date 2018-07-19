@@ -5,8 +5,8 @@ export default {
     },
     data() {
         return {
-            morphable_id: this.$parent.morphable_id,
-            morphable_type: this.$parent.morphable_type,
+            entity_id: this.$parent.entity_id,
+            entity_type: this.$parent.entity_type,
             locations: this.$parent.locations,
             form: this.$parent.form,
             modes: this.$parent.modes,
