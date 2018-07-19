@@ -44,7 +44,7 @@ class DealsController extends BaseController
 
         $owner = $deal;
 
-        $view = $deal->getTemplateConfig('extends', 'belt-spot::deals.web.show');
+        $view = $deal->getSubtypeConfig('extends', 'belt-spot::deals.web.show');
 
         return view($view, compact('owner', 'deal', 'compiled'));
     }

@@ -23,7 +23,7 @@ class Place extends Model implements
     Belt\Content\Behaviors\HasSectionsInterface,
     Belt\Content\Behaviors\IncludesContentInterface,
     Belt\Content\Behaviors\IncludesSeoInterface,
-    Belt\Content\Behaviors\IncludesTemplateInterface,
+    Belt\Core\Behaviors\IncludesSubtypesInterface,
     Belt\Content\Behaviors\TermableInterface,
     Belt\Spot\Behaviors\LocatableInterface,
     Belt\Spot\Behaviors\HasAmenitiesInterface,
@@ -40,7 +40,7 @@ class Place extends Model implements
     use Belt\Content\Behaviors\Handleable;
     use Belt\Content\Behaviors\IncludesContent;
     use Belt\Content\Behaviors\IncludesSeo;
-    use Belt\Content\Behaviors\IncludesTemplate;
+    use Belt\Core\Behaviors\IncludesSubtypes;
     use Belt\Content\Behaviors\Termable;
     use Belt\Spot\Behaviors\Locatable;
     use Belt\Spot\Behaviors\HasAmenities;

@@ -18,6 +18,9 @@
 
   },
   "autoload": {
+    "classmap": [
+      "updates"
+    ],
     "psr-4": {
       "Belt\\Spot\\": "src/"
     }

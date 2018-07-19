@@ -22,7 +22,7 @@ class Event extends Model implements
     Belt\Content\Behaviors\HasSectionsInterface,
     Belt\Content\Behaviors\IncludesContentInterface,
     Belt\Content\Behaviors\IncludesSeoInterface,
-    Belt\Content\Behaviors\IncludesTemplateInterface,
+    Belt\Core\Behaviors\IncludesSubtypesInterface,
     Belt\Content\Behaviors\TermableInterface,
     Belt\Content\Behaviors\ClippableInterface,
     Belt\Spot\Behaviors\LocatableInterface,
@@ -39,7 +39,7 @@ class Event extends Model implements
     use Belt\Content\Behaviors\HasSections;
     use Belt\Content\Behaviors\IncludesContent;
     use Belt\Content\Behaviors\IncludesSeo;
-    use Belt\Content\Behaviors\IncludesTemplate;
+    use Belt\Core\Behaviors\IncludesSubtypes;
     use Belt\Content\Behaviors\Termable;
     use Belt\Spot\Behaviors\Locatable;
     use Belt\Spot\Behaviors\Rateable;
