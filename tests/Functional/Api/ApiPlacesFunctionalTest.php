@@ -11,7 +11,7 @@ class ApiPlacesFunctionalTest extends Testing\BeltTestCase
         $this->refreshDB();
         $this->actAsSuper();
 
-        app()['config']->set('belt.templates.places.default.builder', null);
+        app()['config']->set('belt.subtypes.places.default.builder', null);
 
         # index
         $response = $this->json('GET', '/api/v1/places');
