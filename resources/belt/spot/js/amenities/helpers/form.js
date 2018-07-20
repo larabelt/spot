@@ -12,7 +12,7 @@ class AmenityForm extends BaseForm {
             parent_id: '',
             name: '',
             slug: '',
-            template: '',
+            subtype: '',
             body: '',
             nested_name: '',
             hierarchy: '',

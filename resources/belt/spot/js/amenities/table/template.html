@@ -1,33 +1,20 @@
 <div class="box" :class="{'box-primary': mode == 'admin'}">
     <div class="box-body">
+
         <div class="filter-set clearfix">
             <div class="pull-left">
-                <filter-search @filter-search-update="filter"></filter-search>
+                <filter-search @filter-search-update="filter">Filter</filter-search>
             </div>
-
             <div class="pull-left">
-                <div class="form-group filter pull-left">
-                    <label>Template</label>
-                    <div class="form-group">
-                        <select
-                                v-model="table.query.template"
-                                name="template"
-                                class="form-control"
-                                @change="table.index()"
-                        >
-                            <option :value="false">template?</option>
-                            <template v-for="label, value in moving.dropdown()">
-                                <option :value="value">{{ value }}</option>
-                            </template>
-                        </select>
-                    </div>
+                <filter-subtype @filter-subtype-update="filter" entity_type="amenities"></filter-subtype>
+            </div>
+            <div class="pull-right">
+                <div v-if="mode == 'admin'" class="pull-right">
+                    <router-link :to="{ name: 'amenities.create' }" :class="'btn btn-primary'">add amenity</router-link>
                 </div>
             </div>
-
-            <div v-if="mode == 'admin'" class="pull-right">
-                <router-link :to="{ name: 'amenities.create' }" :class="'btn btn-primary'">add amenity</router-link>
-            </div>
         </div>
+
         <div class="table-responsive">
             <div v-if="loading">
                 <i class="fa fa-spinner fa-spin fa-fw"></i>
@@ -39,7 +26,7 @@
                     <th>ID
                         <column-sorter :column="'amenities.id'"></column-sorter>
                     </th>
-                    <th>Template</th>
+                    <th>Type</th>
                     </th>
                     <th>Name
                         <column-sorter :column="'amenities.name'"></column-sorter>
@@ -57,7 +44,7 @@
                 <tfoot v-if="mode == 'admin'">
                 <tr>
                     <th>ID</th>
-                    <th>Template</th>
+                    <th>Type</th>
                     <th>Name</th>
                     <th class="text-right">Actions</th>
                 </tr>

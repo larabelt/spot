@@ -10,11 +10,13 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Amenity extends Model implements
     Belt\Core\Behaviors\IsNestedInterface,
+    Belt\Core\Behaviors\ParamableInterface,
     Belt\Core\Behaviors\SluggableInterface,
     Belt\Content\Behaviors\IncludesContentInterface
 {
     use Belt\Core\Behaviors\IsNested;
     use Belt\Core\Behaviors\Sluggable;
+    use Belt\Core\Behaviors\IncludesSubtypes;
     use Belt\Content\Behaviors\IncludesContent;
 
     /**

@@ -17,7 +17,7 @@
 <!--                                title="move after this item">-->
 <!--                            <i class="fa fa-caret-down"></i>-->
 <!--                        </button>-->
-                        <button v-if="item.template == 'group'" class="btn btn-default btn-xs" @click.prevent="move(item.id, 'in')"
+                        <button v-if="item.subtype == 'group'" class="btn btn-default btn-xs" @click.prevent="move(item.id, 'in')"
                                 title="add as child to this item">
                             <i class="fa fa-caret-right"></i>
                         </button>
