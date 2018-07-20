@@ -1,8 +1,8 @@
 import event from 'belt/spot/js/events/store/mixin';
 import datetimeInput from 'belt/core/js/inputs/datetime';
-import priorityDropdown from 'belt/core/js/inputs/priority/form';
-import subtypeDropdown from 'belt/content/js/subtypes/inputs/default';
-import teamInput from 'belt/core/js/teams/input';
+
+
+
 import edit from 'belt/spot/js/events/edit/shared';
 import html from 'belt/spot/js/events/edit/form.html';
 
@@ -24,10 +24,10 @@ export default {
                 }
             },
             components: {
-                priorityDropdown,
-                subtypeDropdown,
+
+
                 datetimeInput,
-                teamInput,
+
             },
             template: html,
         },

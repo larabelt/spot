@@ -46,7 +46,7 @@ export default {
                 }, 300),
             },
             components: {
-                filterSearch,
+                
                 filterType,
                 rowItem,
             },

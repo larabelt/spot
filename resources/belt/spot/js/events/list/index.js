@@ -2,8 +2,8 @@ import Form from 'belt/spot/js/events/form';
 import Table from 'belt/spot/js/events/table';
 
 import index_html from 'belt/spot/js/events/list/template.html';
-import filterPriority from 'belt/core/js/inputs/priority/filter';
-import filterSearch from 'belt/core/js/inputs/filter-search';
+
+
 import datetime from 'belt/core/js/mixins/datetime';
 import datetimeInput from 'belt/core/js/inputs/datetime';
 
@@ -43,8 +43,8 @@ export default {
             },
             components: {
                 datetimeInput,
-                filterPriority,
-                filterSearch,
+                
+                
             },
             template: index_html,
         },

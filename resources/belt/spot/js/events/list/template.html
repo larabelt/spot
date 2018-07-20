@@ -6,7 +6,7 @@
                 <filter-search @filter-search-update="filter">Filter</filter-search>
             </div>
             <div class="pull-left">
-                <filter-templates @filter-template-update="filter" entity_type="events"></filter-templates>
+                <filter-subtypes @filter-subtype-update="filter" entity_type="events"></filter-subtypes>
             </div>
             <div class="pull-left">
                 <datetime-input :table="table" column="starts_at">Starts At</datetime-input>
@@ -32,7 +32,7 @@
                     </th>
                     <th>
                         Type
-                        <column-sorter :column="'events.template'"></column-sorter>
+                        <column-sorter :column="'events.subtype'"></column-sorter>
                     </th>
                     <th>
                         Name
@@ -56,7 +56,7 @@
                 <tbody>
                 <tr v-for="event in table.items">
                     <td>{{ event.id }}</td>
-                    <td>{{ event.template }}</td>
+                    <td>{{ event.subtype }}</td>
                     <td>{{ event.name }}</td>
                     <td>{{ datetime(event.starts_at, 'L LT') }}</td>
                     <td>{{ datetime(event.ends_at, 'L LT') }}</td>

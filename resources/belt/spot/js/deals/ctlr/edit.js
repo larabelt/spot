@@ -1,5 +1,5 @@
 import shared from 'belt/spot/js/deals/ctlr/shared';
-import priorityDropdown from 'belt/core/js/inputs/priority/form';
+
 import datetimeInput from 'belt/core/js/inputs/datetime';
 
 import tabs_html from 'belt/spot/js/deals/templates/tabs.html';
@@ -14,7 +14,7 @@ export default {
         tab: {
             mixins: [shared],
             components: {
-                priorityDropdown,
+
                 datetimeInput,
             },
             template: form_html,

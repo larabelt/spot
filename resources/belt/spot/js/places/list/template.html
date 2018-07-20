@@ -6,7 +6,7 @@
                 <filter-search @filter-search-update="filter">Filter</filter-search>
             </div>
             <div class="pull-left">
-                <filter-templates @filter-template-update="filter" entity_type="places"></filter-templates>
+                <filter-subtypes @filter-subtype-update="filter" entity_type="places"></filter-subtypes>
             </div>
             <div class="pull-left">
                 <filter-priority @filter-priority-update="filter"></filter-priority>
@@ -26,7 +26,7 @@
                         </th>
                         <th>
                             Type
-                            <column-sorter :column="'places.template'"></column-sorter>
+                            <column-sorter :column="'places.subtype'"></column-sorter>
                         </th>
                         <th>
                             Name
@@ -42,7 +42,7 @@
                 <tbody>
                     <tr v-for="place in table.items">
                         <td>{{ place.id }}</td>
-                        <td>{{ place.template }}</td>
+                        <td>{{ place.subtype }}</td>
                         <td>{{ place.name }}</td>
                         <td>{{ place.priority }}</td>
                         <td class="text-right">
