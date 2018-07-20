@@ -64,7 +64,7 @@ class AmenitiesController extends ApiController
             'parent_id',
             'name',
             'slug',
-            'template',
+            'subtype',
             'body',
         ]);
 
@@ -106,7 +106,7 @@ class AmenitiesController extends ApiController
             'parent_id',
             'name',
             'slug',
-            'template',
+            'subtype',
             'body',
         ]);
 
