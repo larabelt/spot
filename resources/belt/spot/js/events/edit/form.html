@@ -1,5 +1,6 @@
 <div>
     <form @submit.prevent="submit()" @keydown="form.errors.clear($event.target.name)">
+        <subtype-dropdown entity_type="events" formKey="event"></subtype-dropdown>
         <div class="clearfix">
             <div class="pull-left">
                 <p class="text-muted">{{ trans('belt-spot::events.editor.main') }}</p>
@@ -32,10 +33,7 @@
             <input type="slug" class="form-control" v-model="form.slug" eventholder="slug">
             <span v-for="error in form.error('slug')" class="text-danger">{{ error }}</span>
         </div>
-        <subtype-dropdown entity_type="events" formKey="event"></subtype-dropdown>
-
         <param-list paramable_type="events" :paramable_id="entity_id"></param-list>
-
         <div class="row">
             <div class="col-md-6">
                 <datetime-input column="starts_at" :form="event" :time="true" default_date="+1,weeks">Starts At *</datetime-input>
