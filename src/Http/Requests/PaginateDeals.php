@@ -35,7 +35,7 @@ class PaginateDeals extends PaginateRequest
         Belt\Core\Pagination\IsActiveQueryModifier::class,
         Belt\Core\Pagination\PriorityQueryModifier::class,
         Belt\Core\Pagination\TeamableQueryModifier::class,
-        Belt\Content\Pagination\SubtypeQueryModifier::class,
+        Belt\Core\Pagination\SubtypeQueryModifier::class,
         Belt\Content\Pagination\TermableQueryModifier::class,
     ];
 

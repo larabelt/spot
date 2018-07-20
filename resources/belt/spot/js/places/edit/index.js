@@ -2,7 +2,7 @@ import place from 'belt/spot/js/places/store/mixin';
 import edit from 'belt/spot/js/places/edit/shared';
 import html from 'belt/spot/js/places/edit/form.html';
 import priorityDropdown from 'belt/core/js/inputs/priority/form';
-import templateDropdown from 'belt/content/js/templates/inputs/default';
+import templateDropdown from 'belt/content/js/subtypes/inputs/default';
 import teamInput from 'belt/core/js/teams/input';
 
 export default {

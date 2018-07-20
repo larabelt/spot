@@ -33,7 +33,7 @@
             <input class="form-control" v-model="form.slug" placeholder="slug">
             <span v-for="error in form.error('slug')" class="text-danger">{{ error }}</span>
         </div>
-        <template-dropdown templateType="places" formKey="place"></template-dropdown>
+        <subtype-dropdown entity_type="places" formKey="place"></subtype-dropdown>
 
         <param-list paramable_type="places" :paramable_id="entity_id"></param-list>
 
