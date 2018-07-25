@@ -10,7 +10,7 @@
                         <button class="btn btn-default"><i class="fa fa-question-circle"></i></button>
                     </span>
                     <div class="form-group" :class="{ 'has-error': form.error('_location') }">
-                        <input class="form-control" v-model="form._location" placeholder="enter location location">
+                        <input class="form-control" v-model="form._location" placeholder="enter address / location">
                         <span v-for="error in form.error('_location')" class="text-danger">{{ error }}</span>
                     </div>
                     <span class="input-group-btn" @click.prevent="setCreating()">

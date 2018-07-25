@@ -14,7 +14,7 @@ class GeoCoderCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'belt-spot:geocoder {--location=}';
+    protected $signature = 'belt-spot:geocoder {--address=}';
 
     /**
      * The console command description.
@@ -31,10 +31,10 @@ class GeoCoderCommand extends Command
     public function handle()
     {
 
-        $location = $this->option('location');
+        $address = $this->option('address');
 
-        if ($location) {
-            $this->geocode($location);
+        if ($address) {
+            $this->geocode($address);
             $this->info(@\Kint::dump($this->geocoder()->result()));
             $this->info(@\Kint::dump($this->geocoder()->location()));
         }

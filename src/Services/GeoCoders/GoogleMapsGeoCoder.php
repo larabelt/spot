@@ -17,23 +17,26 @@ class GoogleMapsGeoCoder extends BaseGeoCoder
      * @return null
      * @throws Exception
      */
-    public function geocode($location)
+    public function geocode($address)
     {
         $this->reset();
 
         $url = implode('?', [
-            'http://maps.googleapis.com/maps/api/geocode/json',
+            'https://maps.googleapis.com/maps/api/geocode/json',
             http_build_query([
                 'sensor' => 'false',
-                'location' => $location,
+                'address' => $address,
+                'key' => env('GOOGLE_API_KEY'),
             ])
         ]);
 
         try {
             $response = $this->guzzle()->get($url);
             $contents = json_decode($response->getBody()->getContents(), true);
+            //dump($contents);
             $this->result = array_get($contents, 'results.0');
         } catch (\Exception $e) {
+            //dump($e->getMessage());
             throw new \Exception('GoogleMapsGeoCoder Guzzle::get() failed');
         }
 
@@ -62,8 +65,8 @@ class GoogleMapsGeoCoder extends BaseGeoCoder
         $this->location->west_lng = array_get($this->result, 'geometry.viewport.southwest.lng');
 
         # misc
-        $this->location->formatted = array_get($this->result, 'formatted_location');
-        $this->location->original = $location;
+        $this->location->formatted = array_get($this->result, 'formatted_address');
+        $this->location->original = $address;
         $this->location->geo_service = 'GoogleMaps';
         $this->location->geo_code = array_get($this->result, 'place_id');
     }
@@ -75,7 +78,7 @@ class GoogleMapsGeoCoder extends BaseGeoCoder
      */
     public function component($type, $field = 'short_name')
     {
-        $components = array_get($this->result, 'location_components', []);
+        $components = array_get($this->result, 'address_components', []);
 
         foreach ($components as $component) {
             if (array_get($component, 'types.0') == $type) {
