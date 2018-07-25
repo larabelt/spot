@@ -22,18 +22,21 @@ class GoogleMapsGeoCoder extends BaseGeoCoder
         $this->reset();
 
         $url = implode('?', [
-            'http://maps.googleapis.com/maps/api/geocode/json',
+            'https://maps.googleapis.com/maps/api/geocode/json',
             http_build_query([
                 'sensor' => 'false',
                 'address' => $address,
+                'key' => env('GMAPS_API_KEY')
             ])
         ]);
 
         try {
             $response = $this->guzzle()->get($url);
             $contents = json_decode($response->getBody()->getContents(), true);
+            //dump($contents);
             $this->result = array_get($contents, 'results.0');
         } catch (\Exception $e) {
+            //dump($e->getMessage());
             throw new \Exception('GoogleMapsGeoCoder Guzzle::get() failed');
         }
 
