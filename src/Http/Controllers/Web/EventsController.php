@@ -42,11 +42,13 @@ class EventsController extends BaseController
 
         $compiled = $this->compile($event);
 
-        $owner = $event;
-
         $view = $event->getSubtypeConfig('extends', 'belt-spot::events.web.show');
 
-        return view($view, compact('owner', 'event', 'compiled'));
+        return view($view, [
+            'sectionable' => $event,
+            'event' => $event,
+            'compiled' => $compiled,
+        ]);
     }
 
 }

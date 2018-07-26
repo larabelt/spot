@@ -42,11 +42,13 @@ class PlacesController extends BaseController
 
         $compiled = $this->compile($place);
 
-        $owner = $place;
-
         $view = $place->getSubtypeConfig('extends', 'belt-spot::places.web.show');
 
-        return view($view, compact('owner', 'place', 'compiled'));
+        return view($view, [
+            'sectionable' => $place,
+            'place' => $place,
+            'compiled' => $compiled,
+        ]);
     }
 
 }

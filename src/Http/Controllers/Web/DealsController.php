@@ -42,11 +42,13 @@ class DealsController extends BaseController
 
         $compiled = $this->compile($deal);
 
-        $owner = $deal;
-
         $view = $deal->getSubtypeConfig('extends', 'belt-spot::deals.web.show');
 
-        return view($view, compact('owner', 'deal', 'compiled'));
+        return view($view, [
+            'sectionable' => $deal,
+            'deal' => $deal,
+            'compiled' => $compiled,
+        ]);
     }
 
 }
