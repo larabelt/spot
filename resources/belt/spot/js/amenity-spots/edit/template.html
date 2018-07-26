@@ -36,7 +36,7 @@
 
     <template v-else>
 
-        <div v-if="amenity.template == 'boolean'">
+        <div v-if="amenity.subtype == 'boolean'">
             <div class="box-header box-header-checkbox" @click.prevent="toggleCheckbox()">
                 <span class="pull-right">
                     <a
@@ -50,7 +50,7 @@
             </div>
         </div>
 
-        <div v-if="amenity.template == 'text'" class="form-group">
+        <div v-if="amenity.subtype == 'text'" class="form-group">
             <div class="box-header box-header-text">
                 <span class="pull-right">
                     <input class="form-control" :id="'amenity-value-' + amenity.id" v-model="value" placeholder="value" @keyup="update">
@@ -58,7 +58,7 @@
                 <h6 class="box-title">{{ amenity.name }}</h6>
             </div>
         </div>
-        <div v-if="amenity.template == 'textarea'" class="form-group">
+        <div v-if="amenity.subtype == 'textarea'" class="form-group">
             <div class="box-header box-header-textarea">
                 <span class="pull-right">
                     <textarea class="form-control" :id="'amenity-value-' + amenity.id" rows="3" v-model="value" @keyup="update"></textarea>
