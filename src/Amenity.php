@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
  * @package Belt\Spot
  */
 class Amenity extends Model implements
+    Belt\Core\Behaviors\IncludesSubtypesInterface,
     Belt\Core\Behaviors\IsNestedInterface,
     Belt\Core\Behaviors\ParamableInterface,
     Belt\Core\Behaviors\SluggableInterface,
