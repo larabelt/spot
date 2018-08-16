@@ -2,6 +2,7 @@
 
 namespace Belt\Spot\Elastic\Modifiers;
 
+use Carbon\Carbon;
 use Belt\Core\Http\Requests\PaginateRequest;
 use Belt\Content\Elastic\Modifiers\PaginationQueryModifier;
 use Belt\Core\Helpers;
@@ -19,6 +20,9 @@ class EventRangeQueryModifier extends PaginationQueryModifier
 
         $starts_at = $request->query->get('starts_at');
         $ends_at = $request->query->get('ends_at');
+
+        $starts_at = $starts_at ? new Carbon(date('Y-m-d 00:00:00', strtotime($starts_at))) : null;
+        $ends_at = $ends_at ? new Carbon(date('Y-m-d 23:59:59', strtotime($ends_at))) : null;
 
         $filter = [];
 
@@ -75,6 +79,7 @@ class EventRangeQueryModifier extends PaginationQueryModifier
         }
 
         if ($starts_at && $ends_at) {
+
             $filter = [
                 // event.starts_at happens between posted date range
                 [
