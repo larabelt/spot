@@ -27,7 +27,7 @@ class GoogleMapsGeoCoderTest extends BeltTestCase
         $service = new GoogleMapsGeoCoder();
         $service->guzzle = $guzzle;
         $service->result = [
-            'location_components' => [
+            'address_components' => [
                 [
                     'long_name' => 'Some City',
                     'short_name' => 'Some City',

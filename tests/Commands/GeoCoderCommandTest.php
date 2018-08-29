@@ -22,7 +22,7 @@ class GeoCoderCommandTest extends BeltTestCase
     {
 
         $cmd = m::mock(GeoCoderCommand::class . '[option, info]');
-        $cmd->shouldReceive('option')->with('location')->andReturn('123 Some St.');
+        $cmd->shouldReceive('option')->with('address')->andReturn('123 Some St.');
         $cmd->shouldReceive('info')->andReturn(null);
 
         # handle
