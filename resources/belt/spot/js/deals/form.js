@@ -1,5 +1,6 @@
 import BaseForm from 'belt/core/js/helpers/form';
 import BaseService from 'belt/core/js/helpers/service';
+import * as URI from 'uri-js/dist/es5/uri.all.js';
 
 class dealForm extends BaseForm {
 

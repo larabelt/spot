@@ -2,9 +2,6 @@ import place from 'belt/spot/js/places/store/mixin';
 import edit from 'belt/spot/js/places/edit/shared';
 import html from 'belt/spot/js/places/edit/form.html';
 
-
-
-
 export default {
     mixins: [edit],
     components: {
@@ -23,8 +20,6 @@ export default {
                 }
             },
             components: {
-
-
 
             },
             template: html,
