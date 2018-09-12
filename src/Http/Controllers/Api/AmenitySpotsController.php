@@ -82,12 +82,18 @@ class AmenitySpotsController extends ApiController
         $this->authorize('update', $owner);
 
         $id = $request->get('id');
+        $value = $request->get('value');
 
         $this->amenity($id);
 
-        $owner->amenities()->syncWithoutDetaching([$id => ['value' => $request->get('value')]]);
+        $owner->amenities()->syncWithoutDetaching([$id => ['value' => $value]]);
 
         $amenity = $this->amenity($id, $owner);
+
+        /* @todo do this better */
+        if (!$value && in_array($amenity->subtype, ['text', 'textarea'])) {
+            $owner->amenities()->detach($id);
+        }
 
         return response()->json($amenity, 201);
     }
