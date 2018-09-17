@@ -35,7 +35,7 @@
                 <tr v-for="place in places.items">
                     <td>{{ place.id }}. <strong>{{ place.name }}:</strong> {{ place.slug }}</td>
                     <td class="text-right">
-                        <button class="btn btn-default" @click="update(place.id)"><i class="fa fa-link"></i></button>
+                        <button class="btn btn-default" @click.prevent="update(place.id)"><i class="fa fa-link"></i></button>
                     </td>
                 </tr>
             </table>
