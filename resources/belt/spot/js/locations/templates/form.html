@@ -151,7 +151,7 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <div class="form-group" :class="{ 'has-error': form.error('location') }">
+                <div class="form-group form-input-location-custom-note" :class="{ 'has-error': form.error('location') }">
                     <label for="location">Custom Location Note</label>
                     <textarea class="form-control" rows="10" v-model="form.location"></textarea>
                     <span v-for="error in form.error('location')" class="text-danger">{{ error }}</span>

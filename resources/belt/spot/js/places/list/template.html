@@ -32,7 +32,7 @@
                             Name
                             <column-sorter :column="'places.name'"></column-sorter>
                         </th>
-                        <th>
+                        <th class="column-sorter-priority">
                             Priority
                             <column-sorter :column="'events.priority'"></column-sorter>
                         </th>
@@ -44,7 +44,7 @@
                         <td>{{ place.id }}</td>
                         <td>{{ place.subtype }}</td>
                         <td>{{ place.name }}</td>
-                        <td>{{ place.priority }}</td>
+                        <td class="table-data-priority">{{ place.priority }}</td>
                         <td class="text-right">
                             <div class="btn-group">
                                 <button
@@ -73,7 +73,7 @@
                         <th>ID</th>
                         <th>Type</th>
                         <th>Name</th>
-                        <th>Priority</th>
+                        <th class="column-sorter-priority">Priority</th>
                         <th class="text-right">Actions</th>
                     </tr>
                 </tfoot>

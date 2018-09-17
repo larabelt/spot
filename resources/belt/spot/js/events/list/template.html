@@ -46,7 +46,7 @@
                         Ends
                         <column-sorter :column="'events.ends_at'"></column-sorter>
                     </th>
-                    <th>
+                    <th class="column-sorter-priority">
                         Priority
                         <column-sorter :column="'events.priority'"></column-sorter>
                     </th>
@@ -60,7 +60,7 @@
                     <td>{{ event.name }}</td>
                     <td>{{ datetime(event.starts_at, 'L LT') }}</td>
                     <td>{{ datetime(event.ends_at, 'L LT') }}</td>
-                    <td>{{ event.priority }}</td>
+                    <td class="table-data-priority">{{ event.priority }}</td>
                     <td class="text-right">
                         <div class="btn-group">
                             <button
@@ -91,7 +91,7 @@
                     <th>Name</th>
                     <th>Starts</th>
                     <th>Ends</th>
-                    <th>Priority</th>
+                    <th class="column-sorter-priority">Priority</th>
                     <th class="text-right">Actions</th>
                 </tr>
                 </tfoot>
