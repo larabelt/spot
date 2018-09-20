@@ -34,6 +34,13 @@ export default {
             return content.replace(/<\/?[^>]+(>|$)/g, "");
         },
     },
+    watch: {
+        'id': function (id) {
+            if (id) {
+                this.form.show(this.id);
+            }
+        }
+    },
     mounted() {
         this.form.show(this.id);
     },
