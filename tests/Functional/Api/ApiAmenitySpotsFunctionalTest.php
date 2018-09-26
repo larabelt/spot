@@ -44,6 +44,16 @@ class ApiAmenitySpotsFunctionalTest extends Testing\BeltTestCase
         $response->assertStatus(204);
         $response = $this->json('GET', "/api/v1/places/1/amenities/1");
         $response->assertStatus(404);
+
+        # delete object with empty value
+        $amenity = \Belt\Spot\Amenity::where('subtype', 'text')->first();
+        $this->json('POST', '/api/v1/places/1/amenities', ['id' => $amenity->id, 'value' => 'not-empty']);
+        $response = $this->json('GET', "/api/v1/places/1/amenities/$amenity->id");
+        $response->assertStatus(200);
+        $response->assertJson(['pivot' => ['value' => 'not-empty']]);
+        $this->json('PUT', "/api/v1/places/1/amenities/$amenity->id", ['value' => '']);
+        $response = $this->json('GET', "/api/v1/places/1/amenities/$amenity->id");
+        $response->assertStatus(404);
     }
 
 }
