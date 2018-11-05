@@ -59,12 +59,12 @@ class Deal extends Model implements
     /**
      * @var array
      */
-    protected $dates = ['starts_at', 'ends_at', 'created_at', 'updated_at', 'deleted_at', 'params'];
+    protected $dates = ['starts_at', 'ends_at', 'created_at', 'updated_at', 'deleted_at'];
 
     /**
      * @var array
      */
-    protected $with = ['handles'];
+    protected $with = ['handles', 'params'];
 
     /**
      * @var array

@@ -67,12 +67,12 @@ class Event extends Model implements
     /**
      * @var array
      */
-    protected $with = ['handles'];
+    protected $with = ['handles', 'params'];
 
     /**
      * @var array
      */
-    protected $appends = ['image', 'type', 'default_url', 'morph_class', 'params'];
+    protected $appends = ['image', 'type', 'default_url', 'morph_class'];
 
     /**
      * @return array
