@@ -72,7 +72,7 @@ class Event extends Model implements
     /**
      * @var array
      */
-    protected $appends = ['image', 'type', 'default_url', 'morph_class'];
+    protected $appends = ['image', 'type', 'default_url', 'morph_class', 'params'];
 
     /**
      * @return array

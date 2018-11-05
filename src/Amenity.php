@@ -38,7 +38,7 @@ class Amenity extends Model implements
     /**
      * @var array
      */
-    protected $appends = ['nested_name', 'hierarchy'];
+    protected $appends = ['nested_name', 'hierarchy', 'params'];
 
     /**
      * Return amenities associated with amenity_spots
