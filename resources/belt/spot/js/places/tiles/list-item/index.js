@@ -11,6 +11,9 @@ export default {
         }
     },
     computed: {
+        attachments() {
+            return _.get(this.place, 'attachments', []);
+        },
         id() {
             let param = _.find(this.params, {
                 key: 'places',
@@ -42,6 +45,8 @@ export default {
         }
     },
     mounted() {
+        console.log(111);
+        console.log(this.id);
         this.form.show(this.id);
     },
     template: html,

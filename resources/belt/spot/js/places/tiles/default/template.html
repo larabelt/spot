@@ -2,6 +2,9 @@
     <div class="box-body">
         <p v-if="template" class="text-muted">type: {{ template }}</p>
         <h5 v-if="name" class="truncate">{{ name }}</h5>
+        <template v-if="image">
+            <img class="img-responsive" :src="image.src" />
+        </template>
         <p>{{ summary }}</p>
     </div>
 </div>
