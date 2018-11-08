@@ -45,8 +45,6 @@ export default {
         }
     },
     mounted() {
-        console.log(111);
-        console.log(this.id);
         this.form.show(this.id);
     },
     template: html,
