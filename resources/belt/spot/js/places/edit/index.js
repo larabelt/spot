@@ -1,4 +1,3 @@
-import place from 'belt/spot/js/places/store/mixin';
 import TranslationStore from 'belt/core/js/translations/store/adapter';
 import edit from 'belt/spot/js/places/edit/shared';
 import html from 'belt/spot/js/places/edit/form.html';

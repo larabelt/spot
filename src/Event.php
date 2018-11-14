@@ -17,6 +17,7 @@ class Event extends Model implements
     Belt\Core\Behaviors\PriorityInterface,
     Belt\Core\Behaviors\SluggableInterface,
     Belt\Core\Behaviors\TeamableInterface,
+    Belt\Core\Behaviors\TranslatableInterface,
     Belt\Core\Behaviors\TypeInterface,
     Belt\Content\Behaviors\HandleableInterface,
     Belt\Content\Behaviors\HasSectionsInterface,
@@ -33,6 +34,7 @@ class Event extends Model implements
     use Belt\Core\Behaviors\PriorityTrait;
     use Belt\Core\Behaviors\Sluggable;
     use Belt\Core\Behaviors\Teamable;
+    use Belt\Core\Behaviors\Translatable;
     use Belt\Core\Behaviors\TypeTrait;
     use Belt\Content\Behaviors\Clippable;
     use Belt\Content\Behaviors\Handleable;

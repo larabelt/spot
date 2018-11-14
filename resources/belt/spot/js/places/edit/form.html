@@ -1,67 +1,65 @@
-<div>
-    <form v-if="form.id" @submit.prevent="submit()" @keydown="form.errors.clear($event.target.name)">
+<form v-if="form.id" @submit.prevent="submit()" @keydown="form.errors.clear($event.target.name)">
 
-        <base-button-group>
-            <template slot="left">
-                <button-translate></button-translate>
-            </template>
-            <button-preview></button-preview>
-            <button-save></button-save>
-        </base-button-group>
+    <base-button-group>
+        <template slot="left">
+            <button-translate></button-translate>
+        </template>
+        <button-preview></button-preview>
+        <button-save></button-save>
+    </base-button-group>
 
-        <input-subtype entity_type="places" formKey="form" autoset="true"></input-subtype>
-        <input-checkbox column="is_active" v-if="adminMode == 'admin'">Is Active</input-checkbox>
-        <input-team :form="form">{{ trans('belt-core::teams.label', 'asdf') }}</input-team>
-        <input-text column="name" required="true">Name</input-text>
-        <input-text column="slug">Slug</input-text>
-        <input-params paramable_type="places" :paramable_id="entity_id"></input-params>
+    <input-subtype entity_type="places" formKey="form" autoset="true"></input-subtype>
+    <input-checkbox column="is_active" v-if="adminMode == 'admin'">Is Active</input-checkbox>
+    <input-team :form="form">{{ trans('belt-core::teams.label', 'asdf') }}</input-team>
+    <input-text column="name" required="true">Name</input-text>
+    <input-text column="slug">Slug</input-text>
+    <input-params paramable_type="places" :paramable_id="entity_id"></input-params>
 
-        <div class="row">
-            <div class="col-md-6">
-                <input-text column="phone">Phone Number</input-text>
-            </div>
-            <div class="col-md-6">
-                <input-text column="phone_tollfree">Toll Free Phone Number</input-text>
+    <div class="row">
+        <div class="col-md-6">
+            <input-text column="phone">Phone Number</input-text>
+        </div>
+        <div class="col-md-6">
+            <input-text column="phone_tollfree">Toll Free Phone Number</input-text>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group" :class="{ 'has-error': form.error('url') }">
+                <label for="url">Website</label>
+                <input class="form-control" v-model="form.url" placeholder="website" @change="form.normalizeUrl()">
+                <span v-for="error in form.error('url')" class="text-danger">{{ error }}</span>
             </div>
         </div>
-
-        <div class="row">
-            <div class="col-md-6">
-                <div class="form-group" :class="{ 'has-error': form.error('url') }">
-                    <label for="url">Website</label>
-                    <input class="form-control" v-model="form.url" placeholder="website" @change="form.normalizeUrl()">
-                    <span v-for="error in form.error('url')" class="text-danger">{{ error }}</span>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div v-if="form.rating" class="form-group" :class="{ 'has-error': form.error('rating') }">
-                    <label for="rating">Rating</label>
-                    <input class="form-control" v-model="form.rating" placeholder="" readonly>
-                    <span v-for="error in form.error('rating')" class="text-danger">{{ error }}</span>
-                </div>
+        <div class="col-md-6">
+            <div v-if="form.rating" class="form-group" :class="{ 'has-error': form.error('rating') }">
+                <label for="rating">Rating</label>
+                <input class="form-control" v-model="form.rating" placeholder="" readonly>
+                <span v-for="error in form.error('rating')" class="text-danger">{{ error }}</span>
             </div>
         </div>
+    </div>
 
-        <div class="row">
-            <div class="col-md-6">
-                <input-text column="email">Email</input-text>
-            </div>
-            <div class="col-md-6">
-                <input-priority :form="place"></input-priority>
-            </div>
+    <div class="row">
+        <div class="col-md-6">
+            <input-text column="email">Email</input-text>
         </div>
+        <div class="col-md-6">
+            <input-priority :form="place"></input-priority>
+        </div>
+    </div>
 
-        <input-textarea column="hours">Hours</input-textarea>
+    <input-textarea column="hours">Hours</input-textarea>
 
-        <input-seo></input-seo>
+    <input-seo></input-seo>
 
-        <base-button-group>
-            <template slot="left">
-                <button-translate></button-translate>
-            </template>
-            <button-preview></button-preview>
-            <button-save></button-save>
-        </base-button-group>
+    <base-button-group>
+        <template slot="left">
+            <button-translate></button-translate>
+        </template>
+        <button-preview></button-preview>
+        <button-save></button-save>
+    </base-button-group>
 
-    </form>
-</div>
+</form>
