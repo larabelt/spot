@@ -1,5 +1,14 @@
 <form @submit.prevent="form.submit()" @keydown="form.errors.clear($event.target.name)">
 
+    <base-button-group>
+        <template slot="left">
+            <button-translate></button-translate>
+        </template>
+        <button-save></button-save>
+    </base-button-group>
+
+    <input-subtype entity_type="amenities" formKey="form" autoset="true"></input-subtype>
+
     <div class="form-group" :class="{ 'has-error': form.error('parent_id') }">
         <label for="name">Parent Amenity</label>
         <input type="hidden" v-model="form.parent_id">
@@ -12,41 +21,39 @@
     </div>
     <div v-if="search">
         <amenities-table
-            :name="'admin.amenities.select'"
-            :mode="'select'"
-            :query="{perPage: 10, template:'group', not_in: form.id}"
-            @select-amenity="updateParent"
+                :name="'admin.amenities.select'"
+                :mode="'select'"
+                :query="{perPage: 10, template:'group', not_in: form.id}"
+                @select-amenity="updateParent"
         ></amenities-table>
     </div>
 
-    <div class="form-group" :class="{ 'has-error': form.error('name') }">
-        <label for="name">Name *</label>
-        <input class="form-control" v-model="form.name" placeholder="name">
-        <span v-for="error in form.error('name')" class="text-danger">{{ error }}</span>
-    </div>
-    <div v-if="form.id" class="form-group" :class="{ 'has-error': form.error('slug') }">
-        <label for="slug">Slug</label>
-        <input class="form-control" v-model="form.slug" placeholder="slug">
-        <span v-for="error in form.error('slug')" class="text-danger">{{ error }}</span>
-    </div>
-    <div class="form-group" :class="{ 'has-error': form.error('template') }">
-        <label for="template">Template</label>
-        <select v-model="form.subtype" name="template" class="form-control">
-            <template v-for="label, value in form.dropdown()">
-                <option :value="value">{{ label }}</option>
-            </template>
-        </select>
-        <span v-for="error in form.error('template')" class="contents-danger">{{ error }}</span>
-    </div>
-    <div class="form-group" :class="{ 'has-error': form.error('body') }">
-        <label for="body">Body</label>
-        <belt-editor v-model="form.body"></belt-editor>
-        <span v-for="error in form.error('body')" class="text-danger">{{ error }}</span>
-    </div>
-    <div class="text-right">
-        <button class="btn btn-primary" :disabled="form.errors.any()">
-            <span v-if="form.saving"><i class="fa fa-spinner fa-pulse fa-fw"></i></span>
-            <span v-else>save</span>
-        </button>
-    </div>
+    <input-text column="name" required="true">Name</input-text>
+    <input-text v-if="form.id" column="slug">Slug</input-text>
+
+    <!--    <div class="form-group" :class="{ 'has-error': form.error('template') }">-->
+    <!--        <label for="template">Template</label>-->
+    <!--        <select v-model="form.subtype" name="template" class="form-control">-->
+    <!--            <template v-for="label, value in form.dropdown()">-->
+    <!--                <option :value="value">{{ label }}</option>-->
+    <!--            </template>-->
+    <!--        </select>-->
+    <!--        <span v-for="error in form.error('template')" class="contents-danger">{{ error }}</span>-->
+    <!--    </div>-->
+
+    <!--    <div class="form-group" :class="{ 'has-error': form.error('body') }">-->
+    <!--        <label for="body">Body</label>-->
+    <!--        <belt-editor v-model="form.body"></belt-editor>-->
+    <!--        <span v-for="error in form.error('body')" class="text-danger">{{ error }}</span>-->
+    <!--    </div>-->
+
+    <input-editor column="body">Body</input-editor>
+
+    <base-button-group>
+        <template slot="left">
+            <button-translate></button-translate>
+        </template>
+        <button-save></button-save>
+    </base-button-group>
+
 </form>

@@ -13,11 +13,15 @@ class Amenity extends Model implements
     Belt\Core\Behaviors\IsNestedInterface,
     Belt\Core\Behaviors\ParamableInterface,
     Belt\Core\Behaviors\SluggableInterface,
+    Belt\Core\Behaviors\TranslatableInterface,
+    Belt\Core\Behaviors\TypeInterface,
     Belt\Content\Behaviors\IncludesContentInterface
 {
     use Belt\Core\Behaviors\IsNested;
     use Belt\Core\Behaviors\Sluggable;
     use Belt\Core\Behaviors\IncludesSubtypes;
+    use Belt\Core\Behaviors\Translatable;
+    use Belt\Core\Behaviors\TypeTrait;
     use Belt\Content\Behaviors\IncludesContent;
 
     /**
@@ -43,7 +47,7 @@ class Amenity extends Model implements
     /**
      * @var array
      */
-    protected $appends = ['nested_name', 'hierarchy'];
+    protected $appends = ['nested_name', 'hierarchy', 'config', 'morph_class'];
 
     /**
      * Return amenities associated with amenity_spots
