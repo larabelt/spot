@@ -9,6 +9,7 @@ class AmenityForm extends BaseForm {
         this.routeEditName = 'amenities.edit';
         this.setData({
             id: '',
+            morph_class: 'amenities',
             parent_id: '',
             name: '',
             slug: '',

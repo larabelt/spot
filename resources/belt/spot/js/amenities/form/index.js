@@ -1,11 +1,14 @@
+import TranslationStore from 'belt/core/js/translations/store/adapter';
 import Form from 'belt/spot/js/amenities/helpers/form';
 import amenitiesTable from 'belt/spot/js/amenities/table/index';
 import html from 'belt/spot/js/amenities/form/template.html';
 
 export default {
+    mixins: [TranslationStore],
     data() {
         return {
             form: new Form({router: this.$router}),
+            mode: 'creator',
             parentAmenity: new Form(),
             search: false,
         }
@@ -35,10 +38,16 @@ export default {
                 this.search = false;
                 this.parentAmenity.setData(amenity);
             }
+        },
+        submit() {
+            if (this.form.id) {
+                Events.$emit('amenities:' + this.form.id + ':updating', this.form);
+            }
+            this.form.submit();
         }
     },
     components: {
-        amenitiesTable
+        amenitiesTable,
     },
     template: html,
 }

@@ -1,8 +1,8 @@
-<form @submit.prevent="form.submit()" @keydown="form.errors.clear($event.target.name)">
+<form @submit.prevent="submit()" @keydown="form.errors.clear($event.target.name)">
 
     <base-button-group>
         <template slot="left">
-            <button-translate></button-translate>
+            <button-translate v-if="form.id"></button-translate>
         </template>
         <button-save></button-save>
     </base-button-group>
@@ -28,7 +28,7 @@
         ></amenities-table>
     </div>
 
-    <input-text column="name" required="true">Name</input-text>
+    <input-text v-if="form.id || mode == 'creator'" column="name" required="true">Name</input-text>
     <input-text v-if="form.id" column="slug">Slug</input-text>
 
     <!--    <div class="form-group" :class="{ 'has-error': form.error('template') }">-->
@@ -51,7 +51,7 @@
 
     <base-button-group>
         <template slot="left">
-            <button-translate></button-translate>
+            <button-translate v-if="form.id"></button-translate>
         </template>
         <button-save></button-save>
     </base-button-group>

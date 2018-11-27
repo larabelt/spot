@@ -1,4 +1,4 @@
-import TranslationStore from 'belt/core/js/translations/store/adapter';
+
 import form from 'belt/spot/js/amenities/form';
 import html from 'belt/spot/js/amenities/edit/template.html';
 
@@ -12,11 +12,12 @@ export default {
     },
     components: {
         edit: {
-            mixins: [form, TranslationStore],
+            mixins: [form],
             data() {
                 return {
                     entity_type: this.$parent.entity_type,
                     entity_id: this.$parent.entity_id,
+                    mode: 'editor',
                 }
             },
             created() {
