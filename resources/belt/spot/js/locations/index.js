@@ -22,6 +22,10 @@ export default {
                 entity_type: this.$parent.entity_type,
                 entity_id: this.$parent.entity_id,
             }),
+            newLocation: new Form({
+                entity_type: this.$parent.entity_type,
+                entity_id: this.$parent.entity_id,
+            }),
             modes: {
                 active: 'index',
             },
@@ -53,11 +57,12 @@ export default {
     },
     methods: {
         setCreating() {
-            if (this.form._location) {
-                this.form.submit()
+            if (this.newLocation._location) {
+                this.newLocation.submit()
                     .then((location) => {
                         if (location.id) {
                             this.modes.active = 'edit';
+                            this.form.setData(location);
                             this.form._location = '';
                         }
                     });

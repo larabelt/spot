@@ -12,6 +12,11 @@ use Exception;
 class GoogleMapsGeoCoder extends BaseGeoCoder
 {
 
+    public static function apiKey()
+    {
+        return env('GOOGLE_SERVER_API_KEY') ?: env('GOOGLE_API_KEY');
+    }
+
     /**
      * @param $location
      * @return null
@@ -26,7 +31,7 @@ class GoogleMapsGeoCoder extends BaseGeoCoder
             http_build_query([
                 'sensor' => 'false',
                 'address' => $address,
-                'key' => env('GOOGLE_API_KEY'),
+                'key' => static::apiKey(),
             ])
         ]);
 
