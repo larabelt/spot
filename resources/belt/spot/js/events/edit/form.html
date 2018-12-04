@@ -9,7 +9,7 @@
     </base-button-group>
 
     <input-subtype entity_type="events" formKey="event"></input-subtype>
-    <input-checkbox column="is_active" v-if="adminMode == 'admin'">Is Active</input-checkbox>
+    <input-psuedo-checkbox column="is_active" v-if="adminMode == 'admin'">Is Active</input-psuedo-checkbox>
     <input-team :form="form">{{ trans('belt-core::teams.label') }}</input-team>
     <input-text column="name" required="true">Name</input-text>
     <input-text column="slug">Slug</input-text>
