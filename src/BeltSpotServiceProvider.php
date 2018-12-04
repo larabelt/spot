@@ -37,6 +37,7 @@ class BeltSpotServiceProvider extends ServiceProvider
     {
         include __DIR__ . '/../routes/admin.php';
         include __DIR__ . '/../routes/api.php';
+        include __DIR__ . '/../routes/handleables.php';
         include __DIR__ . '/../routes/web.php';
 
         # beltable values for global belt command
