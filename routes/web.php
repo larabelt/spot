@@ -4,13 +4,17 @@ use Belt\Spot\Http\Controllers\Web;
 
 Route::group(['middleware' => ['web']], function () {
 
-    # deals
-    Route::get('deals/{deal}/{slug?}', Web\DealsController::class . '@show');
-    
-    # events
-    Route::get('events/{event}/{slug?}', Web\EventsController::class . '@show');
+    if (config('belt.core.translate.prefix-urls')) {
+        foreach ((array) config('belt.core.translate.locales') as $locale) {
+            $code = array_get($locale, 'code');
+            Route::get("$code/deals/{deal}/{slug?}", Web\DealsController::class . '@show');
+            Route::get("$code/events/{event}/{slug?}", Web\EventsController::class . '@show');
+            Route::get("$code/places/{place}/{slug?}", Web\PlacesController::class . '@show');
+        }
+    }
 
-    # places
+    Route::get('deals/{deal}/{slug?}', Web\DealsController::class . '@show');
+    Route::get('events/{event}/{slug?}', Web\EventsController::class . '@show');
     Route::get('places/{place}/{slug?}', Web\PlacesController::class . '@show');
 
 });
