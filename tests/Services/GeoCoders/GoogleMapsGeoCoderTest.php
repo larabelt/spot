@@ -17,6 +17,7 @@ class GoogleMapsGeoCoderTest extends BeltTestCase
     }
 
     /**
+     * @covers \Belt\Spot\Services\GeoCoders\GoogleMapsGeoCoder::apiKey
      * @covers \Belt\Spot\Services\GeoCoders\GoogleMapsGeoCoder::component
      * @covers \Belt\Spot\Services\GeoCoders\GoogleMapsGeoCoder::geocode
      */
@@ -56,6 +57,13 @@ class GoogleMapsGeoCoderTest extends BeltTestCase
         # service
         $service->geocode('Some Location');
         $this->assertTrue(is_array($service->location->toArray()));
+
+        # apiKey
+        putenv("GOOGLE_SERVER_API_KEY=");
+        putenv("GOOGLE_API_KEY=foo");
+        $this->assertEquals('foo', GoogleMapsGeoCoder::apiKey());
+        putenv("GOOGLE_SERVER_API_KEY=bar");
+        $this->assertEquals('bar', GoogleMapsGeoCoder::apiKey());
     }
 
     /**
