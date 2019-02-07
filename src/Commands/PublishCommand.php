@@ -26,7 +26,7 @@ class PublishCommand extends Command
         'vendor/larabelt/spot/database/factories' => 'database/factories',
         'vendor/larabelt/spot/database/migrations' => 'database/migrations',
         'vendor/larabelt/spot/database/seeds' => 'database/seeds',
-        'vendor/larabelt/spot/docs' => 'resources/docs',
+        'vendor/larabelt/spot/docs' => 'resources/docs/raw',
     ];
 
 }
