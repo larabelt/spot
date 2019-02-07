@@ -50,6 +50,7 @@ export default {
         <div>
             <heading>
                 <span slot="title">Deal Manager</span>
+                <span slot="help"><link-help docKey="admin.spot.deals.manager" /></span>
                 <li><router-link :to="{ name: 'deals' }">Deal Manager</router-link></li>
             </heading>
             <section class="content-subheader">

@@ -54,6 +54,7 @@ export default {
         <div>
             <heading>
                 <span slot="title">Event Manager</span>
+                <span slot="help"><link-help docKey="admin.spot.events.manager" /></span>
                 <li><router-link :to="{ name: 'events' }">Event Manager</router-link></li>
             </heading>
             <section class="content-subheader">

@@ -1,0 +1,1 @@
+- [POIs](/docs/{{ $version }}/admin/spot/overview)

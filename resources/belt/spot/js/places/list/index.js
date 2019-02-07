@@ -50,6 +50,7 @@ export default {
         <div>
             <heading>
                 <span slot="title">Place Manager</span>
+                <span slot="help"><link-help docKey="admin.spot.places.manager" /></span>
                 <li><router-link :to="{ name: 'places' }">Place Manager</router-link></li>
             </heading>
             <section class="content-subheader">
