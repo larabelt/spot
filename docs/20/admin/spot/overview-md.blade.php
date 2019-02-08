@@ -5,5 +5,5 @@
 - [Places](#places)
 - [Events](#events)
 
-@include('belt-docs::20.admin.spot.places')
-@include('belt-docs::20.admin.spot.events')
+@include('belt-docs::20.admin.spot.places.intro')
+@include('belt-docs::20.admin.spot.events.intro')
