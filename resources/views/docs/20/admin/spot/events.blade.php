@@ -8,7 +8,7 @@ Start by going to POIs→Events. Click on ​Add an Event​​.
 
 #### Main Tab for Jen's Islands Eats Happy Hour:
 
-![picture alt]({{ $url_images }}/event-editor.png "")
+@include('belt-docs::partials.image', ['src' => '20/admin/spot/assets/event-editor.png'])
 
 * **Is Active** ​​If this is selected, your content will automatically show up on the Dominica Site.
 * **Name** ​​Jen's Island Eatery Happy Hour
@@ -31,7 +31,7 @@ Click on Save. Additional fields and tabs will become available.
 * **Body** Text shows up in middle of page
 * **Big Image Link** Add a link to other sections of the site. Shows up at bottom of page.
 
-![picture alt]({{ $url_images }}/param-big-image-link-adventure.png "")
+@include('belt-docs::partials.image', ['src' => '20/admin/spot/assets/param-big-image-link-adventure.png'])
 
 * **Candid Tag** Choose theme for Instagram photos that show up on your Place page.
 

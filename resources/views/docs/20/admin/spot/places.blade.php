@@ -9,7 +9,7 @@ Start by going to POIs→Places. Click on **Add a Place​​**.
 * **Type** ​​There are 5 type of Places in the Dominica CMS and creating each kind is very similar. In
 this instance, we are creating a restaurant
 
-![picture alt]({{ $url_images }}/place-creator-subtype.png "")
+@include('belt-docs::partials.image', ['src' => '20/admin/spot/assets/place-creator-subtype.png'])
 
 * **Is Active** ​​If this is selected, your content will automatically show up on the Dominica Site.
 * **Name** ​​Jens Island Eats
@@ -30,15 +30,15 @@ Click on Save. Additional fields and tabs will become available.
 * **Intro Copy**​​ Shows up under Hero Image and before Body
 * **Body**​​ Body copy of page
 
-![picture alt]({{ $url_images }}/place-detail-example.png "")
+@include('belt-docs::partials.image', ['src' => '20/admin/spot/assets/place-detail-example.png'])
 
 * **Accommodation Details** Ignore for restaurants, more useful for Accommodations ex. hotels
 
-![picture alt]({{ $url_images }}/param-group-accommodation-detail.png "")
+@include('belt-docs::partials.image', ['src' => '20/admin/spot/assets/param-group-accommodation-detail.png'])
 
 * **Island Map Settings** controls the default map that appears near the bottom of the page on all Places. This map can be hidden by switching "Show Island Map" to "Hide."
 
-![picture alt]({{ $url_images }}/param-group-island-map.png "")
+@include('belt-docs::partials.image', ['src' => '20/admin/spot/assets/param-group-island-map.png'])
 
 * **Island Map Heading** Headline shows above map
 * **Island Map Intro** Intro text shows above map
@@ -47,11 +47,11 @@ Click on Save. Additional fields and tabs will become available.
 
 Front End view of Map section:
 
-![picture alt]({{ $url_images }}/map-example.png "")
+@include('belt-docs::partials.image', ['src' => '20/admin/spot/assets/map-example.png'])
 
 * **Big Image Link** Add a link to other sections of the site. Shows up at bottom of page.
 
-![picture alt]({{ $url_images }}/param-big-image-link-adventure.png "")
+@include('belt-docs::partials.image', ['src' => '20/admin/spot/assets/param-big-image-link-adventure.png'])
 
 * **Candid Tag** Choose theme for Instagram photos that show up on your Place page.
 
@@ -82,4 +82,4 @@ POI on the map but the actual page that's created is not used on the site.
 * For Places → Landmark, the content URL field is used instead of the website field. A link to the
 Content URL shows up on the tout in the list view and on the popup on the map.
 
-![picture alt]({{ $url_images }}/param-content-url.png "")
+@include('belt-docs::partials.image', ['src' => '20/admin/spot/assets/param-content-url.png'])
