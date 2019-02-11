@@ -74,7 +74,7 @@
         </div>
         <div class="form-group" :class="{ 'has-error': deal.error('body') }">
             <label for="body">Body</label>
-            <belt-editor v-model="deal.body"></belt-editor>
+            <belt-editor :form="deal" v-model="deal.body" :initialValue="deal.body" @input="emitEvent()"></belt-editor>
             <span v-for="error in deal.error('body')" class="text-danger">{{ error }}</span>
         </div>
         <input-seo :form="deal"></input-seo>
