@@ -19,6 +19,9 @@ export default {
             created() {
                 this.bootTranslationStore();
             },
+            destroyed() {
+                this.form.reset();
+            },
             methods: {
                 submit() {
                     Events.$emit('events:' + this.entity_id + ':updating', this.form);
