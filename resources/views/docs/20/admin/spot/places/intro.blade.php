@@ -6,8 +6,11 @@ Start by going to POIs→Places. Click on **Add a Place​​**.
 
 #### Main Tab:
 
-* **Type** ​​There are 5 type of Places in the Dominica CMS and creating each kind is very similar. In
-this instance, we are creating a restaurant
+@include('belt-docs::partials.table', [
+    'rows' => [
+        ['Type', '​​There are 5 type of Places in the Dominica CMS and creating each kind is very similar. In this instance, we are creating a restaurant'],
+    ],
+])
 
 @include('belt-docs::partials.image', ['src' => '20/admin/spot/assets/place-creator-subtype.png'])
 
