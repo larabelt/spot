@@ -4,15 +4,15 @@
 
 To create a Event, start by going to POIs → Event and click on the "Add Event" button.
 
-@include('belt-docs::partials.iframe', ['src' => '/docs/preview/spot/2.0/admin/screen?content=creator.events&style=content', 'height' => 375])
+@include('belt-core::docs.partials.iframe', ['src' => '/docs/preview/spot/2.0/admin/screen?content=creator.events&style=content', 'height' => 375])
 
 **(Above) Event Creator Screen**
 
 #### Main Tab for Jen's Islands Eats Happy Hour:
 
-@include('belt-docs::partials.image', ['src' => '20/admin/spot/assets/event-editor.png'])
+@include('belt-core::docs.partials.image', ['src' => '20/admin/spot/assets/event-editor.png'])
 
-@include('belt-docs::partials.table', [
+@include('belt-core::docs.partials.table', [
     'rows' => [
         ['Is Active', 'Check this box to make the Event publicly available.'],
         ['Name', '​​Jens Island Eatery Happy Hour'],

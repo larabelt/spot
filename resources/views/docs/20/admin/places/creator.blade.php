@@ -4,21 +4,21 @@
 
 To create a Place, start by going to POIs → Place and click on the "Add Place" button.
 
-@include('belt-docs::partials.iframe', ['src' => '/docs/preview/spot/2.0/admin/screen?content=creator.places&style=content', 'height' => 375])
+@include('belt-core::docs.partials.iframe', ['src' => '/docs/preview/spot/2.0/admin/screen?content=creator.places&style=content', 'height' => 375])
 
 **(Above) Place Creator Screen**
 
 #### Main Tab:
 
-@include('belt-docs::partials.table', [
+@include('belt-core::docs.partials.table', [
     'rows' => [
         ['Type', '​​There are 5 type of Places in the Dominica CMS and creating each kind is very similar. In this instance, we are creating a restaurant'],
     ],
 ])
 
-@include('belt-docs::partials.image', ['src' => '20/admin/spot/assets/place-creator-subtype.png'])
+@include('belt-core::docs.partials.image', ['src' => '20/admin/spot/assets/place-creator-subtype.png'])
 
-@include('belt-docs::partials.table', [
+@include('belt-core::docs.partials.table', [
     'rows' => [
         ['Is Active', 'Check this box to make the Place publicly available.'],
         ['Name', '​​Jens Island Eats'],
