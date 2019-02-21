@@ -22,7 +22,8 @@
       "updates"
     ],
     "psr-4": {
-      "Belt\\Spot\\": "src/"
+      "Belt\\Spot\\": "src/",
+      "Tests\\Belt\\Spot\\": "tests/"
     }
   }
 }
