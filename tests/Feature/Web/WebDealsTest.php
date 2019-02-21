@@ -1,0 +1,32 @@
+<?php namespace Tests\Belt\Spot\Feature\Web;
+
+use Belt\Core\Tests;
+use Belt\Spot\Deal;
+
+class WebDealsTest extends Tests\BeltTestCase
+{
+
+    public function testAsSuper()
+    {
+        $this->refreshDB();
+
+        Deal::unguard();
+        $deal = Deal::find(1);
+
+        # show
+        $deal->update(['is_active' => true]);
+        $response = $this->json('GET', '/deals/1');
+        $response->assertStatus(200);
+
+        # show (404)
+        $deal->update(['is_active' => false]);
+        $response = $this->json('GET', '/deals/1');
+        $response->assertStatus(404);
+
+        # show (super, avoid 404)
+        $this->actAsSuper();
+        $response = $this->json('GET', '/deals/1');
+        $response->assertStatus(200);
+    }
+
+}
