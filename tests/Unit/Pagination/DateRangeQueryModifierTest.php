@@ -1,16 +1,16 @@
 <?php namespace Tests\Belt\Spot\Unit\Pagination;
 
 use Mockery as m;
-use Belt\Core\Tests;
+use Tests\Belt\Core;
 use Belt\Core\Http\Requests\PaginateRequest;
 use Belt\Spot\Pagination\DateRangeQueryModifier;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 
-class DateRangeQueryModifierTest extends Tests\BeltTestCase
+class DateRangeQueryModifierTest extends \Tests\Belt\Core\BeltTestCase
 {
 
-    use Tests\CommonMocks;
+    use \Tests\Belt\Core\Base\CommonMocks;
 
     private $default_ends_at;
 

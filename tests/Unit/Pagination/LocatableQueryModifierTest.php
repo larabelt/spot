@@ -1,15 +1,15 @@
 <?php namespace Tests\Belt\Spot\Unit\Pagination;
 
 use Mockery as m;
-use Belt\Core\Tests;
+use Tests\Belt\Core;
 use Belt\Spot\Http\Requests\PaginatePlaces;
 use Belt\Spot\Pagination\LocatableQueryModifier;
 use Illuminate\Database\Eloquent\Builder;
 
-class LocatableQueryModifierTest extends Tests\BeltTestCase
+class LocatableQueryModifierTest extends \Tests\Belt\Core\BeltTestCase
 {
 
-    use Tests\CommonMocks;
+    use \Tests\Belt\Core\Base\CommonMocks;
 
     public function tearDown()
     {

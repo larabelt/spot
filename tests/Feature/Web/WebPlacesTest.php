@@ -1,9 +1,9 @@
 <?php namespace Tests\Belt\Spot\Feature\Web;
 
-use Belt\Core\Tests;
+use Tests\Belt\Core;
 use Belt\Spot\Place;
 
-class WebPlacesTest extends Tests\BeltTestCase
+class WebPlacesTest extends \Tests\Belt\Core\BeltTestCase
 {
 
     public function testAsSuper()

@@ -2,7 +2,7 @@
 
 use Mockery as m;
 
-use Belt\Core\Tests\BeltTestCase;
+use Tests\Belt\Core\BeltTestCase;
 use Belt\Spot\Behaviors\Locatable;
 use Belt\Spot\Location;
 

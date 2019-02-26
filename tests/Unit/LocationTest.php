@@ -1,6 +1,6 @@
 <?php namespace Tests\Belt\Spot\Unit;
 
-use Belt\Core\Tests\BeltTestCase;
+use Tests\Belt\Core\BeltTestCase;
 use Belt\Spot\Place;
 use Belt\Spot\Location;
 

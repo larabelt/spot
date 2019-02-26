@@ -1,7 +1,7 @@
 <?php namespace Tests\Belt\Spot\Unit\Services\GeoCoders;
 
 use Mockery as m;
-use Belt\Core\Tests\BeltTestCase;
+use Tests\Belt\Core\BeltTestCase;
 use Belt\Spot\Services\GeoCoders\GeoCoderFactory;
 use Belt\Spot\Services\GeoCoders\MockGeoCoder;
 

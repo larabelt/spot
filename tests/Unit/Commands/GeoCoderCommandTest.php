@@ -2,7 +2,7 @@
 
 use Mockery as m;
 
-use Belt\Core\Tests\BeltTestCase;
+use Tests\Belt\Core\BeltTestCase;
 use Belt\Spot\Location;
 use Belt\Spot\Commands\GeoCoderCommand;
 use Belt\Spot\Services\GeoCoders\GoogleMapsGeoCoder;

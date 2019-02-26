@@ -1,12 +1,12 @@
 <?php namespace Tests\Belt\Spot\Unit\Policies;
 
-use Belt\Core\Tests;
+use Tests\Belt\Core;
 use Belt\Spot\Policies\AmenityPolicy;
 
-class AmenityPolicyTest extends Tests\BeltTestCase
+class AmenityPolicyTest extends \Tests\Belt\Core\BeltTestCase
 {
 
-    use Tests\CommonMocks;
+    use \Tests\Belt\Core\Base\CommonMocks;
 
     /**
      * @covers \Belt\Spot\Policies\AmenityPolicy::view

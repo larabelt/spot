@@ -1,6 +1,6 @@
 <?php namespace Tests\Belt\Spot\Unit\Resources\Subtypes;
 
-use Belt\Core\Tests\BeltTestCase;
+use Tests\Belt\Core\BeltTestCase;
 use Belt\Spot\Resources\Subtypes\BaseEvent;
 
 class SubtypesBaseEventTest extends BeltTestCase

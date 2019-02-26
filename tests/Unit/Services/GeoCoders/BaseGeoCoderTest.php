@@ -3,7 +3,7 @@
 use Belt\Spot\Location;
 use Belt\Spot\Services\GeoCoders\GoogleMapsGeoCoder;
 use GuzzleHttp\Client;
-use Belt\Core\Tests\BeltTestCase;
+use Tests\Belt\Core\BeltTestCase;
 
 class BaseGeoCoderTest extends BeltTestCase
 {

@@ -1,7 +1,7 @@
 <?php namespace Tests\Belt\Spot\Unit;
 use Mockery as m;
 
-use Belt\Core\Tests\BeltTestCase;
+use Tests\Belt\Core\BeltTestCase;
 use Belt\Spot\Deal;
 use Illuminate\Database\Eloquent\Builder;
 

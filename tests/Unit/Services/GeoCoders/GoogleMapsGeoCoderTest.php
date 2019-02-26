@@ -2,14 +2,14 @@
 
 use Mockery as m;
 
-use Belt\Core\Tests\BeltTestCase;
-use Belt\Core\Tests;
+use Tests\Belt\Core\BeltTestCase;
+use Tests\Belt\Core;
 use Belt\Spot\Services\GeoCoders\GoogleMapsGeoCoder;
 
 class GoogleMapsGeoCoderTest extends BeltTestCase
 {
 
-    use Tests\CommonMocks;
+    use \Tests\Belt\Core\Base\CommonMocks;
 
     public function tearDown()
     {

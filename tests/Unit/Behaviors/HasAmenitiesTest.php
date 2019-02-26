@@ -1,7 +1,7 @@
 <?php namespace Tests\Belt\Spot\Unit\Behaviors;
 
 use Mockery as m;
-use Belt\Core\Tests\BeltTestCase;
+use Tests\Belt\Core\BeltTestCase;
 use Belt\Spot\Behaviors\HasAmenities;
 use Belt\Spot\Amenity;
 use Illuminate\Support\Facades\DB;

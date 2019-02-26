@@ -1,7 +1,7 @@
 <?php namespace Tests\Belt\Spot\Unit;
 use Mockery as m;
 
-use Belt\Core\Tests\BeltTestCase;
+use Tests\Belt\Core\BeltTestCase;
 use Belt\Spot\Location;
 use Belt\Spot\Event;
 

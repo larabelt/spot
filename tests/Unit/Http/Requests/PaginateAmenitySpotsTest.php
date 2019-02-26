@@ -1,6 +1,6 @@
 <?php namespace Tests\Belt\Spot\Unit\Http\Requests;
 use Mockery as m;
-use Belt\Core\Tests;
+use Tests\Belt\Core;
 
 use Belt\Spot\Place;
 use Belt\Spot\Amenity;
@@ -8,10 +8,10 @@ use Belt\Spot\Http\Requests\PaginateAmenitySpots;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 
-class PaginateAmenitySpotsTest extends Tests\BeltTestCase
+class PaginateAmenitySpotsTest extends \Tests\Belt\Core\BeltTestCase
 {
 
-    use Tests\CommonMocks;
+    use \Tests\Belt\Core\Base\CommonMocks;
 
     public function tearDown()
     {

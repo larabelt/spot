@@ -1,16 +1,16 @@
 <?php namespace Tests\Belt\Spot\Unit\Http\Requests;
 
 use Mockery as m;
-use Belt\Core\Tests;
+use Tests\Belt\Core;
 
 use Belt\Spot\Location;
 use Belt\Spot\Http\Requests\PaginateLocations;
 use Belt\Core\Pagination\DefaultLengthAwarePaginator;
 
-class PaginateLocationsTest extends Tests\BeltTestCase
+class PaginateLocationsTest extends \Tests\Belt\Core\BeltTestCase
 {
 
-    use Tests\CommonMocks;
+    use \Tests\Belt\Core\Base\CommonMocks;
 
     public function tearDown()
     {

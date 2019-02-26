@@ -1,6 +1,6 @@
 <?php namespace Tests\Belt\Spot\Unit\Behaviors;
 
-use Belt\Core\Tests\BeltTestCase;
+use Tests\Belt\Core\BeltTestCase;
 use Belt\Spot\Behaviors\HasGeoCoder;
 use Belt\Spot\Services\GeoCoders;
 use Illuminate\Database\Eloquent\Model;

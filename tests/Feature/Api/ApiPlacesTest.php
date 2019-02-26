@@ -1,9 +1,9 @@
 <?php namespace Tests\Belt\Spot\Feature\Api;
 
-use Belt\Core\Tests;
+use Tests\Belt\Core;
 use Belt\Spot\Place;
 
-class ApiPlacesTest extends Tests\BeltTestCase
+class ApiPlacesTest extends \Tests\Belt\Core\BeltTestCase
 {
 
     public function test()

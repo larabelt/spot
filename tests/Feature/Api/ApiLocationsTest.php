@@ -1,9 +1,9 @@
 <?php namespace Tests\Belt\Spot\Feature\Api;
 
-use Belt\Core\Tests;
+use Tests\Belt\Core;
 use Belt\Spot\Services\GeoCoders;
 
-class ApiLocationsTest extends Tests\BeltTestCase
+class ApiLocationsTest extends \Tests\Belt\Core\BeltTestCase
 {
 
     public function test()
